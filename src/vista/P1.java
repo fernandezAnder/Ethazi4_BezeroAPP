@@ -12,12 +12,16 @@ import javax.swing.JFrame;
 import javax.swing.JMenu;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import controlador.Metodoak;
+
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JLabel;
 import java.awt.Font;
 import javax.swing.JTextField;
 import javax.swing.JComboBox;
+import javax.swing.JButton;
 
 public class P1 extends JFrame {
 
@@ -36,23 +40,13 @@ public class P1 extends JFrame {
 	private JTextField textField_2;
 	private JTextField textField_3;
 	String[] zerrenda= new String[30];
+	String prezioa1="";
 	
 
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					P1 frame = new P1();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
+	
 
 	/**
 	 * Create the frame.
@@ -209,6 +203,18 @@ public class P1 extends JFrame {
 				JComboBox comboBox = new JComboBox();
 				comboBox.setBounds(426, 125, 58, 56);
 				contentPane.add(comboBox);
+				
+				JButton btnAurrera = new JButton("Aurrera");
+				btnAurrera.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent e) {
+						dispose();
+						Metodoak m1 = new Metodoak();
+						m1.bigarrenLehioa(prezioa1);
+						
+					}
+				});
+				btnAurrera.setBounds(464, 527, 89, 23);
+				contentPane.add(btnAurrera);
 				for( i=0;i<zerrenda.length;i++) {
 					
 					comboBox.addItem(zerrenda[i]);
@@ -218,7 +224,7 @@ public class P1 extends JFrame {
 					@Override
 					public void actionPerformed(ActionEvent e) {
 						int prezioa=0;
-						String prezioa1;
+						
 						int dia=Integer.valueOf(comboBox.getSelectedItem().toString());
 						prezioa = 80*dia;
 						
