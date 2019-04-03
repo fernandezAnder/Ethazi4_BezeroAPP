@@ -7,6 +7,8 @@ public class BezeroAPP {
 	public static void main(String[] args) {
 		
 		Conexion k1 = new Conexion();
+		Metodoak.lehenengoLehioa();
+		
 		
 		ArrayList <Hotela> hotelak= new ArrayList<Hotela>();
 		hotelak= Consultas.hotelendatuak();
