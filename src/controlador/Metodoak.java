@@ -1,12 +1,23 @@
 package controlador;
 
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.Statement;
 import java.text.DecimalFormat;
+import java.util.ArrayList;
+
+import com.mysql.jdbc.PreparedStatement;
+
+
+import modelo.Conexion;
 import vista.*;
 
 
 public class Metodoak {
 	public static void lehenengoLehioa() {
-		P1 lehenengo = new P1();
+		ArrayList<Hotela> hotela=new ArrayList();
+		hotela=modelo.Consultas.hotelendatuak();
+		P1 lehenengo = new P1(hotela);
 		lehenengo.setVisible(true);
 	}
 
@@ -50,42 +61,42 @@ public class Metodoak {
 		kanbioa=kanbioa+pantailaratu;
 		// para cada moneda
 		if (itzultzeko >= 20000) {
-			pantailaratu=(" 200€-ko billeteak: " + itzultzeko / 20000+" \n");
+			pantailaratu=(" 200ï¿½-ko billeteak: " + itzultzeko / 20000+" \n");
 			kanbioa=kanbioa+pantailaratu;
 			itzultzeko = itzultzeko % 20000;
 		}
 		if (itzultzeko >= 10000) {
-			pantailaratu=(" 100€-ko billeteak: " + itzultzeko / 10000+" \n");
+			pantailaratu=(" 100ï¿½-ko billeteak: " + itzultzeko / 10000+" \n");
 			kanbioa=kanbioa+pantailaratu;
 			itzultzeko = itzultzeko % 10000;
 		}
 		if (itzultzeko >= 5000) {
-			pantailaratu=(" 50€-ko billeteak: " + itzultzeko / 5000+" \n");
+			pantailaratu=(" 50ï¿½-ko billeteak: " + itzultzeko / 5000+" \n");
 			kanbioa=kanbioa+pantailaratu;
 			itzultzeko = itzultzeko % 5000;
 		}
 		if (itzultzeko >= 2000) {
-			pantailaratu=(" 20€-ko billeteak: " + itzultzeko / 2000+" \n");
+			pantailaratu=(" 20ï¿½-ko billeteak: " + itzultzeko / 2000+" \n");
 			kanbioa=kanbioa+pantailaratu;
 			itzultzeko = itzultzeko % 2000;
 		}
 		if (itzultzeko >= 1000) {
-			pantailaratu=(" 10€-ko billeteak: " + itzultzeko / 1000+" \n");
+			pantailaratu=(" 10ï¿½-ko billeteak: " + itzultzeko / 1000+" \n");
 			kanbioa=kanbioa+pantailaratu;
 			itzultzeko = itzultzeko % 1000;
 		}
 		if (itzultzeko >= 500) {
-			pantailaratu=(" 5€-ko billeteak: " + itzultzeko / 500+" \n");
+			pantailaratu=(" 5ï¿½-ko billeteak: " + itzultzeko / 500+" \n");
 			kanbioa=kanbioa+pantailaratu;
 			itzultzeko = itzultzeko % 500;
 		}
 		if (itzultzeko >= 200) {
-			pantailaratu=(" 2€-ko txanponak: " + itzultzeko / 200+" \n");
+			pantailaratu=(" 2ï¿½-ko txanponak: " + itzultzeko / 200+" \n");
 			kanbioa=kanbioa+pantailaratu;
 			itzultzeko = itzultzeko % 200;
 		}
 		if (itzultzeko >= 100) {
-			pantailaratu=(" 1€-ko txanponak: " + itzultzeko / 100+" \n");
+			pantailaratu=(" 1ï¿½-ko txanponak: " + itzultzeko / 100+" \n");
 			kanbioa=kanbioa+pantailaratu;
 			itzultzeko = itzultzeko % 100;
 		}
@@ -144,5 +155,9 @@ public class Metodoak {
 		}
 		return diru_falta;
 	}
-
+	
+	
+	
+	
+	
 }
