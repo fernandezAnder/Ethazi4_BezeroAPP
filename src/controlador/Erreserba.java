@@ -131,11 +131,17 @@ public class Erreserba {
 
 	@Override
 	public String toString() {
-		return "Erreserba [erreserba_kod=" + erreserba_kod + ", ostatu_id=" + ostatu_id + ", bezero_nan=" + bezero_nan
-				+ ", sartze_data=" + sartze_data + ", irtetze_data=" + irtetze_data + ", pertsona_kop=" + pertsona_kop
-				+ ", prezio_totala=" + prezio_totala + ", erreserba_gela_kop=" + erreserba_gela_kop + ", pentsio_mota="
-				+ pentsio_mota + ", ohe_mota=" + ohe_mota + ", ohe_kop=" + ohe_kop + ", tarifa_denboraldia="
-				+ tarifa_denboraldia + "]";
+		
+		return
+				" \n"
+				+"                                                             BIDAI ON S.L.                        "+" \t\n"
+				+" **********************************************************************************************************************"+" \t\n"	
+				+"Erreserba erreserba_kod=" + erreserba_kod+" \t" + ", ostatu_id=" + ostatu_id+" \t"
+				+ ", bezero_nan=" + bezero_nan+" \t"+ ", sartze_data=" + sartze_data+" \t" 
+				+ ", irtetze_data=" + irtetze_data+" \t" + ", pertsona_kop=" + pertsona_kop+" \t"
+				+ ", prezio_totala=" + prezio_totala+" \t" + ", erreserba_gela_kop=" + erreserba_gela_kop+" \t"
+				+ ", pentsio_mota="+ pentsio_mota+" \t" + ", ohe_mota=" + ohe_mota+" \t"
+				+ ", ohe_kop=" + ohe_kop+" \t" + ", tarifa_denboraldia="+ tarifa_denboraldia;
 	}
 	
 	
