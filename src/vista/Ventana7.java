@@ -40,7 +40,7 @@ public class Ventana7 extends JFrame {
 		
 		icono.setBounds(194, 306, 307, 141);
 		getContentPane().add(icono);
-		icono.setIcon(new ImageIcon(Ventana7.class.getResource("/argazkiak/termibus.png")));
+		//icono.setIcon(new ImageIcon(Ventana7.class.getResource("/argazkiak/termibus.png")));
 		
 		
 		

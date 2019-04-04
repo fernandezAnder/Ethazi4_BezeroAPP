@@ -1,5 +1,6 @@
 package controlador;
 
+import java.io.FileWriter;
 import java.text.DecimalFormat;
 import vista.*;
 
@@ -145,4 +146,16 @@ public class Metodoak {
 		return diru_falta;
 	}
 
+	public static void imprimatuTiketa(Erreserba r1) {
+
+		String nombre = "tiket.txt";
+		try{
+			FileWriter fichero = new FileWriter("src\\controlador\\"+nombre);
+			fichero.write(r1.toString() + "\r\n");
+			fichero.close();
+
+		}catch(Exception ex){
+			ex.printStackTrace();
+		}
+	}
 }
