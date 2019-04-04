@@ -1,17 +1,19 @@
 package vista;
 
 import java.awt.BorderLayout;
-
+import java.awt.Component;
 import java.awt.EventQueue;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.lang.reflect.Array;
+import java.util.ArrayList;
 
 import javax.swing.Icon;
 import javax.swing.JFrame;
 import javax.swing.JMenu;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+import javax.swing.text.Caret;
 
 import controlador.Metodoak;
 
@@ -28,7 +30,6 @@ public class P1 extends JFrame {
 	private JPanel contentPane;
 	private JMenuItem Espainia;
 	private JMenuItem Frantzia;
-	private JMenuBar Hotela;
 	private JMenuItem G1 ;
 	private int i;
 	private String Espana="Bilbao";
@@ -41,7 +42,9 @@ public class P1 extends JFrame {
 	private JTextField textField_3;
 	String[] zerrenda= new String[30];
 	String prezioa1="";
-
+	private JComboBox comboBox;
+	private JComboBox comboBox_1;
+	private JComboBox comboBox_2;
 
 	/**
 	 * Launch the application.
@@ -51,86 +54,20 @@ public class P1 extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public P1() {
+	public P1(ArrayList<controlador.Hotela> hotela) {
 		rellenar();
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(0, 0, 600, 600);
 		contentPane = new JPanel();
-		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		contentPane.setBorder(null);
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
-		// JMenuBar ezartzeko kodea
-		JMenuBar ibilbideaktermi = new JMenuBar();
-		ibilbideaktermi.setBounds(20, 125, 100, 40);
-		// Hemen aplikatuko diren elementuen kodea
-		// lineak:
-		JMenu nondiknora = new JMenu("Procedencia");
 		// JMenu nora = new JMenu ("Nora");
 		// Linea Bakoitza haren kodearekin klik egiterakoan(NORA):
-		Espainia = new JMenuItem(Espana);
-		Espainia.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent plentzia1) {
-				textField.setText(Espana);
-			}
-		});
-		JMenuItem Frantzia = new JMenuItem(Francia);
-		Frantzia.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent Frantzia) {
-
-				textField.setText(Francia);
-			}
-		});
-
-
-		// NORA item jartzeko kodea:
-		nondiknora.add(Espainia);
-		nondiknora.add(Frantzia);
-
-		// Barrara ezarriko ditugu lineak:
-		ibilbideaktermi.add(nondiknora);
-		// ibilbideaktermi.add(nora);
-
-		// Kode hau ezarriko du, JPanel-ean
-		getContentPane().add(ibilbideaktermi);
-
-
-
-
-
-		// JMenuBar ezartzeko kodea
-		Hotela = new JMenuBar();
-		Hotela.setFont(new Font("Segoe UI", Font.PLAIN, 17));
-		Hotela.setBounds(212, 125, 100, 40);
-		Hotela.setEnabled(false);
-		// Hemen aplikatuko diren elementuen kodea
-		// lineak:
-		JMenu HotelMenu = new JMenu("Hotel");
-		// JMenu nora = new JMenu ("Nora");
-		// Linea Bakoitza haren kodearekin klik egiterakoan(NORA):
-		JMenuItem h1 = new JMenuItem(H1);
-		h1.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent h1) {
-				textField_1.setText(H1);
-			}
-		});
-		JMenuItem h2 = new JMenuItem(H2);
-		h2.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent h2) {
-				textField_1.setText(H2);
-			}
-		});
-
-
-		// NORA item jartzeko kodea:
-		HotelMenu.add(h1);
-		HotelMenu.add(h2);
-
-		// Barrara ezarriko ditugu lineak:
-		Hotela.add(HotelMenu);
-		// ibilbideaktermi.add(nora);
-
-		// Kode hau ezarriko du, JPanel-ean
-		getContentPane().add(Hotela);
+		//Espainia = new JMenuItem(Espana);
+		
+		
+		
 
 
 
@@ -172,17 +109,16 @@ public class P1 extends JFrame {
 
 		textField = new JTextField();
 		textField.setEditable(false);
+		textField.setBorder(null);
 		textField.setColumns(10);
 		textField.setBounds(178, 316, 317, 40);
 		contentPane.add(textField);
 
-		textField_1 = new JTextField();
-		textField_1.setEditable(false);
-		textField_1.setColumns(10);
-		textField_1.setBounds(178, 392, 317, 40);
-		contentPane.add(textField_1);
+		
+		
 
 		textField_2 = new JTextField();
+		textField_2.setBorder(null);
 		textField_2.setEditable(false);
 		textField_2.setColumns(10);
 		textField_2.setBounds(178, 473, 317, 40);
@@ -200,7 +136,7 @@ public class P1 extends JFrame {
 		lblGauakgaua.setBounds(397, 70, 141, 50);
 		contentPane.add(lblGauakgaua);
 
-		JComboBox comboBox = new JComboBox();
+		comboBox= new JComboBox();
 		comboBox.setBounds(426, 125, 58, 56);
 		contentPane.add(comboBox);
 
@@ -215,13 +151,82 @@ public class P1 extends JFrame {
 		});
 		btnAurrera.setBounds(464, 527, 89, 23);
 		contentPane.add(btnAurrera);
+		//Combo1
+		comboBox_1 = new JComboBox();
+		comboBox_1.setBounds(20, 143, 82, 20);
+		contentPane.add(comboBox_1);
+		for( controlador.Hotela p : hotela) {
+			comboBox_1.addItem(p.getHerria());
+			
+		}
+		
+		//Combo2
+		JComboBox<String> comboBox_2 = new JComboBox();
+		comboBox_2.setBounds(212, 143, 89, 20);
+		contentPane.add(comboBox_2);
+		for(controlador.Hotela p : hotela) {
+			comboBox_2.addItem(p.getIzena());
+			
+			
+		}
+		
+		textField_1 = new JTextField();
+		textField_1.setEditable(false);
+		textField_1.setBorder(null);
+		textField_1.setColumns(10);
+		textField_1.setBounds(178, 392, 317, 40);
+		contentPane.add(textField_1);
+		
+		
+		
+		comboBox_1.addActionListener(new ActionListener() {
+			
+			public void actionPerformed(ActionEvent i) {
+				textField.setText((String) comboBox_1.getSelectedItem());
+				String herria = (String) comboBox_1.getSelectedItem();
+				
+				for(controlador.Hotela p : hotela) {
+					if (herria.equalsIgnoreCase(p.getHerria())) {
+						JComboBox<String> comboBox_2 = new JComboBox();
+						comboBox_2.addItem(p.getIzena());
+					}
+					
+				}
+			}
+		});
+		
+		
+		
+		/*ActionListener ac1 = new ActionListener() {//add actionlistner to listen for change
+            @Override
+            public void actionPerformed(ActionEvent event) {
+            	JComboBox comboBox_2 = (JComboBox) event.getSource();
+            	textField_1.setText((String) comboBox_2.getSelectedItem());
+				
+            	}
+            };*/
+            
+		
+		
+		comboBox_2.addActionListener(new ActionListener() {
+			
+			public void actionPerformed(ActionEvent e) {
+				  JComboBox comboBox_2 = (JComboBox) e.getSource();
+				  textField_1.setText(comboBox_2.getSelectedItem().toString());
+				
+				
+			}
+		});
+		
+		
+		
 		for( i=0;i<zerrenda.length;i++) {
 
 			comboBox.addItem(zerrenda[i]);
 
 		}
 		comboBox.addActionListener(new ActionListener() {
-			@Override
+			
 			public void actionPerformed(ActionEvent e) {
 				int prezioa=0;
 
@@ -231,8 +236,11 @@ public class P1 extends JFrame {
 				prezioa1=Integer.toString(prezioa);
 
 				textField_2.setText(prezioa1);
+				
 			}
 		});
+		
+		
 
 
 
