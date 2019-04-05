@@ -26,6 +26,7 @@ public class P1 extends JFrame {
 
 	private JTextField textField;
 	private JTextField Segundocampo;
+	private JTextField textField_1 = new JTextField();
 	private JTextField textField_2;
 	private JTextField textField_3;
 	String[] zerrenda= new String[30];
@@ -156,7 +157,7 @@ public class P1 extends JFrame {
 		
 
 
-		textField_1 = new JTextField();
+		
 		textField_1.setEditable(false);
 		textField_1.setBorder(null);
 		textField_1.setColumns(10);
