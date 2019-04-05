@@ -120,7 +120,9 @@ public class P1 extends JFrame {
 		btnAurrera.setBounds(464, 527, 89, 23);
 		contentPane.add(btnAurrera);
 		//Combo1
+
 		
+
 		comboBox_1.setBounds(20, 143, 82, 20);
 		contentPane.add(comboBox_1);
 		String herr="";
@@ -138,7 +140,6 @@ public class P1 extends JFrame {
 
 
 		comboBox_2 = new JComboBox();
-
 		comboBox_2.setBounds(212, 143, 89, 20);
 		contentPane.add(comboBox_2);
 
@@ -160,8 +161,6 @@ public class P1 extends JFrame {
 
 				for(controlador.Hotela p : hotela) {
 					if (herria.equalsIgnoreCase(p.getHerria())) {
-						//JComboBox<String> comboBox_2 = new JComboBox();
-						
 						comboBox_2.addItem(p.getIzena());
 					}
 
