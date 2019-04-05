@@ -6,13 +6,15 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 
 import java.io.FileWriter;
-
+import java.math.BigInteger;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 
 import com.mysql.jdbc.PreparedStatement;
 
-
+import Modelo.Bezeroa;
 import modelo.Conexion;
 import vista.*;
 
@@ -162,6 +164,37 @@ public class Metodoak {
 		}catch(Exception ex){
 			ex.printStackTrace();
 		}
+	}
+	
+	public static String getMD5(String input) {
+		try {
+			MessageDigest md = MessageDigest.getInstance("MD5");
+			byte[] messageDigest = md.digest(input.getBytes());
+			BigInteger number = new BigInteger(1, messageDigest);
+			String hashtext = number.toString(16);
+
+			while (hashtext.length() < 32) {
+				hashtext = "0" + hashtext;
+			}
+			return hashtext;
+		} catch (NoSuchAlgorithmException e) {
+			throw new RuntimeException(e);
+		}
+	}
+	public static boolean ateraErabiltzailea(String nan, String pasahitza) {
+		boolean erabakia = false;
+		ArrayList <Bezeroa> arraybezer = new ArrayList<Bezeroa>();
+		arraybezer=modelo.Consultas.ateraErabiltzaileak();
+		pasahitza = getMD5(pasahitza);
+		for (Bezeroa p : arraybezer) {
+			if (p.getDni().equals(nan) && p.getPasahitza().equals(pasahitza)) {
+				erabakia = true;
+
+			}
+		}
+
+		return (erabakia);
+
 	}
 
 }
