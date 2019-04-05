@@ -24,11 +24,11 @@ public class P1 extends JFrame {
 
 	private int i;
 
-	private JTextField textField;
-	private JTextField Segundocampo;
+	private JTextField textField= new JTextField();
+	private JTextField Segundocampo= new JTextField() ;
 	private JTextField textField_1 = new JTextField();
-	private JTextField textField_2;
-	private JTextField textField_3;
+	private JTextField textField_2= new JTextField();
+	private JTextField textField_3= new JTextField();
 	String[] zerrenda= new String[30];
 	String prezioa1="";
 	private JComboBox comboBox;
@@ -41,6 +41,7 @@ public class P1 extends JFrame {
 	JLabel lblHotel = new JLabel("Hotel");
 	JLabel lblGauakgaua = new JLabel("Gauak(80/Gaua)");
 	JButton btnAurrera = new JButton("Aurrera");
+	
 
 	public P1(ArrayList<controlador.Hotela> hotela) {
 		rellenar();
@@ -50,11 +51,7 @@ public class P1 extends JFrame {
 		contentPane.setBorder(null);
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
-		// JMenu nora = new JMenu ("Nora");
-		// Linea Bakoitza haren kodearekin klik egiterakoan(NORA):
-		//Espainia = new JMenuItem(Espana);
-
-
+	
 
 		lblPais.setFont(new Font("Tahoma", Font.PLAIN, 17));
 		lblPais.setBounds(20, 70, 100, 50);
@@ -120,9 +117,8 @@ public class P1 extends JFrame {
 		});
 		btnAurrera.setBounds(464, 527, 89, 23);
 		contentPane.add(btnAurrera);
-		//Combo1
-
 		
+		//Combo1
 
 		comboBox_1.setBounds(20, 143, 82, 20);
 		contentPane.add(comboBox_1);
@@ -137,16 +133,11 @@ public class P1 extends JFrame {
 		}
 
 		//Combo2
-
-
-
-		comboBox_2 = new JComboBox();
 		comboBox_2.setBounds(212, 143, 89, 20);
 		contentPane.add(comboBox_2);
 
+
 		
-		
-		Segundocampo = new JTextField();
 		Segundocampo.setEditable(false);
 		Segundocampo.setBorder(null);
 		Segundocampo.setColumns(10);
@@ -164,18 +155,12 @@ public class P1 extends JFrame {
 		textField_1.setBounds(178, 392, 317, 40);
 		contentPane.add(textField_1);
 
-
-
-
 		comboBox_1.addActionListener(new ActionListener() {
 
 			public void actionPerformed(ActionEvent i) {
 				comboBox_2.setModel(new DefaultComboBoxModel());
 				textField.setText((String) comboBox_1.getSelectedItem());
 				String herria = (String) comboBox_1.getSelectedItem();
-
-				
-				
 
 				for(controlador.Hotela p : hotela) {
 					if (herria.equalsIgnoreCase(p.getHerria())) {
@@ -187,33 +172,14 @@ public class P1 extends JFrame {
 			}
 		});
 
-
-
-		
-
-
-
 		comboBox_2.addActionListener(new ActionListener() {
-
-			public void actionPerformed(ActionEvent e) {
-
-				  
-				  Segundocampo.setText(comboBox_2.getSelectedItem().toString());
-				
-				
-
-
-				
+			public void actionPerformed(ActionEvent e) {	  
+				Segundocampo.setText(comboBox_2.getSelectedItem().toString());
 				textField_1.setText(comboBox_2.getSelectedItem().toString());
-
-
-
 			}
 		});
 		for( i=0;i<zerrenda.length;i++) {
-
 			comboBox.addItem(zerrenda[i]);
-
 		}
 		comboBox.addActionListener(new ActionListener() {
 
@@ -229,7 +195,6 @@ public class P1 extends JFrame {
 
 			}
 		});
-
 	}
 
 	public void rellenar() {
