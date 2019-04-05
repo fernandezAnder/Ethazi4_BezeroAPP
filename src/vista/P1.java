@@ -29,18 +29,18 @@ public class P1 extends JFrame {
 	private JTextField textField_1 = new JTextField();
 	private JTextField textField_2= new JTextField();
 	private JTextField textField_3= new JTextField();
-	String[] zerrenda= new String[30];
-	String prezioa1="";
+	private String[] zerrenda= new String[30];
+	private String prezioa1="";
 	private JComboBox comboBox;
 	private JComboBox comboBox_1= new JComboBox();
-	JComboBox<String> comboBox_2 = new JComboBox();
-	JLabel lblPais = new JLabel("Ciudad");
-	JLabel label = new JLabel("Ciudad:");
-	JLabel label_1 = new JLabel("Hotel:");
-	JLabel label_2 = new JLabel("Precio:");
-	JLabel lblHotel = new JLabel("Hotel");
-	JLabel lblGauakgaua = new JLabel("Gauak(80/Gaua)");
-	JButton btnAurrera = new JButton("Aurrera");
+	private JComboBox<String> comboBox_2 = new JComboBox();
+	private JLabel lblPais = new JLabel("Ciudad");
+	private JLabel label = new JLabel("Ciudad:");
+	private JLabel label_1 = new JLabel("Hotel:");
+	private JLabel label_2 = new JLabel("Precio:");
+	private JLabel lblHotel = new JLabel("Hotel");
+	private JLabel lblGauakgaua = new JLabel("Gauak(80/Gaua)");
+	private JButton btnAurrera = new JButton("Aurrera");
 	
 
 	public P1(ArrayList<controlador.Hotela> hotela) {

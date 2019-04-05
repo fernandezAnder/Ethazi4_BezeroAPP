@@ -6,7 +6,9 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 
 import java.io.FileWriter;
-
+import java.math.BigInteger;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 
@@ -39,6 +41,9 @@ public class Metodoak {
 			balidatu=true;
 		return balidatu;
 	}
+	
+	
+	
 	public static String kanbioMetodoa(double zbk) {
 
 
