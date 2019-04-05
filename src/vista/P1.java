@@ -33,7 +33,7 @@ public class P1 extends JFrame {
 	private int i;
 
 	private JTextField textField;
-	private JTextField textField_1;
+	private JTextField Segundocampo;
 	private JTextField textField_2;
 	private JTextField textField_3;
 	String[] zerrenda= new String[30];
@@ -141,18 +141,14 @@ public class P1 extends JFrame {
 		comboBox_2 = new JComboBox();
 		comboBox_2.setBounds(212, 143, 89, 20);
 		contentPane.add(comboBox_2);
-		/*for(controlador.Hotela p : hotela) {
-			comboBox_2.addItem(p.getIzena());
-			
-			
-		}*/
 		
-		textField_1 = new JTextField();
-		textField_1.setEditable(false);
-		textField_1.setBorder(null);
-		textField_1.setColumns(10);
-		textField_1.setBounds(178, 392, 317, 40);
-		contentPane.add(textField_1);
+		
+		Segundocampo = new JTextField();
+		Segundocampo.setEditable(false);
+		Segundocampo.setBorder(null);
+		Segundocampo.setColumns(10);
+		Segundocampo.setBounds(178, 392, 317, 40);
+		contentPane.add(Segundocampo);
 		
 		
 		
@@ -162,11 +158,13 @@ public class P1 extends JFrame {
 				textField.setText((String) comboBox_1.getSelectedItem());
 				String herria = (String) comboBox_1.getSelectedItem();
 				
+				
 				for(controlador.Hotela p : hotela) {
 					if (herria.equalsIgnoreCase(p.getHerria())) {
 						//JComboBox<String> comboBox_2 = new JComboBox();
 						comboBox_2.setModel(new DefaultComboBoxModel());
 						comboBox_2.addItem(p.getIzena());
+						Segundocampo.removeAll();
 					}
 					
 				}
@@ -190,7 +188,7 @@ public class P1 extends JFrame {
 			
 			public void actionPerformed(ActionEvent e) {
 				  
-				  textField_1.setText(comboBox_2.getSelectedItem().toString());
+				  Segundocampo.setText(comboBox_2.getSelectedItem().toString());
 				
 				
 			}
