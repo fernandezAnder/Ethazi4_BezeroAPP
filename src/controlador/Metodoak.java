@@ -25,20 +25,10 @@ public class Metodoak {
 		lehenengo.setVisible(true);
 	}
 
-	//	public static void bigarrenLehioa(String prezioa) {
-	//		P1 lehenengo = new P1();
-	//		lehenengo.setVisible(false);
-	//		lehenengo.dispose();
-	//		P2 bigarrena= new P2(prezioa);
-	//		bigarrena.setVisible(true);
-	//	}
 
 	public static void bigarrenLehioa(String prezioa) {
-
 		Ventana6 ventana6= new Ventana6(prezioa);
 		ventana6.setVisible(true);
-
-
 	}
 
 

@@ -1,30 +1,22 @@
 package vista;
 
-import java.awt.BorderLayout;
-import java.awt.Component;
-import java.awt.EventQueue;
+import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 
+
+import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.AbstractButton;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.Icon;
 import javax.swing.JFrame;
-import javax.swing.JMenu;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
-import javax.swing.text.Caret;
+import javax.swing.JTextField;
 
 import controlador.Metodoak;
-
-import javax.swing.JMenuBar;
-import javax.swing.JMenuItem;
-import javax.swing.JLabel;
-import java.awt.Font;
-import javax.swing.JTextField;
-import javax.swing.JComboBox;
-import javax.swing.JButton;
 
 public class P1 extends JFrame {
 
@@ -39,17 +31,16 @@ public class P1 extends JFrame {
 	String[] zerrenda= new String[30];
 	String prezioa1="";
 	private JComboBox comboBox;
-	private JComboBox comboBox_1;
-	private JComboBox comboBox_2;
+	private JComboBox comboBox_1= new JComboBox();
+	JComboBox<String> comboBox_2 = new JComboBox();
+	JLabel lblPais = new JLabel("Ciudad");
+	JLabel label = new JLabel("Ciudad:");
+	JLabel label_1 = new JLabel("Hotel:");
+	JLabel label_2 = new JLabel("Precio:");
+	JLabel lblHotel = new JLabel("Hotel");
+	JLabel lblGauakgaua = new JLabel("Gauak(80/Gaua)");
+	JButton btnAurrera = new JButton("Aurrera");
 
-	/**
-	 * Launch the application.
-	 */
-
-
-	/**
-	 * Create the frame.
-	 */
 	public P1(ArrayList<controlador.Hotela> hotela) {
 		rellenar();
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -61,24 +52,24 @@ public class P1 extends JFrame {
 		// JMenu nora = new JMenu ("Nora");
 		// Linea Bakoitza haren kodearekin klik egiterakoan(NORA):
 		//Espainia = new JMenuItem(Espana);
-		
 
-		JLabel lblPais = new JLabel("Ciudad");
+
+
 		lblPais.setFont(new Font("Tahoma", Font.PLAIN, 17));
 		lblPais.setBounds(20, 70, 100, 50);
 		contentPane.add(lblPais);
 
-		JLabel label = new JLabel("Ciudad:");
+
 		label.setFont(new Font("Tahoma", Font.PLAIN, 21));
 		label.setBounds(57, 304, 100, 56);
 		contentPane.add(label);
 
-		JLabel label_1 = new JLabel("Hotel:");
+
 		label_1.setFont(new Font("Tahoma", Font.PLAIN, 21));
 		label_1.setBounds(57, 384, 100, 56);
 		contentPane.add(label_1);
 
-		JLabel label_2 = new JLabel("Precio:");
+
 		label_2.setFont(new Font("Tahoma", Font.PLAIN, 21));
 		label_2.setBounds(57, 461, 100, 56);
 		contentPane.add(label_2);
@@ -91,8 +82,8 @@ public class P1 extends JFrame {
 		textField.setBounds(178, 316, 317, 40);
 		contentPane.add(textField);
 
-		
-		
+
+
 
 		textField_2 = new JTextField();
 		textField_2.setBorder(null);
@@ -101,14 +92,14 @@ public class P1 extends JFrame {
 		textField_2.setBounds(178, 473, 317, 40);
 		contentPane.add(textField_2);
 
-		JLabel lblHotel = new JLabel("Hotel");
+
 		lblHotel.setFont(new Font("Tahoma", Font.PLAIN, 17));
 		lblHotel.setBounds(212, 70, 100, 50);
 		contentPane.add(lblHotel);
 
 
 
-		JLabel lblGauakgaua = new JLabel("Gauak(80/Gaua)");
+
 		lblGauakgaua.setFont(new Font("Tahoma", Font.PLAIN, 17));
 		lblGauakgaua.setBounds(397, 70, 141, 50);
 		contentPane.add(lblGauakgaua);
@@ -117,7 +108,7 @@ public class P1 extends JFrame {
 		comboBox.setBounds(426, 125, 58, 56);
 		contentPane.add(comboBox);
 
-		JButton btnAurrera = new JButton("Aurrera");
+
 		btnAurrera.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				dispose();
@@ -129,18 +120,29 @@ public class P1 extends JFrame {
 		btnAurrera.setBounds(464, 527, 89, 23);
 		contentPane.add(btnAurrera);
 		//Combo1
-		comboBox_1 = new JComboBox();
+
+		
+
 		comboBox_1.setBounds(20, 143, 82, 20);
 		contentPane.add(comboBox_1);
+		String herr="";
+		ArrayList<String>arr = new ArrayList ();
 		for( controlador.Hotela p : hotela) {
-			comboBox_1.addItem(p.getHerria());
+			if(!arr.contains(p.getHerria())) {
+				comboBox_1.addItem(p.getHerria());
+				arr.add(p.getHerria());
+			}
 			
 		}
-		
+
 		//Combo2
+
+
+
 		comboBox_2 = new JComboBox();
 		comboBox_2.setBounds(212, 143, 89, 20);
 		contentPane.add(comboBox_2);
+
 		
 		
 		Segundocampo = new JTextField();
@@ -152,57 +154,68 @@ public class P1 extends JFrame {
 		
 		
 		
+
+
+		textField_1 = new JTextField();
+		textField_1.setEditable(false);
+		textField_1.setBorder(null);
+		textField_1.setColumns(10);
+		textField_1.setBounds(178, 392, 317, 40);
+		contentPane.add(textField_1);
+
+
+
+
 		comboBox_1.addActionListener(new ActionListener() {
-			
+
 			public void actionPerformed(ActionEvent i) {
+				comboBox_2.setModel(new DefaultComboBoxModel());
 				textField.setText((String) comboBox_1.getSelectedItem());
 				String herria = (String) comboBox_1.getSelectedItem();
+
 				
 				
+
 				for(controlador.Hotela p : hotela) {
 					if (herria.equalsIgnoreCase(p.getHerria())) {
-						//JComboBox<String> comboBox_2 = new JComboBox();
-						comboBox_2.setModel(new DefaultComboBoxModel());
 						comboBox_2.addItem(p.getIzena());
 						Segundocampo.removeAll();
 					}
-					
+
 				}
 			}
 		});
+
+
+
 		
-		
-		
-		/*ActionListener ac1 = new ActionListener() {//add actionlistner to listen for change
-            @Override
-            public void actionPerformed(ActionEvent event) {
-            	JComboBox comboBox_2 = (JComboBox) event.getSource();
-            	textField_1.setText((String) comboBox_2.getSelectedItem());
-				
-            	}
-            };*/
-            
-		
-		
+
+
+
 		comboBox_2.addActionListener(new ActionListener() {
-			
+
 			public void actionPerformed(ActionEvent e) {
+
 				  
 				  Segundocampo.setText(comboBox_2.getSelectedItem().toString());
 				
 				
+
+
+				
+				textField_1.setText(comboBox_2.getSelectedItem().toString());
+
+
+
 			}
 		});
-		
-		
-		
 		for( i=0;i<zerrenda.length;i++) {
 
 			comboBox.addItem(zerrenda[i]);
 
 		}
 		comboBox.addActionListener(new ActionListener() {
-			
+
 			public void actionPerformed(ActionEvent e) {
 				int prezioa=0;
 
@@ -212,15 +225,9 @@ public class P1 extends JFrame {
 				prezioa1=Integer.toString(prezioa);
 
 				textField_2.setText(prezioa1);
-				
+
 			}
 		});
-		
-		
-
-
-
-
 
 	}
 
