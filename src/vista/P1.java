@@ -164,11 +164,11 @@ public class P1 extends JFrame {
 		JComboBox<String> comboBox_2 = new JComboBox();
 		comboBox_2.setBounds(212, 143, 89, 20);
 		contentPane.add(comboBox_2);
-		for(controlador.Hotela p : hotela) {
+		/*for(controlador.Hotela p : hotela) {
 			comboBox_2.addItem(p.getIzena());
 			
 			
-		}
+		}*/
 		
 		textField_1 = new JTextField();
 		textField_1.setEditable(false);
@@ -187,7 +187,8 @@ public class P1 extends JFrame {
 				
 				for(controlador.Hotela p : hotela) {
 					if (herria.equalsIgnoreCase(p.getHerria())) {
-						JComboBox<String> comboBox_2 = new JComboBox();
+						//JComboBox<String> comboBox_2 = new JComboBox();
+						//comboBox_2.removeAllItems();
 						comboBox_2.addItem(p.getIzena());
 					}
 					
@@ -211,7 +212,7 @@ public class P1 extends JFrame {
 		comboBox_2.addActionListener(new ActionListener() {
 			
 			public void actionPerformed(ActionEvent e) {
-				  JComboBox comboBox_2 = (JComboBox) e.getSource();
+				  
 				  textField_1.setText(comboBox_2.getSelectedItem().toString());
 				
 				
