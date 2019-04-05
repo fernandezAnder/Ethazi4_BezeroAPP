@@ -5,8 +5,12 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
+
 import javax.swing.JButton;
 import javax.swing.JComboBox;
+
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.Icon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -126,13 +130,12 @@ public class P1 extends JFrame {
 
 		//Combo2
 
+
+
+		comboBox_2 = new JComboBox();
+
 		comboBox_2.setBounds(212, 143, 89, 20);
 		contentPane.add(comboBox_2);
-		/*for(controlador.Hotela p : hotela) {
-			comboBox_2.addItem(p.getIzena());
-
-
-		}*/
 
 		textField_1 = new JTextField();
 		textField_1.setEditable(false);
@@ -152,7 +155,7 @@ public class P1 extends JFrame {
 				for(controlador.Hotela p : hotela) {
 					if (herria.equalsIgnoreCase(p.getHerria())) {
 						//JComboBox<String> comboBox_2 = new JComboBox();
-						//comboBox_2.removeAllItems();
+						comboBox_2.setModel(new DefaultComboBoxModel());
 						comboBox_2.addItem(p.getIzena());
 					}
 
