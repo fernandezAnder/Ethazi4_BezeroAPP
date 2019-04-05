@@ -29,14 +29,9 @@ import javax.swing.JButton;
 public class P1 extends JFrame {
 
 	private JPanel contentPane;
-	private JMenuItem Espainia;
-	private JMenuItem Frantzia;
-	private JMenuItem G1 ;
+
 	private int i;
-	private String Espana="Bilbao";
-	private String Francia="Paris";
-	private String H1="NH";
-	private String H2="Hilton";
+
 	private JTextField textField;
 	private JTextField textField_1;
 	private JTextField textField_2;
@@ -67,25 +62,6 @@ public class P1 extends JFrame {
 		// Linea Bakoitza haren kodearekin klik egiterakoan(NORA):
 		//Espainia = new JMenuItem(Espana);
 		
-		
-		
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 		JLabel lblPais = new JLabel("Ciudad");
 		lblPais.setFont(new Font("Tahoma", Font.PLAIN, 17));
