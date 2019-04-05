@@ -8,6 +8,7 @@ import java.awt.event.ActionListener;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.Icon;
 import javax.swing.JFrame;
 import javax.swing.JMenu;
@@ -161,7 +162,7 @@ public class P1 extends JFrame {
 		}
 		
 		//Combo2
-		JComboBox<String> comboBox_2 = new JComboBox();
+		comboBox_2 = new JComboBox();
 		comboBox_2.setBounds(212, 143, 89, 20);
 		contentPane.add(comboBox_2);
 		/*for(controlador.Hotela p : hotela) {
@@ -188,7 +189,7 @@ public class P1 extends JFrame {
 				for(controlador.Hotela p : hotela) {
 					if (herria.equalsIgnoreCase(p.getHerria())) {
 						//JComboBox<String> comboBox_2 = new JComboBox();
-						//comboBox_2.removeAllItems();
+						comboBox_2.setModel(new DefaultComboBoxModel());
 						comboBox_2.addItem(p.getIzena());
 					}
 					
