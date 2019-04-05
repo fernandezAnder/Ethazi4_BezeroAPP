@@ -31,7 +31,7 @@ public class P1 extends JFrame {
 	String[] zerrenda= new String[30];
 	String prezioa1="";
 	private JComboBox comboBox;
-	private JComboBox comboBox_1;
+	private JComboBox comboBox_1= new JComboBox();
 	JComboBox<String> comboBox_2 = new JComboBox();
 	JLabel lblPais = new JLabel("Ciudad");
 	JLabel label = new JLabel("Ciudad:");
@@ -120,12 +120,17 @@ public class P1 extends JFrame {
 		btnAurrera.setBounds(464, 527, 89, 23);
 		contentPane.add(btnAurrera);
 		//Combo1
-		//comboBox_1 = new JComboBox();
+		
 		comboBox_1.setBounds(20, 143, 82, 20);
 		contentPane.add(comboBox_1);
+		String herr="";
+		ArrayList<String>arr = new ArrayList ();
 		for( controlador.Hotela p : hotela) {
-			comboBox_1.addItem(p.getHerria());
-
+			if(!arr.contains(p.getHerria())) {
+				comboBox_1.addItem(p.getHerria());
+				arr.add(p.getHerria());
+			}
+			
 		}
 
 		//Combo2
@@ -149,13 +154,14 @@ public class P1 extends JFrame {
 		comboBox_1.addActionListener(new ActionListener() {
 
 			public void actionPerformed(ActionEvent i) {
+				comboBox_2.setModel(new DefaultComboBoxModel());
 				textField.setText((String) comboBox_1.getSelectedItem());
 				String herria = (String) comboBox_1.getSelectedItem();
 
 				for(controlador.Hotela p : hotela) {
 					if (herria.equalsIgnoreCase(p.getHerria())) {
 						//JComboBox<String> comboBox_2 = new JComboBox();
-						comboBox_2.setModel(new DefaultComboBoxModel());
+						
 						comboBox_2.addItem(p.getIzena());
 					}
 
@@ -165,14 +171,7 @@ public class P1 extends JFrame {
 
 
 
-		/*ActionListener ac1 = new ActionListener() {//add actionlistner to listen for change
-            @Override
-            public void actionPerformed(ActionEvent event) {
-            	JComboBox comboBox_2 = (JComboBox) event.getSource();
-            	textField_1.setText((String) comboBox_2.getSelectedItem());
-
-            	}
-            };*/
+		
 
 
 
