@@ -41,6 +41,9 @@ public class Metodoak {
 			balidatu=true;
 		return balidatu;
 	}
+	
+	
+	
 	public static String kanbioMetodoa(double zbk) {
 
 
