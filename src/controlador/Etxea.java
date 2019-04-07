@@ -14,6 +14,37 @@ public class Etxea extends Ostatua {
 		this.etxe_kod = etxe_kod;
 	}
 
+	public int getKomun_kop() {
+		return komun_kop;
+	}
+
+	public void setKomun_kop(int komun_kop) {
+		this.komun_kop = komun_kop;
+	}
+
+	public int getM2() {
+		return m2;
+	}
+
+	public void setM2(int m2) {
+		this.m2 = m2;
+	}
+
+	public int getEtxe_kod() {
+		return etxe_kod;
+	}
+
+	public void setEtxe_kod(int etxe_kod) {
+		this.etxe_kod = etxe_kod;
+	}
+
+	@Override
+	public String toString() {
+		return "Etxea [komun_kop=" + komun_kop + ", m2=" + m2 + ", etxe_kod=" + etxe_kod + ", ostatu_id=" + ostatu_id
+				+ ", izena=" + izena + ", herria=" + herria + ", helbidea=" + helbidea + ", posta_kod=" + posta_kod
+				+ ", ostatu_mota=" + ostatu_mota + ", gela_kop=" + gela_kop + ", erreserba_kop=" + erreserba_kop + "]";
+	}
+
 	
 	
 }
