@@ -1,16 +1,5 @@
 package controlador;
 
-import java.util.ArrayList;
-
-
-import com.mysql.jdbc.PreparedStatement;
-
-import java.sql.Connection;
-import java.sql.Date;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
-
 /**
  * Bezero objektuaren klasea da.
  *

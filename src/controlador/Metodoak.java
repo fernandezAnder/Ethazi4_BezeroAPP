@@ -1,10 +1,6 @@
 package controlador;
 
 
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.Statement;
-
 import java.io.FileWriter;
 import java.math.BigInteger;
 import java.security.MessageDigest;
@@ -12,10 +8,10 @@ import java.security.NoSuchAlgorithmException;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 
-import com.mysql.jdbc.PreparedStatement;
-
-import modelo.*;
-import vista.*;
+import modelo.Consultas;
+import vista.Login;
+import vista.Ordainketa;
+import vista.P1;
 
 
 public class Metodoak {
