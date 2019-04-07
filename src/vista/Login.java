@@ -13,7 +13,7 @@ import javax.swing.JTextField;
 import javax.swing.UIManager;
 import controlador.*;
 
-public class LOGIN extends JFrame {
+public class Login extends JFrame {
 
 	private JPanel contentPane;
 	private JPasswordField passwordField;
@@ -25,7 +25,7 @@ public class LOGIN extends JFrame {
 	/**
 	 * LOGIN frame-aren kodea da.
 	 */
-	public LOGIN() {
+	public Login() {
 		getContentPane().setBackground(UIManager.getColor("Button.background"));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(0, 0, 600, 600);
@@ -64,10 +64,12 @@ public class LOGIN extends JFrame {
 		btnSartu.setBounds(83, 282, 176, 32);
 		getContentPane().add(btnSartu);
 
-		JButton btnLogueatu = new JButton("LOGUEATU");
+		JButton btnLogueatu = new JButton("ERREGISTRATU");
 		btnLogueatu.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				
+				dispose();
+				Erregistratu ventana2b= new Erregistratu();
+				ventana2b.setVisible(true);
 			}
 		});
 		btnLogueatu.setFont(new Font("Source Code Pro Black", Font.BOLD, 15));
@@ -80,7 +82,7 @@ public class LOGIN extends JFrame {
 				logindatuak();
 				youshouldnotpass = Metodoak.ateraErabiltzailea(Nan, pasahitza);
 				if (youshouldnotpass == true) {
-					
+					Metodoak.hirugarrenLehioa();
 
 				}
 				System.out.println(youshouldnotpass);

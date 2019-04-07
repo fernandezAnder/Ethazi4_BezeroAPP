@@ -9,8 +9,6 @@ import javax.swing.border.EmptyBorder;
 
 import com.toedter.calendar.JDateChooser;
 
-import Controlador.koordinatzaile;
-import Modelo.Bezeroa;
 
 import javax.swing.JLabel;
 import javax.swing.JTextField;
@@ -24,8 +22,8 @@ import java.util.ArrayList;
 import java.awt.event.ActionEvent;
 import javax.swing.JPasswordField;
 import java.awt.Font;
-
-public class LOGUEATU extends JFrame {
+import controlador.*
+;public class LOGUEATU extends JFrame {
 	/**
 	 * LOGUEATU Jframe-aren bariableak dira.
 	 */
@@ -45,7 +43,6 @@ public class LOGUEATU extends JFrame {
 	private JLabel lblNewLabel_6;
 	private JLabel lblNewLabel_8;
 	private JButton btnLogin;
-	private JTextField textField_3;
 	private JLabel lblNewLabel_7;
 	private JDateChooser lehendata;
 
@@ -73,7 +70,7 @@ public class LOGUEATU extends JFrame {
 		textField = new JTextField();
 		textField.setFont(new Font("Source Sans Pro Black", Font.ITALIC, 13));
 
-		textField.setBounds(141, 128, 254, 20);
+		textField.setBounds(141, 123, 202, 33);
 		contentPane.add(textField);
 		textField.setColumns(10);
 
@@ -86,7 +83,7 @@ public class LOGUEATU extends JFrame {
 		textField_1.setFont(new Font("Source Sans Pro Black", Font.BOLD | Font.ITALIC, 13));
 		izena = textField_1.getText();
 		textField_1.setColumns(10);
-		textField_1.setBounds(141, 194, 254, 20);
+		textField_1.setBounds(141, 191, 202, 28);
 		contentPane.add(textField_1);
 
 		textField_2 = new JTextField();
@@ -147,13 +144,13 @@ public class LOGUEATU extends JFrame {
 		lehendata.setLayout(null);
 
 		JLabel lblLetra = new JLabel("Letra:");
-		lblLetra.setBounds(407, 130, 63, 17);
+		lblLetra.setBounds(353, 132, 35, 17);
 		contentPane.add(lblLetra);
 
 		textField_5 = new JTextField();
 		textField_5.setFont(new Font("Source Sans Pro Black", Font.ITALIC, 13));
 		textField_5.setColumns(10);
-		textField_5.setBounds(482, 128, 35, 20);
+		textField_5.setBounds(398, 123, 35, 33);
 		contentPane.add(textField_5);
 
 		lblNewLabel_2 = new JLabel("");
@@ -166,7 +163,7 @@ public class LOGUEATU extends JFrame {
 		contentPane.add(lblNewLabel_3);
 
 		lblNewLabel_4 = new JLabel("");
-		lblNewLabel_4.setBounds(141, 227, 254, 14);
+		lblNewLabel_4.setBounds(141, 227, 254, 26);
 		contentPane.add(lblNewLabel_4);
 
 		lblNewLabel_5 = new JLabel("");
@@ -187,16 +184,6 @@ public class LOGUEATU extends JFrame {
 		lblNewLabel_6.setBounds(141, 343, 254, 14);
 		contentPane.add(lblNewLabel_6);
 
-		JLabel lblSexua = new JLabel("Sexua(G/E):");
-		lblSexua.setBounds(407, 197, 72, 14);
-		contentPane.add(lblSexua);
-
-		textField_3 = new JTextField();
-		textField_3.setFont(new Font("Source Sans Pro Black", Font.ITALIC, 13));
-		textField_3.setBounds(491, 194, 21, 20);
-		contentPane.add(textField_3);
-		textField_3.setColumns(10);
-
 		lblNewLabel_7 = new JLabel("");
 		lblNewLabel_7.setBounds(409, 227, 125, 20);
 		contentPane.add(lblNewLabel_7);
@@ -211,7 +198,7 @@ public class LOGUEATU extends JFrame {
 
 		lblErregistratu = new JLabel("ERREGISTRATU");
 		lblErregistratu.setFont(new Font("Source Sans Pro Black", Font.BOLD | Font.ITALIC, 40));
-		lblErregistratu.setBounds(157, 26, 304, 79);
+		lblErregistratu.setBounds(125, 25, 322, 79);
 		contentPane.add(lblErregistratu);
 
 		JButton btnAtzera = new JButton("Atzera");

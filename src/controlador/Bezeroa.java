@@ -20,28 +20,9 @@ public class Bezeroa {
 	private String Dni;
 	private String Izena;
 	private String Abizena;
-	private Date fecha;
 	private String pasahitza;
 	private String data;
 
-	/**
-	 * Lehenengoa. Bezereo objetuaren konstruktorea da.
-	 * 
-	 * @param dni
-	 * @param izena
-	 * @param abizena
-	 * @param fecha
-	 * @param sexua
-	 * @param pasahitza
-	 */
-	public Bezeroa(String dni, String izena, String abizena, Date fecha, String pasahitza) {
-		this.Dni = dni;
-		this.Izena = izena;
-		this.Abizena = abizena;
-		this.fecha = fecha;
-		this.pasahitza = pasahitza;
-
-	}
 
 	/**
 	 * Bigarrena. Bezereo objetuaren konstruktorea da.
@@ -123,23 +104,7 @@ public class Bezeroa {
 		Abizena = abizena;
 	}
 
-	/**
-	 * Data-ren informazioa bidaltzen du, return baten bidez.
-	 * 
-	 * @return
-	 */
-	public Date getFecha() {
-		return fecha;
-	}
 
-	/**
-	 * Data-ren balioa eraldatzeko metodoa da.
-	 * 
-	 * @param fecha
-	 */
-	public void setFecha(Date fecha) {
-		this.fecha = fecha;
-	}
 
 	
 
@@ -179,6 +144,12 @@ public class Bezeroa {
 	 */
 	public void setData(String data) {
 		this.data = data;
+	}
+
+	@Override
+	public String toString() {
+		return "Bezeroa [Dni=" + Dni + ", Izena=" + Izena + ", Abizena=" + Abizena + ", pasahitza="
+				+ pasahitza + ", data=" + data + "]";
 	}
 
 	/**

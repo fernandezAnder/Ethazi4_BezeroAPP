@@ -37,8 +37,7 @@ public class Consultas {
 				postaKod=(rs.getInt(6));
 				ostatu_mota=(rs.getString(7));
 				gela_kop=(rs.getInt(8));
-				tarifa_gehigarria=(rs.getInt(9));
-				erreserba_kop=(rs.getInt(10));
+				erreserba_kop=(rs.getInt(9));
 
 				Hotela h1= new Hotela(izarkop,izena,herria,helbidea,postaKod,ostatu_mota,gela_kop,tarifa_gehigarria,erreserba_kop);
 				hotelenlista.add(h1);
@@ -55,20 +54,18 @@ public class Consultas {
 		String dni = "";
 		String izena = "";
 		String abizena = "";
-		Date jaiotze;
-		String sexu;
+		String jaiotze;
 		String pasahitza = "";
 		try {
 			Statement s = conexion.createStatement();
-			String query = "select * from cliente";
+			String query = "select * from bezeroa";
 			ResultSet rs = s.executeQuery(query);
 			while (rs.next()) {
 				dni = rs.getString(1);
 				izena = rs.getString(2);
 				abizena = rs.getString(3);
-				jaiotze = rs.getDate(4);
-				sexu = rs.getString(5);
-				pasahitza = rs.getString(6);
+				jaiotze = rs.getString(4);
+				pasahitza = rs.getString(5);
 				Bezeroa bezero = new Bezeroa(dni, izena, abizena, jaiotze, pasahitza);
 				Arraybezero.add(bezero);
 
@@ -81,21 +78,22 @@ public class Consultas {
 	}
 	public static void txertatuBezeroa(Bezeroa bezeroa) {
 		Connection conexion = modelo.Conexion.getConexion();
+		System.out.println(bezeroa);
 		try {
 			PreparedStatement s = (PreparedStatement) conexion.prepareStatement(
-					"INSERT INTO `cliente` (`DNI`, `Nombre`, `Apellidos`, `Fecha_nac`, `Contraseña`)"
+					"INSERT INTO `bezeroa` (`nan`, `izena`, `abizenak`, `jaiotze_data`, `pasahitza`)"
 							+ " VALUES(?, ?, ?, ?, ?)");
 			s.setString(1, bezeroa.getDni());
 			s.setString(2, bezeroa.getIzena());
 			s.setString(3, bezeroa.getAbizena());
 			s.setString(4, bezeroa.getData());
-			s.setString(6, bezeroa.getPasahitza());
+			s.setString(5, bezeroa.getPasahitza());
 
 			s.executeUpdate();
 			s.close();
 
 		} catch (Exception e) {
-			e.getMessage();
+			System.out.println(e.getMessage());
 		}
 
 	}

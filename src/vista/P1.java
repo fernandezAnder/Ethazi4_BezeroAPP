@@ -110,8 +110,8 @@ public class P1 extends JFrame {
 		btnAurrera.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				dispose();
-				Metodoak m1 = new Metodoak();
-				m1.bigarrenLehioa(prezioa1);
+				
+				Metodoak.bigarrenLehioa();
 
 			}
 		});
@@ -192,7 +192,7 @@ public class P1 extends JFrame {
 				prezioa1=Integer.toString(prezioa);
 
 				textField_2.setText(prezioa1);
-
+				Metodoak.prezio_totala(prezioa1);
 			}
 		});
 	}

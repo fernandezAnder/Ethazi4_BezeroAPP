@@ -14,12 +14,17 @@ import java.util.ArrayList;
 
 import com.mysql.jdbc.PreparedStatement;
 
-import Modelo.Bezeroa;
-import modelo.Conexion;
+import modelo.*;
 import vista.*;
 
 
 public class Metodoak {
+///////////////////////////////////////////////////////////////////////////
+	private static String prezio_totala;
+	public static void prezio_totala(String prezioa) {
+		prezio_totala=prezioa;
+	}
+///////////////////////////////////////////////////////////////////////////
 	public static void lehenengoLehioa() {
 		ArrayList<Hotela> hotela=new ArrayList();
 		hotela=modelo.Consultas.hotelendatuak();
@@ -27,22 +32,24 @@ public class Metodoak {
 		lehenengo.setVisible(true);
 	}
 
-
-	public static void bigarrenLehioa(String prezioa) {
-		Ventana6 ventana6= new Ventana6(prezioa);
-		ventana6.setVisible(true);
+	public static void bigarrenLehioa() {
+		Login login = new Login();
+		login.setVisible(true);
 	}
 
+	public static void hirugarrenLehioa() {
+		Ordainketa ventana6= new Ordainketa(prezio_totala);
+		ventana6.setVisible(true);
+	}
+	
 
-
+///////////////////////////////////////////////////////////////////////////
 	public static boolean konprobatuNegatibo(double zbk) {
 		boolean balidatu=false;
 		if (zbk>0)
 			balidatu=true;
 		return balidatu;
 	}
-	
-	
 	
 	public static String kanbioMetodoa(double zbk) {
 
@@ -155,7 +162,7 @@ public class Metodoak {
 		return diru_falta;
 	}
 
-
+///////////////////////////////////////////////////////////////////////////
 	public static void imprimatuTiketa(Erreserba r1) {
 
 		String nombre = "tiket.txt";
@@ -168,7 +175,7 @@ public class Metodoak {
 			ex.printStackTrace();
 		}
 	}
-	
+///////////////////////////////////////////////////////////////////////////	
 	public static String getMD5(String input) {
 		try {
 			MessageDigest md = MessageDigest.getInstance("MD5");
@@ -184,6 +191,7 @@ public class Metodoak {
 			throw new RuntimeException(e);
 		}
 	}
+
 	public static boolean ateraErabiltzailea(String nan, String pasahitza) {
 		boolean erabakia = false;
 		ArrayList <Bezeroa> arraybezer = new ArrayList<Bezeroa>();
@@ -200,4 +208,17 @@ public class Metodoak {
 
 	}
 
+	public static String KalkulatuLetra(int dni){
+		String karaktereak="TRWAGMYFPDXBNJZSQVHLCKE";
+		int modulo= dni % 23;
+		char letra1 = karaktereak.charAt(modulo);
+		String letra = Character.toString(letra1);
+		return letra; 
+	} 
+
+	public static void bezeroaIgo(Bezeroa bezeroa) {
+		Consultas.txertatuBezeroa(bezeroa);
+	}
+
+///////////////////////////////////////////////////////////////////////////
 }
