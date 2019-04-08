@@ -32,9 +32,12 @@ public class Metodoak {
 		Login login = new Login();
 		login.setVisible(true);
 	}
+	
+	
+
 
 	public static void hirugarrenLehioa() {
-		Ordainketa ventana6= new Ordainketa(prezio_totala);
+		Ordainketa ventana6= new Ordainketa(prezio_totala,r1);
 		ventana6.setVisible(true);
 	}
 	
@@ -204,6 +207,68 @@ public class Metodoak {
 
 	}
 
+	
+	
+	
+	
+	/**
+	 * Sexuaren eremua balidatzen du.
+	 * 
+	 * @param sexua
+	 * @return
+	 */
+	public Boolean balidatuSexua(String sexua) {
+		boolean erabakia = true;
+
+		sexua = sexua.toUpperCase();
+		String Gizona = "G";
+		String Emakumea = "E";
+		if (sexua.length() == 1 && sexua.equals(Gizona) || sexua.equals(Emakumea)) {
+			
+
+		} else {
+			
+			erabakia = false;
+
+		}
+
+		return erabakia;
+	}
+	/**
+	 * Pasahitzaren eremua balidatzen du.
+	 * 
+	 * @param passwd
+	 * @param passwd2
+	 * @return
+	 */
+
+
+	/**
+	 * Abizena balidatzeko metodoa da.
+	 * 
+	 * @param Abizena
+	 * @return
+	 */
+
+
+	/**
+	 * Izenaren eremua balidatzen du.
+	 * 
+	 * @param izena
+	 * @return
+	 */
+
+
+	/**
+	 * NaN-a balidatzen du.
+	 * 
+	 * @param zenbakiak
+	 * @param letra
+	 * @return
+	 */
+	
+
+
 	public static String KalkulatuLetra(int dni){
 		String karaktereak="TRWAGMYFPDXBNJZSQVHLCKE";
 		int modulo= dni % 23;
@@ -217,4 +282,5 @@ public class Metodoak {
 	}
 
 ///////////////////////////////////////////////////////////////////////////
+
 }

@@ -9,8 +9,22 @@ public class Bezeroa {
 	private String Dni;
 	private String Izena;
 	private String Abizena;
+	private String fecha;
 	private String pasahitza;
 	private String data;
+
+
+	/**
+	 * Lehenengoa. Bezereo objetuaren konstruktorea da.
+	 * 
+	 * @param dni
+	 * @param izena
+	 * @param abizena
+	 * @param fecha
+	 * @param sexua
+	 * @param pasahitza
+	 */
+	
 
 
 	/**
@@ -23,14 +37,7 @@ public class Bezeroa {
 	 * @param sexua
 	 * @param pasahitza
 	 */
-	public Bezeroa(String dni, String izena, String abizena, String data,  String pasahitza) {
-		this.Dni = dni;
-		this.Izena = izena;
-		this.Abizena = abizena;
-		this.data = data;
-		this.pasahitza = pasahitza;
-
-	}
+	
 
 	/**
 	 * Erabiltzailearen informazioa bidaltzen du, return baten bidez.

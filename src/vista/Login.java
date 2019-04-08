@@ -72,6 +72,7 @@ public class Login extends JFrame {
 				dispose();
 				Erregistratu ventana2b= new Erregistratu();
 				ventana2b.setVisible(true);
+				
 			}
 		});
 		btnLogueatu.setFont(new Font("Source Code Pro Black", Font.BOLD, 15));
@@ -94,6 +95,7 @@ public class Login extends JFrame {
 
 	/**
 	 * Eremuan jartzen diren datuak hartu eta bariableetan esertzen ditu.
+	 * 
 	 */
 	private void logindatuak() {
 		pasahitza = new String(passwordField.getPassword());

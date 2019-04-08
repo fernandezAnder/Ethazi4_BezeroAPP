@@ -85,6 +85,7 @@ public class P1 extends JFrame {
 		textField_2.setEditable(false);
 		textField_2.setColumns(10);
 		textField_2.setBounds(178, 473, 317, 40);
+		
 		contentPane.add(textField_2);
 
 
