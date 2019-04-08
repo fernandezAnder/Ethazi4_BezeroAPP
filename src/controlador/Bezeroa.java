@@ -9,23 +9,8 @@ public class Bezeroa {
 	private String Dni;
 	private String Izena;
 	private String Abizena;
-	private String fecha;
 	private String pasahitza;
 	private String data;
-
-
-	/**
-	 * Lehenengoa. Bezereo objetuaren konstruktorea da.
-	 * 
-	 * @param dni
-	 * @param izena
-	 * @param abizena
-	 * @param fecha
-	 * @param sexua
-	 * @param pasahitza
-	 */
-	
-
 
 	/**
 	 * Bigarrena. Bezereo objetuaren konstruktorea da.
@@ -33,11 +18,17 @@ public class Bezeroa {
 	 * @param dni
 	 * @param izena
 	 * @param abizena
-	 * @param data
 	 * @param sexua
 	 * @param pasahitza
 	 */
-	
+	public Bezeroa(String dni, String izena, String abizena, String fecha, String pasahitza) {
+		super();
+		Dni = dni;
+		Izena = izena;
+		Abizena = abizena;
+		this.pasahitza = pasahitza;
+		this.data = data;
+	}
 
 	/**
 	 * Erabiltzailearen informazioa bidaltzen du, return baten bidez.
@@ -147,6 +138,8 @@ public class Bezeroa {
 		return "Bezeroa [Dni=" + Dni + ", Izena=" + Izena + ", Abizena=" + Abizena + ", pasahitza="
 				+ pasahitza + ", data=" + data + "]";
 	}
+
+	
 
 	/**
 	 * Datu basean bilatzen du bezeroa bertan badago. NaN-ren bidez egiten da

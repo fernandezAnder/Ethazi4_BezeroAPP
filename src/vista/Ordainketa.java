@@ -1,6 +1,7 @@
 package vista;
 
 import java.awt.Font;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyAdapter;
@@ -39,7 +40,7 @@ public class Ordainketa extends JFrame {
 	private double prezio2 = 0;
 	
 
-	public Ordainketa(String prezioa1, Erreserba r1) {
+	public Ordainketa(String prezioa1) {
 		
 		prezioa=Integer.parseInt(prezioa1);
 		this.setBounds(275,100,700,600);
@@ -68,7 +69,7 @@ public class Ordainketa extends JFrame {
 		btnAmaitu.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				dispose();
-				nMetodoak.imprimatuTiketa(r1);
+				//*Metodoak.imprimatuTiketa(r1);
 				Contador contador = new Contador();
 				contador.start();
 				
@@ -149,7 +150,7 @@ public class Ordainketa extends JFrame {
 						//KONPROBATU DIRU FALTA
 						if (diru_falta==true){
 							preziotot.add(preziototala);
-							mezua=(preziotot.get(preziotot.size()-1)+" € falta zaizkizu");
+							mezua=(preziotot.get(preziotot.size()-1)+" ï¿½ falta zaizkizu");
 							Itzuliak.setText(mezua);	
 							btnAtzera.setEnabled(false);
 							btnAmaitu.setEnabled(false);

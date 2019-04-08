@@ -62,7 +62,7 @@ public class Erregistratu extends JFrame {
 
 
 	@SuppressWarnings({ "rawtypes", "unchecked" })
-	public Erregistratu() {
+	public Erregistratu(Bezeroa bezeroa) {
 		
 		this.setBounds(275,100,700,600);
 		getContentPane().setLayout(null);
