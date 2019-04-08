@@ -1,6 +1,7 @@
 package modelo;
 
 import java.sql.Connection;
+
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -67,7 +68,7 @@ public class Consultas {
 				abizena = rs.getString(3);
 				jaiotze = rs.getString(4);
 				pasahitza = rs.getString(5);
-				Bezeroa bezero = new Bezeroa(dni, izena, abizena, jaiotze, pasahitza);
+				Bezeroa bezero = new Bezeroa(dni, izena, abizena, pasahitza,jaiotze);
 				Arraybezero.add(bezero);
 
 			}

@@ -69,7 +69,6 @@ public class Ordainketa extends JFrame {
 		btnAmaitu.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				dispose();
-				//*Metodoak.imprimatuTiketa(r1);
 				Contador contador = new Contador();
 				contador.start();
 				

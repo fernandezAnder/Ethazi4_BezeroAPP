@@ -21,133 +21,87 @@ public class Bezeroa {
 	 * @param sexua
 	 * @param pasahitza
 	 */
-	public Bezeroa(String dni, String izena, String abizena, String fecha, String pasahitza) {
+	public Bezeroa(String Dni, String Izena, String Abizena, String pasahitza, String data) {
 		super();
-		Dni = dni;
-		Izena = izena;
-		Abizena = abizena;
+		Dni = Dni;
+		Izena = Izena;
+		Abizena = Abizena;
 		this.pasahitza = pasahitza;
 		this.data = data;
 	}
 
 	/**
-	 * Erabiltzailearen informazioa bidaltzen du, return baten bidez.
-	 * 
-	 * @return
-	 */
-	
-
-	/**
-	 * DNI-ren informazioa bidaltzen du, return baten bidez.
-	 * 
-	 * @return
+	 * @return the dni
 	 */
 	public String getDni() {
 		return Dni;
 	}
 
 	/**
-	 * DNI-ren balioa eraldatzeko metodoa da.
-	 * 
-	 * @param dni
+	 * @param dni the dni to set
 	 */
 	public void setDni(String dni) {
 		Dni = dni;
 	}
 
 	/**
-	 * Izena-ren informazioa bidaltzen du, return baten bidez.
-	 * 
-	 * @return
+	 * @return the izena
 	 */
 	public String getIzena() {
 		return Izena;
 	}
 
 	/**
-	 * Izena-ren balioa eraldatzeko metodoa da.
-	 * 
-	 * @param izena
+	 * @param izena the izena to set
 	 */
 	public void setIzena(String izena) {
 		Izena = izena;
 	}
 
 	/**
-	 * Abizena-ren informazioa bidaltzen du, return baten bidez.
-	 * 
-	 * @return
+	 * @return the abizena
 	 */
 	public String getAbizena() {
 		return Abizena;
 	}
 
 	/**
-	 * Abizena-ren balioa eraldatzeko metodoa da.
-	 * 
-	 * @param abizena
+	 * @param abizena the abizena to set
 	 */
 	public void setAbizena(String abizena) {
 		Abizena = abizena;
 	}
 
-
-
-	
-
 	/**
-	 * Pasahitza-ren informazioa bidaltzen du, return baten bidez.
-	 * 
-	 * @return
+	 * @return the pasahitza
 	 */
 	public String getPasahitza() {
 		return pasahitza;
 	}
 
 	/**
-	 * Pasahitza-ren balioa eraldatzeko metodoa da.
-	 * 
-	 * @param pasahitza
+	 * @param pasahitza the pasahitza to set
 	 */
 	public void setPasahitza(String pasahitza) {
 		this.pasahitza = pasahitza;
 	}
 
-
-
 	/**
-	 * Data-ren informazioa bidaltzen du, return baten bidez.
-	 * 
-	 * @return
+	 * @return the data
 	 */
 	public String getData() {
 		return data;
 	}
 
 	/**
-	 * Data-ren balioa eraldatzeko metodoa da.
-	 * 
-	 * @param data
+	 * @param data the data to set
 	 */
 	public void setData(String data) {
 		this.data = data;
 	}
 
-	@Override
-	public String toString() {
-		return "Bezeroa [Dni=" + Dni + ", Izena=" + Izena + ", Abizena=" + Abizena + ", pasahitza="
-				+ pasahitza + ", data=" + data + "]";
-	}
-
 	
-
-	/**
-	 * Datu basean bilatzen du bezeroa bertan badago. NaN-ren bidez egiten da
-	 * bilaketa.
-	 * 
-	 * @param Nan
-	 * @return
-	 */
+	
 	
 
 }

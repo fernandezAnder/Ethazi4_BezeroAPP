@@ -315,7 +315,7 @@ public class Erregistratu extends JFrame {
 		Jarraitu.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				dispose();
-				Bezeroa bezeroa = new Bezeroa(nan, izena2, abizena, jaio_data, pasahitza);
+				Bezeroa bezeroa = new Bezeroa(nan, izena2, abizena, pasahitza,jaio_data);
 				System.out.println(bezeroa);
 				Metodoak.bezeroaIgo(bezeroa);
 				//Metodoak.bigarrenLeihoa();
