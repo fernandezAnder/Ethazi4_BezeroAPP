@@ -32,7 +32,6 @@ public class Ordainketa extends JFrame {
 	private JLabel lblOrdaintzeko = new JLabel("");
 	private JLabel lblOrdainketa_Tituloa = new JLabel("ORDAINKETA");
 
-	
 	private double preziototala=0;
 	private ArrayList<Double> preziotot = new ArrayList<Double>();
 	private double prezioa;
@@ -68,7 +67,7 @@ public class Ordainketa extends JFrame {
 		btnAmaitu.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				dispose();
-				nMetodoak.imprimatuTiketa(r1);
+				Metodoak.imprimatuTiketa(r1);
 				Contador contador = new Contador();
 				contador.start();
 				
