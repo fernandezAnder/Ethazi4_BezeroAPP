@@ -13,8 +13,10 @@ import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 
-import controlador.*;
-public class Ventana6 extends JFrame {
+import controlador.Contador;
+import controlador.Erreserba;
+import controlador.Metodoak;
+public class Ordainketa extends JFrame {
 
 
 	private static final long serialVersionUID = 1L;
@@ -49,7 +51,7 @@ public class Ventana6 extends JFrame {
 	private int ohe_kop=1;
 	private String tarifa_denboraldia="OPORRAK";
 
-	public Ventana6(String prezioa1) {
+	public Ordainketa(String prezioa1) {
 		
 		prezioa=Integer.parseInt(prezioa1);
 		this.setBounds(275,100,700,600);

@@ -2,7 +2,6 @@ package vista;
 
 import java.awt.Font;
 
-import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 /**
@@ -10,7 +9,7 @@ import javax.swing.JLabel;
  * @author oier, ander, aintzane
  *
  */
-public class Ventana7 extends JFrame {
+public class Amaiera extends JFrame {
 	/**
 	 * 
 	 */
@@ -20,7 +19,7 @@ public class Ventana7 extends JFrame {
 	private JLabel lblZureTxartelaOrain = new JLabel("Zure txartela orain aterako da");
 	private JLabel icono = new JLabel();
 
-	public Ventana7() {
+	public Amaiera() {
 		
 		
 		this.setBounds(275,100,700,600);

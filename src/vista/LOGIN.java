@@ -24,6 +24,7 @@ public class LOGIN extends JFrame {
 
 	/**
 	 * LOGIN frame-aren kodea da.
+	 * 
 	 */
 	public LOGIN() {
 		getContentPane().setBackground(UIManager.getColor("Button.background"));

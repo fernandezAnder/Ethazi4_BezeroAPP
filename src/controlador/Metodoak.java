@@ -1,10 +1,6 @@
 package controlador;
 
 
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.Statement;
-
 import java.io.FileWriter;
 import java.math.BigInteger;
 import java.security.MessageDigest;
@@ -12,14 +8,19 @@ import java.security.NoSuchAlgorithmException;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 
-import com.mysql.jdbc.PreparedStatement;
-
-import Modelo.Bezeroa;
-import modelo.Conexion;
-import vista.*;
+import modelo.Consultas;
+import vista.Login;
+import vista.Ordainketa;
+import vista.P1;
 
 
 public class Metodoak {
+///////////////////////////////////////////////////////////////////////////
+	private static String prezio_totala;
+	public static void prezio_totala(String prezioa) {
+		prezio_totala=prezioa;
+	}
+///////////////////////////////////////////////////////////////////////////
 	public static void lehenengoLehioa() {
 		ArrayList<Hotela> hotela=new ArrayList();
 		hotela=modelo.Consultas.hotelendatuak();
@@ -27,28 +28,27 @@ public class Metodoak {
 		lehenengo.setVisible(true);
 	}
 
+	public static void bigarrenLehioa() {
+		Login login = new Login();
+		login.setVisible(true);
+	}
+	
+	
 
-	public static void bigarrenLehioa(String prezioa) {
-		Ventana6 ventana6= new Ventana6(prezioa);
+
+	public static void hirugarrenLehioa() {
+		Ordainketa ventana6= new Ordainketa(prezio_totala);
 		ventana6.setVisible(true);
 	}
 	
-	
-	public static void logueatzekoPantailara() {
-		LOGUEATU L1 = new LOGUEATU();
-		L1.setVisible(true);
-	}
 
-
-
+///////////////////////////////////////////////////////////////////////////
 	public static boolean konprobatuNegatibo(double zbk) {
 		boolean balidatu=false;
 		if (zbk>0)
 			balidatu=true;
 		return balidatu;
 	}
-	
-	
 	
 	public static String kanbioMetodoa(double zbk) {
 
@@ -161,7 +161,7 @@ public class Metodoak {
 		return diru_falta;
 	}
 
-
+///////////////////////////////////////////////////////////////////////////
 	public static void imprimatuTiketa(Erreserba r1) {
 
 		String nombre = "tiket.txt";
@@ -174,7 +174,7 @@ public class Metodoak {
 			ex.printStackTrace();
 		}
 	}
-	
+///////////////////////////////////////////////////////////////////////////	
 	public static String getMD5(String input) {
 		try {
 			MessageDigest md = MessageDigest.getInstance("MD5");
@@ -190,6 +190,7 @@ public class Metodoak {
 			throw new RuntimeException(e);
 		}
 	}
+
 	public static boolean ateraErabiltzailea(String nan, String pasahitza) {
 		boolean erabakia = false;
 		ArrayList <Bezeroa> arraybezer = new ArrayList<Bezeroa>();
@@ -205,78 +206,10 @@ public class Metodoak {
 		return (erabakia);
 
 	}
+
 	
 	
-	/*Metodos para validar el insert de registrarse empezando por coger los datos*/
-	public void balidatuInsert(String zenbakiak, String letra, String Izena, String Abizena, String sexua,
-			String passwd1, String passwd2) {
-
-		int kontagailua = 0;
-		int kontagailua2 = 0;
-		Boolean NAN;
-		Boolean IZENA;
-		Boolean ABIZENA;
-		Boolean PASAHITZAK;
-		Boolean SEXUA;
-		Boolean Txertatu;
-		ArrayList<String> gordedatuak = new ArrayList();
-		ArrayList<String> pasahitzak = new ArrayList();
-		String Nan;
-		String data;
-
-		System.out.println(zenbakiak);
-		System.out.println(letra);
-		NAN = balidatuNan(zenbakiak, letra);
-		System.out.println("Nan balidatzean " + NAN);
-		Izena = nirelogueatu.balidatuIzena();
-		System.out.println(Izena);
-		IZENA = balidatuIzena(Izena);
-		Abizena = nirelogueatu.balidatuAbizena();
-		ABIZENA = balidatuAbizena(Abizena);
-		System.out.println(ABIZENA);
-		pasahitzak = nirelogueatu.balidatuPasahitza();
-		for (String p : pasahitzak) {
-			if (kontagailua2 == 0) {
-				passwd1 = p;
-			}
-			if (kontagailua2 == 1) {
-				passwd2 = p;
-			}
-			kontagailua2++;
-		}
-		System.out.println(passwd1);
-		System.out.println(passwd2);
-		PASAHITZAK = balidatuPasahitzak(passwd1, passwd2);
-		// sexua= LOGUEATU.erakutsiSexua();
-		System.out.println(sexua);
-		SEXUA = balidatuSexua(sexua);
-		sexua = sexua.toUpperCase();
-		data = nirelogueatu.ateradata();
-		System.out.println(data);
-
-		if (NAN == true && IZENA == true && ABIZENA == true && PASAHITZAK == true && SEXUA == true
-				&& data.length() != 0) {
-
-			Nan = zenbakiak + letra;
-			Txertatu = Bezeroa.konprobatuDatuBasea(Nan);
-			if (Txertatu == true) {
-				Metodoak.balidatuLogina("Bazaude datu basean");
-			}
-
-			else {
-				Metodoak.youshouldpass();
-
-				/*
-				 * Bezeroa bezeroa = new Bezeroa(Nan,Izena,Abizena,data,sexua,passwd1);
-				 * 
-				 * Bezeroa.txertatuBezeroa( bezeroa);
-				 */
-				System.out.println("Te estas registrando");
-			}
-
-		}
-
-	}
+	
 	
 	/**
 	 * Sexuaren eremua balidatzen du.
@@ -308,34 +241,7 @@ public class Metodoak {
 	 * @param passwd2
 	 * @return
 	 */
-	public boolean balidatuPasahitzak(String passwd, String passwd2) {
-		Boolean erabakia = false;
-		if (!passwd.equals(passwd2)) {
-			nirelogueatu.erakutsiErrorea5("Pasahitzak ezberdinak");
-			erabakia = false;
-		}
 
-		else {
-
-			for (int i = 0; i < passwd.length(); i++) {
-				if (Character.isUpperCase(passwd.charAt(i))) {
-					erabakia = true;
-				}
-
-			}
-			if (passwd.length() > 50) {
-				erabakia = false;
-			}
-			if (erabakia == false) {
-				nirelogueatu.erakutsiErrorea5("Karaktere bat gutxienez larria eta n<50");
-			}
-			if (erabakia == true) {
-				nirelogueatu.erakutsiErrorea5("ONDO");
-			}
-		}
-
-		return erabakia;
-	}
 
 	/**
 	 * Abizena balidatzeko metodoa da.
@@ -343,34 +249,7 @@ public class Metodoak {
 	 * @param Abizena
 	 * @return
 	 */
-	public Boolean balidatuAbizena(String Abizena) {
-		Boolean erabakia = true;
-		try {
-			char lehena = Abizena.charAt(0);
-			if (Abizena.length() < 100) {
-				if (!Character.isUpperCase(lehena)) {
-					nirelogueatu.erakutsiErrorea4("Lehengo letra mayuscula ");
-					erabakia = false;
 
-				} else {
-					nirelogueatu.erakutsiErrorea4("ONDO");
-
-				}
-
-			} else {
-				nirelogueatu.erakutsiErrorea4("Letra gehiegi");
-				erabakia = false;
-
-			}
-
-		} catch (Exception e) {
-			erabakia = false;
-			nirelogueatu.erakutsiErrorea4("Eremu hutsa");
-
-		}
-		return erabakia;
-
-	}
 
 	/**
 	 * Izenaren eremua balidatzen du.
@@ -378,33 +257,7 @@ public class Metodoak {
 	 * @param izena
 	 * @return
 	 */
-	public Boolean balidatuIzena(String izena) {
-		Boolean erabakia = true;
-		try {
-			char lehena = izena.charAt(0);
-			if (izena.length() < 50) {
-				if (!Character.isUpperCase(lehena)) {
-					nirelogueatu.erakutsiErrorea3("Lehengo letra mayuscula ");
-					erabakia = false;
 
-				} else {
-					nirelogueatu.erakutsiErrorea3("ONDO");
-
-				}
-
-			} else {
-				nirelogueatu.erakutsiErrorea3("Letra gehiegi");
-				erabakia = false;
-
-			}
-		} catch (Exception e) {
-			nirelogueatu.erakutsiErrorea3("Eremu Hutsa");
-			erabakia = false;
-
-		}
-
-		return erabakia;
-	}
 
 	/**
 	 * NaN-a balidatzen du.
@@ -413,54 +266,21 @@ public class Metodoak {
 	 * @param letra
 	 * @return
 	 */
-	public Boolean balidatuNan(String zenbakiak, String letra) {
-		Boolean erabakia = true;
-		int nanzenbakiak = 0;
-		char ateraletra;
-		char caracter = ' ';
-		boolean znbkia = false;
-		String juegoCaracteres = "TRWAGMYFPDXBNJZSQVHLCKE";
-		int modulo;
-		boolean chr = false;
-		if (zenbakiak.length() != 8 || letra.length() != 1) {
-			erabakia = false;
-			nirelogueatu.erakutsiErrorea("Zenbaki edo letra gehiegi/gutxiegi sartu duzu");
-		}
-		if (zenbakiak.length() == 8 && letra.length() == 1) {
-			try {
-				nanzenbakiak = Integer.parseInt(zenbakiak);
-				znbkia = true;
+	
 
-			} catch (Exception e) {
-				erabakia = false;
-				
-			}
 
-			try {
-				int numero = Integer.parseInt(letra);
-				
+	public static String KalkulatuLetra(int dni){
+		String karaktereak="TRWAGMYFPDXBNJZSQVHLCKE";
+		int modulo= dni % 23;
+		char letra1 = karaktereak.charAt(modulo);
+		String letra = Character.toString(letra1);
+		return letra; 
+	} 
 
-			} catch (Exception e) {
-				chr = true;
-				letra = letra.toUpperCase();
-				caracter = letra.charAt(0);
-			}
-		}
-		if (znbkia == true && chr == true) {
-			modulo = nanzenbakiak % 23;
-			ateraletra = juegoCaracteres.charAt(modulo);
-			String comparador1 = Character.toString(caracter);
-			String comparador2 = Character.toString(ateraletra);
-
-			if (comparador1.equals(comparador2)) {
-				erabakia = true;
-				
-			} else {
-				
-			}
-		}
-		return erabakia;
-
+	public static void bezeroaIgo(Bezeroa bezeroa) {
+		Consultas.txertatuBezeroa(bezeroa);
 	}
+
+///////////////////////////////////////////////////////////////////////////
 
 }

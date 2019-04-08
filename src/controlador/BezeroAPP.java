@@ -1,7 +1,8 @@
 package controlador;
 import java.util.ArrayList;
 
-import modelo.*;
+import modelo.Conexion;
+import modelo.Consultas;
 public class BezeroAPP {
 	
 	public static void main(String[] args) {

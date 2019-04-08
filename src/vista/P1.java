@@ -5,12 +5,9 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
-
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
-import javax.swing.AbstractButton;
-import javax.swing.DefaultComboBoxModel;
-import javax.swing.Icon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -110,8 +107,8 @@ public class P1 extends JFrame {
 		btnAurrera.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				dispose();
-				Metodoak m1 = new Metodoak();
-				m1.bigarrenLehioa(prezioa1);
+				
+				Metodoak.bigarrenLehioa();
 
 			}
 		});
@@ -192,7 +189,7 @@ public class P1 extends JFrame {
 				prezioa1=Integer.toString(prezioa);
 
 				textField_2.setText(prezioa1);
-
+				Metodoak.prezio_totala(prezioa1);
 			}
 		});
 	}

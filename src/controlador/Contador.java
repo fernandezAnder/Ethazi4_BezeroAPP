@@ -1,6 +1,6 @@
 package controlador;
 
-import vista.Ventana7;
+import vista.Amaiera;
 
 /**
  * 
@@ -12,7 +12,7 @@ public class Contador extends Thread {
 	
 	@Override
     public void run(){
-		Ventana7 ventana7= new Ventana7();
+		Amaiera ventana7= new Amaiera();
 		ventana7.setVisible(true);
     	for (int i=0;i<=5;i++) {
         	try {

@@ -1,16 +1,5 @@
 package controlador;
 
-import java.util.ArrayList;
-
-
-import com.mysql.jdbc.PreparedStatement;
-
-import java.sql.Connection;
-import java.sql.Date;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
-
 /**
  * Bezero objektuaren klasea da.
  *
@@ -24,6 +13,7 @@ public class Bezeroa {
 	private String pasahitza;
 	private String data;
 
+
 	/**
 	 * Lehenengoa. Bezereo objetuaren konstruktorea da.
 	 * 
@@ -35,6 +25,7 @@ public class Bezeroa {
 	 * @param pasahitza
 	 */
 	
+
 
 	/**
 	 * Bigarrena. Bezereo objetuaren konstruktorea da.
@@ -109,23 +100,7 @@ public class Bezeroa {
 		Abizena = abizena;
 	}
 
-	/**
-	 * Data-ren informazioa bidaltzen du, return baten bidez.
-	 * 
-	 * @return
-	 */
-	public Date getFecha() {
-		return fecha;
-	}
 
-	/**
-	 * Data-ren balioa eraldatzeko metodoa da.
-	 * 
-	 * @param fecha
-	 */
-	public void setFecha(Date fecha) {
-		this.fecha = fecha;
-	}
 
 	
 
@@ -165,6 +140,12 @@ public class Bezeroa {
 	 */
 	public void setData(String data) {
 		this.data = data;
+	}
+
+	@Override
+	public String toString() {
+		return "Bezeroa [Dni=" + Dni + ", Izena=" + Izena + ", Abizena=" + Abizena + ", pasahitza="
+				+ pasahitza + ", data=" + data + "]";
 	}
 
 	/**

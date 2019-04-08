@@ -1,5 +1,5 @@
 package controlador;
-import java.sql.*;
+
 public class Erreserba {
 
 	private int erreserba_kod;
