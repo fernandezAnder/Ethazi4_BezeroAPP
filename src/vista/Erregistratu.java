@@ -279,14 +279,14 @@ public class Erregistratu extends JFrame {
 					Jarraitu.setEnabled(true);
 					Balidatu.setEnabled(false);
 				}else {
-					
+					JOptionPane.showMessageDialog(null, "Nan hau erregistratuta dago");
 				}
 ////				for (int i=0;i<bezeroak.size();i++) {
 ////					if (bezeroak.get(i).getDni().equals(nan)) {
 ////						
 ////						Jarraitu.setEnabled(false);
 ////						Balidatu.setEnabled(true);
-////						JOptionPane.showMessageDialog(null, "Nan hau erregistratuta dago");
+////						
 //					}
 //				}
 				
@@ -315,7 +315,7 @@ public class Erregistratu extends JFrame {
 		Jarraitu.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				dispose();
-				Bezeroa bezeroa = new Bezeroa(nan, izena2, abizena, jaio_data, pasahitza);
+				Bezeroa bezeroa =new Bezeroa(nan,izena2,abizena,pasahitza,jaio_data);
 				System.out.println(bezeroa);
 				Metodoak.bezeroaIgo(bezeroa);
 				//Metodoak.bigarrenLeihoa();

@@ -1,5 +1,7 @@
 package controlador;
 
+import javax.swing.JTextField;
+
 /**
  * Bezero objektuaren klasea da.
  *
@@ -9,23 +11,8 @@ public class Bezeroa {
 	private String Dni;
 	private String Izena;
 	private String Abizena;
-	private String fecha;
 	private String pasahitza;
 	private String data;
-
-
-	/**
-	 * Lehenengoa. Bezereo objetuaren konstruktorea da.
-	 * 
-	 * @param dni
-	 * @param izena
-	 * @param abizena
-	 * @param fecha
-	 * @param sexua
-	 * @param pasahitza
-	 */
-	
-
 
 	/**
 	 * Bigarrena. Bezereo objetuaren konstruktorea da.
@@ -33,128 +20,99 @@ public class Bezeroa {
 	 * @param dni
 	 * @param izena
 	 * @param abizena
-	 * @param data
 	 * @param sexua
 	 * @param pasahitza
 	 */
-	
+	public Bezeroa(String Dni, String Izena, String Abizena, String pasahitza, String data) {
+		super();
+		this.Dni = Dni;
+		this.Izena = Izena;
+		this.Abizena = Abizena;
+		this.pasahitza = pasahitza;
+		this.data = data;
+	}
 
 	/**
-	 * Erabiltzailearen informazioa bidaltzen du, return baten bidez.
-	 * 
-	 * @return
-	 */
-	
-
-	/**
-	 * DNI-ren informazioa bidaltzen du, return baten bidez.
-	 * 
-	 * @return
+	 * @return the dni
 	 */
 	public String getDni() {
 		return Dni;
 	}
 
 	/**
-	 * DNI-ren balioa eraldatzeko metodoa da.
-	 * 
-	 * @param dni
+	 * @param dni the dni to set
 	 */
 	public void setDni(String dni) {
 		Dni = dni;
 	}
 
 	/**
-	 * Izena-ren informazioa bidaltzen du, return baten bidez.
-	 * 
-	 * @return
+	 * @return the izena
 	 */
 	public String getIzena() {
 		return Izena;
 	}
 
 	/**
-	 * Izena-ren balioa eraldatzeko metodoa da.
-	 * 
-	 * @param izena
+	 * @param izena the izena to set
 	 */
 	public void setIzena(String izena) {
 		Izena = izena;
 	}
 
 	/**
-	 * Abizena-ren informazioa bidaltzen du, return baten bidez.
-	 * 
-	 * @return
+	 * @return the abizena
 	 */
 	public String getAbizena() {
 		return Abizena;
 	}
 
 	/**
-	 * Abizena-ren balioa eraldatzeko metodoa da.
-	 * 
-	 * @param abizena
+	 * @param abizena the abizena to set
 	 */
 	public void setAbizena(String abizena) {
 		Abizena = abizena;
 	}
 
-
-
-	
-
 	/**
-	 * Pasahitza-ren informazioa bidaltzen du, return baten bidez.
-	 * 
-	 * @return
+	 * @return the pasahitza
 	 */
 	public String getPasahitza() {
 		return pasahitza;
 	}
 
 	/**
-	 * Pasahitza-ren balioa eraldatzeko metodoa da.
-	 * 
-	 * @param pasahitza
+	 * @param pasahitza the pasahitza to set
 	 */
 	public void setPasahitza(String pasahitza) {
 		this.pasahitza = pasahitza;
 	}
 
-
-
 	/**
-	 * Data-ren informazioa bidaltzen du, return baten bidez.
-	 * 
-	 * @return
+	 * @return the data
 	 */
 	public String getData() {
 		return data;
 	}
 
 	/**
-	 * Data-ren balioa eraldatzeko metodoa da.
-	 * 
-	 * @param data
+	 * @param data the data to set
 	 */
 	public void setData(String data) {
 		this.data = data;
 	}
 
+	/* (non-Javadoc)
+	 * @see java.lang.Object#toString()
+	 */
 	@Override
 	public String toString() {
-		return "Bezeroa [Dni=" + Dni + ", Izena=" + Izena + ", Abizena=" + Abizena + ", pasahitza="
-				+ pasahitza + ", data=" + data + "]";
+		return String.format("Bezeroa [Dni=%s, Izena=%s, Abizena=%s, pasahitza=%s, data=%s]", Dni, Izena, Abizena,
+				pasahitza, data);
 	}
 
-	/**
-	 * Datu basean bilatzen du bezeroa bertan badago. NaN-ren bidez egiten da
-	 * bilaketa.
-	 * 
-	 * @param Nan
-	 * @return
-	 */
+	
+	
 	
 
 }
