@@ -68,6 +68,7 @@ public class LOGIN extends JFrame {
 		btnLogueatu.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				
+				
 			}
 		});
 		btnLogueatu.setFont(new Font("Source Code Pro Black", Font.BOLD, 15));
