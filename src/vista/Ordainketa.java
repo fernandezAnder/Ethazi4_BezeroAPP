@@ -38,20 +38,8 @@ public class Ordainketa extends JFrame {
 	private double prezioa;
 	private double prezio2 = 0;
 	
-	private int erreserba_kod=1234;
-	private int ostatu_id=234;
-	private String bezero_nan="12345678Z";
-	private String sartze_data="04-04-2019";
-	private String irtetze_data="10-04-2019";
-	private int pertsona_kop=2;
-	private double prezio_totala=500;
-	private int erreserba_gela_kop=1;
-	private String pentsio_mota="OSOA";
-	private String ohe_mota="BIKOITZA";
-	private int ohe_kop=1;
-	private String tarifa_denboraldia="OPORRAK";
 
-	public Ordainketa(String prezioa1) {
+	public Ordainketa(String prezioa1, Erreserba r1) {
 		
 		prezioa=Integer.parseInt(prezioa1);
 		this.setBounds(275,100,700,600);
@@ -80,10 +68,7 @@ public class Ordainketa extends JFrame {
 		btnAmaitu.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				dispose();
-				Erreserba r1= new Erreserba(erreserba_kod, ostatu_id, bezero_nan,
-						sartze_data, irtetze_data, pertsona_kop, prezio_totala, 
-						erreserba_gela_kop, pentsio_mota, ohe_mota, ohe_kop, tarifa_denboraldia);
-				Metodoak.imprimatuTiketa(r1);
+				nMetodoak.imprimatuTiketa(r1);
 				Contador contador = new Contador();
 				contador.start();
 				

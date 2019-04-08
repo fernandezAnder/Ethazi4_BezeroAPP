@@ -71,6 +71,7 @@ public class Login extends JFrame {
 				dispose();
 				Erregistratu ventana2b= new Erregistratu();
 				ventana2b.setVisible(true);
+				
 			}
 		});
 		btnLogueatu.setFont(new Font("Source Code Pro Black", Font.BOLD, 15));
