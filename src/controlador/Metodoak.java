@@ -172,6 +172,7 @@ public class Metodoak {
 ///////////////////////////////////////////////////////////////////////////
 	public static void imprimatuTiketa(Erreserba r1) {
 
+		System.out.println(r1);
 		String nombre = "tiket.txt";
 		try{
 			FileWriter fichero = new FileWriter("src\\controlador\\"+nombre);

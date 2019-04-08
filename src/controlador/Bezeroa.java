@@ -102,14 +102,13 @@ public class Bezeroa {
 		this.data = data;
 	}
 
-	/* (non-Javadoc)
-	 * @see java.lang.Object#toString()
-	 */
 	@Override
 	public String toString() {
-		return String.format("Bezeroa [Dni=%s, Izena=%s, Abizena=%s, pasahitza=%s, data=%s]", Dni, Izena, Abizena,
-				pasahitza, data);
+		return "Bezeroa [Dni=" + Dni + ", Izena=" + Izena + ", Abizena=" + Abizena + ", pasahitza=" + pasahitza
+				+ ", data=" + data + "]";
 	}
+
+
 
 	
 	

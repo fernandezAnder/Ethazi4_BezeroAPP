@@ -87,6 +87,7 @@ public class Login extends JFrame {
 		getContentPane().add(btnLogueatu);
 		btnSartu.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				dispose();
 				// botoiaren kodea
 				System.out.println("LOGIN BOTOIA");
 				logindatuak();

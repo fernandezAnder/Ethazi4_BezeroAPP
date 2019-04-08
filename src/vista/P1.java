@@ -38,10 +38,10 @@ public class P1 extends JFrame {
 	private JLabel lblHotel = new JLabel("Hotel");
 	private JLabel lblGauakgaua = new JLabel("Gauak(80/Gaua)");
 	private JButton btnAurrera = new JButton("Aurrera");
-	
+
 	int prezioa=0;
 	int ostatu_id=0;
-	
+
 	public P1(ArrayList<controlador.Hotela> hotela) {
 		rellenar();
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -50,7 +50,7 @@ public class P1 extends JFrame {
 		contentPane.setBorder(null);
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
-	
+
 
 		lblPais.setFont(new Font("Tahoma", Font.PLAIN, 17));
 		lblPais.setBounds(20, 70, 100, 50);
@@ -87,7 +87,7 @@ public class P1 extends JFrame {
 		textField_2.setEditable(false);
 		textField_2.setColumns(10);
 		textField_2.setBounds(178, 473, 317, 40);
-		
+
 		contentPane.add(textField_2);
 
 
@@ -107,20 +107,8 @@ public class P1 extends JFrame {
 		contentPane.add(comboBox);
 
 
-		btnAurrera.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				dispose();
-				
-				Metodoak.bigarrenLehioa();
 
-				Erreserba r1= new Erreserba(1,ostatu_id,null,null,null,0,prezioa,0,null,null,0,null);
-				DatuBiltegia db1=new DatuBiltegia();
-				db1.erreserbaGorde(r1);
-			}
-		});
-		btnAurrera.setBounds(464, 527, 89, 23);
-		contentPane.add(btnAurrera);
-		
+
 		//Combo1
 
 		comboBox_1.setBounds(20, 143, 82, 20);
@@ -132,7 +120,7 @@ public class P1 extends JFrame {
 				comboBox_1.addItem(p.getHerria());
 				arr.add(p.getHerria());
 			}
-			
+
 		}
 
 		//Combo2
@@ -140,25 +128,25 @@ public class P1 extends JFrame {
 		contentPane.add(comboBox_2);
 
 
-		
+
 		Segundocampo.setEditable(false);
 		Segundocampo.setBorder(null);
 		Segundocampo.setColumns(10);
 		Segundocampo.setBounds(178, 392, 317, 40);
 		contentPane.add(Segundocampo);
-		
-		
-		
 
 
-		
+
+
+
+
 		textField_1.setEditable(false);
 		textField_1.setBorder(null);
 		textField_1.setColumns(10);
 		textField_1.setBounds(178, 392, 317, 40);
 		contentPane.add(textField_1);
 
-		
+
 		comboBox_1.addActionListener(new ActionListener() {
 
 			public void actionPerformed(ActionEvent i) {
@@ -176,7 +164,7 @@ public class P1 extends JFrame {
 				}
 			}
 		});
-		
+
 		comboBox_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {	  
 				Segundocampo.setText(comboBox_2.getSelectedItem().toString());
@@ -187,9 +175,9 @@ public class P1 extends JFrame {
 			comboBox.addItem(zerrenda[i]);
 		}
 		comboBox.addActionListener(new ActionListener() {
-			
+
 			public void actionPerformed(ActionEvent e) {
-				
+
 
 				int dia=Integer.valueOf(comboBox.getSelectedItem().toString());
 				prezioa = 80*dia;
@@ -198,13 +186,24 @@ public class P1 extends JFrame {
 
 				textField_2.setText(prezioa1);
 				Metodoak.prezio_totala(prezioa1);
-				
-				
+
+
 			}
 		});
-		
-		
+
+		btnAurrera.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+
+				Metodoak.bigarrenLehioa();
+				//Erreserba r1= new Erreserba(1,ostatu_id,null,null,null,0,prezioa,0,null,null,0,null);
+				DatuBiltegia db1=new DatuBiltegia();
+				db1.erreserbaGorde(ostatu_id,prezioa);
 			}
+		});
+		btnAurrera.setBounds(464, 527, 89, 23);
+		contentPane.add(btnAurrera);
+	}
 
 	public void rellenar() {
 		String zenb="";
