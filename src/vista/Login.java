@@ -69,8 +69,7 @@ public class Login extends JFrame {
 		btnLogueatu.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				dispose();
-				Erregistratu ventana2b= new Erregistratu();
-				ventana2b.setVisible(true);
+				
 				
 			}
 		});
