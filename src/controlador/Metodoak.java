@@ -37,7 +37,7 @@ public class Metodoak {
 
 
 	public static void hirugarrenLehioa() {
-		Ordainketa ventana6= new Ordainketa(prezio_totala);
+		Ordainketa ventana6= new Ordainketa(prezio_totala,r1);
 		ventana6.setVisible(true);
 	}
 	
