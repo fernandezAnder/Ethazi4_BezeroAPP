@@ -13,7 +13,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-import controlador.Metodoak;
+import controlador.*;
 
 public class P1 extends JFrame {
 
@@ -39,7 +39,9 @@ public class P1 extends JFrame {
 	private JLabel lblGauakgaua = new JLabel("Gauak(80/Gaua)");
 	private JButton btnAurrera = new JButton("Aurrera");
 	
-
+	int prezioa=0;
+	int ostatu_id=0;
+	
 	public P1(ArrayList<controlador.Hotela> hotela) {
 		rellenar();
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -111,6 +113,9 @@ public class P1 extends JFrame {
 				
 				Metodoak.bigarrenLehioa();
 
+				Erreserba r1= new Erreserba(1,ostatu_id,null,null,null,0,prezioa,0,null,null,0,null);
+				DatuBiltegia db1=new DatuBiltegia();
+				db1.erreserbaGorde(r1);
 			}
 		});
 		btnAurrera.setBounds(464, 527, 89, 23);
@@ -153,6 +158,7 @@ public class P1 extends JFrame {
 		textField_1.setBounds(178, 392, 317, 40);
 		contentPane.add(textField_1);
 
+		
 		comboBox_1.addActionListener(new ActionListener() {
 
 			public void actionPerformed(ActionEvent i) {
@@ -162,6 +168,7 @@ public class P1 extends JFrame {
 
 				for(controlador.Hotela p : hotela) {
 					if (herria.equalsIgnoreCase(p.getHerria())) {
+						ostatu_id=p.getOstatu_id();
 						comboBox_2.addItem(p.getIzena());
 						Segundocampo.removeAll();
 					}
@@ -169,7 +176,7 @@ public class P1 extends JFrame {
 				}
 			}
 		});
-
+		
 		comboBox_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {	  
 				Segundocampo.setText(comboBox_2.getSelectedItem().toString());
@@ -180,9 +187,9 @@ public class P1 extends JFrame {
 			comboBox.addItem(zerrenda[i]);
 		}
 		comboBox.addActionListener(new ActionListener() {
-
+			
 			public void actionPerformed(ActionEvent e) {
-				int prezioa=0;
+				
 
 				int dia=Integer.valueOf(comboBox.getSelectedItem().toString());
 				prezioa = 80*dia;
@@ -191,9 +198,13 @@ public class P1 extends JFrame {
 
 				textField_2.setText(prezioa1);
 				Metodoak.prezio_totala(prezioa1);
+				
+				
 			}
 		});
-	}
+		
+		
+			}
 
 	public void rellenar() {
 		String zenb="";

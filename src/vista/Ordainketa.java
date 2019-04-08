@@ -15,6 +15,7 @@ import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 
 import controlador.Contador;
+import controlador.DatuBiltegia;
 import controlador.Erreserba;
 import controlador.Metodoak;
 public class Ordainketa extends JFrame {
@@ -68,8 +69,8 @@ public class Ordainketa extends JFrame {
 		btnAmaitu.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				dispose();
-
-				//Metodoak.imprimatuTiketa(r1);
+				DatuBiltegia db1 =new DatuBiltegia();
+				Metodoak.imprimatuTiketa(db1.erreserbaItzuli());
 				Contador contador = new Contador();
 				contador.start();
 				
