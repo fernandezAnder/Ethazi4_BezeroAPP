@@ -69,6 +69,7 @@ public class Login extends JFrame {
 		btnLogueatu.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				dispose();
+				Metodoak.erregistratzekoPantailara();
 				
 				
 			}

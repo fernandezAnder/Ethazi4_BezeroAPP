@@ -42,7 +42,7 @@ public class Metodoak {
 		ventana6.setVisible(true);
 	}
 	
-	public void erregistratzekoPantailara() {
+	public static void erregistratzekoPantailara() {
 		Erregistratu ventana2b= new Erregistratu();
 		
 		ventana2b.setVisible(true);
@@ -207,6 +207,7 @@ public class Metodoak {
 		for (Bezeroa p : arraybezer) {
 			if (p.getDni().equals(nan) && p.getPasahitza().equals(pasahitza)) {
 				erabakia = true;
+				System.out.println(erabakia);
 
 			}
 		}

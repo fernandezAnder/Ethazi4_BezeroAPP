@@ -1,5 +1,7 @@
 package controlador;
 
+import javax.swing.JTextField;
+
 /**
  * Bezero objektuaren klasea da.
  *
@@ -23,9 +25,9 @@ public class Bezeroa {
 	 */
 	public Bezeroa(String Dni, String Izena, String Abizena, String pasahitza, String data) {
 		super();
-		Dni = Dni;
-		Izena = Izena;
-		Abizena = Abizena;
+		this.Dni = Dni;
+		this.Izena = Izena;
+		this.Abizena = Abizena;
 		this.pasahitza = pasahitza;
 		this.data = data;
 	}
@@ -98,6 +100,15 @@ public class Bezeroa {
 	 */
 	public void setData(String data) {
 		this.data = data;
+	}
+
+	/* (non-Javadoc)
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		return String.format("Bezeroa [Dni=%s, Izena=%s, Abizena=%s, pasahitza=%s, data=%s]", Dni, Izena, Abizena,
+				pasahitza, data);
 	}
 
 	
