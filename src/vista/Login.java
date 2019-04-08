@@ -16,6 +16,7 @@ import controlador.Metodoak;
 
 public class Login extends JFrame {
 
+	
 	private JPanel contentPane;
 	private JPasswordField passwordField;
 	private JTextField textField;
