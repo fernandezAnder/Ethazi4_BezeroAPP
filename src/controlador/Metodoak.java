@@ -9,6 +9,7 @@ import java.text.DecimalFormat;
 import java.util.ArrayList;
 
 import modelo.Consultas;
+import vista.Erregistratu;
 import vista.Login;
 import vista.Ordainketa;
 import vista.P1;
@@ -39,6 +40,13 @@ public class Metodoak {
 	public static void hirugarrenLehioa() {
 		Ordainketa ventana6= new Ordainketa(prezio_totala);
 		ventana6.setVisible(true);
+	}
+	
+	public void erregistratzekoPantailara() {
+		Erregistratu ventana2b= new Erregistratu();
+		
+		ventana2b.setVisible(true);
+		
 	}
 	
 
