@@ -13,6 +13,7 @@ import javax.swing.JTextField;
 import javax.swing.UIManager;
 
 import controlador.Metodoak;
+import modelo.Consultas;
 
 public class Login extends JFrame {
 
@@ -68,9 +69,15 @@ public class Login extends JFrame {
 		JButton btnLogueatu = new JButton("ERREGISTRATU");
 		btnLogueatu.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+
 				dispose();
 				Metodoak.erregistratzekoPantailara();
 				
+
+				dispose();
+				Erregistratu ventana2b= new Erregistratu();
+				ventana2b.setVisible(true);
+
 				
 			}
 		});
