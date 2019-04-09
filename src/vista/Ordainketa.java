@@ -33,21 +33,23 @@ public class Ordainketa extends JFrame {
 	private JButton btnOrdaindu = new JButton("Ordaindu");
 	private JTextArea Itzuliak = new JTextArea();
 	private JLabel lblOrdainketa_Tituloa = new JLabel("ORDAINKETA");
-	private double preziototala=0;
+	private static double preziototala=1;
 	private ArrayList<Double> preziotot = new ArrayList<Double>();
-	private double prezioa=0.0;
-	private double prezio2 = 0.0;
+	private double prezioa=0;
+	private double prezio2 = 0;
 	private Metodoak metodos;
 	private String precio="0";
 	private int precioo=0;
 	private JTextField textField;
-	
 
+	int kont1=0;
+	int kont2=0;
+	double dirufalta;
 	/**
 	 * Create the frame.
 	 */
 	public Ordainketa() {
-	
+
 
 		this.setBounds(275,100,700,600);
 		getContentPane().setLayout(null);
@@ -77,184 +79,207 @@ public class Ordainketa extends JFrame {
 				metodos.recivirReserva();
 				Contador contador = new Contador();
 				contador.start();
+				metodos.amaieraIreki();
 				
-				
-				
+
+
 			}
 		});
 		getContentPane().add(btnAmaitu);
-		
-		
-		
-		
+
+
+
+
 		//TEXTUA SARTZEKO DIRUA
-				dirua = new JTextField();
-				dirua.setBounds(262, 161, 136, 26);
-				dirua.addKeyListener(new KeyAdapter() {
-					@Override
-					public void keyTyped(java.awt.event.KeyEvent evt) {
-						if(dirua.getText().length()>=10) {
-							evt.consume();	
+		dirua = new JTextField();
+		dirua.setBounds(262, 161, 136, 26);
+		dirua.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyTyped(java.awt.event.KeyEvent evt) {
+				if(dirua.getText().length()>=10) {
+					evt.consume();	
 
-						}
-						char validar =evt.getKeyChar();
-						if(Character.isLetter(validar)) {
-							getToolkit().beep();
-							evt.consume();	
+				}
+				char validar =evt.getKeyChar();
+				if(Character.isLetter(validar)) {
+					getToolkit().beep();
+					evt.consume();	
 
-						}
-					}
-				});
-				getContentPane().add(dirua);
-				dirua.setColumns(10);
-				btnEzeztatu.setBounds(339, 468, 112, 41);
+				}
+			}
+		});
+		getContentPane().add(dirua);
+		dirua.setColumns(10);
+		btnEzeztatu.setBounds(339, 468, 112, 41);
 
-				btnEzeztatu.setFont(new Font("Arial", Font.PLAIN, 18));
-				btnEzeztatu.addActionListener(new ActionListener() {
-					public void actionPerformed(ActionEvent e) {
-						metodos.lehenengoLehioa();
+		btnEzeztatu.setFont(new Font("Arial", Font.PLAIN, 18));
+		btnEzeztatu.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				metodos.lehenengoLehioa();
+
+			}
+		});
+		getContentPane().add(btnEzeztatu);
+		btnAtzera.setBounds(176, 467, 105, 43);
+
+		btnAtzera.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				metodos.lehenengoLehioa();
+
+			}
+		});
+		btnAtzera.setFont(new Font("Arial", Font.PLAIN, 18));
+		getContentPane().add(btnAtzera);
+		btnOrdaindu.setBounds(470, 151, 141, 37);
+		//Arraylistari prezioa sartu
+
+		
+		
+		//ORDAINDU BOTOIA
+		btnOrdaindu.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				precio=textField.getText();
+				System.out.println("preziototla "+preziototala);
+				prezioa=Double.parseDouble(precio);
+				String ordaindu=dirua.getText();//Sartutako diru kantitatea testu moduan gordeko da
+				
+				//KONPROBATU LETRA
+				boolean letra=metodos.konprobatuLetra(ordaindu);
+				String mezua="";
+				if (letra==false) {
+					double zbk= Double.parseDouble(ordaindu);//Zenbaki formatura pasatzen da
+
+					//KONPROBATU ZENBAKI NEGATIBOA
+					boolean zenbakia=metodos.konprobatuNegatibo(zbk);
+					if (zenbakia==false) {
+						System.out.println("Zenbakia negatiboa da.");
+					}else {
 						
-					}
-				});
-				getContentPane().add(btnEzeztatu);
-				btnAtzera.setBounds(176, 467, 105, 43);
-				
-				btnAtzera.addActionListener(new ActionListener() {
-					public void actionPerformed(ActionEvent e) {
-						metodos.lehenengoLehioa();
-						
-					}
-				});
-				btnAtzera.setFont(new Font("Arial", Font.PLAIN, 18));
-				getContentPane().add(btnAtzera);
-				btnOrdaindu.setBounds(470, 151, 141, 37);
-				//Arraylistari prezioa sartu
-				
-				//ORDAINDU BOTOIA
-				btnOrdaindu.addActionListener(new ActionListener() {
-					public void actionPerformed(ActionEvent e) {
-						precio=textField.getText();
-						System.out.println(textField.getText());
-						prezioa=Integer.parseInt(precio);
-						preziotot.add(prezioa);
-						//Prezioa Arraylistean sartzen da
-
-						
-						String ordaindu=(String) dirua.getText();//Sartutako diru kantitatea testu moduan gordeko da
-
-						//KONPROBATU LETRA
-						boolean letra=metodos.konprobatuLetra(ordaindu);
-						System.out.println("La letra"+ letra);
-						String mezua="";
-
-						if (letra==false) {
-							double zbk= Double.parseDouble(ordaindu);//Zenbaki formatura pasatzen da
-
-
-							//KONPROBATU ZENBAKI NEGATIBOA
-							boolean zenbakia=metodos.konprobatuNegatibo(zbk);
-							if (zenbakia==true){ 
-								System.out.println(preziotot.get(preziotot.size()-1));
-
-								prezio2 = preziotot.get(preziotot.size()-1);
-								preziototala = (double)prezio2-zbk;
-								boolean diru_falta=metodos.diruFalta(zbk, prezio2);
-								//KONPROBATU DIRU FALTA
-								if (diru_falta==true){
-									preziotot.add(preziototala);
-									mezua=(preziotot.get(preziotot.size()-1)+" ï¿½ falta zaizkizu");
-									Itzuliak.setText(mezua);	
-									btnAtzera.setEnabled(false);
-									btnAmaitu.setEnabled(false);
-
-								}else {
-									if (preziototala<0) {
-
-										preziototala=preziototala*(-1);
-										String kanbioak=metodos.kanbioMetodoa(preziototala);
-										Itzuliak.setText(kanbioak);
-										btnAmaitu.setEnabled(true);
-										btnEzeztatu.setEnabled(false);
-										btnAtzera.setEnabled(false);
-										btnOrdaindu.setEnabled(false);
-										dirua.setEditable(false);
-									}else if(preziototala==0) {
-										mezua="Eskerrik asko erosteagatik";
-										Itzuliak.setText(mezua);
-										btnAmaitu.setEnabled(true);
-										btnEzeztatu.setEnabled(false);
-										btnAtzera.setEnabled(false);
-										btnOrdaindu.setEnabled(false);
-										dirua.setEditable(false);
-									}
-								}
-							}
-
+						//KONPROBATU DIRU FALTA
+						if (kont1==0) {
+							preziototala=prezioa;
+							kont1++;
+						}else {
+							System.out.println("PREZIOTOTAL "+preziototala );
 						}
-						dirua.setText("");	
-					}
-				});
-				btnOrdaindu.setFont(new Font("Arial", Font.PLAIN, 20));
+						
+					boolean diru_falta=metodos.diruFalta(preziototala,zbk);
+					if (diru_falta==true){
+					
+						if (kont2==0) {
+						preziototala=prezioa-zbk;
+						dirufalta=(zbk-prezioa)*(-1);
+						kont2++;
+					
+						}else {
+						dirufalta=(zbk-preziototala)*(-1);
+						preziototala=preziototala-zbk;
+						
+						
+						System.out.println("dirufalta "+dirufalta);
+						
+						}
+					
+						mezua=dirufalta+" € falta zaizkizu";
+						Itzuliak.setText(mezua);	
+						btnAtzera.setEnabled(false);
+						btnAmaitu.setEnabled(false);
+						
+						
 
-				getContentPane().add(btnOrdaindu);
-				Itzuliak.setFont(new Font("Arial", Font.PLAIN, 18));
+					}else {	
+						double kanbioa=zbk-preziototala;
+						if (kanbioa>0) {
+							
+							//preziototala=preziototala*(-1);
+							String kanbioak=metodos.kanbioMetodoa(kanbioa);
+							Itzuliak.setText(kanbioak);
+							btnAmaitu.setEnabled(true);
+							btnEzeztatu.setEnabled(false);
+							btnAtzera.setEnabled(false);
+							btnOrdaindu.setEnabled(false);
+							dirua.setEditable(false);
+							diru_falta=false;
+						}else if(kanbioa==0) {
+							mezua="Eskerrik asko erosteagatik";
+							Itzuliak.setText(mezua);
+							btnAmaitu.setEnabled(true);
+							btnEzeztatu.setEnabled(false);
+							btnAtzera.setEnabled(false);
+							btnOrdaindu.setEnabled(false);
+							dirua.setEditable(false);
+							diru_falta=false;
+						}
+					
+					
+				}
 
-				Itzuliak.setBounds(231, 244, 380, 195);
-				getContentPane().add(Itzuliak);
-				Itzuliak.setEditable(false);
-				String ordaintzeko = String.valueOf(prezioa);
-				
-				lblOrdainketa_Tituloa.setHorizontalAlignment(SwingConstants.CENTER);
-				lblOrdainketa_Tituloa.setFont(new Font("Arial", Font.BOLD, 37));
-				lblOrdainketa_Tituloa.setBounds(223, 41, 273, 43);
-				getContentPane().add(lblOrdainketa_Tituloa);
-				
-				textField = new JTextField();
-				textField.setColumns(10);
-				textField.setBounds(262, 118, 136, 26);
-				getContentPane().add(textField);
+			
+				}dirua.setText("");	
+		} }
+	});
 		
-		
-		
-		
+		btnOrdaindu.setFont(new Font("Arial", Font.PLAIN, 20));
 
-	
-	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	public void misMetodos(Metodoak metodos) {
-		this.metodos=metodos;
-	}
-	public void idatzi(String textua) {
-		textField.setText(textua);
-	}
-	
+		getContentPane().add(btnOrdaindu);
+		Itzuliak.setFont(new Font("Arial", Font.PLAIN, 18));
+
+		Itzuliak.setBounds(231, 244, 380, 195);
+		getContentPane().add(Itzuliak);
+		Itzuliak.setEditable(false);
+		String ordaintzeko = String.valueOf(prezioa);
+
+		lblOrdainketa_Tituloa.setHorizontalAlignment(SwingConstants.CENTER);
+		lblOrdainketa_Tituloa.setFont(new Font("Arial", Font.BOLD, 37));
+		lblOrdainketa_Tituloa.setBounds(223, 41, 273, 43);
+		getContentPane().add(lblOrdainketa_Tituloa);
+
+		textField = new JTextField();
+		textField.setColumns(10);
+		textField.setBounds(262, 118, 136, 26);
+		getContentPane().add(textField);
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+public void misMetodos(Metodoak metodos) {
+	this.metodos=metodos;
+}
+public void idatzi(String textua) {
+	textField.setText(textua);
+}
+
 }

@@ -65,6 +65,10 @@ public class Metodoak {
 		ord1.idatzi(diruaString);
 		System.out.println(diruaString);
 	}
+	public void amaieraIreki() {
+		am1.setVisible(true);
+		ord1.setVisible(false);
+	}
 	public void amaiera() {
 		am1.setVisible(false);
 	}
@@ -73,6 +77,9 @@ public class Metodoak {
 		lo1.setVisible(false);
 		er1.setVisible(true);
 		}
+	public void erregistroPantailaItxi() {
+		er1.setVisible(false);
+	}
 	public void recivirReserva() {
 		Erreserba erreserba = p1.bidalireserba();
 		imprimatuTiketa(erreserba);
@@ -103,42 +110,42 @@ public class Metodoak {
 		kanbioa=kanbioa+pantailaratu;
 		// para cada moneda
 		if (itzultzeko >= 20000) {
-			pantailaratu=(" 200ï¿½-ko billeteak: " + itzultzeko / 20000+" \n");
+			pantailaratu=(" 200€-ko billeteak: " + itzultzeko / 20000+" \n");
 			kanbioa=kanbioa+pantailaratu;
 			itzultzeko = itzultzeko % 20000;
 		}
 		if (itzultzeko >= 10000) {
-			pantailaratu=(" 100ï¿½-ko billeteak: " + itzultzeko / 10000+" \n");
+			pantailaratu=(" 100€-ko billeteak: " + itzultzeko / 10000+" \n");
 			kanbioa=kanbioa+pantailaratu;
 			itzultzeko = itzultzeko % 10000;
 		}
 		if (itzultzeko >= 5000) {
-			pantailaratu=(" 50ï¿½-ko billeteak: " + itzultzeko / 5000+" \n");
+			pantailaratu=(" 50€-ko billeteak: " + itzultzeko / 5000+" \n");
 			kanbioa=kanbioa+pantailaratu;
 			itzultzeko = itzultzeko % 5000;
 		}
 		if (itzultzeko >= 2000) {
-			pantailaratu=(" 20ï¿½-ko billeteak: " + itzultzeko / 2000+" \n");
+			pantailaratu=(" 20€-ko billeteak: " + itzultzeko / 2000+" \n");
 			kanbioa=kanbioa+pantailaratu;
 			itzultzeko = itzultzeko % 2000;
 		}
 		if (itzultzeko >= 1000) {
-			pantailaratu=(" 10ï¿½-ko billeteak: " + itzultzeko / 1000+" \n");
+			pantailaratu=(" 10€-ko billeteak: " + itzultzeko / 1000+" \n");
 			kanbioa=kanbioa+pantailaratu;
 			itzultzeko = itzultzeko % 1000;
 		}
 		if (itzultzeko >= 500) {
-			pantailaratu=(" 5ï¿½-ko billeteak: " + itzultzeko / 500+" \n");
+			pantailaratu=(" 5€-ko billeteak: " + itzultzeko / 500+" \n");
 			kanbioa=kanbioa+pantailaratu;
 			itzultzeko = itzultzeko % 500;
 		}
 		if (itzultzeko >= 200) {
-			pantailaratu=(" 2ï¿½-ko txanponak: " + itzultzeko / 200+" \n");
+			pantailaratu=(" 2€-ko txanponak: " + itzultzeko / 200+" \n");
 			kanbioa=kanbioa+pantailaratu;
 			itzultzeko = itzultzeko % 200;
 		}
 		if (itzultzeko >= 100) {
-			pantailaratu=(" 1ï¿½-ko txanponak: " + itzultzeko / 100+" \n");
+			pantailaratu=(" 1€-ko txanponak: " + itzultzeko / 100+" \n");
 			kanbioa=kanbioa+pantailaratu;
 			itzultzeko = itzultzeko % 100;
 		}
@@ -188,7 +195,7 @@ public class Metodoak {
 		return balidatu;
 	}
 
-	public  boolean diruFalta(double zbk,double prezioa) {
+	public static boolean diruFalta(double prezioa,double zbk) {
 
 		boolean diru_falta=false;
 		double preziototala = 0;
@@ -199,7 +206,6 @@ public class Metodoak {
 		}
 		return diru_falta;
 	}
-
 ///////////////////////////////////////////////////////////////////////////
 	public  void imprimatuTiketa(Erreserba r1) {
 

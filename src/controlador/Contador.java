@@ -1,6 +1,7 @@
 package controlador;
 
-import vista.Amaiera;
+import vista.*;
+import controlador.*;
 
 /**
  * 
@@ -9,23 +10,25 @@ import vista.Amaiera;
  */
 public class Contador extends Thread {
 	Metodoak m1;
-
+	boolean amaitu=false;
 	
-	@Override
-    public void run(){
-		Amaiera ventana7= new Amaiera();
-		ventana7.setVisible(true);
+	public void run(){
+		
     	for (int i=0;i<=5;i++) {
         	try {
 				Thread.sleep(1000);
 
 			}catch(InterruptedException e){
 				e.printStackTrace();
-			}	
+			}
+        	
+        
     	}
     	m1.amaiera();
     	m1.lehenengoLehioa();
     }
+    	
+    		
     	
 	
 }
