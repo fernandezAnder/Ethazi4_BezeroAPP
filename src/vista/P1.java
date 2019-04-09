@@ -203,6 +203,7 @@ public class P1 extends JFrame {
 		});
 		btnAurrera.setBounds(464, 527, 89, 23);
 		contentPane.add(btnAurrera);
+		
 	}
 
 	public void rellenar() {
