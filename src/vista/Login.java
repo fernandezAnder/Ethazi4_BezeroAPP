@@ -70,7 +70,7 @@ public class Login extends JFrame {
 		JButton btnLogueatu = new JButton("ERREGISTRATU");
 		btnLogueatu.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				metodos.hirugarrenLehioa();
+				metodos.erregistratzekoPantailara();
 				
 				}
 		});
