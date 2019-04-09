@@ -73,6 +73,10 @@ public class Metodoak {
 		lo1.setVisible(false);
 		er1.setVisible(true);
 		}
+	public void recivirReserva() {
+		Erreserba erreserba = p1.bidalireserba();
+		imprimatuTiketa(erreserba);
+	}
 	
 
 ///////////////////////////////////////////////////////////////////////////

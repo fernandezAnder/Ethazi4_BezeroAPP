@@ -23,6 +23,17 @@ public class Hotela extends Ostatua {
 		return "Hotela [izarkop=" + izarkop + ", ostatu_id=" + ostatu_id + ", izena=" + izena + ", herria=" + herria
 				+ ", helbidea=" + helbidea + ", posta_kod=" + posta_kod + ", ostatu_mota=" + ostatu_mota + ", gela_kop="
 				+ gela_kop + ", erreserba_kop=" + erreserba_kop + "]";
+		}
+
+	/* (non-Javadoc)
+	 * @see controlador.Ostatua#getOstatu_id()
+	 */
+	@Override
+	public int getOstatu_id() {
+		// TODO Auto-generated method stub
+		return super.getOstatu_id();
 	}
+	
+	
 
 }

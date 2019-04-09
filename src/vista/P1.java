@@ -13,6 +13,8 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
+import controlador.Erreserba;
+import controlador.Hotela;
 import controlador.Metodoak;
 
 public class P1 extends JFrame {
@@ -42,6 +44,8 @@ public class P1 extends JFrame {
 	//para poder hacer setVisible sin que se joda
 	private Metodoak metodos;
 	private String precio="";
+	private double precioadoubleprecio=0.0;
+	private Erreserba erreserba;
 	
 	
 
@@ -113,8 +117,20 @@ public class P1 extends JFrame {
 		btnAurrera.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				metodos.bigarrenLehioa();
+				int id=0;
 				precio = textField_2.getText();
+				precioadoubleprecio=Double.parseDouble(precio);
 				
+				for(Hotela p : hotela) {
+					System.out.println(textField.getText());
+					if(p.getHerria().equalsIgnoreCase(textField.getText())) {
+						id=p.getOstatu_id();
+						
+					}
+				}
+				
+				erreserba = new Erreserba(1, id, null, null, null, 0, precioadoubleprecio, 0, null, null, 0, null);
+				System.out.println(erreserba);
 			}
 		});
 		btnAurrera.setBounds(464, 527, 89, 23);
@@ -214,5 +230,8 @@ public class P1 extends JFrame {
 	
 	public String bidalidirus() {
 		return precio;
+	}
+	public Erreserba bidalireserba() {
+		return erreserba;
 	}
 }

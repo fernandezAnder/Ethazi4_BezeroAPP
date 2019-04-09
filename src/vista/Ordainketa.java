@@ -74,6 +74,7 @@ public class Ordainketa extends JFrame {
 		btnAmaitu.setFont(new Font("Arial", Font.PLAIN, 18));
 		btnAmaitu.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				metodos.recivirReserva();
 				Contador contador = new Contador();
 				contador.start();
 				
