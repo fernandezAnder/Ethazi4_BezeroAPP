@@ -4,6 +4,8 @@ import java.awt.Font;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+
+import controlador.Metodoak;
 /**
  * 
  * @author oier, ander, aintzane
@@ -18,6 +20,8 @@ public class Amaiera extends JFrame {
 	private JLabel lblEskerrikAsko = new JLabel("Eskerrik asko erosteagatik ");
 	private JLabel lblZureTxartelaOrain = new JLabel("Zure txartela orain aterako da");
 	private JLabel icono = new JLabel();
+
+	private Metodoak metodos;
 
 	public Amaiera() {
 		
@@ -43,5 +47,10 @@ public class Amaiera extends JFrame {
 		
 		
 		
+	}
+	
+	
+	public void misMetodos(Metodoak metodos) {
+		this.metodos=metodos;
 	}
 }

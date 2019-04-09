@@ -23,6 +23,7 @@ public class Login extends JFrame {
 	private boolean youshouldnotpass;
 	private String pasahitza;
 	private String Nan;
+	private Metodoak metodos;
 
 	/**
 	 * LOGIN frame-aren kodea da.
@@ -69,17 +70,9 @@ public class Login extends JFrame {
 		JButton btnLogueatu = new JButton("ERREGISTRATU");
 		btnLogueatu.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-
-				dispose();
-				Metodoak.erregistratzekoPantailara();
+				metodos.hirugarrenLehioa();
 				
-
-				dispose();
-				Erregistratu ventana2b= new Erregistratu();
-				ventana2b.setVisible(true);
-
-				
-			}
+				}
 		});
 		btnLogueatu.setFont(new Font("Source Code Pro Black", Font.BOLD, 15));
 		btnLogueatu.setBounds(309, 281, 176, 32);
@@ -89,9 +82,9 @@ public class Login extends JFrame {
 				// botoiaren kodea
 				System.out.println("LOGIN BOTOIA");
 				logindatuak();
-				youshouldnotpass = Metodoak.ateraErabiltzailea(Nan, pasahitza);
+				youshouldnotpass = metodos.ateraErabiltzailea(Nan, pasahitza);
 				if (youshouldnotpass == true) {
-					Metodoak.hirugarrenLehioa();
+					metodos.hirugarrenLehioa();
 
 				}
 				System.out.println(youshouldnotpass);
@@ -111,10 +104,9 @@ public class Login extends JFrame {
 	}
 
 	
-	/**
-	 * Return baten bide NaN-a bidaltzen du.
-	 * @return
-	 */
+	public void misMetodos(Metodoak metodos) {
+		this.metodos=metodos;
+	}
 	
 
 }

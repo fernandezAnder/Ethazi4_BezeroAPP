@@ -59,6 +59,7 @@ public class Erregistratu extends JFrame {
 	private String abizena="";
 	private String jaio_data;
 	private String sexua;
+	private Metodoak metodos;
 
 
 	@SuppressWarnings({ "rawtypes", "unchecked" })
@@ -228,7 +229,7 @@ public class Erregistratu extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				dispose();
-				Metodoak.lehenengoLehioa();
+				//Metodoak.lehenengoLehioa();
 
 
 			}
@@ -247,7 +248,7 @@ public class Erregistratu extends JFrame {
 					letra=textLetra.getText();
 					nan=zenbakia+letra;
 
-					letra2=Metodoak.KalkulatuLetra(zbk);
+					letra2=metodos.KalkulatuLetra(zbk);
 					nan2=zenbakia+letra2;
 					System.out.println("Sartutako nan: "+nan);
 					System.out.println("Izan behar den nan: "+nan2);
@@ -275,7 +276,7 @@ public class Erregistratu extends JFrame {
 					JOptionPane.showMessageDialog(null, "Nan letra txarto dago");
 				}
 
-				if(Metodoak.ateraErabiltzailea(nan, pasahitza)) {
+				if(metodos.ateraErabiltzailea(nan, pasahitza)) {
 					Jarraitu.setEnabled(true);
 					Balidatu.setEnabled(false);
 				}else {
@@ -294,7 +295,7 @@ public class Erregistratu extends JFrame {
 				abizena=abizenatextfield.getText();
 				
 				pasahitza=Pasahitza.getText();
-				pasahitza=Metodoak.getMD5(pasahitza);
+				pasahitza=metodos.getMD5(pasahitza);
 				try {
 					Date jaio_data2= jaiodata.getDate();
 					jaio_data= sm.format(jaio_data2);
@@ -317,8 +318,8 @@ public class Erregistratu extends JFrame {
 				dispose();
 				Bezeroa bezeroa =new Bezeroa(nan,izena2,abizena,pasahitza,jaio_data);
 				System.out.println(bezeroa);
-				Metodoak.bezeroaIgo(bezeroa);
-				//Metodoak.bigarrenLeihoa();
+				metodos.bezeroaIgo(bezeroa);
+				metodos.bigarrenLehioa();
 			}
 		});
 		//Jarraitu Botoiaren egitura
@@ -326,5 +327,10 @@ public class Erregistratu extends JFrame {
 		Jarraitu.setBounds(462, 452, 115, 44);
 		getContentPane().add(Jarraitu);
 
+	}
+	
+	
+	public void misMetodos(Metodoak metodos) {
+		this.metodos=metodos;
 	}
 }

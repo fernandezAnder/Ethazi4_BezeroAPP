@@ -8,6 +8,7 @@ import vista.Amaiera;
  *
  */
 public class Contador extends Thread {
+	Metodoak m1;
 
 	
 	@Override
@@ -22,8 +23,8 @@ public class Contador extends Thread {
 				e.printStackTrace();
 			}	
     	}
-    	ventana7.dispose();
-    	Metodoak.lehenengoLehioa();
+    	m1.amaiera();
+    	m1.lehenengoLehioa();
     }
     	
 	

@@ -38,6 +38,11 @@ public class P1 extends JFrame {
 	private JLabel lblHotel = new JLabel("Hotel");
 	private JLabel lblGauakgaua = new JLabel("Gauak(80/Gaua)");
 	private JButton btnAurrera = new JButton("Aurrera");
+	private Metodoak m1;
+	//para poder hacer setVisible sin que se joda
+	private Metodoak metodos;
+	private String precio="";
+	
 	
 
 	public P1(ArrayList<controlador.Hotela> hotela) {
@@ -107,10 +112,9 @@ public class P1 extends JFrame {
 
 		btnAurrera.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				dispose();
+				metodos.bigarrenLehioa();
+				precio = textField_2.getText();
 				
-				Metodoak.bigarrenLehioa();
-
 			}
 		});
 		btnAurrera.setBounds(464, 527, 89, 23);
@@ -190,7 +194,7 @@ public class P1 extends JFrame {
 				prezioa1=Integer.toString(prezioa);
 
 				textField_2.setText(prezioa1);
-				Metodoak.prezio_totala(prezioa1);
+				
 			}
 		});
 	}
@@ -202,5 +206,13 @@ public class P1 extends JFrame {
 			zenb=Integer.toString(i+1);
 			zerrenda[i]=zenb;
 		}
+	}
+	
+	public void misMetodos(Metodoak metodos) {
+		this.metodos=metodos;
+	}
+	
+	public String bidalidirus() {
+		return precio;
 	}
 }
