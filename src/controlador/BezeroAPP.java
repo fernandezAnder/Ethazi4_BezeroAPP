@@ -5,6 +5,7 @@ import modelo.Conexion;
 import modelo.Consultas;
 import vista.Amaiera;
 import vista.Erregistratu;
+import vista.Fin;
 import vista.Login;
 import vista.Ordainketa;
 import vista.ord;
@@ -16,6 +17,7 @@ public class BezeroAPP {
 	private Erregistratu er1;
 	private Ordainketa ord1;
 	private Amaiera am1;
+	private Fin f1;
 	
 	
 	public static void main(String[] args) {
@@ -42,6 +44,7 @@ public class BezeroAPP {
 		lo1 = new Login();
 		ord1 = new Ordainketa();
 		am1 = new Amaiera();
+		f1= new Fin();
 		
 		
 		
@@ -62,7 +65,7 @@ public class BezeroAPP {
 		 er1.misMetodos(m1);
 		 ord1.misMetodos(m1);
 		 am1.misMetodos(m1);
-		 
+		 f1.misMetodos(m1);
 		
 		 //DE METODOS  A LAS VENTANAS
 		 m1.setMip1(p1);
@@ -70,6 +73,7 @@ public class BezeroAPP {
 		 m1.setMier1(er1);
 		 m1.setMiord1(ord1);
 		 m1.setMiam1(am1);
+		 m1.setF1(f1);
 		 
 		 
 		 

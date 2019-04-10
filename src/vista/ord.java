@@ -72,8 +72,8 @@ public class ord extends JFrame {
 		btnAmaitu.setFont(new Font("Arial", Font.PLAIN, 18));
 		btnAmaitu.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Contador contador = new Contador();
-				contador.start();
+				//Contador contador = new Contador();
+				//contador.start();
 				
 				
 				
