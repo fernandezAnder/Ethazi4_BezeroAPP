@@ -2,63 +2,99 @@ package controlador;
 
 
 import java.io.FileWriter;
+
+
 import java.math.BigInteger;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 
+
 import modelo.Consultas;
+import vista.Amaiera;
 import vista.Erregistratu;
 import vista.Login;
 import vista.Ordainketa;
+import vista.ord;
 import vista.P1;
 
 
 public class Metodoak {
-///////////////////////////////////////////////////////////////////////////
 	private static String prezio_totala;
-	public static void prezio_totala(String prezioa) {
+	private P1 p1;
+	private Erregistratu er1;
+	private Login lo1;
+	private Ordainketa ord1;
+	private Amaiera am1;
+
+///////////////////////////////////////////////////////////////////////////
+	
+	public void prezio_totala(String prezioa) {
 		prezio_totala=prezioa;
 	}
 ///////////////////////////////////////////////////////////////////////////
-	public static void lehenengoLehioa() {
-		ArrayList<Hotela> hotela=new ArrayList();
-		hotela=modelo.Consultas.hotelendatuak();
-		P1 lehenengo = new P1(hotela);
-		lehenengo.setVisible(true);
-	}
-
-	public static void bigarrenLehioa() {
-		Login login = new Login();
-		login.setVisible(true);
+	public  void lehenengoLehioa() {
+		p1.setVisible(true);
 	}
 	
 	
 
-
-	public static void hirugarrenLehioa() {
-		Ordainketa ventana6= new Ordainketa(prezio_totala);
-		ventana6.setVisible(true);
+	public void bigarrenLehioa() {
+		p1.setVisible(false);
+		lo1.setVisible(true);
 	}
 	
-	public static void erregistratzekoPantailara() {
-		Erregistratu ventana2b= new Erregistratu();
+	
+	public void bidaliDirua() {
+		String diruaString = "";
+		System.out.println("AAAAAAAAAAAAAAAAA");
+		diruaString=p1.bidalidirus();
+		ord1.idatzi(diruaString);
+		System.out.println(diruaString);
 		
-		ventana2b.setVisible(true);
 		
+	}
+	
+	public void hirugarrenLehioa() {
+		lo1.setVisible(false);
+		ord1.setVisible(true);
+		String diruaString = "";
+		System.out.println("AAAAAAAAAAAAAAAAA");
+		diruaString=p1.bidalidirus();
+		ord1.idatzi(diruaString);
+		System.out.println(diruaString);
+	}
+	public void amaieraIreki() {
+		am1.setVisible(true);
+		ord1.setVisible(false);
+	}
+	public void amaiera() {
+		am1.setVisible(false);
+	}
+	
+	public void erregistratzekoPantailara() {
+		lo1.setVisible(false);
+		er1.setVisible(true);
+		}
+	public void erregistroPantailaItxi() {
+		er1.setVisible(false);
+	}
+	public void recivirReserva() {
+		Erreserba erreserba = p1.bidalireserba();
+		imprimatuTiketa(erreserba);
 	}
 	
 
 ///////////////////////////////////////////////////////////////////////////
-	public static boolean konprobatuNegatibo(double zbk) {
+	public boolean konprobatuNegatibo(double zbk) {
 		boolean balidatu=false;
 		if (zbk>0)
 			balidatu=true;
 		return balidatu;
 	}
 	
-	public static String kanbioMetodoa(double zbk) {
+	public  String kanbioMetodoa(double zbk) {
 
 
 		double kanbio= zbk;
@@ -145,19 +181,21 @@ public class Metodoak {
 		}
 		return kanbioa;
 	}
-	public static boolean konprobatuLetra(String zbk) {
+	public  boolean konprobatuLetra(String zbk) {
+		System.out.println(zbk);
 		boolean balidatu=false;
 
 		try {
 			Double.parseDouble(zbk);
 			balidatu = false;
-		} catch (NumberFormatException letra) {
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
 			balidatu = true;
 		}
 		return balidatu;
 	}
 
-	public static boolean diruFalta(double zbk,double prezioa) {
+	public static boolean diruFalta(double prezioa,double zbk) {
 
 		boolean diru_falta=false;
 		double preziototala = 0;
@@ -168,9 +206,8 @@ public class Metodoak {
 		}
 		return diru_falta;
 	}
-
 ///////////////////////////////////////////////////////////////////////////
-	public static void imprimatuTiketa(Erreserba r1) {
+	public  void imprimatuTiketa(Erreserba r1) {
 
 		System.out.println(r1);
 		String nombre = "tiket.txt";
@@ -184,7 +221,7 @@ public class Metodoak {
 		}
 	}
 ///////////////////////////////////////////////////////////////////////////	
-	public static String getMD5(String input) {
+	public  String getMD5(String input) {
 		try {
 			MessageDigest md = MessageDigest.getInstance("MD5");
 			byte[] messageDigest = md.digest(input.getBytes());
@@ -200,7 +237,7 @@ public class Metodoak {
 		}
 	}
 
-	public static boolean ateraErabiltzailea(String nan, String pasahitza) {
+	public  boolean ateraErabiltzailea(String nan, String pasahitza) {
 		boolean erabakia = false;
 		ArrayList <Bezeroa> arraybezer = new ArrayList<Bezeroa>();
 		arraybezer=modelo.Consultas.ateraErabiltzaileak();
@@ -216,6 +253,8 @@ public class Metodoak {
 		return (erabakia);
 
 	}
+
+	
 
 	
 	
@@ -279,7 +318,7 @@ public class Metodoak {
 	
 
 
-	public static String KalkulatuLetra(int dni){
+	public String KalkulatuLetra(int dni){
 		String karaktereak="TRWAGMYFPDXBNJZSQVHLCKE";
 		int modulo= dni % 23;
 		char letra1 = karaktereak.charAt(modulo);
@@ -287,10 +326,28 @@ public class Metodoak {
 		return letra; 
 	} 
 
-	public static void bezeroaIgo(Bezeroa bezeroa) {
+	public  void bezeroaIgo(Bezeroa bezeroa) {
 		Consultas.txertatuBezeroa(bezeroa);
 	}
 
 ///////////////////////////////////////////////////////////////////////////
-
+	public void setMip1(P1 p1) {
+		this.p1 = p1;
+	}
+	public void setMier1(Erregistratu er1) {
+		this.er1 = er1;
+	}
+	public void setMielo1(Login lo1) {
+		this.lo1 = lo1;
+	}
+	
+	
+	public void setMiord1(Ordainketa ord1) {
+		this.ord1 = ord1;
+	}
+	
+	public void setMiam1(Amaiera am1) {
+		this.am1 = am1;
+	}
+	
 }

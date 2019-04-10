@@ -4,6 +4,7 @@ import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
+import java.util.Vector;
 
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
@@ -14,9 +15,13 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 import controlador.*;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.JTableHeader;
+import javax.swing.table.TableModel;
+import javax.swing.ListSelectionModel;
 
-
-public class P1 extends JFrame {
+public class P1_frogak extends JFrame {
 
 	private JPanel contentPane;
 
@@ -32,31 +37,23 @@ public class P1 extends JFrame {
 	private JComboBox comboBox;
 	private JComboBox comboBox_1= new JComboBox();
 	private JComboBox<String> comboBox_2 = new JComboBox();
-	private JLabel lblPais = new JLabel("Ciudad");
+	private JComboBox comboBox_3 = new JComboBox();
+	private JLabel lblPais = new JLabel("Herria");
 	private JLabel label = new JLabel("Ciudad:");
 	private JLabel label_1 = new JLabel("Hotel:");
 	private JLabel label_2 = new JLabel("Precio:");
-	private JLabel lblHotel = new JLabel("Hotel");
-	private JLabel lblGauakgaua = new JLabel("Gauak(80/Gaua)");
+	private JLabel lblHotel = new JLabel("");
+	private JLabel lblGauakgaua = new JLabel("Gauak");
 	private JButton btnAurrera = new JButton("Aurrera");
-
 
 	int prezioa=0;
 	int ostatu_id=0;
+	private JTable table;
 
-	private Metodoak m1;
-	//para poder hacer setVisible sin que se joda
-	private Metodoak metodos;
-	private String precio="";
-	private double precioadoubleprecio=0.0;
-	private Erreserba erreserba;
-	
-	
-
-	public P1(ArrayList<controlador.Hotela> hotela) {
+	public P1_frogak(ArrayList<controlador.Hotela> hotela) {
 		rellenar();
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(0, 0, 600, 600);
+		setBounds(0, 0, 742, 600);
 		contentPane = new JPanel();
 		contentPane.setBorder(null);
 		setContentPane(contentPane);
@@ -64,7 +61,7 @@ public class P1 extends JFrame {
 
 
 		lblPais.setFont(new Font("Tahoma", Font.PLAIN, 17));
-		lblPais.setBounds(20, 70, 100, 50);
+		lblPais.setBounds(10, 58, 64, 50);
 		contentPane.add(lblPais);
 
 
@@ -103,46 +100,26 @@ public class P1 extends JFrame {
 
 
 		lblHotel.setFont(new Font("Tahoma", Font.PLAIN, 17));
-		lblHotel.setBounds(212, 70, 100, 50);
+		lblHotel.setBounds(383, 62, 47, 50);
 		contentPane.add(lblHotel);
 
 
 
 
 		lblGauakgaua.setFont(new Font("Tahoma", Font.PLAIN, 17));
-		lblGauakgaua.setBounds(397, 70, 141, 50);
+		lblGauakgaua.setBounds(596, 62, 54, 50);
 		contentPane.add(lblGauakgaua);
 
 		comboBox= new JComboBox();
-		comboBox.setBounds(426, 125, 58, 56);
+		comboBox.setBounds(660, 66, 47, 40);
 		contentPane.add(comboBox);
 
-		btnAurrera.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				metodos.bigarrenLehioa();
-				int id=0;
-				precio = textField_2.getText();
-				precioadoubleprecio=Double.parseDouble(precio);
-				
-				for(Hotela p : hotela) {
-					System.out.println(textField.getText());
-					if(p.getHerria().equalsIgnoreCase(textField.getText())) {
-						id=p.getOstatu_id();
-						
-					}
-				}
-				
-				erreserba = new Erreserba(1, id, null, null, null, 0, precioadoubleprecio, 0, null, null, 0, null);
-				System.out.println(erreserba);
-			}
-		});
-		btnAurrera.setBounds(464, 527, 89, 23);
-		contentPane.add(btnAurrera);
-		
+
+
 
 		//Combo1
 
-		comboBox_1.setBounds(20, 143, 82, 20);
+		comboBox_1.setBounds(67, 70, 89, 38);
 		contentPane.add(comboBox_1);
 		String herr="";
 		ArrayList<String>arr = new ArrayList ();
@@ -155,7 +132,7 @@ public class P1 extends JFrame {
 		}
 
 		//Combo2
-		comboBox_2.setBounds(212, 143, 89, 20);
+		comboBox_2.setBounds(440, 74, 141, 34);
 		contentPane.add(comboBox_2);
 
 
@@ -209,31 +186,36 @@ public class P1 extends JFrame {
 
 			public void actionPerformed(ActionEvent e) {
 
-
-				int dia=Integer.valueOf(comboBox.getSelectedItem().toString());
-				prezioa = 80*dia;
-
-				prezioa1=Integer.toString(prezioa);
-
-				textField_2.setText(prezioa1);
-
-				//Metodoak.prezio_totala(prezioa1);
 			}
-
 		});
-		
+
 		btnAurrera.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				dispose();
-
-				//Metodoak.bigarrenLehioa();
-				//Erreserba r1= new Erreserba(1,ostatu_id,null,null,null,0,prezioa,0,null,null,0,null);
-				DatuBiltegia db1=new DatuBiltegia();
-				db1.erreserbaGorde(ostatu_id,prezioa);
+				
 			}
 		});
 		btnAurrera.setBounds(464, 527, 89, 23);
 		contentPane.add(btnAurrera);
+		
+		JLabel lblMota = new JLabel("Mota");
+		lblMota.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		lblMota.setBounds(197, 67, 46, 38);
+		contentPane.add(lblMota);
+		
+		
+		comboBox_3.setModel(new DefaultComboBoxModel(new String[] {"Apartamentua", "Hotela", "Etxea"}));
+		comboBox_3.setBounds(258, 68, 100, 40);
+		contentPane.add(comboBox_3);
+		
+		
+		comboBox_3.addActionListener(new ActionListener() {
+
+			public void actionPerformed(ActionEvent i) {
+				lblHotel.setText((String) comboBox_3.getSelectedItem());				
+			}
+		});
+		
+		
 		
 	}
 
@@ -244,16 +226,5 @@ public class P1 extends JFrame {
 			zenb=Integer.toString(i+1);
 			zerrenda[i]=zenb;
 		}
-	}
-	
-	public void misMetodos(Metodoak metodos) {
-		this.metodos=metodos;
-	}
-	
-	public String bidalidirus() {
-		return precio;
-	}
-	public Erreserba bidalireserba() {
-		return erreserba;
 	}
 }
