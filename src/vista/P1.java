@@ -160,14 +160,14 @@ public class P1 extends JFrame {
 		btnAurrera.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 
-				ostatu_aukera=comboBox_3.getSelectedIndex();
-				if (ostatu_aukera==0) {
+				
+				if (letra_ostatu.equalsIgnoreCase("H")) {
 					
 					metodos.bigarrenLehioaHotela();
-				}else if(ostatu_aukera==1) {
+				}else if(letra_ostatu.equalsIgnoreCase("A")) {
 					
 					metodos.bigarrenLehioaApartamentua();
-				}else if(ostatu_aukera==2) {
+				}else if(letra_ostatu.equalsIgnoreCase("E")) {
 					
 					metodos.bigarrenLehioaEtxea();
 				}

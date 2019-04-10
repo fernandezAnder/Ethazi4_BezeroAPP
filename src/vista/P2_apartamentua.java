@@ -24,6 +24,7 @@ public class P2_apartamentua extends JFrame {
 	private JPanel contentPane;
 	private JTable table;
 	private Metodoak m1;
+	private Metodoak metodos;
 	
 
 
@@ -77,5 +78,8 @@ public class P2_apartamentua extends JFrame {
 		btnNewButton_1.setFont(new Font("Arial Narrow", Font.BOLD, 16));
 		btnNewButton_1.setBounds(518, 502, 98, 23);
 		contentPane.add(btnNewButton_1);
+	}
+	public void misMetodos(Metodoak metodos) {
+		this.metodos=metodos;
 	}
 }
