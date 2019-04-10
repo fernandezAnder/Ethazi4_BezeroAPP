@@ -319,7 +319,8 @@ public class Erregistratu extends JFrame {
 				Bezeroa bezeroa =new Bezeroa(nan,izena2,abizena,pasahitza,jaio_data);
 				System.out.println(bezeroa);
 				metodos.bezeroaIgo(bezeroa);
-				metodos.bigarrenLehioa();
+				metodos.loginIreki();
+				metodos.erregistroPantailaItxi();
 			}
 		});
 		//Jarraitu Botoiaren egitura

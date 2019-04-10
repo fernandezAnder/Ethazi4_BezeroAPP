@@ -9,6 +9,9 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
+
+import controlador.Metodoak;
+
 import javax.swing.JLabel;
 import java.awt.Font;
 import java.awt.Color;
@@ -20,26 +23,10 @@ public class P2_etxea extends JFrame {
 
 	private JPanel contentPane;
 	private JTable table;
+	private Metodoak m1;
 
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					P2_etxea frame = new P2_etxea();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
 
-	/**
-	 * Create the frame.
-	 */
+
 	public P2_etxea() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 998, 588);
@@ -81,6 +68,12 @@ public class P2_etxea extends JFrame {
 		contentPane.add(btnNewButton);
 		
 		JButton btnNewButton_1 = new JButton("AURRERA");
+		btnNewButton_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				m1.loginIreki();
+				m1.lehioaEtxeaItxi();
+			}
+		});
 		btnNewButton_1.setFont(new Font("Arial Narrow", Font.BOLD, 16));
 		btnNewButton_1.setBounds(518, 502, 98, 23);
 		contentPane.add(btnNewButton_1);

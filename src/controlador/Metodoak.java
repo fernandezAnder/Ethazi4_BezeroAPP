@@ -57,8 +57,19 @@ public class Metodoak {
 		p1.setVisible(false);
 		p2etxe.setVisible(true);
 	}
+	public void lehioaHotelaItxi() {
+		p2hot.setVisible(false);
+	}
+	public void lehioaApartamentuaItxi() {
+		p2apart.setVisible(false);
+	}
+	public void lehioaEtxeaItxi() {
+		p2etxe.setVisible(false);
+	}
 	
-	
+	public void loginIreki() {
+		lo1.setEnabled(true);
+	}
 	public void bidaliDirua() {
 		String diruaString = "";
 		System.out.println("AAAAAAAAAAAAAAAAA");
@@ -107,9 +118,10 @@ public class Metodoak {
 		er1.setVisible(false);
 	}
 	public void recivirReserva() {
-		Erreserba erreserba = p1.bidalireserba();
+		Erreserba erreserba =new Erreserba(0, p1.bidaliId(), lo1.ateraNana(), p1.ateraData1(), p1.ateraData2(), p1.ateraPertsonakop(), 0, p1.ateraGelakop(), p1.ateraPentsio(), p1.ateraOheMota(), 0, null);
 		imprimatuTiketa(erreserba);
 		Consultas.txertatuErreserba(erreserba);
+		System.out.println(erreserba);
 	}
 	
 	

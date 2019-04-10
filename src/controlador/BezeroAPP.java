@@ -1,14 +1,10 @@
 package controlador;
 import java.util.ArrayList;
 
-import modelo.Conexion;
-import modelo.Consultas;
-import vista.Amaiera;
-import vista.Erregistratu;
-import vista.Login;
-import vista.Ordainketa;
-import vista.ord;
-import vista.P1;
+import modelo.*;
+
+import vista.*;
+
 public class BezeroAPP {
 	private P1 p1;
 	private Metodoak m1;
