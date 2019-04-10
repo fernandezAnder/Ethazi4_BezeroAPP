@@ -18,7 +18,6 @@ import java.util.TimerTask;
 import modelo.Consultas;
 import vista.Amaiera;
 import vista.Erregistratu;
-import vista.Fin;
 import vista.Login;
 import vista.Ordainketa;
 import vista.ord;
@@ -32,7 +31,6 @@ public class Metodoak {
 	private Login lo1;
 	private Ordainketa ord1;
 	private Amaiera am1;
-	private Fin f1;
 	Timer timer = new Timer();
 
 	
@@ -77,6 +75,7 @@ public class Metodoak {
 	public void amaieraIreki() {
 		ord1.setVisible(false);
 		am1.setVisible(true);
+		
 	}
 	
 	public void agurratoP1() {
@@ -364,10 +363,7 @@ public class Metodoak {
 		this.am1 = am1;
 	}
 	
-	public void setF1(Fin f1) {
-		this.f1 = f1;
-	}
-
+	
 
 
 		
