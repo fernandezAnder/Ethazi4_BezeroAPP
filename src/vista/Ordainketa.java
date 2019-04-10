@@ -26,7 +26,7 @@ import controlador.Metodoak;
 
 public class Ordainketa extends JFrame {
 	private static final long serialVersionUID = 1L;
-	private JPanel contentPane;
+	private JPanel contentPane=new JPanel();
 	private JLabel lblOrdainketa = new JLabel("Ordainketa :");
 	private JLabel lblSartuDirua = new JLabel("Sartu Dirua :");
 	private JLabel lblItzuliak = new JLabel("Itzuliak :");
@@ -186,7 +186,7 @@ public class Ordainketa extends JFrame {
 						
 						}
 					
-						mezua=dirufalta+" € falta zaizkizu";
+						mezua=dirufalta+" ï¿½ falta zaizkizu";
 						Itzuliak.setText(mezua);	
 						btnAtzera.setEnabled(false);
 						btnAmaitu.setEnabled(false);
@@ -244,6 +244,8 @@ public class Ordainketa extends JFrame {
 		textField.setColumns(10);
 		textField.setBounds(262, 118, 136, 26);
 		getContentPane().add(textField);
+		textField.setEditable(false);
+		textField.setEnabled(false);
 
 
 
@@ -287,5 +289,4 @@ public void misMetodos(Metodoak metodos) {
 public void idatzi(String textua) {
 	textField.setText(textua);
 }
-
 }

@@ -12,7 +12,7 @@ public class Contador extends Thread {
 	Metodoak m1;
 	
 	
-	public void run(){
+	public void run()  {
 		
     	for (int i=0;i<=5;i++) {
         	try {

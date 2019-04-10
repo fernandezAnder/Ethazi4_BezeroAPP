@@ -18,12 +18,12 @@ public class BezeroAPP {
 	private Amaiera am1;
 	
 	
+	
 	public static void main(String[] args) {
 		Conexion k1 = new Conexion();
 		BezeroAPP bz = new BezeroAPP();
 		bz.arrancar();
 
-		
 		
 		
 		
@@ -60,7 +60,6 @@ public class BezeroAPP {
 		 er1.misMetodos(m1);
 		 ord1.misMetodos(m1);
 		 am1.misMetodos(m1);
-		 
 		
 		 //DE METODOS  A LAS VENTANAS
 		 m1.setMip1(p1);

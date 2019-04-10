@@ -4,11 +4,15 @@ package controlador;
 import java.io.FileWriter;
 
 
+
+
 import java.math.BigInteger;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
+import java.util.Timer;
+import java.util.TimerTask;
 
 
 import modelo.Consultas;
@@ -27,6 +31,9 @@ public class Metodoak {
 	private Login lo1;
 	private Ordainketa ord1;
 	private Amaiera am1;
+	Timer timer = new Timer();
+
+	
 
 ///////////////////////////////////////////////////////////////////////////
 	
@@ -66,12 +73,21 @@ public class Metodoak {
 		System.out.println(diruaString);
 	}
 	public void amaieraIreki() {
-		
+
 		ord1.setVisible(false);
 		am1.setVisible(true);
+
 		amaiera();
 		p1.setVisible(true);
+
+		
 	}
+	
+	public void agurratoP1() {
+		am1.setVisible(false);
+		BezeroAPP ap = new BezeroAPP();
+		ap.arrancar();
+		}
 	public void amaiera() {
 		itxaron(5);
 		am1.setVisible(false);
@@ -124,42 +140,42 @@ public class Metodoak {
 		kanbioa=kanbioa+pantailaratu;
 		// para cada moneda
 		if (itzultzeko >= 20000) {
-			pantailaratu=(" 200€-ko billeteak: " + itzultzeko / 20000+" \n");
+			pantailaratu=(" 200ï¿½-ko billeteak: " + itzultzeko / 20000+" \n");
 			kanbioa=kanbioa+pantailaratu;
 			itzultzeko = itzultzeko % 20000;
 		}
 		if (itzultzeko >= 10000) {
-			pantailaratu=(" 100€-ko billeteak: " + itzultzeko / 10000+" \n");
+			pantailaratu=(" 100ï¿½-ko billeteak: " + itzultzeko / 10000+" \n");
 			kanbioa=kanbioa+pantailaratu;
 			itzultzeko = itzultzeko % 10000;
 		}
 		if (itzultzeko >= 5000) {
-			pantailaratu=(" 50€-ko billeteak: " + itzultzeko / 5000+" \n");
+			pantailaratu=(" 50ï¿½-ko billeteak: " + itzultzeko / 5000+" \n");
 			kanbioa=kanbioa+pantailaratu;
 			itzultzeko = itzultzeko % 5000;
 		}
 		if (itzultzeko >= 2000) {
-			pantailaratu=(" 20€-ko billeteak: " + itzultzeko / 2000+" \n");
+			pantailaratu=(" 20ï¿½-ko billeteak: " + itzultzeko / 2000+" \n");
 			kanbioa=kanbioa+pantailaratu;
 			itzultzeko = itzultzeko % 2000;
 		}
 		if (itzultzeko >= 1000) {
-			pantailaratu=(" 10€-ko billeteak: " + itzultzeko / 1000+" \n");
+			pantailaratu=(" 10ï¿½-ko billeteak: " + itzultzeko / 1000+" \n");
 			kanbioa=kanbioa+pantailaratu;
 			itzultzeko = itzultzeko % 1000;
 		}
 		if (itzultzeko >= 500) {
-			pantailaratu=(" 5€-ko billeteak: " + itzultzeko / 500+" \n");
+			pantailaratu=(" 5ï¿½-ko billeteak: " + itzultzeko / 500+" \n");
 			kanbioa=kanbioa+pantailaratu;
 			itzultzeko = itzultzeko % 500;
 		}
 		if (itzultzeko >= 200) {
-			pantailaratu=(" 2€-ko txanponak: " + itzultzeko / 200+" \n");
+			pantailaratu=(" 2ï¿½-ko txanponak: " + itzultzeko / 200+" \n");
 			kanbioa=kanbioa+pantailaratu;
 			itzultzeko = itzultzeko % 200;
 		}
 		if (itzultzeko >= 100) {
-			pantailaratu=(" 1€-ko txanponak: " + itzultzeko / 100+" \n");
+			pantailaratu=(" 1ï¿½-ko txanponak: " + itzultzeko / 100+" \n");
 			kanbioa=kanbioa+pantailaratu;
 			itzultzeko = itzultzeko % 100;
 		}
@@ -363,5 +379,17 @@ public class Metodoak {
 	public void setMiam1(Amaiera am1) {
 		this.am1 = am1;
 	}
+	
+	
+
+
+		
+
+	
+
+	
+	
+
+	
 	
 }
