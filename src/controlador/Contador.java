@@ -12,7 +12,7 @@ public class Contador extends Thread {
 	Metodoak m1;
 	boolean amaitu=false;
 	
-	public void run(){
+	public void run()  {
 		
     	for (int i=0;i<=5;i++) {
         	try {
@@ -24,8 +24,8 @@ public class Contador extends Thread {
         	
         
     	}
-    	m1.amaiera();
-    	m1.lehenengoLehioa();
+    	
+    	
     }
     	
     		
