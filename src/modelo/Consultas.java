@@ -8,8 +8,8 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
-import controlador.Bezeroa;
-import controlador.Hotela;
+import controlador.*;
+
 
 public class Consultas {
 
@@ -92,6 +92,29 @@ public class Consultas {
 			s.setString(4, bezeroa.getData());
 			s.setString(5, bezeroa.getPasahitza());
 
+			s.executeUpdate();
+			s.close();
+
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+
+	}
+	public static void txertatuErreserba(Erreserba e1) {
+		Connection conexion = modelo.Conexion.getConexion();
+		System.out.println(e1);
+		try {
+			PreparedStatement s = (PreparedStatement) conexion.prepareStatement(
+					"INSERT INTO `bezeroa` (`nan`, `izena`, `abizenak`, `jaiotze_data`, `pasahitza`)"
+							+ " VALUES(?, ?, ?, ?, ?)");
+			
+			s.setInt(2,e1.getOstatu_id());
+			s.setString(3, e1.getBezero_nan());
+			s.setInt(4, e1.getPertsona_kop());
+			s.setDouble(5,e1.getPrezio_totala() );
+			s.setInt(6,e1.getErreserba_gela_kop() );
+			s.setString(7, e1.getPentsio_mota());
+			
 			s.executeUpdate();
 			s.close();
 

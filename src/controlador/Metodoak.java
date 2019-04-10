@@ -103,6 +103,7 @@ public class Metodoak {
 	public void recivirReserva() {
 		Erreserba erreserba = p1.bidalireserba();
 		imprimatuTiketa(erreserba);
+		Consultas.txertatuErreserba(erreserba);
 	}
 	
 	
