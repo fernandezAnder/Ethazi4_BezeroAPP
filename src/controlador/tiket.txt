@@ -4,6 +4,6 @@
 Erreserba erreserba_kod=1 	, ostatu_id=5 	
 , bezero_nan=null 	, sartze_data=null 	
 , irtetze_data=null 	, pertsona_kop=0 	
-, prezio_totala=240.0 	, erreserba_gela_kop=0 	
+, prezio_totala=160.0 	, erreserba_gela_kop=0 	
 , pentsio_mota=null 	, ohe_mota=null 	
 , ohe_kop=0 	, tarifa_denboraldia=null

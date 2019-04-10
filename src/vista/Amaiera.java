@@ -45,13 +45,13 @@ public class Amaiera extends JFrame {
 		icono.setBounds(194, 306, 307, 141);
 		getContentPane().add(icono);
 		//icono.setIcon(new ImageIcon(Ventana7.class.getResource("/argazkiak/termibus.png")));
-		Metodoak m1 =new Metodoak();
-		if (this.isVisible()) {
-			itxaron(5);
-			m1.amaiera();
-			m1.lehenengoLehioa();
-		}
-			
+//		Metodoak m1 =new Metodoak();
+//		if (this.isVisible()) {
+//			itxaron(5);
+//			m1.amaiera();
+//			m1.lehenengoLehioa();
+//		}
+//			
 			
 		}
 		
@@ -62,11 +62,5 @@ public class Amaiera extends JFrame {
 		this.metodos=metodos;
 	}
 	
-	public static void itxaron(int segundos){
-        try {
-            Thread.sleep(segundos * 1000);
-         } catch (Exception e) {
-            System.out.println(e);
-         }
-    }   
+	
 }

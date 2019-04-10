@@ -66,15 +66,12 @@ public class Metodoak {
 		System.out.println(diruaString);
 	}
 	public void amaieraIreki() {
+		
 		ord1.setVisible(false);
 		am1.setVisible(true);
-		
-		am1.itxaron(5);
-		amaiera();
-		lehenengoLehioa();
-		
 	}
 	public void amaiera() {
+		itxaron(5);
 		am1.setVisible(false);
 	}
 	
@@ -90,8 +87,18 @@ public class Metodoak {
 		imprimatuTiketa(erreserba);
 	}
 	
+	
 
 ///////////////////////////////////////////////////////////////////////////
+	public static void itxaron(int segundos){
+        try {
+            Thread.sleep(segundos * 1000);
+         } catch (Exception e) {
+            System.out.println(e.getMessage());
+         }
+        System.out.println("BUKATU DA");
+    }  
+	
 	public boolean konprobatuNegatibo(double zbk) {
 		boolean balidatu=false;
 		if (zbk>0)
