@@ -22,9 +22,7 @@ public class BezeroAPP {
 		Conexion k1 = new Conexion();
 		BezeroAPP bz = new BezeroAPP();
 		bz.arrancar();
-		
-		
-		
+
 		
 		
 		

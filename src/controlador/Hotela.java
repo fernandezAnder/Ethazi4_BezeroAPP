@@ -4,8 +4,8 @@ public class Hotela extends Ostatua {
 
 	private int izarkop;
 
-	public Hotela(int ostatu_id, String izena, String herria, String helbidea, int posta_kod, String ostatu_mota,
-			int gela_kop, int erreserba_kop, int izarkop) {
+	public Hotela( int izarkop,int ostatu_id, String izena, String herria, String helbidea, int posta_kod, String ostatu_mota,
+			int gela_kop, int erreserba_kop) {
 		super(ostatu_id, izena, herria, helbidea, posta_kod, ostatu_mota, gela_kop, erreserba_kop);
 		this.izarkop = izarkop;
 	}

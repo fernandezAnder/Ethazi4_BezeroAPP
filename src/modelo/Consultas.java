@@ -23,16 +23,17 @@ public class Consultas {
 			s = konexioa.prepareStatement("select * from hotelak");
 			ResultSet rs = s.executeQuery();
 			int izarkop=0;
+			int ostatu_id=0;
 			String izena="";
 			String herria="";
 			String helbidea="";
 			int postaKod=0;
 			String ostatu_mota="";
 			int gela_kop=0;
-			int tarifa_gehigarria=0;
 			int erreserba_kop=0;
 			while (rs.next()) {
 				izarkop=(rs.getInt(1));
+				ostatu_id=(rs.getInt(2));
 				izena=(rs.getString(3));
 				herria=(rs.getString(4));
 				helbidea=(rs.getString(5));
@@ -41,7 +42,7 @@ public class Consultas {
 				gela_kop=(rs.getInt(8));
 				erreserba_kop=(rs.getInt(9));
 
-				Hotela h1= new Hotela(izarkop,izena,herria,helbidea,postaKod,ostatu_mota,gela_kop,tarifa_gehigarria,erreserba_kop);
+				Hotela h1= new Hotela(izarkop,ostatu_id,izena,herria,helbidea,postaKod,ostatu_mota,gela_kop,erreserba_kop);
 				hotelenlista.add(h1);
 			}
 

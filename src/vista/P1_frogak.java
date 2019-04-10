@@ -4,6 +4,7 @@ import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.Vector;
 
 import javax.swing.DefaultComboBoxModel;
@@ -19,6 +20,10 @@ import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.JTableHeader;
 import javax.swing.table.TableModel;
+
+import com.toedter.calendar.JCalendar;
+import com.toedter.calendar.JDateChooser;
+
 import javax.swing.ListSelectionModel;
 
 public class P1_frogak extends JFrame {
@@ -36,16 +41,15 @@ public class P1_frogak extends JFrame {
 	private String prezioa1="";
 	private JComboBox comboBox;
 	private JComboBox comboBox_1= new JComboBox();
-	private JComboBox<String> comboBox_2 = new JComboBox();
 	private JComboBox comboBox_3 = new JComboBox();
 	private JLabel lblPais = new JLabel("Herria");
 	private JLabel label = new JLabel("Ciudad:");
 	private JLabel label_1 = new JLabel("Hotel:");
 	private JLabel label_2 = new JLabel("Precio:");
-	private JLabel lblHotel = new JLabel("");
 	private JLabel lblGauakgaua = new JLabel("Gauak");
 	private JButton btnAurrera = new JButton("Aurrera");
-
+	private JDateChooser sartzedata = new JDateChooser();
+	private JDateChooser irtetzedata = new JDateChooser();
 	int prezioa=0;
 	int ostatu_id=0;
 	private JTable table;
@@ -84,7 +88,7 @@ public class P1_frogak extends JFrame {
 		textField.setEditable(false);
 		textField.setBorder(null);
 		textField.setColumns(10);
-		textField.setBounds(178, 316, 317, 40);
+		textField.setBounds(236, 286, 317, 40);
 		contentPane.add(textField);
 
 
@@ -97,11 +101,6 @@ public class P1_frogak extends JFrame {
 		textField_2.setBounds(178, 473, 317, 40);
 
 		contentPane.add(textField_2);
-
-
-		lblHotel.setFont(new Font("Tahoma", Font.PLAIN, 17));
-		lblHotel.setBounds(383, 62, 47, 50);
-		contentPane.add(lblHotel);
 
 
 
@@ -131,10 +130,6 @@ public class P1_frogak extends JFrame {
 
 		}
 
-		//Combo2
-		comboBox_2.setBounds(440, 74, 141, 34);
-		contentPane.add(comboBox_2);
-
 
 
 		Segundocampo.setEditable(false);
@@ -142,7 +137,28 @@ public class P1_frogak extends JFrame {
 		Segundocampo.setColumns(10);
 		Segundocampo.setBounds(178, 392, 317, 40);
 		contentPane.add(Segundocampo);
-
+		
+		//JCALENDAR LEHEN DATA
+				sartzedata.setBounds(392, 81, 118, 20);
+				sartzedata.setDateFormatString("yyyy-MM-dd");
+				getContentPane().add(sartzedata);
+				sartzedata.setSelectableDateRange(new Date(), null);
+				
+				
+				//JCALENDAR BIGARREN DATA
+				irtetzedata.setBounds(392, 124, 117, 20);
+				irtetzedata.setVerifyInputWhenFocusTarget(false);
+				irtetzedata.setVisible(false);
+				irtetzedata.setDateFormatString("yyyy-MM-dd");	
+				getContentPane().add(irtetzedata);
+				irtetzedata.getDate();
+				irtetzedata.cleanup();
+				irtetzedata.getCalendarButton().addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent e) {
+						
+						 irtetzedata.setMinSelectableDate( sartzedata.getDate());
+					}
+				});
 
 
 
@@ -170,13 +186,6 @@ public class P1_frogak extends JFrame {
 					}
 
 				}
-			}
-		});
-
-		comboBox_2.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {	  
-				Segundocampo.setText(comboBox_2.getSelectedItem().toString());
-				textField_1.setText(comboBox_2.getSelectedItem().toString());
 			}
 		});
 		for( i=0;i<zerrenda.length;i++) {
@@ -207,11 +216,20 @@ public class P1_frogak extends JFrame {
 		comboBox_3.setBounds(258, 68, 100, 40);
 		contentPane.add(comboBox_3);
 		
+		JLabel lblGelaKopurua = new JLabel("Gela kopurua");
+		lblGelaKopurua.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		lblGelaKopurua.setBounds(302, 171, 104, 35);
+		contentPane.add(lblGelaKopurua);
+		
+		JComboBox comboBox_4 = new JComboBox();
+		comboBox_4.setBounds(428, 172, 47, 38);
+		contentPane.add(comboBox_4);
+		
 		
 		comboBox_3.addActionListener(new ActionListener() {
 
 			public void actionPerformed(ActionEvent i) {
-				lblHotel.setText((String) comboBox_3.getSelectedItem());				
+				//lblHotel.setText((String) comboBox_3.getSelectedItem());				
 			}
 		});
 		
