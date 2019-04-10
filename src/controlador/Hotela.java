@@ -25,14 +25,103 @@ public class Hotela extends Ostatua {
 				+ gela_kop + ", erreserba_kop=" + erreserba_kop + "]";
 		}
 
-	/* (non-Javadoc)
-	 * @see controlador.Ostatua#getOstatu_id()
-	 */
+
 	@Override
 	public int getOstatu_id() {
 		// TODO Auto-generated method stub
 		return super.getOstatu_id();
 	}
+
+	@Override
+	public void setOstatu_id(int ostatu_id) {
+		// TODO Auto-generated method stub
+		super.setOstatu_id(ostatu_id);
+	}
+
+	@Override
+	public String getIzena() {
+		// TODO Auto-generated method stub
+		return super.getIzena();
+	}
+
+	@Override
+	public void setIzena(String izena) {
+		// TODO Auto-generated method stub
+		super.setIzena(izena);
+	}
+
+	@Override
+	public String getHerria() {
+		// TODO Auto-generated method stub
+		return super.getHerria();
+	}
+
+	@Override
+	public void setHerria(String herria) {
+		// TODO Auto-generated method stub
+		super.setHerria(herria);
+	}
+
+	@Override
+	public String getHelbidea() {
+		// TODO Auto-generated method stub
+		return super.getHelbidea();
+	}
+
+	@Override
+	public void setHelbidea(String helbidea) {
+		// TODO Auto-generated method stub
+		super.setHelbidea(helbidea);
+	}
+
+	@Override
+	public int getPosta_kod() {
+		// TODO Auto-generated method stub
+		return super.getPosta_kod();
+	}
+
+	@Override
+	public void setPosta_kod(int posta_kod) {
+		// TODO Auto-generated method stub
+		super.setPosta_kod(posta_kod);
+	}
+
+	@Override
+	public String getOstatu_mota() {
+		// TODO Auto-generated method stub
+		return super.getOstatu_mota();
+	}
+
+	@Override
+	public void setOstatu_mota(String ostatu_mota) {
+		// TODO Auto-generated method stub
+		super.setOstatu_mota(ostatu_mota);
+	}
+
+	@Override
+	public int getGela_kop() {
+		// TODO Auto-generated method stub
+		return super.getGela_kop();
+	}
+
+	@Override
+	public void setGela_kop(int gela_kop) {
+		// TODO Auto-generated method stub
+		super.setGela_kop(gela_kop);
+	}
+
+	@Override
+	public int getErreserba_kop() {
+		// TODO Auto-generated method stub
+		return super.getErreserba_kop();
+	}
+
+	@Override
+	public void setErreserba_kop(int erreserba_kop) {
+		// TODO Auto-generated method stub
+		super.setErreserba_kop(erreserba_kop);
+	}
+	
 	
 	
 
