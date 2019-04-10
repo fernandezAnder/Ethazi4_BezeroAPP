@@ -16,17 +16,15 @@ import java.util.TimerTask;
 
 
 import modelo.Consultas;
-import vista.Amaiera;
-import vista.Erregistratu;
-import vista.Login;
-import vista.Ordainketa;
-import vista.ord;
-import vista.P1;
+import vista.*;
 
 
 public class Metodoak {
 	private static String prezio_totala;
 	private P1 p1;
+	private P2_apartamentua p2apart;
+	private P2_etxea p2etxe;
+	private P2_hotela p2hot;
 	private Erregistratu er1;
 	private Login lo1;
 	private Ordainketa ord1;
@@ -47,12 +45,31 @@ public class Metodoak {
 	
 	
 
-	public void bigarrenLehioa() {
+	public void bigarrenLehioaHotela() {
 		p1.setVisible(false);
-		lo1.setVisible(true);
+		p2hot.setVisible(true);
+	}
+	public void bigarrenLehioaApartamentua() {
+		p1.setVisible(false);
+		p2apart.setVisible(true);
+	}
+	public void bigarrenLehioaEtxea() {
+		p1.setVisible(false);
+		p2etxe.setVisible(true);
+	}
+	public void lehioaHotelaItxi() {
+		p2hot.setVisible(false);
+	}
+	public void lehioaApartamentuaItxi() {
+		p2apart.setVisible(false);
+	}
+	public void lehioaEtxeaItxi() {
+		p2etxe.setVisible(false);
 	}
 	
-	
+	public void loginIreki() {
+		lo1.setEnabled(true);
+	}
 	public void bidaliDirua() {
 		String diruaString = "";
 		System.out.println("AAAAAAAAAAAAAAAAA");
@@ -365,6 +382,15 @@ public class Metodoak {
 ///////////////////////////////////////////////////////////////////////////
 	public void setMip1(P1 p1) {
 		this.p1 = p1;
+	}
+	public void setMip2hot(P2_hotela p2hot) {
+		this.p2hot=p2hot;
+	}
+	public void setMip2apart(P2_apartamentua p2apart) {
+		this.p2apart=p2apart;
+	}
+	public void setMip2etxe(P2_etxea p2etxe) {
+		this.p2etxe=p2etxe;
 	}
 	public void setMier1(Erregistratu er1) {
 		this.er1 = er1;

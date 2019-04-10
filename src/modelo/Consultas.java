@@ -105,8 +105,8 @@ public class Consultas {
 		System.out.println(e1);
 		try {
 			PreparedStatement s = (PreparedStatement) conexion.prepareStatement(
-					"INSERT INTO `bezeroa` (`nan`, `izena`, `abizenak`, `jaiotze_data`, `pasahitza`)"
-							+ " VALUES(?, ?, ?, ?, ?)");
+					"INSERT INTO `erreserba` (`ostatu_ostatu_id`, `bezeroa_nan`, `pertsona_kopuru`, `prezio_totala`,`erreserbaGela_kopuru`,`pentsio_mota`)"
+							+ " VALUES(?, ?, ?, ?, ?, ?)");
 			
 			s.setInt(2,e1.getOstatu_id());
 			s.setString(3, e1.getBezero_nan());
