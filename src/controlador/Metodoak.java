@@ -66,8 +66,13 @@ public class Metodoak {
 		System.out.println(diruaString);
 	}
 	public void amaieraIreki() {
-		am1.setVisible(true);
 		ord1.setVisible(false);
+		am1.setVisible(true);
+		
+		am1.itxaron(5);
+		amaiera();
+		lehenengoLehioa();
+		
 	}
 	public void amaiera() {
 		am1.setVisible(false);

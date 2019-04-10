@@ -47,17 +47,26 @@ public class Amaiera extends JFrame {
 		//icono.setIcon(new ImageIcon(Ventana7.class.getResource("/argazkiak/termibus.png")));
 		Metodoak m1 =new Metodoak();
 		if (this.isVisible()) {
-			Contador contador = new Contador();
-			
-			contador.run();
+			itxaron(5);
+			m1.amaiera();
+			m1.lehenengoLehioa();
+		}
 			
 			
 		}
 		
-	}
+	
 	
 	
 	public void misMetodos(Metodoak metodos) {
 		this.metodos=metodos;
 	}
+	
+	public static void itxaron(int segundos){
+        try {
+            Thread.sleep(segundos * 1000);
+         } catch (Exception e) {
+            System.out.println(e);
+         }
+    }   
 }

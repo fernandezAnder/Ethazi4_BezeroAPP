@@ -1,7 +1,7 @@
  
                                                              BIDAI ON S.L.                         	
  ********************************************************************************************************************** 	
-Erreserba erreserba_kod=1 	, ostatu_id=4 	
+Erreserba erreserba_kod=1 	, ostatu_id=5 	
 , bezero_nan=null 	, sartze_data=null 	
 , irtetze_data=null 	, pertsona_kop=0 	
 , prezio_totala=240.0 	, erreserba_gela_kop=0 	
