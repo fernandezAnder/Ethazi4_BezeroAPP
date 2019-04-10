@@ -41,7 +41,6 @@ public class P1 extends JFrame {
 	private String[] zerrenda= new String[30];
 	private String prezioa1="";
 	private JComboBox comboBox_1= new JComboBox();
-	private JComboBox<String> comboBox_2 = new JComboBox();
 	private JLabel lblPais = new JLabel("HERRIA / HIRIA");
 	private JLabel label = new JLabel("Ciudad:");
 	private JLabel label_1 = new JLabel("Hotel:");
@@ -57,9 +56,6 @@ public class P1 extends JFrame {
 	private String hostatu_mota;
 	int prezioa=0;
 	int ostatu_id=0;
-
-
-	private JLabel lblHotel = new JLabel("Hotelak");
 	private JLabel lblGauakgaua = new JLabel("CHECK-IN");
 
 	private Metodoak m1;
@@ -130,11 +126,6 @@ public class P1 extends JFrame {
 		
 
 		contentPane.add(textField_2);
-
-
-		lblHotel.setFont(new Font("Arial Narrow", Font.BOLD, 16));
-		lblHotel.setBounds(282, 70, 100, 50);
-		contentPane.add(lblHotel);
 		sartzedata.getCalendarButton().addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				String formato = sartzedata.getDateFormatString();
@@ -212,11 +203,6 @@ public class P1 extends JFrame {
 			}
 
 		}
-		//comboBox_2.setModel(new DefaultComboBoxModel(new String[] {"Hotela", "Apartamentua", "Etxea"}));
-
-		//Combo2
-		comboBox_2.setBounds(406, 87, 89, 20);
-		contentPane.add(comboBox_2);
 
 
 
@@ -235,25 +221,8 @@ public class P1 extends JFrame {
 		comboBox_1.addActionListener(new ActionListener() {
 
 			public void actionPerformed(ActionEvent i) {
-				comboBox_2.setModel(new DefaultComboBoxModel());
-				textField.setText((String) comboBox_1.getSelectedItem());
-				String herria = (String) comboBox_1.getSelectedItem();
-
-				for(controlador.Hotela p : hotela) {
-					if (herria.equalsIgnoreCase(p.getHerria())) {
-						ostatu_id=p.getOstatu_id();
-						comboBox_2.addItem(p.getIzena());
-						Segundocampo.removeAll();
-					}
-
-				}
-			}
-		});
-
-		comboBox_2.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {	  
-				Segundocampo.setText(comboBox_2.getSelectedItem().toString());
-				textField.setText(comboBox_2.getSelectedItem().toString());
+				
+				//String herria = (String) comboBox_1.getSelectedItem();
 			}
 		});
 		for( i=0;i<zerrenda.length;i++) {
@@ -300,7 +269,7 @@ public class P1 extends JFrame {
 		
 		JLabel label_3 = new JLabel("OSTATU MOTA");
 		label_3.setFont(new Font("Dialog", Font.BOLD, 16));
-		label_3.setBounds(255, 222, 100, 50);
+		label_3.setBounds(282, 70, 100, 50);
 		contentPane.add(label_3);
 		
 		JComboBox comboBox_5 = new JComboBox();
@@ -319,7 +288,7 @@ public class P1 extends JFrame {
 				}
 			}
 		});
-		comboBox_5.setBounds(401, 244, 94, 20);
+		comboBox_5.setBounds(401, 88, 94, 20);
 		contentPane.add(comboBox_5);
 		comboBox_5.setModel(new DefaultComboBoxModel(new String[] {"","Hotela", "Apartamentua", "Etxea"}));
 
