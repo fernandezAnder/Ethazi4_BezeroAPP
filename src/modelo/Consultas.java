@@ -8,8 +8,8 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
-import controlador.Bezeroa;
-import controlador.Hotela;
+import controlador.*;
+
 
 public class Consultas {
 
@@ -23,16 +23,17 @@ public class Consultas {
 			s = konexioa.prepareStatement("select * from hotelak");
 			ResultSet rs = s.executeQuery();
 			int izarkop=0;
+			int ostatu_id=0;
 			String izena="";
 			String herria="";
 			String helbidea="";
 			int postaKod=0;
 			String ostatu_mota="";
 			int gela_kop=0;
-			int tarifa_gehigarria=0;
 			int erreserba_kop=0;
 			while (rs.next()) {
 				izarkop=(rs.getInt(1));
+				ostatu_id=(rs.getInt(2));
 				izena=(rs.getString(3));
 				herria=(rs.getString(4));
 				helbidea=(rs.getString(5));
@@ -41,7 +42,7 @@ public class Consultas {
 				gela_kop=(rs.getInt(8));
 				erreserba_kop=(rs.getInt(9));
 
-				Hotela h1= new Hotela(izarkop,izena,herria,helbidea,postaKod,ostatu_mota,gela_kop,tarifa_gehigarria,erreserba_kop);
+				Hotela h1= new Hotela(izarkop,ostatu_id,izena,herria,helbidea,postaKod,ostatu_mota,gela_kop,erreserba_kop);
 				hotelenlista.add(h1);
 			}
 
@@ -91,6 +92,29 @@ public class Consultas {
 			s.setString(4, bezeroa.getData());
 			s.setString(5, bezeroa.getPasahitza());
 
+			s.executeUpdate();
+			s.close();
+
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+
+	}
+	public static void txertatuErreserba(Erreserba e1) {
+		Connection conexion = modelo.Conexion.getConexion();
+		System.out.println(e1);
+		try {
+			PreparedStatement s = (PreparedStatement) conexion.prepareStatement(
+					"INSERT INTO `bezeroa` (`nan`, `izena`, `abizenak`, `jaiotze_data`, `pasahitza`)"
+							+ " VALUES(?, ?, ?, ?, ?)");
+			
+			s.setInt(2,e1.getOstatu_id());
+			s.setString(3, e1.getBezero_nan());
+			s.setInt(4, e1.getPertsona_kop());
+			s.setDouble(5,e1.getPrezio_totala() );
+			s.setInt(6,e1.getErreserba_gela_kop() );
+			s.setString(7, e1.getPentsio_mota());
+			
 			s.executeUpdate();
 			s.close();
 

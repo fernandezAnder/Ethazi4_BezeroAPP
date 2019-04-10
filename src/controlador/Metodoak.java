@@ -73,8 +73,13 @@ public class Metodoak {
 		System.out.println(diruaString);
 	}
 	public void amaieraIreki() {
+
 		ord1.setVisible(false);
 		am1.setVisible(true);
+
+		amaiera();
+		p1.setVisible(true);
+
 		
 	}
 	
@@ -82,8 +87,9 @@ public class Metodoak {
 		am1.setVisible(false);
 		BezeroAPP ap = new BezeroAPP();
 		ap.arrancar();
-	}
+		}
 	public void amaiera() {
+		itxaron(5);
 		am1.setVisible(false);
 	}
 	
@@ -97,10 +103,21 @@ public class Metodoak {
 	public void recivirReserva() {
 		Erreserba erreserba = p1.bidalireserba();
 		imprimatuTiketa(erreserba);
+		Consultas.txertatuErreserba(erreserba);
 	}
+	
 	
 
 ///////////////////////////////////////////////////////////////////////////
+	public static void itxaron(int segundos){
+        try {
+            Thread.sleep(segundos * 1000);
+         } catch (Exception e) {
+            System.out.println(e.getMessage());
+         }
+        System.out.println("BUKATU DA");
+    }  
+	
 	public boolean konprobatuNegatibo(double zbk) {
 		boolean balidatu=false;
 		if (zbk>0)
@@ -223,6 +240,7 @@ public class Metodoak {
 ///////////////////////////////////////////////////////////////////////////
 	public  void imprimatuTiketa(Erreserba r1) {
 
+		System.out.println(r1);
 		String nombre = "tiket.txt";
 		try{
 			FileWriter fichero = new FileWriter("src\\controlador\\"+nombre);

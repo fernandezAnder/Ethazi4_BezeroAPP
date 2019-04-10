@@ -18,6 +18,10 @@ import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 
 import controlador.Contador;
+
+import controlador.DatuBiltegia;
+import controlador.Erreserba;
+
 import controlador.Metodoak;
 
 public class Ordainketa extends JFrame {
@@ -76,7 +80,9 @@ public class Ordainketa extends JFrame {
 		btnAmaitu.setFont(new Font("Arial", Font.PLAIN, 18));
 		btnAmaitu.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+
 				metodos.recivirReserva();
+				
 //				Contador contador = new Contador();
 //				contador.start();
 				metodos.amaieraIreki();
