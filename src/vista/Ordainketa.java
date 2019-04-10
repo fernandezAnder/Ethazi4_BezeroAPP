@@ -73,7 +73,7 @@ public class Ordainketa extends JFrame {
 		//LABEL ITZULIAK
 		lblItzuliak.setFont(new Font("Arial", Font.BOLD, 24));
 		getContentPane().add(lblItzuliak);
-		btnAmaitu.setEnabled(false);
+		btnAmaitu.setEnabled(true);
 		btnAmaitu.setBounds(514, 467, 97, 43);
 
 		//BOTOIA AMAITU

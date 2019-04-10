@@ -234,10 +234,12 @@ public class P1 extends JFrame {
 		contentPane.add(lblGelaKopurua);
 		comboBox.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				 gela_kop=(int) comboBox.getSelectedItem();
+				String kopurua=(String) comboBox.getSelectedItem();
+				 gela_kop=Integer.parseInt(kopurua);
+				 System.out.println(gela_kop);
 			}
 		});
-		comboBox.setBounds(140, 140, 28, 20);
+		comboBox.setBounds(140, 140, 49, 20);
 		
 		contentPane.add(comboBox);
 		lblOheMota.setFont(new Font("Arial Narrow", Font.BOLD, 16));
@@ -249,7 +251,7 @@ public class P1 extends JFrame {
 				 oheMota=(String) comboBox_3.getSelectedItem();
 			}
 		});
-		comboBox_3.setModel(new DefaultComboBoxModel(new String[] {"Banakakoa", "Bikoitza", "Umeena"}));
+		comboBox_3.setModel(new DefaultComboBoxModel(new String[] {"","Banakakoa", "Bikoitza", "Umeena"}));
 		comboBox_3.setBounds(406, 140, 89, 20);
 		
 		contentPane.add(comboBox_3);
@@ -299,7 +301,7 @@ public class P1 extends JFrame {
 		}
 		
 		comboBox_4.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {	  
+			public void actionPerformed(ActionEvent e) {
 				pertsona_kopurua=(int) comboBox_4.getSelectedItem();
 				
 			}
