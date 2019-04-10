@@ -53,7 +53,6 @@ public class P1 extends JFrame {
 
 	private JLabel lblHotel = new JLabel("OSTATU MOTA");
 	private JLabel lblGauakgaua = new JLabel("CHECK-IN");
-	private JButton btnAurrera = new JButton("AURRERA");
 
 	private Metodoak m1;
 	//para poder hacer setVisible sin que se joda
@@ -61,6 +60,11 @@ public class P1 extends JFrame {
 	private String precio="";
 	private double precioadoubleprecio=0.0;
 	private Erreserba erreserba;
+	private final JLabel lblGelaKopurua = new JLabel("GELA KOPURUA");
+	private final JComboBox comboBox = new JComboBox();
+	private final JLabel lblOheMota = new JLabel("OHE MOTA");
+	private final JComboBox comboBox_3 = new JComboBox();
+	private final JButton btnAurrera = new JButton("AURRERA");
 	
 	
 
@@ -151,11 +155,7 @@ public class P1 extends JFrame {
 		lblGauakgaua.setFont(new Font("Arial Narrow", Font.BOLD, 17));
 		lblGauakgaua.setBounds(18, 191, 68, 25);
 		contentPane.add(lblGauakgaua);
-
-		btnAurrera.setFont(new Font("Arial Narrow", Font.BOLD, 16));
-
-
-
+		
 		btnAurrera.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				metodos.bigarrenLehioa();
@@ -175,9 +175,6 @@ public class P1 extends JFrame {
 				System.out.println(erreserba);
 			}
 		});
-		btnAurrera.setBounds(443, 511, 106, 27);
-		contentPane.add(btnAurrera);
-		
 
 		//Combo1
 
@@ -192,6 +189,7 @@ public class P1 extends JFrame {
 			}
 
 		}
+		comboBox_2.setModel(new DefaultComboBoxModel(new String[] {"Hotela", "Apartamentua", "Etxea"}));
 
 		//Combo2
 		comboBox_2.setBounds(406, 87, 89, 20);
@@ -238,18 +236,24 @@ public class P1 extends JFrame {
 		for( i=0;i<zerrenda.length;i++) {
 			comboBox.addItem(zerrenda[i]);
 		}
+		lblGelaKopurua.setFont(new Font("Arial Narrow", Font.BOLD, 16));
+		lblGelaKopurua.setBounds(18, 141, 112, 14);
 		
-		btnAurrera.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				dispose();
-
-				//Metodoak.bigarrenLehioa();
-				//Erreserba r1= new Erreserba(1,ostatu_id,null,null,null,0,prezioa,0,null,null,0,null);
-				DatuBiltegia db1=new DatuBiltegia();
-				db1.erreserbaGorde(ostatu_id,prezioa);
-			}
-		});
-		btnAurrera.setBounds(464, 527, 89, 23);
+		contentPane.add(lblGelaKopurua);
+		comboBox.setBounds(140, 140, 28, 20);
+		
+		contentPane.add(comboBox);
+		lblOheMota.setFont(new Font("Arial Narrow", Font.BOLD, 16));
+		lblOheMota.setBounds(282, 143, 82, 14);
+		
+		contentPane.add(lblOheMota);
+		comboBox_3.setModel(new DefaultComboBoxModel(new String[] {"Banakakoa", "Bikoitza", "Umeena"}));
+		comboBox_3.setBounds(406, 140, 89, 20);
+		
+		contentPane.add(comboBox_3);
+		btnAurrera.setFont(new Font("Arial Narrow", Font.BOLD, 16));
+		btnAurrera.setBounds(406, 489, 112, 39);
+		
 		contentPane.add(btnAurrera);
 		
 	}
