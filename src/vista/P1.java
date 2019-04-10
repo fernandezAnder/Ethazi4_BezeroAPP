@@ -45,7 +45,7 @@ public class P1 extends JFrame {
 	private JLabel label_2 = new JLabel("Precio:");
 	private JDateChooser sartzedata = new JDateChooser();
 	private JDateChooser irtetzedata = new JDateChooser();
-
+	private int pertsona_kopurua=0;
 
 	int prezioa=0;
 	int ostatu_id=0;
@@ -256,6 +256,27 @@ public class P1 extends JFrame {
 		
 		contentPane.add(btnAurrera);
 		
+		JLabel lblPertsonaKopurua = new JLabel("Pertsona Kopurua");
+		lblPertsonaKopurua.setFont(new Font("Dialog", Font.BOLD, 17));
+		lblPertsonaKopurua.setBounds(18, 239, 68, 25);
+		contentPane.add(lblPertsonaKopurua);
+		
+		JComboBox comboBox_4 = new JComboBox();
+		comboBox_4.setBounds(104, 244, 36, 20);
+		contentPane.add(comboBox_4);
+		
+		
+		for(int pertsona=1;pertsona<=10;pertsona++) {
+			comboBox_4.addItem(pertsona);
+		}
+		
+		comboBox_4.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {	  
+				pertsona_kopurua=(int) comboBox_4.getSelectedItem();
+				
+			}
+		});
+		
 	}
 
 	public void rellenar() {
@@ -277,4 +298,9 @@ public class P1 extends JFrame {
 	public Erreserba bidalireserba() {
 		return erreserba;
 	}
+	
+	public void bidaliId() {
+		return id;
+	}
+	
 }
