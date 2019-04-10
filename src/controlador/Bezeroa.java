@@ -13,7 +13,6 @@ public class Bezeroa {
 	private String Abizena;
 	private String pasahitza;
 	private String data;
-
 	/**
 	 * Bigarrena. Bezereo objetuaren konstruktorea da.
 	 * 
