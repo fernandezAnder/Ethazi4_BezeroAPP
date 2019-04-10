@@ -69,6 +69,8 @@ public class Metodoak {
 		
 		ord1.setVisible(false);
 		am1.setVisible(true);
+		amaiera();
+		p1.setVisible(true);
 	}
 	public void amaiera() {
 		itxaron(5);
