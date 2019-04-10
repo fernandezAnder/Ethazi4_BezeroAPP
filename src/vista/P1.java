@@ -30,6 +30,7 @@ public class P1 extends JFrame {
 	private JPanel contentPane;
 
 	private int i;
+	int id=0;
 
 	private JTextField textField= new JTextField();
 	private JTextField Segundocampo= new JTextField() ;
@@ -159,7 +160,7 @@ public class P1 extends JFrame {
 		btnAurrera.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				metodos.bigarrenLehioa();
-				int id=0;
+				
 				precio = textField_2.getText();
 				precioadoubleprecio=Double.parseDouble(precio);
 				
@@ -299,7 +300,7 @@ public class P1 extends JFrame {
 		return erreserba;
 	}
 	
-	public void bidaliId() {
+	public int bidaliId() {
 		return id;
 	}
 	
