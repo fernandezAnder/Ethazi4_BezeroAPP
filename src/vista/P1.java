@@ -68,7 +68,7 @@ public class P1 extends JFrame {
 	private final JButton btnAurrera = new JButton("AURRERA");
 	
 	
-
+	int ostatu_aukera=0;
 	
 	public P1(ArrayList<controlador.Hotela> hotela) {
 		rellenar();
@@ -159,7 +159,18 @@ public class P1 extends JFrame {
 		
 		btnAurrera.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				metodos.bigarrenLehioa();
+				ostatu_aukera=comboBox_2.getSelectedIndex();
+				if (ostatu_aukera==0) {
+					
+					metodos.bigarrenLehioaHotela();
+				}else if(ostatu_aukera==1) {
+					
+					metodos.bigarrenLehioaApartamentua();
+				}else if(ostatu_aukera==2) {
+					
+					metodos.bigarrenLehioaEtxea();
+				}
+				
 				
 				precio = textField_2.getText();
 				precioadoubleprecio=Double.parseDouble(precio);
@@ -210,33 +221,8 @@ public class P1 extends JFrame {
 		contentPane.add(lblNewLabel);
 
 
-		comboBox_1.addActionListener(new ActionListener() {
 
-			public void actionPerformed(ActionEvent i) {
-				comboBox_2.setModel(new DefaultComboBoxModel());
-				textField.setText((String) comboBox_1.getSelectedItem());
-				String herria = (String) comboBox_1.getSelectedItem();
-
-				for(controlador.Hotela p : hotela) {
-					if (herria.equalsIgnoreCase(p.getHerria())) {
-						ostatu_id=p.getOstatu_id();
-						comboBox_2.addItem(p.getIzena());
-						Segundocampo.removeAll();
-					}
-
-				}
-			}
-		});
-
-		comboBox_2.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {	  
-				Segundocampo.setText(comboBox_2.getSelectedItem().toString());
-				textField.setText(comboBox_2.getSelectedItem().toString());
-			}
-		});
-		for( i=0;i<zerrenda.length;i++) {
-			comboBox.addItem(zerrenda[i]);
-		}
+		
 		lblGelaKopurua.setFont(new Font("Arial Narrow", Font.BOLD, 16));
 		lblGelaKopurua.setBounds(18, 141, 112, 14);
 		
