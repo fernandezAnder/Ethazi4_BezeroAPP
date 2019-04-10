@@ -10,7 +10,7 @@ import controlador.*;
  */
 public class Contador extends Thread {
 	Metodoak m1;
-	boolean amaitu=false;
+	
 	
 	public void run()  {
 		
@@ -24,7 +24,6 @@ public class Contador extends Thread {
         	
         
     	}
-    	
     	
     }
     	
