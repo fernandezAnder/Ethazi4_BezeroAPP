@@ -37,7 +37,6 @@ public class P1 extends JFrame {
 	private JTextField textField_3= new JTextField();
 	private String[] zerrenda= new String[30];
 	private String prezioa1="";
-	private JComboBox comboBox;
 	private JComboBox comboBox_1= new JComboBox();
 	private JComboBox<String> comboBox_2 = new JComboBox();
 	private JLabel lblPais = new JLabel("HERRIA / HIRIA");
@@ -126,14 +125,14 @@ public class P1 extends JFrame {
 		contentPane.add(lblHotel);
 
 		//JCALENDAR LEHEN DATA
-		sartzedata.setBounds(264, 131, 118, 20);
+		sartzedata.setBounds(104, 191, 118, 20);
 		sartzedata.setDateFormatString("yyyy-MM-dd");
 		getContentPane().add(sartzedata);
 		sartzedata.setSelectableDateRange(new Date(), null);
 		
 		
 		//JCALENDAR BIGARREN DATA
-		irtetzedata.setBounds(396, 131, 117, 20);
+		irtetzedata.setBounds(378, 186, 117, 20);
 		irtetzedata.setVerifyInputWhenFocusTarget(false);
 		irtetzedata.setVisible(false);
 		irtetzedata.setDateFormatString("yyyy-MM-dd");	
@@ -150,12 +149,8 @@ public class P1 extends JFrame {
 
 
 		lblGauakgaua.setFont(new Font("Arial Narrow", Font.BOLD, 17));
-		lblGauakgaua.setBounds(18, 186, 68, 25);
+		lblGauakgaua.setBounds(18, 191, 68, 25);
 		contentPane.add(lblGauakgaua);
-
-		comboBox= new JComboBox();
-		comboBox.setBounds(99, 189, 58, 23);
-		contentPane.add(comboBox);
 
 		btnAurrera.setFont(new Font("Arial Narrow", Font.BOLD, 16));
 
@@ -209,23 +204,10 @@ public class P1 extends JFrame {
 		Segundocampo.setColumns(10);
 		Segundocampo.setBounds(178, 367, 317, 40);
 		contentPane.add(Segundocampo);
-
-
-
-
-
-
-
-
-
-
-		JComboBox comboBox_3 = new JComboBox();
-		comboBox_3.setBounds(324, 188, 58, 25);
-		contentPane.add(comboBox_3);
 		
 		JLabel lblNewLabel = new JLabel("CHECK-OUT");
 		lblNewLabel.setFont(new Font("Arial Narrow", Font.BOLD, 16));
-		lblNewLabel.setBounds(225, 186, 89, 25);
+		lblNewLabel.setBounds(282, 186, 89, 25);
 		contentPane.add(lblNewLabel);
 
 
@@ -256,22 +238,6 @@ public class P1 extends JFrame {
 		for( i=0;i<zerrenda.length;i++) {
 			comboBox.addItem(zerrenda[i]);
 		}
-		comboBox.addActionListener(new ActionListener() {
-
-			public void actionPerformed(ActionEvent e) {
-
-
-				int dia=Integer.valueOf(comboBox.getSelectedItem().toString());
-				prezioa = 80*dia;
-
-				prezioa1=Integer.toString(prezioa);
-
-				textField_2.setText(prezioa1);
-
-				//Metodoak.prezio_totala(prezioa1);
-			}
-
-		});
 		
 		btnAurrera.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
