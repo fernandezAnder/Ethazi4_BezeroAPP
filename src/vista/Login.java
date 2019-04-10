@@ -24,6 +24,7 @@ public class Login extends JFrame {
 	private boolean youshouldnotpass;
 	private String pasahitza;
 	private String Nan;
+	private String nana;
 	private Metodoak metodos;
 
 	/**
@@ -87,6 +88,7 @@ public class Login extends JFrame {
 				youshouldnotpass = metodos.ateraErabiltzailea(Nan, pasahitza);
 				if (youshouldnotpass == true) {
 					metodos.hirugarrenLehioa();
+					 nana = textField.getText();
 
 				}
 				System.out.println(youshouldnotpass);
@@ -108,6 +110,9 @@ public class Login extends JFrame {
 	
 	public void misMetodos(Metodoak metodos) {
 		this.metodos=metodos;
+	}
+	public String ateraNana() {
+		return  nana;
 	}
 	
 

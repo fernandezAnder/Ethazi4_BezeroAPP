@@ -3,6 +3,8 @@ package vista;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -47,12 +49,17 @@ public class P1 extends JFrame {
 	private JDateChooser sartzedata = new JDateChooser();
 	private JDateChooser irtetzedata = new JDateChooser();
 	private int pertsona_kopurua=0;
-
+	private String fechaComoCadena;
+	private String fechaComoCadena2;
+	private int  gela_kop;
+	private String oheMota;
+	private String  letra_ostatu;
+	private String hostatu_mota;
 	int prezioa=0;
 	int ostatu_id=0;
 
 
-	private JLabel lblHotel = new JLabel("OSTATU MOTA");
+	private JLabel lblHotel = new JLabel("Hotelak");
 	private JLabel lblGauakgaua = new JLabel("CHECK-IN");
 
 	private Metodoak m1;
@@ -128,6 +135,15 @@ public class P1 extends JFrame {
 		lblHotel.setFont(new Font("Arial Narrow", Font.BOLD, 16));
 		lblHotel.setBounds(282, 70, 100, 50);
 		contentPane.add(lblHotel);
+		sartzedata.getCalendarButton().addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				String formato = sartzedata.getDateFormatString();
+				System.out.println(formato);
+				Date date = sartzedata.getDate();
+				SimpleDateFormat sdf = new SimpleDateFormat(formato);
+				
+			}
+		});
 
 		//JCALENDAR LEHEN DATA
 		sartzedata.setBounds(104, 191, 118, 20);
@@ -137,20 +153,13 @@ public class P1 extends JFrame {
 		
 		
 		//JCALENDAR BIGARREN DATA
-		irtetzedata.setBounds(378, 186, 117, 20);
-		irtetzedata.setVerifyInputWhenFocusTarget(false);
-		irtetzedata.setVisible(false);
-		irtetzedata.setDateFormatString("yyyy-MM-dd");	
+		irtetzedata.setBounds(401, 191, 117, 20);
+		irtetzedata.setDateFormatString("yyyy-MM-dd");
 		getContentPane().add(irtetzedata);
-		irtetzedata.getDate();
-		irtetzedata.cleanup();
-		irtetzedata.getCalendarButton().addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				
-				 irtetzedata.setMinSelectableDate( sartzedata.getDate());
-			}
-		});
-
+		irtetzedata.setSelectableDateRange(new Date(), null);
+		
+		
+		
 
 
 		lblGauakgaua.setFont(new Font("Arial Narrow", Font.BOLD, 17));
@@ -160,9 +169,22 @@ public class P1 extends JFrame {
 		btnAurrera.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				metodos.bigarrenLehioa();
-				
 				precio = textField_2.getText();
-				precioadoubleprecio=Double.parseDouble(precio);
+				//precioadoubleprecio=Double.parseDouble(precio);
+				
+				//**************Fechas**********
+				//1
+				SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
+				String fechaComoCadena = sdf.format(sartzedata.getDate());
+				
+				//2
+				String fechaComoCadena2 = sdf.format(irtetzedata.getDate());
+				
+
+				
+				
+				
+				
 				
 				for(Hotela p : hotela) {
 					System.out.println(textField.getText());
@@ -172,8 +194,8 @@ public class P1 extends JFrame {
 					}
 				}
 				
-				erreserba = new Erreserba(1, id, null, null, null, 0, precioadoubleprecio, 0, null, null, 0, null);
-				System.out.println(erreserba);
+				
+				
 			}
 		});
 
@@ -190,7 +212,7 @@ public class P1 extends JFrame {
 			}
 
 		}
-		comboBox_2.setModel(new DefaultComboBoxModel(new String[] {"Hotela", "Apartamentua", "Etxea"}));
+		//comboBox_2.setModel(new DefaultComboBoxModel(new String[] {"Hotela", "Apartamentua", "Etxea"}));
 
 		//Combo2
 		comboBox_2.setBounds(406, 87, 89, 20);
@@ -206,7 +228,7 @@ public class P1 extends JFrame {
 		
 		JLabel lblNewLabel = new JLabel("CHECK-OUT");
 		lblNewLabel.setFont(new Font("Arial Narrow", Font.BOLD, 16));
-		lblNewLabel.setBounds(282, 186, 89, 25);
+		lblNewLabel.setBounds(266, 186, 89, 25);
 		contentPane.add(lblNewLabel);
 
 
@@ -241,6 +263,11 @@ public class P1 extends JFrame {
 		lblGelaKopurua.setBounds(18, 141, 112, 14);
 		
 		contentPane.add(lblGelaKopurua);
+		comboBox.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				 gela_kop=(int) comboBox.getSelectedItem();
+			}
+		});
 		comboBox.setBounds(140, 140, 28, 20);
 		
 		contentPane.add(comboBox);
@@ -248,6 +275,11 @@ public class P1 extends JFrame {
 		lblOheMota.setBounds(282, 143, 82, 14);
 		
 		contentPane.add(lblOheMota);
+		comboBox_3.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				 oheMota=(String) comboBox_3.getSelectedItem();
+			}
+		});
 		comboBox_3.setModel(new DefaultComboBoxModel(new String[] {"Banakakoa", "Bikoitza", "Umeena"}));
 		comboBox_3.setBounds(406, 140, 89, 20);
 		
@@ -265,6 +297,32 @@ public class P1 extends JFrame {
 		JComboBox comboBox_4 = new JComboBox();
 		comboBox_4.setBounds(104, 244, 36, 20);
 		contentPane.add(comboBox_4);
+		
+		JLabel label_3 = new JLabel("OSTATU MOTA");
+		label_3.setFont(new Font("Dialog", Font.BOLD, 16));
+		label_3.setBounds(255, 222, 100, 50);
+		contentPane.add(label_3);
+		
+		JComboBox comboBox_5 = new JComboBox();
+		comboBox_5.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				 hostatu_mota=(String) comboBox_5.getSelectedItem();
+				 letra_ostatu="";
+				if(hostatu_mota.equalsIgnoreCase("Hotela")) {
+					letra_ostatu="H";
+				}
+				if(hostatu_mota.equalsIgnoreCase("Apartamentua")) {
+					letra_ostatu="A";
+				}
+				if(hostatu_mota.equalsIgnoreCase("Etxea")) {
+					letra_ostatu="E";
+				}
+			}
+		});
+		comboBox_5.setBounds(401, 244, 94, 20);
+		contentPane.add(comboBox_5);
+		comboBox_5.setModel(new DefaultComboBoxModel(new String[] {"","Hotela", "Apartamentua", "Etxea"}));
+
 		
 		
 		for(int pertsona=1;pertsona<=10;pertsona++) {
@@ -296,12 +354,30 @@ public class P1 extends JFrame {
 	public String bidalidirus() {
 		return precio;
 	}
-	public Erreserba bidalireserba() {
-		return erreserba;
-	}
+	
 	
 	public int bidaliId() {
 		return id;
 	}
-	
+	public String  ateraData1() {
+		return  fechaComoCadena;
+	}
+	public String  ateraData2() {
+		return  fechaComoCadena2;
+		
+	}
+	public int  ateraPertsonakop() {
+		return  pertsona_kopurua;
+		
+	}
+	public int  ateraGelakop() {
+		return  gela_kop;
+		
+	}
+	public String ateraOheMota() {
+		return oheMota;
+	}
+	public String ateraPentsio() {
+		return letra_ostatu;
+	}
 }
