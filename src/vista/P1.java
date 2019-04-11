@@ -261,6 +261,10 @@ public class P1 extends JFrame {
 		int cont=0;
 		ArrayList<String>arr = new ArrayList ();
 		for( int i=0;i<herriak.size();i++) {
+			if(cont==0) {
+				comboBox_1.addItem("");
+				cont++;
+			}
 			comboBox_1.addItem(herriak.get(i));
 
 		}
