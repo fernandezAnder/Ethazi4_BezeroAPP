@@ -30,7 +30,7 @@ public class Metodoak {
 	private Ordainketa ord1;
 	private Amaiera am1;
 	Timer timer = new Timer();
-
+	
 	
 
 ///////////////////////////////////////////////////////////////////////////
@@ -126,6 +126,7 @@ public class Metodoak {
 		Consultas.txertatuErreserba(erreserba);
 		System.out.println(erreserba);
 	}
+	
 	
 	
 

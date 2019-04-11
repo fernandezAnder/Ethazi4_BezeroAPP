@@ -44,7 +44,9 @@ public class P2_apartamentua extends JFrame {
 		table = new JTable();
 		table.setModel(new DefaultTableModel(
 			new Object[][] {
-				{null, null, null, null, null, null, null, null, null},
+				, null, null, 
+				null, null, null, 
+				null, null, null},
 			},
 			new String[] {
 				"solairua", "ostatu_id", "izena", "herria", "helbidea", "postaKod", "ostatu_mota", "gela_kopuru", "Erreserba_kopuru"

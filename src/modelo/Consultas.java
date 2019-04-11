@@ -13,6 +13,30 @@ import controlador.*;
 
 public class Consultas {
 
+	public static ArrayList<String> herriakAtera(){
+		
+		ArrayList<String> herrilista= new ArrayList<String>();
+		PreparedStatement s=null;
+		Connection konexioa=Conexion.getConexion();
+
+		try {
+			s = konexioa.prepareStatement("select * from hotelak");
+			ResultSet rs = s.executeQuery();
+		
+			String herria="";
+			
+			while (rs.next()) {
+				herria=(rs.getString(1));
+
+				herrilista.add(herria);
+			}
+
+		}catch(Exception e) {e.getMessage();
+		System.out.println(e.getMessage());
+		}
+		return herrilista;
+	}
+	
 	public static ArrayList <Hotela> hotelendatuak() {
 
 		ArrayList <Hotela> hotelenlista = new ArrayList<Hotela>();
@@ -50,6 +74,77 @@ public class Consultas {
 		System.out.println(e.getMessage());
 		}
 		return hotelenlista;
+	}
+	public static ArrayList <Apartamentua> apartamentuDatuak() {
+
+		ArrayList <Apartamentua> apartamentulista = new ArrayList<Apartamentua>();
+		PreparedStatement s=null;
+		Connection konexioa=Conexion.getConexion();
+
+		try {
+			s = konexioa.prepareStatement("select * from apartamentuak");
+			ResultSet rs = s.executeQuery();
+			int solairua;
+			int ostatu_id;
+			String izena;
+			String herria;
+			String helbidea;
+			int postaKod;
+			String ostatu_mota;
+			int gela_kopuru;
+			int erreserba_kopuru;
+
+			while (rs.next()) {
+				solairua=rs.getInt(1);
+				ostatu_id=rs.getInt(2);
+				izena=rs.getString(3);
+				herria=rs.getString(4);
+				helbidea=rs.getString(5);
+				postaKod=rs.getInt(6);
+				ostatu_mota=rs.getString(7);
+				gela_kopuru=rs.getInt(8);
+				erreserba_kopuru=rs.getInt(9);
+
+				Apartamentua a1= new Apartamentua(solairua, ostatu_id, izena,herria, helbidea, 
+													postaKod,ostatu_mota, gela_kopuru, erreserba_kopuru);
+				apartamentulista.add(a1);
+			}
+
+		}catch(Exception e) {e.getMessage();
+		System.out.println(e.getMessage());
+		}
+		return apartamentulista;
+	}
+	public static ArrayList <Etxea> etxeDatuak() {
+
+		ArrayList <Etxea> etxelista = new ArrayList<Etxea>();
+		PreparedStatement s=null;
+		Connection konexioa=Conexion.getConexion();
+
+		try {
+			s = konexioa.prepareStatement("select * from etxeak");
+			ResultSet rs = s.executeQuery();
+			int m2=0; 
+			int ostatu_id=0;
+			String izena="";
+			String herria="";
+			String helbidea="";
+			int posta_kod=0;
+			String ostatu_mota="";			
+			int gela_kop=0;
+			int erreserba_kop=0;
+			int komun_kop = 0;
+			
+			while (rs.next()) {
+			
+				Etxea e1 = new Etxea(m2, ostatu_id, izena, herria, helbidea, posta_kod, ostatu_mota,gela_kop, erreserba_kop, komun_kop);
+				etxelista.add(e1);
+			}
+
+		}catch(Exception e) {e.getMessage();
+		System.out.println(e.getMessage());
+		}
+		return etxelista;
 	}
 	public static ArrayList<Bezeroa> ateraErabiltzaileak() {
 		Connection conexion = modelo.Conexion.getConexion();
