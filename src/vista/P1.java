@@ -77,7 +77,7 @@ public class P1 extends JFrame {
 	
 	int ostatu_aukera=0;
 	
-	public P1(ArrayList<controlador.Hotela> hotela) {
+	public P1(ArrayList<String> herriak) {
 		rellenar();
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(0, 0, 600, 600);
@@ -170,19 +170,9 @@ public class P1 extends JFrame {
 		
 		btnAurrera.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				metodos.loginIreki();
-				
-//				if (letra_ostatu.equalsIgnoreCase("H")) {
-//					
-//					metodos.bigarrenLehioaHotela();
-//				}else if(letra_ostatu.equalsIgnoreCase("A")) {
-//					
-//					metodos.bigarrenLehioaApartamentua();
-//				}else if(letra_ostatu.equalsIgnoreCase("E")) {
-//					
-//					metodos.bigarrenLehioaEtxea();
-//				}
 
+				
+				
 				
 				
 
@@ -238,8 +228,7 @@ public class P1 extends JFrame {
 			    int hila2= Integer.parseInt(dateFormat4.format(data2));
 			    
 			    
-				System.out.println("Mes1: "+hila +" Dia1 "+ eguna);
-				System.out.println("Mes1: "+hila2 +" Dia1 "+ eguna2);
+				
 
 				if(!fechaComoCadena.equalsIgnoreCase("") && !fechaComoCadena2.equalsIgnoreCase("")&& !hostatu_mota.equalsIgnoreCase("") && gela_kop!=0 && !oheMota.equalsIgnoreCase("") && pertsona_kopurua!=0) {
 					if(eguna-eguna2!=0) {
@@ -271,15 +260,8 @@ public class P1 extends JFrame {
 		String herr="";
 		int cont=0;
 		ArrayList<String>arr = new ArrayList ();
-		for( controlador.Hotela p : hotela) {
-			if(!arr.contains(p.getHerria())) {
-				if(cont==0) {
-					comboBox_1.addItem("");
-					cont++;
-				}
-				comboBox_1.addItem(p.getHerria());
-				arr.add(p.getHerria());
-			}
+		for( int i=0;i<herriak.size();i++) {
+			comboBox_1.addItem(herriak.get(i));
 
 		}
 

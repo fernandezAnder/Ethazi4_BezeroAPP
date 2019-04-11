@@ -20,7 +20,7 @@ public class Consultas {
 		Connection konexioa=Conexion.getConexion();
 
 		try {
-			s = konexioa.prepareStatement("select * from hotelak");
+			s = konexioa.prepareStatement("select DISTINCT herria from ostatu");
 			ResultSet rs = s.executeQuery();
 		
 			String herria="";

@@ -31,9 +31,9 @@ public class BezeroAPP {
 	
 	
 	public void arrancar() {
-		ArrayList <Hotela> hotelak= new ArrayList<Hotela>();
-		hotelak= Consultas.hotelendatuak();
-		p1 = new P1(hotelak);
+		ArrayList <String> herriak= new ArrayList<String>();
+		herriak= Consultas.herriakAtera();
+		p1 = new P1(herriak);
 		m1 = new Metodoak();
 		er1 = new Erregistratu();
 		lo1 = new Login();
@@ -48,8 +48,8 @@ public class BezeroAPP {
 		
 		
 		
-		for(int i=0;i<hotelak.size();i++) {
-			System.out.println(hotelak.get(i));
+		for(int i=0;i<herriak.size();i++) {
+			System.out.println(herriak.get(i));
 		}
 		
 		 
