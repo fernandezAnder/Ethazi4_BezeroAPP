@@ -176,7 +176,7 @@ public class Consultas {
 	}
 	public static void txertatuBezeroa(Bezeroa bezeroa) {
 		Connection conexion = modelo.Conexion.getConexion();
-		System.out.println(bezeroa);
+		
 		try {
 			PreparedStatement s = (PreparedStatement) conexion.prepareStatement(
 					"INSERT INTO `bezeroa` (`nan`, `izena`, `abizenak`, `jaiotze_data`, `pasahitza`)"
@@ -197,12 +197,12 @@ public class Consultas {
 	}
 	public static void txertatuErreserba(Erreserba e1) {
 		Connection conexion = modelo.Conexion.getConexion();
-		System.out.println(e1);
+		
 		try {
 			PreparedStatement s = (PreparedStatement) conexion.prepareStatement(
-					"INSERT INTO `erreserba` (`ostatu_ostatu_id`, `bezeroa_nan`, `pertsona_kopuru`, `prezio_totala`,`erreserbaGela_kopuru`,`pentsio_mota`)"
-							+ " VALUES(?, ?, ?, ?, ?, ?)");
-			
+					"INSERT INTO `erreserba` (`erreserba_kod`,`ostatu_ostatu_id`, `bezeroa_nan`, `pertsona_kopuru`, `prezio_totala`,`erreserbaGela_kopuru`,`pentsio_mota`)"
+							+ " VALUES(?, ?, ?, ?, ?, ?, ?)");
+			s.setInt(1, 0);
 			s.setInt(2,e1.getOstatu_id());
 			s.setString(3, e1.getBezero_nan());
 			s.setInt(4, e1.getPertsona_kop());

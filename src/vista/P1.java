@@ -234,12 +234,12 @@ public class P1 extends JFrame {
 			    String formato4="MM";
 			    SimpleDateFormat dateFormat4 = new SimpleDateFormat(formato4);
 			     hila2= Integer.parseInt(dateFormat4.format(data2));
-			    
-			    String formatoAño2="yyyy";
-			    SimpleDateFormat dateFormataño2 = new SimpleDateFormat(formatoAño2);
-			    int año2=Integer.parseInt(dateFormataño2.format(data1));
+			    ///////////////////////////////////////////////////////////////////////
+			    String formatourtea="yyyy";
+			    SimpleDateFormat dateformatourtea = new SimpleDateFormat(formatourtea);
+			    int urtea=Integer.parseInt(dateformatourtea.format(data1));
 				data1=sartzedata.getDate();
-				
+				///////////////////////////////////////////////////////////////////////
 
 				if(!fechaComoCadena.equalsIgnoreCase("") && !fechaComoCadena2.equalsIgnoreCase("")&& !hostatu_mota.equalsIgnoreCase("") && gela_kop!=0 && !oheMota.equalsIgnoreCase("") && pertsona_kopurua!=0) {
 					if(eguna-eguna2!=0) {
