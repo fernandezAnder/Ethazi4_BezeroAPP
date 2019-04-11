@@ -10,6 +10,7 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
+import controlador.Etxea;
 import controlador.Metodoak;
 
 import javax.swing.JLabel;
@@ -17,6 +18,7 @@ import java.awt.Font;
 import java.awt.Color;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import java.awt.event.ActionEvent;
 
 public class P2_etxea extends JFrame {
@@ -25,10 +27,11 @@ public class P2_etxea extends JFrame {
 	private JTable table;
 	private Metodoak m1;
 	private Metodoak metodos;
-
-
+	private ArrayList<Etxea> etxelista=new ArrayList<Etxea>();
 
 	public P2_etxea() {
+		etxelista=metodos.filtroEtxea();
+		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 998, 588);
 		contentPane = new JPanel();
@@ -42,15 +45,17 @@ public class P2_etxea extends JFrame {
 		contentPane.add(scrollPane);
 		
 		table = new JTable();
+		for (Etxea e:etxelista) {
 		table.setModel(new DefaultTableModel(
 			new Object[][] {
-				{null, null, null, null, null, null, null, null, null, null},
+				{e.getIzena(), e.getOstatu_id(), null, null, null, null, null, null, null, null},
 			},
+		
 			new String[] {
 				"m2", "ostatu_id", "izena", "herria", "helbidea", "postaKod", "ostatu_mota", "gela_kopuru", "erreserba_kopuru", "komun_kop"
 			}
 		));
-		
+		}
 		table.getColumnModel().getColumn(8).setPreferredWidth(107);
 		scrollPane.setViewportView(table);
 		
@@ -78,6 +83,7 @@ public class P2_etxea extends JFrame {
 		btnNewButton_1.setFont(new Font("Arial Narrow", Font.BOLD, 16));
 		btnNewButton_1.setBounds(518, 502, 98, 23);
 		contentPane.add(btnNewButton_1);
+		
 	}
 	public void misMetodos(Metodoak metodos) {
 		this.metodos=metodos;

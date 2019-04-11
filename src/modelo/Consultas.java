@@ -220,7 +220,7 @@ public class Consultas {
 	}
 	public static boolean konprobatuDatuBasea(String Nan) {
 		Connection conexion = modelo.Conexion.getConexion();
-		ArrayList<Bezeroa> Arraybezero = new ArrayList<Bezeroa>();
+	
 		String dni = "";
 		boolean erabakia = false;
 
@@ -243,6 +243,6 @@ public class Consultas {
 		return erabakia;
 	}
 
-
+	
 
 }
