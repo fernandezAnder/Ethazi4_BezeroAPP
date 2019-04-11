@@ -6,6 +6,7 @@ import java.awt.event.ActionListener;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 
 import javax.swing.DefaultComboBoxModel;
@@ -30,10 +31,14 @@ import java.awt.Color;
 public class P1 extends JFrame {
 
 	private JPanel contentPane;
-
+	
+	
+	private int eguna;
+	private int hila;
 	private int i;
 	int id=0;
-
+	private Date date;
+	private Date data1;
 	private JTextField textField= new JTextField();
 	private JTextField Segundocampo= new JTextField() ;
 	private JTextField textField_2= new JTextField();
@@ -125,15 +130,7 @@ public class P1 extends JFrame {
 		
 
 		contentPane.add(textField_2);
-		sartzedata.getCalendarButton().addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				String formato = sartzedata.getDateFormatString();
-				System.out.println(formato);
-				Date date = sartzedata.getDate();
-				SimpleDateFormat sdf = new SimpleDateFormat(formato);
-				
-			}
-		});
+		
 
 		//JCALENDAR LEHEN DATA
 		sartzedata.setBounds(104, 191, 118, 20);
@@ -142,13 +139,28 @@ public class P1 extends JFrame {
 		sartzedata.setSelectableDateRange(new Date(), null);
 		
 		
+		sartzedata.getCalendarButton().addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				String formato = sartzedata.getDateFormatString();
+				System.out.println(formato);
+				 date = sartzedata.getDate();
+				SimpleDateFormat sdf = new SimpleDateFormat(formato);
+				
+			}
+		});
+		
+		
 		//JCALENDAR BIGARREN DATA
 		irtetzedata.setBounds(401, 191, 117, 20);
 		irtetzedata.setDateFormatString("yyyy-MM-dd");
 		getContentPane().add(irtetzedata);
 		irtetzedata.setSelectableDateRange(new Date(), null);
 		
-		
+		irtetzedata.getCalendarButton().addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				irtetzedata.setMinSelectableDate(sartzedata.getDate());
+			}
+		});
 		
 
 
@@ -194,7 +206,33 @@ public class P1 extends JFrame {
 //					}
 //				}
 				
+				//*******************SARTZEDATA*********
+				data1=sartzedata.getDate();
+				String formato1="dd";
+			    SimpleDateFormat dateFormat = new SimpleDateFormat(formato1);
+			    eguna= Integer.parseInt(dateFormat.format(data1));
+			    
+			    String formato2="MM";
+			    SimpleDateFormat dateFormat2 = new SimpleDateFormat(formato2);
+			    hila= Integer.parseInt(dateFormat2.format(data1));
+			    
+			    //***************IrtetzeData***********
+			    
+			    Date data2 = irtetzedata.getDate();
+				String formato3="dd";
+			    SimpleDateFormat dateFormat3 = new SimpleDateFormat(formato3);
+			    int eguna2= Integer.parseInt(dateFormat3.format(data2));
+			    
+			    String formato4="MM";
+			    SimpleDateFormat dateFormat4 = new SimpleDateFormat(formato4);
+			    int hila2= Integer.parseInt(dateFormat4.format(data2));
+			    
+			    
+				System.out.println("Mes1: "+hila +" Dia1 "+ eguna);
+				System.out.println("Mes1: "+hila2 +" Dia1 "+ eguna2);
+
 				if(!fechaComoCadena.equalsIgnoreCase("") && !fechaComoCadena2.equalsIgnoreCase("")&& !hostatu_mota.equalsIgnoreCase("") && gela_kop!=0 && !oheMota.equalsIgnoreCase("") && pertsona_kopurua!=0) {
+					if(eguna-eguna2!=0) {
 					if (letra_ostatu.equalsIgnoreCase("H")) {
 						
 						metodos.bigarrenLehioaHotela();
@@ -204,6 +242,9 @@ public class P1 extends JFrame {
 					}else if(letra_ostatu.equalsIgnoreCase("E")) {
 						
 						metodos.bigarrenLehioaEtxea();
+					}
+					
+					
 					}
 					
 					
