@@ -70,7 +70,6 @@ public class P1 extends JFrame {
 	private final JComboBox comboBox_3 = new JComboBox();
 	private final JButton btnAurrera = new JButton("AURRERA");
 	
-	
 	int ostatu_aukera=0;
 	
 	public P1(ArrayList<controlador.Hotela> hotela) {
@@ -182,24 +181,27 @@ public class P1 extends JFrame {
 				//**************Fechas**********
 				//1
 				SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
-				String fechaComoCadena = sdf.format(sartzedata.getDate());
+				 fechaComoCadena = sdf.format(sartzedata.getDate());
 				
 				//2
-				String fechaComoCadena2 = sdf.format(irtetzedata.getDate());
+				 fechaComoCadena2 = sdf.format(irtetzedata.getDate());
 				
+				System.out.println(fechaComoCadena);
+				System.out.println(fechaComoCadena2);
+
 
 				
 				
 				
 				
 				
-				for(Hotela p : hotela) {
-					System.out.println(textField.getText());
-					if(p.getHerria().equalsIgnoreCase(textField.getText())) {
-						id=p.getOstatu_id();
-						
-					}
-				}
+//				for(Hotela p : hotela) {
+//					System.out.println(textField.getText());
+//					if(p.getHerria().equalsIgnoreCase(textField.getText())) {
+//						id=p.getOstatu_id();
+//						
+//					}
+//				}
 				
 				
 				
