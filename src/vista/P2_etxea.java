@@ -27,11 +27,12 @@ public class P2_etxea extends JFrame {
 	private JTable table;
 	private Metodoak m1;
 	private Metodoak metodos;
-	private ArrayList<Etxea> etxelista=new ArrayList<Etxea>();
+	private ArrayList<Etxea> etxelista;
+	private JScrollPane scrollPane;
+
 
 	public P2_etxea() {
-		etxelista=metodos.filtroEtxea();
-		
+
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 998, 588);
 		contentPane = new JPanel();
@@ -40,24 +41,24 @@ public class P2_etxea extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JScrollPane scrollPane = new JScrollPane();
+		 scrollPane = new JScrollPane();
 		scrollPane.setBounds(0, 64, 982, 427);
 		contentPane.add(scrollPane);
 		
 		table = new JTable();
-		for (Etxea e:etxelista) {
-		table.setModel(new DefaultTableModel(
-			new Object[][] {
-				{e.getIzena(), e.getOstatu_id(), null, null, null, null, null, null, null, null},
-			},
-		
-			new String[] {
-				"m2", "ostatu_id", "izena", "herria", "helbidea", "postaKod", "ostatu_mota", "gela_kopuru", "erreserba_kopuru", "komun_kop"
-			}
-		));
-		}
-		table.getColumnModel().getColumn(8).setPreferredWidth(107);
-		scrollPane.setViewportView(table);
+//		for (Etxea e:etxelista) {
+//		table.setModel(new DefaultTableModel(
+//			new Object[][] {
+//				{e.getIzena(), e.getOstatu_id(), null, null, null, null, null, null, null, null},
+//			},
+//		
+//			new String[] {
+//				"m2", "ostatu_id", "izena", "herria", "helbidea", "postaKod", "ostatu_mota", "gela_kopuru", "erreserba_kopuru", "komun_kop"
+//			}
+//		));
+//		}
+//		table.getColumnModel().getColumn(8).setPreferredWidth(107);
+//		scrollPane.setViewportView(table);
 		
 		JLabel lblApartamentuarenInformazioa = new JLabel("ETXEAREN INFORMAZIOA");
 		lblApartamentuarenInformazioa.setFont(new Font("Arial Narrow", Font.BOLD, 24));
@@ -87,5 +88,25 @@ public class P2_etxea extends JFrame {
 	}
 	public void misMetodos(Metodoak metodos) {
 		this.metodos=metodos;
+	}
+	
+	public void ateraE(ArrayList<Etxea> etxe){
+		etxelista=etxe;
+	}
+	public void elalal() {
+		for (Etxea e:etxelista) {
+			table.setModel(new DefaultTableModel(
+				new Object[][] {
+					{e.getIzena(), e.getOstatu_id(), null, null, null, null, null, null, null, null},
+				},
+			
+				new String[] {
+					"m2", "ostatu_id", "izena", "herria", "helbidea", "postaKod", "ostatu_mota", "gela_kopuru", "erreserba_kopuru", "komun_kop"
+				}
+			));
+			}
+		
+		table.getColumnModel().getColumn(8).setPreferredWidth(107);
+		scrollPane.setViewportView(table);
 	}
 }

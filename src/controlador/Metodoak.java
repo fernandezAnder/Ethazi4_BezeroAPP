@@ -127,7 +127,7 @@ public class Metodoak {
 		System.out.println(erreserba);
 	}
 	
-	public ArrayList<Hotela> filtroHotela() {
+	public void filtroHotela() {
 		String herria=p1.ateraHerria();
 		ArrayList<Hotela> hotelenlista= new ArrayList<Hotela>();
 		ArrayList<Hotela> hotelenlistaFiltro= new ArrayList<Hotela>();
@@ -138,8 +138,9 @@ public class Metodoak {
 			}
 		}
 		
+		p2hot.prno(hotelenlistaFiltro);
+		p2hot.filtroHoteltA();
 		
-		return hotelenlistaFiltro;
 	}
 	public ArrayList<Apartamentua> filtroApartamentua() {
 		String herria=p1.ateraHerria();
@@ -154,7 +155,7 @@ public class Metodoak {
 		
 		return apartamentulista2;
 	}
-	public ArrayList<Etxea> filtroEtxea() {
+	public void filtroEtxea() {
 		String herria=p1.ateraHerria();
 		ArrayList<Etxea> etxelista=new ArrayList<Etxea>();
 		etxelista=Consultas.etxeDatuak();
@@ -165,7 +166,7 @@ public class Metodoak {
 				etxelista2.add(p);
 			}
 		}
-		return etxelista2;
+		p2etxe.elalal();
 	}
 			
 			

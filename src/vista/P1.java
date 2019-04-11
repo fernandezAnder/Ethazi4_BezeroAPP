@@ -236,20 +236,20 @@ public class P1 extends JFrame {
 					if (letra_ostatu.equalsIgnoreCase("H")) {
 						
 						metodos.bigarrenLehioaHotela();
+						metodos.filtroHotela();
 					}else if(letra_ostatu.equalsIgnoreCase("A")) {
 						
 						metodos.bigarrenLehioaApartamentua();
+						metodos.filtroApartamentua();
 					}else if(letra_ostatu.equalsIgnoreCase("E")) {
 						
 						metodos.bigarrenLehioaEtxea();
+						metodos.filtroEtxea();}
+					
 					}
-					
-					
-					}
-					
-					
 					
 				}
+				
 				
 			}
 			
