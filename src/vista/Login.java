@@ -79,9 +79,12 @@ public class Login extends JFrame {
 		btnLogueatu.setFont(new Font("Source Code Pro Black", Font.BOLD, 15));
 		btnLogueatu.setBounds(309, 281, 176, 32);
 		getContentPane().add(btnLogueatu);
+		
+		JLabel lblNewLabel = new JLabel("");
+		lblNewLabel.setBounds(83, 363, 398, 14);
+		getContentPane().add(lblNewLabel);
 		btnSartu.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				dispose();
 				// botoiaren kodea
 				System.out.println("LOGIN BOTOIA");
 				logindatuak();
@@ -90,6 +93,9 @@ public class Login extends JFrame {
 					metodos.hirugarrenLehioa();
 					 nana = textField.getText();
 
+				}
+				else {
+					lblNewLabel.setText("Login edo pasahitza errorea");
 				}
 				System.out.println(youshouldnotpass);
 			}
@@ -114,6 +120,4 @@ public class Login extends JFrame {
 	public String ateraNana() {
 		return  nana;
 	}
-	
-
 }

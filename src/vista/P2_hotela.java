@@ -73,8 +73,9 @@ public class P2_hotela extends JFrame {
 		JButton btnNewButton_1 = new JButton("AURRERA");
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				metodos.lehioaHotelaItxi();
 				metodos.loginIreki();
-				m1.lehioaHotelaItxi();
+				
 			}
 		});
 		btnNewButton_1.setFont(new Font("Arial Narrow", Font.BOLD, 16));
