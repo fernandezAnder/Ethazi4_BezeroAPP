@@ -1,6 +1,7 @@
 package vista;
 
 import java.awt.BorderLayout;
+
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
@@ -72,7 +73,7 @@ public class P2_hotela extends JFrame {
 		JButton btnNewButton_1 = new JButton("AURRERA");
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				m1.loginIreki();
+				metodos.loginIreki();
 				m1.lehioaHotelaItxi();
 			}
 		});

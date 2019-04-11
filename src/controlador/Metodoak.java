@@ -118,6 +118,9 @@ public class Metodoak {
 		er1.setVisible(false);
 	}
 	public void recivirReserva() {
+		String data1 = p1.ateraData1();
+		System.out.println(data1);
+		System.out.println(p1.ateraData1());
 		Erreserba erreserba =new Erreserba(0, p1.bidaliId(), lo1.ateraNana(), p1.ateraData1(), p1.ateraData2(), p1.ateraPertsonakop(), 0, p1.ateraGelakop(), p1.ateraPentsio(), p1.ateraOheMota(), 0, null);
 		imprimatuTiketa(erreserba);
 		Consultas.txertatuErreserba(erreserba);
