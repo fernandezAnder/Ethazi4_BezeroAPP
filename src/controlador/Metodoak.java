@@ -68,7 +68,7 @@ public class Metodoak {
 	}
 	
 	public void loginIreki() {
-		lo1.setEnabled(true);
+		lo1.setVisible(true);
 	}
 	public void bidaliDirua() {
 		String diruaString = "";

@@ -159,18 +159,18 @@ public class P1 extends JFrame {
 		
 		btnAurrera.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-
+				metodos.loginIreki();
 				
-				if (letra_ostatu.equalsIgnoreCase("H")) {
-					
-					metodos.bigarrenLehioaHotela();
-				}else if(letra_ostatu.equalsIgnoreCase("A")) {
-					
-					metodos.bigarrenLehioaApartamentua();
-				}else if(letra_ostatu.equalsIgnoreCase("E")) {
-					
-					metodos.bigarrenLehioaEtxea();
-				}
+//				if (letra_ostatu.equalsIgnoreCase("H")) {
+//					
+//					metodos.bigarrenLehioaHotela();
+//				}else if(letra_ostatu.equalsIgnoreCase("A")) {
+//					
+//					metodos.bigarrenLehioaApartamentua();
+//				}else if(letra_ostatu.equalsIgnoreCase("E")) {
+//					
+//					metodos.bigarrenLehioaEtxea();
+//				}
 				
 				
 
