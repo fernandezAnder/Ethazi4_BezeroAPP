@@ -10,6 +10,7 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
 
 import controlador.Etxea;
 import controlador.Hotela;
@@ -48,7 +49,9 @@ public class P2_hotela extends JFrame {
 		contentPane.add(scrollPane);
 		
 		table = new JTable();
+		
 		table.setFont(new Font("Arial Narrow", Font.BOLD, 11));
+
 //		table.setModel(new DefaultTableModel(
 //			new Object[][] {
 //				{null, null, null, null, null, null, null, null, null},
@@ -60,6 +63,18 @@ public class P2_hotela extends JFrame {
 //		
 //		table.getColumnModel().getColumn(0).setPreferredWidth(77);
 //		table.getColumnModel().getColumn(8).setPreferredWidth(107);
+
+		String[]columnas= {
+				"izarkop", "ostatu_id", "izena", "herria", "helbidea", "postaKod", "ostatu_mota", "gela_kopuru", "erreserba_kopuru"
+			};
+		DefaultTableModel t1= new DefaultTableModel(columnas, 10);
+		table.setModel(t1);
+		
+			
+			
+		
+		table.getColumnModel().getColumn(0).setPreferredWidth(77);
+		table.getColumnModel().getColumn(8).setPreferredWidth(107);
 		scrollPane.setViewportView(table);
 		
 		JLabel lblApartamentuarenInformazioa = new JLabel("HOTELAREN INFORMAZIOA");

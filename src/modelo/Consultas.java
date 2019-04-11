@@ -243,6 +243,23 @@ public class Consultas {
 		return erabakia;
 	}
 
+	public static double logela_prezioa(int ostatu_id) {
+		Connection conexion = modelo.Conexion.getConexion();
 	
+		double logela_prezioa=0;
 
+		try {
+			Statement s = conexion.createStatement();
+			String query = "SELECT MAX(prezioa) FROM gelamota_hotela gh, gelamota g where gh.gelaMota_gela_kodea=g.gela_kodea AND gh.hotela_hotel_kod="+ostatu_id;
+			ResultSet rs = s.executeQuery(query);
+			while (rs.next()) {
+				logela_prezioa=rs.getDouble(1);
+				
+			}
+
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
+		}
+		return logela_prezioa;
+	}
 }

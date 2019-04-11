@@ -33,6 +33,7 @@ public class P2_etxea extends JFrame {
 
 	public P2_etxea() {
 
+		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 998, 588);
 		contentPane = new JPanel();
@@ -46,6 +47,7 @@ public class P2_etxea extends JFrame {
 		contentPane.add(scrollPane);
 		
 		table = new JTable();
+
 //		for (Etxea e:etxelista) {
 //		table.setModel(new DefaultTableModel(
 //			new Object[][] {
@@ -59,6 +61,20 @@ public class P2_etxea extends JFrame {
 //		}
 //		table.getColumnModel().getColumn(8).setPreferredWidth(107);
 //		scrollPane.setViewportView(table);
+		//for (Etxea e:etxelista) {
+		table.setModel(new DefaultTableModel(
+			new Object[][] {
+				{null, null, null, null, null, null, null, null, null, null},
+			},
+		
+			new String[] {
+				"m2", "ostatu_id", "izena", "herria", "helbidea", "postaKod", "ostatu_mota", "gela_kopuru", "erreserba_kopuru", "komun_kop"
+			}
+		));
+		//}
+		table.getColumnModel().getColumn(8).setPreferredWidth(107);
+		scrollPane.setViewportView(table);
+
 		
 		JLabel lblApartamentuarenInformazioa = new JLabel("ETXEAREN INFORMAZIOA");
 		lblApartamentuarenInformazioa.setFont(new Font("Arial Narrow", Font.BOLD, 24));
