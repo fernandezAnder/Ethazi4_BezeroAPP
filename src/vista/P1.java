@@ -75,6 +75,7 @@ public class P1 extends JFrame {
 	private final JComboBox comboBox_3 = new JComboBox();
 	private final JButton btnAurrera = new JButton("AURRERA");
 	
+	String herria;
 	int ostatu_aukera=0;
 	
 	public P1(ArrayList<String> herriak) {
@@ -171,7 +172,7 @@ public class P1 extends JFrame {
 		btnAurrera.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 
-				
+				herria=(String)comboBox_1.getSelectedItem();
 				
 				
 				
@@ -251,6 +252,7 @@ public class P1 extends JFrame {
 				}
 				
 			}
+			
 		});
 
 		//Combo1
@@ -400,7 +402,10 @@ public class P1 extends JFrame {
 		return precio;
 	}
 	
-	
+	public String ateraHerria() {
+		
+		return herria;
+	}
 	public int bidaliId() {
 		return id;
 	}

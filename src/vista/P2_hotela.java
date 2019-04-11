@@ -18,6 +18,7 @@ import java.awt.Font;
 import java.awt.Color;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import java.awt.event.ActionEvent;
 
 public class P2_hotela extends JFrame {
@@ -27,8 +28,8 @@ public class P2_hotela extends JFrame {
 
 	private Metodoak m1;
 	private Metodoak metodos;
-
-	public P2_hotela() {
+	
+	public  P2_hotela() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 998, 588);
 		contentPane = new JPanel();
@@ -58,7 +59,7 @@ public class P2_hotela extends JFrame {
 		
 		JLabel lblApartamentuarenInformazioa = new JLabel("HOTELAREN INFORMAZIOA");
 		lblApartamentuarenInformazioa.setFont(new Font("Arial Narrow", Font.BOLD, 24));
-		lblApartamentuarenInformazioa.setBounds(315, 11, 278, 25);
+		lblApartamentuarenInformazioa.setBounds(315, 11, 336, 25);
 		contentPane.add(lblApartamentuarenInformazioa);
 		
 		JButton btnNewButton = new JButton("ATZERA");

@@ -14,7 +14,7 @@ import java.util.ArrayList;
 import java.util.Timer;
 import java.util.TimerTask;
 
-
+import javafx.scene.control.ComboBox;
 import modelo.Consultas;
 import vista.*;
 
@@ -127,6 +127,50 @@ public class Metodoak {
 		System.out.println(erreserba);
 	}
 	
+	public ArrayList<Hotela> filtroHotela() {
+		String herria=p1.ateraHerria();
+		ArrayList<Hotela> hotelenlista= new ArrayList<Hotela>();
+		ArrayList<Hotela> hotelenlistaFiltro= new ArrayList<Hotela>();
+		hotelenlista=Consultas.hotelendatuak();
+		for (Hotela p:hotelenlista) {
+			if (p.getHerria().equalsIgnoreCase(herria)){
+				hotelenlistaFiltro.add(p);
+			}
+		}
+		
+		
+		return hotelenlistaFiltro;
+	}
+	public ArrayList<Apartamentua> filtroApartamentua() {
+		String herria=p1.ateraHerria();
+		ArrayList<Apartamentua> apartamentulista= new ArrayList<Apartamentua>();
+		apartamentulista=Consultas.apartamentuDatuak();
+		ArrayList<Apartamentua> apartamentulista2= new ArrayList<Apartamentua>();
+		for (Apartamentua p:apartamentulista2) {
+			if (p.getHerria().equalsIgnoreCase(herria)){
+				apartamentulista2.add(p);
+			}
+		}
+		
+		return apartamentulista2;
+	}
+	public ArrayList<Etxea> filtroEtxea() {
+		String herria=p1.ateraHerria();
+		ArrayList<Etxea> etxelista=new ArrayList<Etxea>();
+		etxelista=Consultas.etxeDatuak();
+		ArrayList<Etxea> etxelista2=new ArrayList<Etxea>();
+		
+		for (Etxea p:etxelista2) {
+			if (p.getHerria().equalsIgnoreCase(herria)){
+				etxelista2.add(p);
+			}
+		}
+		return etxelista2;
+	}
+			
+			
+			
+		
 	
 	
 
