@@ -121,7 +121,7 @@ public class Ordainketa extends JFrame {
 		btnEzeztatu.setFont(new Font("Arial", Font.PLAIN, 18));
 		btnEzeztatu.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				metodos.lehenengoLehioa();
+				metodos.lehenengoLehioa2();
 
 			}
 		});
@@ -130,7 +130,8 @@ public class Ordainketa extends JFrame {
 
 		btnAtzera.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				metodos.lehenengoLehioa();
+				metodos.lehioaHotelaIreki();
+				metodos.p2hotetoOrdainketa2();
 
 			}
 		});

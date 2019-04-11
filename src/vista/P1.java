@@ -36,6 +36,8 @@ public class P1 extends JFrame {
 	private int eguna;
 	private int hila;
 	private int i;
+	private  int hila2;
+	private int eguna2;
 	int id=0;
 	private Date date;
 	private Date data1;
@@ -208,7 +210,12 @@ public class P1 extends JFrame {
 //				}
 				
 				//*******************SARTZEDATA*********
+//			    String formatoAño1="yyyy";
+//			    SimpleDateFormat dateFormataño1 = new SimpleDateFormat(formatoAño1);
+//			    int año1=Integer.parseInt(dateFormataño1.format(data1));
+				
 				data1=sartzedata.getDate();
+				
 				String formato1="dd";
 			    SimpleDateFormat dateFormat = new SimpleDateFormat(formato1);
 			    eguna= Integer.parseInt(dateFormat.format(data1));
@@ -222,13 +229,16 @@ public class P1 extends JFrame {
 			    Date data2 = irtetzedata.getDate();
 				String formato3="dd";
 			    SimpleDateFormat dateFormat3 = new SimpleDateFormat(formato3);
-			    int eguna2= Integer.parseInt(dateFormat3.format(data2));
+			     eguna2= Integer.parseInt(dateFormat3.format(data2));
 			    
 			    String formato4="MM";
 			    SimpleDateFormat dateFormat4 = new SimpleDateFormat(formato4);
-			    int hila2= Integer.parseInt(dateFormat4.format(data2));
+			     hila2= Integer.parseInt(dateFormat4.format(data2));
 			    
-			    
+			    String formatoAño2="yyyy";
+			    SimpleDateFormat dateFormataño2 = new SimpleDateFormat(formatoAño2);
+			    int año2=Integer.parseInt(dateFormataño2.format(data1));
+				data1=sartzedata.getDate();
 				
 
 				if(!fechaComoCadena.equalsIgnoreCase("") && !fechaComoCadena2.equalsIgnoreCase("")&& !hostatu_mota.equalsIgnoreCase("") && gela_kop!=0 && !oheMota.equalsIgnoreCase("") && pertsona_kopurua!=0) {
@@ -402,9 +412,9 @@ public class P1 extends JFrame {
 		this.metodos=metodos;
 	}
 	
-	public String bidalidirus() {
-		return precio;
-	}
+//	public String bidalidirus() {
+//		return precio;
+//	}
 	
 	public String ateraHerria() {
 		
@@ -433,5 +443,22 @@ public class P1 extends JFrame {
 	}
 	public String ateraPentsio() {
 		return letra_ostatu;
+	}
+	
+	
+	public int diadif() {
+		int dias=0;
+		int meses = hila2-hila;
+		if(meses==0) {
+			dias=eguna2-eguna;
+		}
+		else {
+			meses = 30*meses;
+			dias = meses-eguna+eguna2;
+		}
+		
+		
+		
+		return dias;
 	}
 }

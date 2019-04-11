@@ -15,6 +15,7 @@ import javax.swing.table.TableModel;
 import controlador.Etxea;
 import controlador.Hotela;
 import controlador.Metodoak;
+import javafx.scene.control.ComboBox;
 
 import javax.swing.JLabel;
 import java.awt.Font;
@@ -34,6 +35,12 @@ public class P2_hotela extends JFrame {
 	private Metodoak m1;
 	private Metodoak metodos;
 	private ArrayList<Hotela> hotelak;
+	private int id=0;
+	private int ohekopurua=0;
+	private JComboBox comboBox_1;
+	private int contador=0;
+	private JLabel lblNewLabel;
+	
 	
 	public  P2_hotela() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -86,6 +93,9 @@ public class P2_hotela extends JFrame {
 		btnNewButton.setFont(new Font("Arial Narrow", Font.BOLD, 16));
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				metodos.lehioaHotelaItxi();
+				metodos.lehenengoLehioa();
+				
 			}
 		});
 		btnNewButton.setBounds(366, 502, 89, 23);
@@ -94,17 +104,38 @@ public class P2_hotela extends JFrame {
 		JButton btnNewButton_1 = new JButton("AURRERA");
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
+				try{
 				int numero=table.getSelectedRow();
 				Hotela hotela2 = hotelak.get(numero);
 				if(hotela2.getErreserba_kop()==100) {
-					
+					 lblNewLabel.setText("Hotela Beteta");
 				}
 				else {
-					metodos.lehioaHotelaItxi();
-					metodos.loginIreki();
+					id=hotela2.getOstatu_id();
+					 //ohekopurua = hotela2.getGela_kop();
+					if(metodos.logueatuta==false && id!=0) {
+						metodos.lehioaHotelaItxi();
+						metodos.loginIreki();
+					}
+					else {
+						if(id!=0) {
+						metodos.lehioaHotelaItxi();
+						metodos.p2hotetoOrdainketa();
+						metodos.bidaliDirua();
+						}
+					}
+					
 				}
 				System.out.println(hotela2);
+				
+				
+				}catch(Exception i) {
+					 lblNewLabel.setText("Aukeratu Hotela");
+
+					System.out.println(i.getMessage());
+					
+				}
+				
 				
 			}
 		});
@@ -112,9 +143,12 @@ public class P2_hotela extends JFrame {
 		btnNewButton_1.setBounds(518, 502, 98, 23);
 		contentPane.add(btnNewButton_1);
 		
-		JComboBox comboBox_1 = new JComboBox();
-		comboBox_1.setBounds(162, 506, 98, 20);
-		contentPane.add(comboBox_1);
+		lblNewLabel = new JLabel("");
+		lblNewLabel.setBounds(45, 509, 290, 14);
+		contentPane.add(lblNewLabel);
+		
+		
+		
 		
 	}
 	public void misMetodos(Metodoak metodos) {
@@ -142,6 +176,7 @@ public class P2_hotela extends JFrame {
 		 t1.addColumn("gela_kopuru");
 		 t1.addColumn("erreserba_kopuru");
 		for (Hotela e:hotelak) {
+					
 					columnas[0]=Integer.toString(e.getIzarkop());
 					columnas[1]=Integer.toString(e.getOstatu_id());
 					columnas[2]=e.getIzena();
@@ -164,5 +199,10 @@ public class P2_hotela extends JFrame {
 			}	
 			
 			
+	}
+	
+	
+	public int eramanaId() {
+		return id;
 	}
 }
