@@ -4,6 +4,7 @@ import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.AbstractButton;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -26,6 +27,7 @@ public class Login extends JFrame {
 	private String pasahitza;
 	private String Nan;
 	private String nana;
+	private JLabel lblNewLabel;
 	private Metodoak metodos;
 
 	/**
@@ -80,6 +82,10 @@ public class Login extends JFrame {
 		btnLogueatu.setFont(new Font("Arial Narrow", Font.BOLD, 16));
 		btnLogueatu.setBounds(305, 361, 176, 32);
 		getContentPane().add(btnLogueatu);
+		
+		 lblNewLabel = new JLabel("");
+		lblNewLabel.setBounds(109, 418, 201, 14);
+		getContentPane().add(lblNewLabel);
 		btnSartu.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				// botoiaren kodea
@@ -94,6 +100,7 @@ public class Login extends JFrame {
 
 				}
 				else {
+					
 					lblNewLabel.setText("Login edo pasahitza errorea");
 				}
 				System.out.println(youshouldnotpass);
