@@ -25,7 +25,7 @@ public class P2_apartamentua extends JFrame {
 	private JTable table;
 	private Metodoak m1;
 	private Metodoak metodos;
-	
+	private int id=0;
 
 
 	public P2_apartamentua() {
@@ -83,5 +83,8 @@ public class P2_apartamentua extends JFrame {
 	}
 	public void misMetodos(Metodoak metodos) {
 		this.metodos=metodos;
+	}
+	public int bidaliId() {
+		return id;
 	}
 }

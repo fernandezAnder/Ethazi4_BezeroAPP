@@ -284,7 +284,7 @@ public class Erregistratu extends JFrame {
 					Jarraitu.setEnabled(true);
 					Balidatu.setEnabled(false);
 				}else {
-					JOptionPane.showMessageDialog(null, "Nan hau erregistratuta dago");
+					//JOptionPane.showMessageDialog(null, "Nan hau erregistratuta dago");
 				}
 ////				for (int i=0;i<bezeroak.size();i++) {
 ////					if (bezeroak.get(i).getDni().equals(nan)) {

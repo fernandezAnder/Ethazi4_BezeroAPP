@@ -188,14 +188,8 @@ public class P2_hotela extends JFrame {
 					columnas[8]=Integer.toString(e.getErreserba_kop());
 					t1.addRow(columnas);
 			
-//			new Object[][] {
-//					{e.getIzarkop(), e.getOstatu_id(), e.getIzena(), e.getHerria(), e.getHelbidea(), e.getPosta_kod(), e.getOstatu_mota(), e.getGela_kop(), e.getErreserba_kop()},
-//				},
-//			
-//				new String[] {
-//						"izarkop", "ostatu_id", "izena", "herria", "helbidea", "postaKod", "ostatu_mota", "gela_kopuru", "erreserba_kopuru"
-//					}
-//			));
+					
+				
 			}	
 			
 			

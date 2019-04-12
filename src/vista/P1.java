@@ -48,6 +48,7 @@ public class P1 extends JFrame {
 	private String[] zerrenda= new String[30];
 	private String prezioa1="";
 	private JComboBox comboBox_1= new JComboBox();
+	private JComboBox comboBox_4 = new JComboBox();
 	private JLabel lblPais = new JLabel("HERRIA / HIRIA");
 	private JDateChooser sartzedata = new JDateChooser();
 	private JDateChooser irtetzedata = new JDateChooser();
@@ -58,8 +59,10 @@ public class P1 extends JFrame {
 	private String oheMota="";
 	private String  letra_ostatu;
 	private String hostatu_mota="";
-	int prezioa=0;
-	int ostatu_id=0;
+	private int prezioa=0;
+	private int ostatu_id=0;
+	private String ohe_kops="";
+	private int ohe_kop=0;
 	private JLabel lblGauakgaua = new JLabel("CHECK-IN");
 
 	private Metodoak m1;
@@ -192,12 +195,14 @@ public class P1 extends JFrame {
 			    String formato4="MM";
 			    SimpleDateFormat dateFormat4 = new SimpleDateFormat(formato4);
 			     hila2= Integer.parseInt(dateFormat4.format(data2));
-			    ///////////////////////////////////////////////////////////////////////
+	
 			    String formatourtea="yyyy";
 			    SimpleDateFormat dateformatourtea = new SimpleDateFormat(formatourtea);
 			    int urtea=Integer.parseInt(dateformatourtea.format(data1));
 				data1=sartzedata.getDate();
-				///////////////////////////////////////////////////////////////////////
+				
+				ohe_kops=comboBox_4.getSelectedItem().toString();
+				ohe_kop=Integer.parseInt(ohe_kops);
 
 				if(!fechaComoCadena.equalsIgnoreCase("") && !fechaComoCadena2.equalsIgnoreCase("")&& !hostatu_mota.equalsIgnoreCase("") && gela_kop!=0 && !oheMota.equalsIgnoreCase("") && pertsona_kopurua!=0) {
 					if(eguna-eguna2!=0) {
@@ -300,9 +305,13 @@ public class P1 extends JFrame {
 		lblPertsonaKopurua.setBounds(34, 222, 147, 25);
 		contentPane.add(lblPertsonaKopurua);
 		
+
+		comboBox_4.setBounds(104, 244, 36, 20);
+
 		JComboBox comboBox_4 = new JComboBox();
 		comboBox_4.setModel(new DefaultComboBoxModel(new String[] {"", "1", "2", "3", "4", "5", "6", "7", "8"}));
 		comboBox_4.setBounds(194, 226, 36, 20);
+
 		contentPane.add(comboBox_4);
 		
 		JLabel label_3 = new JLabel("OSTATU MOTA");
@@ -376,9 +385,7 @@ public class P1 extends JFrame {
 		
 		return herria;
 	}
-	public int bidaliId() {
-		return id;
-	}
+	
 	public String  ateraData1() {
 		return  fechaComoCadena;
 	}
@@ -399,6 +406,9 @@ public class P1 extends JFrame {
 	}
 	public String ateraPentsio() {
 		return letra_ostatu;
+	}
+	public int ohe_kop() {
+		return ohe_kop;
 	}
 	
 	
