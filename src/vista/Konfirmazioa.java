@@ -13,7 +13,7 @@ import java.awt.Color;
 import javax.swing.border.MatteBorder;
 import java.awt.Font;
 
-public class konfirmazioa extends JFrame {
+public class Konfirmazioa extends JFrame {
 
 	private JPanel contentPane;
 
@@ -24,7 +24,7 @@ public class konfirmazioa extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					konfirmazioa frame = new konfirmazioa();
+					Konfirmazioa frame = new Konfirmazioa();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -36,7 +36,7 @@ public class konfirmazioa extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public konfirmazioa() {
+	public Konfirmazioa() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 600, 500);
 		contentPane = new JPanel();

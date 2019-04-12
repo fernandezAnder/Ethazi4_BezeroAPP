@@ -286,7 +286,7 @@ public class P1 extends JFrame {
 				 oheMota=(String) comboBox_3.getSelectedItem();
 			}
 		});
-		comboBox_3.setModel(new DefaultComboBoxModel(new String[] {"Banakakoa", "Bikoitza", "Umeena"}));
+		comboBox_3.setModel(new DefaultComboBoxModel(new String[] {"", "Banakakoa", "Bikoitza", "Umeena"}));
 		comboBox_3.setBounds(453, 171, 89, 20);
 		
 		contentPane.add(comboBox_3);
@@ -301,6 +301,7 @@ public class P1 extends JFrame {
 		contentPane.add(lblPertsonaKopurua);
 		
 		JComboBox comboBox_4 = new JComboBox();
+		comboBox_4.setModel(new DefaultComboBoxModel(new String[] {"", "1", "2", "3", "4", "5", "6", "7", "8"}));
 		comboBox_4.setBounds(194, 226, 36, 20);
 		contentPane.add(comboBox_4);
 		
