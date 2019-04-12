@@ -34,19 +34,19 @@ public class Erregistratu extends JFrame {
 	private JPasswordField Pasahitza;
 	private JLabel lblTxatelaErregistroa = new JLabel("SARTU ZURE DATUAK");
 	private JLabel lblNan = new JLabel("NAN");
-	private JLabel lblLetra = new JLabel("Letra");
-	private JLabel lblPasahitza = new JLabel("Pasahitza");
+	private JLabel lblLetra = new JLabel("LETRA");
+	private JLabel lblPasahitza = new JLabel("PASAHITZA");
 	private JButton Ezeztatu = new JButton("Atzera");
-	private JButton Jarraitu = new JButton("Jarraitu");
-	private JButton Balidatu = new JButton("Balidatu");
+	private JButton Jarraitu = new JButton("JARRAITU");
+	private JButton Balidatu = new JButton("BALIDATU");
 	private JTextField izena = new JTextField();
 	private JDateChooser jaiodata = new JDateChooser();
 	private JTextField abizenatextfield = new JTextField();
 	private JLabel lblIzena = new JLabel("IZENA");
 	private JLabel lblJaiotzeData = new JLabel("JAIOTZE DATA");
 	private JLabel lblAbizena = new JLabel("ABIZENA");
-	private JLabel lblErabiltzaileDatuak = new JLabel("Erabiltzaile Datuak  ----------------------------------------------------------------------------------------------------------------------------------");
-	private JLabel lblDatuPertsonalak = new JLabel("Datu Pertsonalak  ----------------------------------------------------------------------------------------------------------------------------------");
+	private JLabel lblErabiltzaileDatuak = new JLabel("ERABILTZAILE DATUAK  ----------------------------------------------------------------------------------------------------------------------------------");
+	private JLabel lblDatuPertsonalak = new JLabel("DATU PERTSONALAK  ----------------------------------------------------------------------------------------------------------------------------------");
 	SimpleDateFormat sm = new SimpleDateFormat("yyyy-MM-dd");
 
 
@@ -76,8 +76,8 @@ public class Erregistratu extends JFrame {
 		getContentPane().add(lblTxatelaErregistroa);
 
 		//LABEL NAN
-		lblNan.setFont(new Font("Comic Sans MS", Font.BOLD, 20));
-		lblNan.setBounds(108, 321, 47, 28);
+		lblNan.setFont(new Font("Arial Narrow", Font.BOLD, 16));
+		lblNan.setBounds(63, 236, 47, 28);
 		getContentPane().add(lblNan);
 
 		//TEXT NAN
@@ -99,7 +99,7 @@ public class Erregistratu extends JFrame {
 			}
 		});
 		zenbakia=textNAN.getText();
-		textNAN.setBounds(192, 323, 109, 28);
+		textNAN.setBounds(142, 236, 109, 28);
 		getContentPane().add(textNAN);
 		textNAN.setColumns(10);
 
@@ -130,33 +130,33 @@ public class Erregistratu extends JFrame {
 		});
 		letra=textLetra.getText();
 		textLetra.setColumns(10);
-		textLetra.setBounds(440, 323, 32, 28);
+		textLetra.setBounds(142, 315, 32, 28);
 		getContentPane().add(textLetra);
 
 		//LETRA LABEL
-		lblLetra.setFont(new Font("Comic Sans MS", Font.BOLD, 20));
-		lblLetra.setBounds(359, 321, 52, 28);
+		lblLetra.setFont(new Font("Arial Narrow", Font.BOLD, 16));
+		lblLetra.setBounds(63, 315, 52, 28);
 		getContentPane().add(lblLetra);
 
 		//LABEL PASAHITZA
-		lblPasahitza.setFont(new Font("Comic Sans MS", Font.BOLD, 20));
-		lblPasahitza.setBounds(63, 378, 92, 28);
+		lblPasahitza.setFont(new Font("Arial Narrow", Font.BOLD, 16));
+		lblPasahitza.setBounds(63, 275, 92, 28);
 		getContentPane().add(lblPasahitza);
 
 		//PASAHITZA TEXTUA
 		Pasahitza = new JPasswordField();
 		Pasahitza.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		Pasahitza.setBounds(192, 380, 170, 28);
+		Pasahitza.setBounds(142, 275, 170, 28);
 		getContentPane().add(Pasahitza);
 
 		//Balidatu botoia
-		Balidatu.setFont(new Font("Comic Sans MS", Font.BOLD, 15));
-		Balidatu.setBounds(315, 452, 115, 44);
+		Balidatu.setFont(new Font("Arial Narrow", Font.BOLD, 16));
+		Balidatu.setBounds(247, 377, 115, 44);
 		getContentPane().add(Balidatu);
 
 		//LABEL IZENA
 		lblIzena.setFont(new Font("Arial Narrow", Font.BOLD, 16));
-		lblIzena.setBounds(63, 153, 63, 28);
+		lblIzena.setBounds(63, 125, 63, 28);
 		getContentPane().add(lblIzena);
 		izena.addKeyListener(new KeyAdapter() {
 			@Override
@@ -175,12 +175,12 @@ public class Erregistratu extends JFrame {
 		//TEXT IZENA
 		izena.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		izena.setColumns(10);
-		izena.setBounds(142, 153, 109, 28);
+		izena.setBounds(142, 125, 109, 28);
 		getContentPane().add(izena);
 
 		//LABEL ABIZENA
 		lblAbizena.setFont(new Font("Arial Narrow", Font.BOLD, 16));
-		lblAbizena.setBounds(63, 216, 92, 28);
+		lblAbizena.setBounds(63, 164, 92, 28);
 		getContentPane().add(lblAbizena);
 
 		//LABEL TEXT
@@ -199,16 +199,16 @@ public class Erregistratu extends JFrame {
 		});
 		abizenatextfield.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		abizenatextfield.setColumns(10);
-		abizenatextfield.setBounds(142, 216, 109, 28);
+		abizenatextfield.setBounds(142, 164, 109, 28);
 		getContentPane().add(abizenatextfield);
 
 		//LABEL JAIOTZE DATA
 		lblJaiotzeData.setFont(new Font("Arial Narrow", Font.BOLD, 16));
-		lblJaiotzeData.setBounds(289, 153, 133, 28);
+		lblJaiotzeData.setBounds(312, 125, 98, 28);
 		getContentPane().add(lblJaiotzeData);
 
 		//DATA JCALENDAR
-		jaiodata.setBounds(407, 153, 122, 28);
+		jaiodata.setBounds(408, 125, 122, 28);
 		jaiodata.setVerifyInputWhenFocusTarget(false);
 		jaiodata.setDateFormatString("yyyy-MM-dd");	
 		getContentPane().add(jaiodata);
@@ -218,12 +218,12 @@ public class Erregistratu extends JFrame {
 		lblDatuPertsonalak.setFont(new Font("Arial Narrow", Font.BOLD, 12));
 
 		//LABEL DATU PERSTSONALAK
-		lblDatuPertsonalak.setBounds(45, 118, 484, 22);
+		lblDatuPertsonalak.setBounds(22, 92, 526, 22);
 		getContentPane().add(lblDatuPertsonalak);
 		lblErabiltzaileDatuak.setFont(new Font("Arial Narrow", Font.BOLD, 12));
 
 		//LABEL ERABILTZAILE DATUAK
-		lblErabiltzaileDatuak.setBounds(22, 288, 632, 22);
+		lblErabiltzaileDatuak.setBounds(22, 203, 632, 22);
 		getContentPane().add(lblErabiltzaileDatuak);
 
 
@@ -238,7 +238,7 @@ public class Erregistratu extends JFrame {
 
 			}
 		});
-		Ezeztatu.setBounds(165, 452, 109, 44);
+		Ezeztatu.setBounds(165, 377, 109, 119);
 		getContentPane().add(Ezeztatu);
 		//DNI ETA PASAHITZA BALIDATZEKO BOTOIA
 
@@ -328,8 +328,8 @@ public class Erregistratu extends JFrame {
 			}
 		});
 		//Jarraitu Botoiaren egitura
-		Jarraitu.setFont(new Font("Comic Sans MS", Font.BOLD, 15));
-		Jarraitu.setBounds(462, 452, 115, 44);
+		Jarraitu.setFont(new Font("Arial Narrow", Font.BOLD, 16));
+		Jarraitu.setBounds(415, 377, 115, 44);
 		getContentPane().add(Jarraitu);
 
 	}
