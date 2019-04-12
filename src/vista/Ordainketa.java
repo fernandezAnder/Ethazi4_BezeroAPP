@@ -23,6 +23,7 @@ import controlador.DatuBiltegia;
 import controlador.Erreserba;
 
 import controlador.Metodoak;
+import java.awt.Color;
 
 public class Ordainketa extends JFrame {
 	private static final long serialVersionUID = 1L;
@@ -73,7 +74,7 @@ public class Ordainketa extends JFrame {
 		//LABEL ITZULIAK
 		lblItzuliak.setFont(new Font("Arial", Font.BOLD, 24));
 		getContentPane().add(lblItzuliak);
-		btnAmaitu.setEnabled(true);
+		btnAmaitu.setEnabled(false);
 		btnAmaitu.setBounds(514, 467, 97, 43);
 
 		//BOTOIA AMAITU
@@ -98,6 +99,8 @@ public class Ordainketa extends JFrame {
 
 		//TEXTUA SARTZEKO DIRUA
 		dirua = new JTextField();
+		dirua.setHorizontalAlignment(SwingConstants.CENTER);
+		dirua.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		dirua.setBounds(262, 161, 136, 26);
 		dirua.addKeyListener(new KeyAdapter() {
 			@Override
@@ -121,7 +124,7 @@ public class Ordainketa extends JFrame {
 		btnEzeztatu.setFont(new Font("Arial", Font.PLAIN, 18));
 		btnEzeztatu.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				metodos.lehenengoLehioa();
+				metodos.lehenengoLehioa2();
 
 			}
 		});
@@ -130,7 +133,8 @@ public class Ordainketa extends JFrame {
 
 		btnAtzera.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				metodos.lehenengoLehioa();
+				metodos.lehioaHotelaIreki();
+				metodos.p2hotetoOrdainketa2();
 
 			}
 		});
@@ -166,7 +170,7 @@ public class Ordainketa extends JFrame {
 							preziototala=prezioa;
 							kont1++;
 						}else {
-							System.out.println("PREZIOTOTAL "+preziototala );
+							
 						}
 						
 					boolean diru_falta=metodos.diruFalta(preziototala,zbk);
@@ -182,11 +186,11 @@ public class Ordainketa extends JFrame {
 						preziototala=preziototala-zbk;
 						
 						
-						System.out.println("dirufalta "+dirufalta);
+						
 						
 						}
 					
-						mezua=dirufalta+" ï¿½ falta zaizkizu";
+						mezua=dirufalta+" € falta zaizkizu";
 						Itzuliak.setText(mezua);	
 						btnAtzera.setEnabled(false);
 						btnAmaitu.setEnabled(false);
@@ -241,6 +245,11 @@ public class Ordainketa extends JFrame {
 		getContentPane().add(lblOrdainketa_Tituloa);
 
 		textField = new JTextField();
+		textField.setHorizontalAlignment(SwingConstants.CENTER);
+		textField.setDisabledTextColor(Color.BLACK);
+		textField.setFont(new Font("Tahoma", Font.BOLD, 16));
+		textField.setForeground(Color.BLACK);
+		textField.setText("120");
 		textField.setColumns(10);
 		textField.setBounds(262, 118, 136, 26);
 		getContentPane().add(textField);

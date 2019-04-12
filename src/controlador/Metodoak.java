@@ -30,8 +30,16 @@ public class Metodoak {
 	private Ordainketa ord1;
 	private Amaiera am1;
 	Timer timer = new Timer();
+	public boolean logueatuta=false;
 	
 	
+//***************Para que no salga una y otra vez la ventana de login comprobamos logueatutta y asi solo se abre una vez*****
+	public boolean logueatuta(){
+		return logueatuta;
+	}
+	public void logueatutabai(boolean erabakia) {
+		logueatuta=erabakia;
+	}
 
 ///////////////////////////////////////////////////////////////////////////
 	
@@ -41,6 +49,14 @@ public class Metodoak {
 ///////////////////////////////////////////////////////////////////////////
 	public  void lehenengoLehioa() {
 		p1.setVisible(true);
+		
+	}
+	public  void lehenengoLehioa2() {
+		ord1.setVisible(false);
+		p1.dispose();
+		BezeroAPP ap = new BezeroAPP();
+		ap.arrancar();
+		
 	}
 	
 	
@@ -60,6 +76,9 @@ public class Metodoak {
 	public void lehioaHotelaItxi() {
 		p2hot.setVisible(false);
 	}
+	public void lehioaHotelaIreki() {
+		p2hot.setVisible(true);
+	}
 	public void lehioaApartamentuaItxi() {
 		p2apart.setVisible(false);
 	}
@@ -71,9 +90,27 @@ public class Metodoak {
 		lo1.setVisible(true);
 	}
 	public void bidaliDirua() {
+		String data1=p1.ateraData1();
+		String data2=p1.ateraData2();
+		int egunak=0;
+		int logelakop=0;
+		double prezioa =0.0;
+		int hilabeteak=0;
+		prezioa = Consultas.logela_prezioa(p2hot.eramanaId());
+		logelakop=p1.ateraGelakop();
+		egunak=p1.diadif();
+		
+		
+		prezioa=logelakop*prezioa*egunak;
+
+		
 		String diruaString = "";
-		System.out.println("AAAAAAAAAAAAAAAAA");
-		diruaString=p1.bidalidirus();
+		
+		
+		System.out.println("precio "+prezioa);
+		System.out.println("Dias "+egunak);
+		System.out.println(logelakop);
+		diruaString=Double.toString(prezioa);
 		ord1.idatzi(diruaString);
 		System.out.println(diruaString);
 		
@@ -85,7 +122,6 @@ public class Metodoak {
 		ord1.setVisible(true);
 		String diruaString = "";
 		System.out.println("AAAAAAAAAAAAAAAAA");
-		diruaString=p1.bidalidirus();
 		ord1.idatzi(diruaString);
 		System.out.println(diruaString);
 	}
@@ -95,15 +131,22 @@ public class Metodoak {
 		am1.setVisible(true);
 
 		amaiera();
-		p1.setVisible(true);
-
-		
+		p1.dispose();
+		BezeroAPP ap = new BezeroAPP();
+		ap.arrancar();
+		}
+	public void p2hotetoOrdainketa() {
+		ord1.setVisible(true);
+	}
+	public void p2hotetoOrdainketa2() {
+		ord1.setVisible(false);
 	}
 	
 	public void agurratoP1() {
 		am1.setVisible(false);
-		BezeroAPP ap = new BezeroAPP();
-		ap.arrancar();
+		
+		
+		
 		}
 	public void amaiera() {
 		itxaron(5);
@@ -127,7 +170,7 @@ public class Metodoak {
 		System.out.println(erreserba);
 	}
 	
-	public ArrayList<Hotela> filtroHotela() {
+	public void filtroHotela() {
 		String herria=p1.ateraHerria();
 		ArrayList<Hotela> hotelenlista= new ArrayList<Hotela>();
 		ArrayList<Hotela> hotelenlistaFiltro= new ArrayList<Hotela>();
@@ -138,8 +181,9 @@ public class Metodoak {
 			}
 		}
 		
+		p2hot.prno(hotelenlistaFiltro);
+		p2hot.filtroHoteltA();
 		
-		return hotelenlistaFiltro;
 	}
 	public ArrayList<Apartamentua> filtroApartamentua() {
 		String herria=p1.ateraHerria();
@@ -154,7 +198,7 @@ public class Metodoak {
 		
 		return apartamentulista2;
 	}
-	public ArrayList<Etxea> filtroEtxea() {
+	public void filtroEtxea() {
 		String herria=p1.ateraHerria();
 		ArrayList<Etxea> etxelista=new ArrayList<Etxea>();
 		etxelista=Consultas.etxeDatuak();
@@ -165,7 +209,7 @@ public class Metodoak {
 				etxelista2.add(p);
 			}
 		}
-		return etxelista2;
+		p2etxe.elalal();
 	}
 			
 			

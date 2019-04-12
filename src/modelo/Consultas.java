@@ -176,7 +176,7 @@ public class Consultas {
 	}
 	public static void txertatuBezeroa(Bezeroa bezeroa) {
 		Connection conexion = modelo.Conexion.getConexion();
-		System.out.println(bezeroa);
+		
 		try {
 			PreparedStatement s = (PreparedStatement) conexion.prepareStatement(
 					"INSERT INTO `bezeroa` (`nan`, `izena`, `abizenak`, `jaiotze_data`, `pasahitza`)"
@@ -197,12 +197,12 @@ public class Consultas {
 	}
 	public static void txertatuErreserba(Erreserba e1) {
 		Connection conexion = modelo.Conexion.getConexion();
-		System.out.println(e1);
+		
 		try {
 			PreparedStatement s = (PreparedStatement) conexion.prepareStatement(
-					"INSERT INTO `erreserba` (`ostatu_ostatu_id`, `bezeroa_nan`, `pertsona_kopuru`, `prezio_totala`,`erreserbaGela_kopuru`,`pentsio_mota`)"
-							+ " VALUES(?, ?, ?, ?, ?, ?)");
-			
+					"INSERT INTO `erreserba` (`erreserba_kod`,`ostatu_ostatu_id`, `bezeroa_nan`, `pertsona_kopuru`, `prezio_totala`,`erreserbaGela_kopuru`,`pentsio_mota`)"
+							+ " VALUES(?, ?, ?, ?, ?, ?, ?)");
+			s.setInt(1, 0);
 			s.setInt(2,e1.getOstatu_id());
 			s.setString(3, e1.getBezero_nan());
 			s.setInt(4, e1.getPertsona_kop());
@@ -243,6 +243,23 @@ public class Consultas {
 		return erabakia;
 	}
 
+	public static double logela_prezioa(int ostatu_id) {
+		Connection conexion = modelo.Conexion.getConexion();
 	
+		double logela_prezioa=0;
 
+		try {
+			Statement s = conexion.createStatement();
+			String query = "SELECT MAX(prezioa) FROM gelamota_hotela gh, gelamota g where gh.gelaMota_gela_kodea=g.gela_kodea AND gh.hotela_hotel_kod="+ostatu_id;
+			ResultSet rs = s.executeQuery(query);
+			while (rs.next()) {
+				logela_prezioa=rs.getDouble(1);
+				
+			}
+
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
+		}
+		return logela_prezioa;
+	}
 }
