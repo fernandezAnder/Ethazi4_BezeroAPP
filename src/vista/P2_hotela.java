@@ -60,17 +60,6 @@ public class P2_hotela extends JFrame {
 		
 		table.setFont(new Font("Arial Narrow", Font.BOLD, 11));
 
-//		table.setModel(new DefaultTableModel(
-//			new Object[][] {
-//				{null, null, null, null, null, null, null, null, null},
-//			},
-//			new String[] {
-//				"izarkop", "ostatu_id", "izena", "herria", "helbidea", "postaKod", "ostatu_mota", "gela_kopuru", "erreserba_kopuru"
-//			}
-//		));
-//		
-//		table.getColumnModel().getColumn(0).setPreferredWidth(77);
-//		table.getColumnModel().getColumn(8).setPreferredWidth(107);
 
 //		String[]columnas= {
 //				"izarkop", "ostatu_id", "izena", "herria", "helbidea", "postaKod", "ostatu_mota", "gela_kopuru", "erreserba_kopuru"
@@ -206,16 +195,21 @@ public class P2_hotela extends JFrame {
 					columnas[6]=e.getOstatu_mota();
 					columnas[7]=Integer.toString( e.getGela_kop());
 					columnas[8]=Integer.toString(e.getErreserba_kop());
-					t1.addRow(columnas);
-			
-					
-				
+					t1.addRow(columnas);	
 			}	
+
 		table.getColumnModel().getColumn(0).setPreferredWidth(77);
 		table.getColumnModel().getColumn(8).setPreferredWidth(107);
 		scrollPane.setViewportView(table);
 			
 			
+
+//		boolean isCellEditable(int rowIndex, int vColIndex) {
+//            return false;
+//        }; //return false: Desabilitar edici�n de celdas.
+// 
+//			
+
 	}
 	
 	

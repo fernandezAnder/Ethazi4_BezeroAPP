@@ -11,6 +11,7 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.util.concurrent.TimeUnit;
 import java.awt.event.ActionEvent;
+import java.awt.Color;
 /**
  * 
  * @author oier, ander, aintzane
@@ -22,28 +23,32 @@ public class Amaiera extends JFrame {
 	 */
 	//private static final long serialVersionUID = 1L;
 	
-	private JLabel lblEskerrikAsko = new JLabel("Eskerrik asko erosteagatik ");
-	private JLabel lblZureTxartelaOrain = new JLabel("Zure txartela orain aterako da");
+	private JLabel lblEskerrikAsko = new JLabel("ESKERRIK ASKO ");
+	private JLabel lblZureTxartelaOrain = new JLabel("ERABILTZEAGATIK");
 
 	private Metodoak metodos;
-	private final JButton btnAmaitu = new JButton("Amaitu");
+	private final JButton btnAmaitu = new JButton("AMAITU");
+	private final JLabel lblNewLabel_1 = new JLabel("BIDAI ON");
 
 	public Amaiera() {
+		getContentPane().setBackground(new Color(135, 206, 250));
+		setBackground(new Color(135, 206, 250));
 		
 		
 		this.setBounds(275,100,700,600);
 		getContentPane().setLayout(null);
 		
 		//LABEL ESKERRIK ASKO
-		lblEskerrikAsko.setFont(new Font("Arial", Font.PLAIN, 46));
-		lblEskerrikAsko.setBounds(71, 95, 565, 78);
+		lblEskerrikAsko.setFont(new Font("Arial Narrow", Font.BOLD, 44));
+		lblEskerrikAsko.setBounds(193, 52, 323, 78);
 		getContentPane().add(lblEskerrikAsko);
 		
 		//LABEL ZURE TXARTELA ORAIN
-		lblZureTxartelaOrain.setFont(new Font("Arial", Font.PLAIN, 41));
-		lblZureTxartelaOrain.setBounds(70, 198, 555, 45);
+		lblZureTxartelaOrain.setFont(new Font("Arial Narrow", Font.BOLD, 44));
+		lblZureTxartelaOrain.setBounds(172, 203, 356, 45);
 		getContentPane().add(lblZureTxartelaOrain);
-		btnAmaitu.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 16));
+		btnAmaitu.setBackground(new Color(135, 206, 250));
+		btnAmaitu.setFont(new Font("Arial Narrow", Font.BOLD, 16));
 		btnAmaitu.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
@@ -56,9 +61,18 @@ public class Amaiera extends JFrame {
 			metodos.agurratoP1();
 			}
 		});
-		btnAmaitu.setBounds(193, 367, 323, 72);
+		btnAmaitu.setBounds(169, 397, 347, 89);
 		
 		getContentPane().add(btnAmaitu);
+		
+		JLabel lblNewLabel = new JLabel("ONDO IBILI!");
+		lblNewLabel.setFont(new Font("Arial Narrow", Font.BOLD, 40));
+		lblNewLabel.setBounds(232, 272, 198, 78);
+		getContentPane().add(lblNewLabel);
+		lblNewLabel_1.setFont(new Font("Arial Narrow", Font.BOLD, 44));
+		lblNewLabel_1.setBounds(250, 141, 180, 40);
+		
+		getContentPane().add(lblNewLabel_1);
 		//icono.setIcon(new ImageIcon(Ventana7.class.getResource("/argazkiak/termibus.png")));
 
 //		Metodoak m1 =new Metodoak();
@@ -85,6 +99,4 @@ public class Amaiera extends JFrame {
 	public void misMetodos(Metodoak metodos) {
 		this.metodos=metodos;
 	}
-	
-	
 }
