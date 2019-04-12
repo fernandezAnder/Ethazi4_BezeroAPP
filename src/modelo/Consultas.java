@@ -13,6 +13,7 @@ import controlador.*;
 
 public class Consultas {
 
+	Metodoak metodos;
 	public static ArrayList<String> herriakAtera(){
 		
 		ArrayList<String> herrilista= new ArrayList<String>();
@@ -200,13 +201,13 @@ public class Consultas {
 		
 		try {
 			PreparedStatement s = (PreparedStatement) conexion.prepareStatement(
-					"INSERT INTO `erreserba` (`erreserba_kod`,`ostatu_ostatu_id`, `bezeroa_nan`, `pertsona_kopuru`, `prezio_totala`,`erreserbaGela_kopuru`,`pentsio_mota`)"
-							+ " VALUES(?, ?, ?, ?, ?, ?, ?)");
+					"INSERT INTO `erreserba` (`erreserba_kod`, `ostatu_ostatu_id`, `bezeroa_nan`, `pertsona_kopuru`, `prezio_totala`,`erreserbaGela_kopuru`,`pentsio_mota`)"
+								+ " VALUES(?, ?, ?, ?, ?, ?, ?)"); //
 			s.setInt(1, 0);
 			s.setInt(2,e1.getOstatu_id());
 			s.setString(3, e1.getBezero_nan());
 			s.setInt(4, e1.getPertsona_kop());
-			s.setDouble(5,e1.getPrezio_totala() );
+			s.setDouble(5,e1.getPrezio_totala());
 			s.setInt(6,e1.getErreserba_gela_kop() );
 			s.setString(7, e1.getPentsio_mota());
 			
@@ -261,5 +262,8 @@ public class Consultas {
 			System.out.println(e.getMessage());
 		}
 		return logela_prezioa;
+	}
+	public void misMetodos(Metodoak metodos) {
+		this.metodos=metodos;
 	}
 }
