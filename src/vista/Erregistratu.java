@@ -19,6 +19,7 @@ import com.toedter.calendar.JDateChooser;
 
 import controlador.Bezeroa;
 import controlador.Metodoak;
+import java.awt.Color;
 /**
  * 
  * @author oier, ander, aintzane
@@ -31,7 +32,7 @@ public class Erregistratu extends JFrame {
 	private JTextField textNAN;
 	private JTextField textLetra;
 	private JPasswordField Pasahitza;
-	private JLabel lblTxatelaErregistroa = new JLabel("Txatela Erregistroa");
+	private JLabel lblTxatelaErregistroa = new JLabel("SARTU ZURE DATUAK");
 	private JLabel lblNan = new JLabel("NAN");
 	private JLabel lblLetra = new JLabel("Letra");
 	private JLabel lblPasahitza = new JLabel("Pasahitza");
@@ -41,9 +42,9 @@ public class Erregistratu extends JFrame {
 	private JTextField izena = new JTextField();
 	private JDateChooser jaiodata = new JDateChooser();
 	private JTextField abizenatextfield = new JTextField();
-	private JLabel lblIzena = new JLabel("Izena");
-	private JLabel lblJaiotzeData = new JLabel("Jaiotze data ");
-	private JLabel lblAbizena = new JLabel("Abizena");
+	private JLabel lblIzena = new JLabel("IZENA");
+	private JLabel lblJaiotzeData = new JLabel("JAIOTZE DATA");
+	private JLabel lblAbizena = new JLabel("ABIZENA");
 	private JLabel lblErabiltzaileDatuak = new JLabel("Erabiltzaile Datuak  ----------------------------------------------------------------------------------------------------------------------------------");
 	private JLabel lblDatuPertsonalak = new JLabel("Datu Pertsonalak  ----------------------------------------------------------------------------------------------------------------------------------");
 	SimpleDateFormat sm = new SimpleDateFormat("yyyy-MM-dd");
@@ -64,13 +65,14 @@ public class Erregistratu extends JFrame {
 
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public Erregistratu() {
+		getContentPane().setBackground(new Color(135, 206, 250));
 		
-		this.setBounds(275,100,700,600);
+		this.setBounds(0,0,600,500);
 		getContentPane().setLayout(null);
 
 		//LABEL TXARTEL ERREGISTROA
-		lblTxatelaErregistroa.setFont(new Font("Arial", Font.BOLD, 37));
-		lblTxatelaErregistroa.setBounds(181, 44, 351, 37);
+		lblTxatelaErregistroa.setFont(new Font("Arial Narrow", Font.BOLD, 30));
+		lblTxatelaErregistroa.setBounds(142, 44, 288, 37);
 		getContentPane().add(lblTxatelaErregistroa);
 
 		//LABEL NAN
@@ -153,8 +155,8 @@ public class Erregistratu extends JFrame {
 		getContentPane().add(Balidatu);
 
 		//LABEL IZENA
-		lblIzena.setFont(new Font("Comic Sans MS", Font.BOLD, 20));
-		lblIzena.setBounds(92, 151, 63, 28);
+		lblIzena.setFont(new Font("Arial Narrow", Font.BOLD, 16));
+		lblIzena.setBounds(63, 153, 63, 28);
 		getContentPane().add(lblIzena);
 		izena.addKeyListener(new KeyAdapter() {
 			@Override
@@ -173,12 +175,12 @@ public class Erregistratu extends JFrame {
 		//TEXT IZENA
 		izena.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		izena.setColumns(10);
-		izena.setBounds(192, 153, 109, 28);
+		izena.setBounds(142, 153, 109, 28);
 		getContentPane().add(izena);
 
 		//LABEL ABIZENA
-		lblAbizena.setFont(new Font("Comic Sans MS", Font.BOLD, 20));
-		lblAbizena.setBounds(80, 214, 92, 28);
+		lblAbizena.setFont(new Font("Arial Narrow", Font.BOLD, 16));
+		lblAbizena.setBounds(63, 216, 92, 28);
 		getContentPane().add(lblAbizena);
 
 		//LABEL TEXT
@@ -197,26 +199,28 @@ public class Erregistratu extends JFrame {
 		});
 		abizenatextfield.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		abizenatextfield.setColumns(10);
-		abizenatextfield.setBounds(192, 216, 109, 28);
+		abizenatextfield.setBounds(142, 216, 109, 28);
 		getContentPane().add(abizenatextfield);
 
 		//LABEL JAIOTZE DATA
-		lblJaiotzeData.setFont(new Font("Comic Sans MS", Font.BOLD, 20));
-		lblJaiotzeData.setBounds(327, 151, 133, 28);
+		lblJaiotzeData.setFont(new Font("Arial Narrow", Font.BOLD, 16));
+		lblJaiotzeData.setBounds(289, 153, 133, 28);
 		getContentPane().add(lblJaiotzeData);
 
 		//DATA JCALENDAR
-		jaiodata.setBounds(470, 151, 122, 28);
+		jaiodata.setBounds(407, 153, 122, 28);
 		jaiodata.setVerifyInputWhenFocusTarget(false);
 		jaiodata.setDateFormatString("yyyy-MM-dd");	
 		getContentPane().add(jaiodata);
 		jaiodata.getDate();
 		jaiodata.cleanup();
 		jaiodata.setMaxSelectableDate(new Date());
+		lblDatuPertsonalak.setFont(new Font("Arial Narrow", Font.BOLD, 12));
 
 		//LABEL DATU PERSTSONALAK
-		lblDatuPertsonalak.setBounds(22, 118, 632, 22);
+		lblDatuPertsonalak.setBounds(45, 118, 484, 22);
 		getContentPane().add(lblDatuPertsonalak);
+		lblErabiltzaileDatuak.setFont(new Font("Arial Narrow", Font.BOLD, 12));
 
 		//LABEL ERABILTZAILE DATUAK
 		lblErabiltzaileDatuak.setBounds(22, 288, 632, 22);

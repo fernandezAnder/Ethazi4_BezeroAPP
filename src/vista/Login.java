@@ -14,6 +14,7 @@ import javax.swing.UIManager;
 
 import controlador.Metodoak;
 import modelo.Consultas;
+import java.awt.Color;
 
 public class Login extends JFrame {
 
@@ -31,19 +32,19 @@ public class Login extends JFrame {
 	 * LOGIN frame-aren kodea da.
 	 */
 	public Login() {
-		getContentPane().setBackground(UIManager.getColor("Button.background"));
+		getContentPane().setBackground(new Color(135, 206, 235));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(0, 0, 600, 600);
+		setBounds(0, 0, 600, 500);
 		getContentPane().setLayout(null);
 		// Login textua.
-		JLabel lbllogin = new JLabel("LOGIN");
-		lbllogin.setFont(new Font("Arial Black", Font.PLAIN, 70));
-		lbllogin.setBounds(157, 25, 248, 92);
+		JLabel lbllogin = new JLabel("LOG IN");
+		lbllogin.setFont(new Font("Arial Narrow", Font.BOLD, 40));
+		lbllogin.setBounds(217, 32, 122, 92);
 		getContentPane().add(lbllogin);
 
 		// PASAHITZAREN LETRAK ETA TEXTFIELD
-		JLabel lblPasahitza = new JLabel("Pasahitza:");
-		lblPasahitza.setFont(new Font("Source Sans Pro Black", Font.PLAIN, 30));
+		JLabel lblPasahitza = new JLabel("PASAHITZA");
+		lblPasahitza.setFont(new Font("Arial Narrow", Font.BOLD, 16));
 		lblPasahitza.setBounds(90, 210, 150, 32);
 		getContentPane().add(lblPasahitza);
 		passwordField = new JPasswordField();
@@ -52,9 +53,9 @@ public class Login extends JFrame {
 		getContentPane().add(passwordField);
 
 		// ERABILTZAILEAREN LETRAK ETA TEXTFIEL
-		JLabel lblErabiltzaile = new JLabel("Erabiltzaile:");
-		lblErabiltzaile.setFont(new Font("Source Sans Pro Black", Font.PLAIN, 30));
-		lblErabiltzaile.setBounds(63, 155, 167, 26);
+		JLabel lblErabiltzaile = new JLabel("ERABILTZAILEA");
+		lblErabiltzaile.setFont(new Font("Arial Narrow", Font.BOLD, 16));
+		lblErabiltzaile.setBounds(90, 152, 109, 26);
 		getContentPane().add(lblErabiltzaile);
 
 		textField = new JTextField();
@@ -65,8 +66,8 @@ public class Login extends JFrame {
 
 		// SARTU BOTOIAREN KODEA
 		JButton btnSartu = new JButton("SARTU");
-		btnSartu.setFont(new Font("Source Sans Pro Semibold", Font.ITALIC, 15));
-		btnSartu.setBounds(83, 282, 176, 32);
+		btnSartu.setFont(new Font("Arial Narrow", Font.BOLD, 15));
+		btnSartu.setBounds(90, 362, 150, 32);
 		getContentPane().add(btnSartu);
 
 		JButton btnLogueatu = new JButton("ERREGISTRATU");
@@ -76,13 +77,9 @@ public class Login extends JFrame {
 				
 				}
 		});
-		btnLogueatu.setFont(new Font("Source Code Pro Black", Font.BOLD, 15));
-		btnLogueatu.setBounds(309, 281, 176, 32);
+		btnLogueatu.setFont(new Font("Arial Narrow", Font.BOLD, 16));
+		btnLogueatu.setBounds(305, 361, 176, 32);
 		getContentPane().add(btnLogueatu);
-		
-		JLabel lblNewLabel = new JLabel("");
-		lblNewLabel.setBounds(83, 363, 398, 14);
-		getContentPane().add(lblNewLabel);
 		btnSartu.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				// botoiaren kodea
