@@ -288,7 +288,9 @@ public class Ordainketa extends JFrame {
 
 
 
-
+public double prezio_totala() {
+	return prezioa;
+}
 
 
 
