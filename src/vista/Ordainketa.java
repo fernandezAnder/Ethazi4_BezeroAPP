@@ -46,7 +46,7 @@ public class Ordainketa extends JFrame {
 	private String precio="0";
 	private int precioo=0;
 	private JTextField textField;
-
+	
 	int kont1=0;
 	int kont2=0;
 	double dirufalta;
@@ -190,7 +190,7 @@ public class Ordainketa extends JFrame {
 						
 						}
 					
-						mezua=dirufalta+" € falta zaizkizu";
+						mezua=dirufalta+" ï¿½ falta zaizkizu";
 						Itzuliak.setText(mezua);	
 						btnAtzera.setEnabled(false);
 						btnAmaitu.setEnabled(false);
@@ -289,9 +289,7 @@ public class Ordainketa extends JFrame {
 
 
 
-public double prezio_totala() {
-	return prezioa;
-}
+
 
 
 public void misMetodos(Metodoak metodos) {
