@@ -201,8 +201,7 @@ public class P1 extends JFrame {
 			    int urtea=Integer.parseInt(dateformatourtea.format(data1));
 				data1=sartzedata.getDate();
 				
-				ohe_kops=comboBox_4.getSelectedItem().toString();
-				ohe_kop=Integer.parseInt(ohe_kops);
+				
 
 				if(!fechaComoCadena.equalsIgnoreCase("") && !fechaComoCadena2.equalsIgnoreCase("")&& !hostatu_mota.equalsIgnoreCase("") && gela_kop!=0 && !oheMota.equalsIgnoreCase("") && pertsona_kopurua!=0) {
 					if(eguna-eguna2!=0) {
@@ -357,7 +356,8 @@ public class P1 extends JFrame {
 		
 		comboBox_4.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				pertsona_kopurua=(int) comboBox_4.getSelectedItem();
+				String pertsona_kop = comboBox_4.getSelectedItem().toString();
+				pertsona_kopurua= Integer.parseInt(pertsona_kop);
 				
 			}
 		});

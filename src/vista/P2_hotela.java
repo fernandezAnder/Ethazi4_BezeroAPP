@@ -31,6 +31,7 @@ public class P2_hotela extends JFrame {
 
 	private JPanel contentPane;
 	private JTable table;
+	private JScrollPane scrollPane;
 
 	private Metodoak m1;
 	private Metodoak metodos;
@@ -51,7 +52,7 @@ public class P2_hotela extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JScrollPane scrollPane = new JScrollPane();
+		 scrollPane = new JScrollPane();
 		scrollPane.setBounds(0, 64, 982, 427);
 		contentPane.add(scrollPane);
 		
@@ -71,18 +72,26 @@ public class P2_hotela extends JFrame {
 //		table.getColumnModel().getColumn(0).setPreferredWidth(77);
 //		table.getColumnModel().getColumn(8).setPreferredWidth(107);
 
-		String[]columnas= {
-				"izarkop", "ostatu_id", "izena", "herria", "helbidea", "postaKod", "ostatu_mota", "gela_kopuru", "erreserba_kopuru"
-			};
-		DefaultTableModel t1= new DefaultTableModel(columnas, 10);
-		table.setModel(t1);
+//		String[]columnas= {
+//				"izarkop", "ostatu_id", "izena", "herria", "helbidea", "postaKod", "ostatu_mota", "gela_kopuru", "erreserba_kopuru"
+//			};
+		//DefaultTableModel t1= new DefaultTableModel(columnas, 10);
+//		DefaultTableModel t1= new DefaultTableModel(columnas.length,10){
+//
+//		    public boolean isCellEditable(int rowIndex,int columnIndex){return false;}
+//
+//		};
+//
+//		JTable tabla = new JTable (t1);
+//		table.setModel(t1);
+		
 		
 			
 			
 		
-		table.getColumnModel().getColumn(0).setPreferredWidth(77);
-		table.getColumnModel().getColumn(8).setPreferredWidth(107);
-		scrollPane.setViewportView(table);
+//		table.getColumnModel().getColumn(0).setPreferredWidth(77);
+//		table.getColumnModel().getColumn(8).setPreferredWidth(107);
+//		scrollPane.setViewportView(table);
 		
 		JLabel lblApartamentuarenInformazioa = new JLabel("HOTELAREN INFORMAZIOA");
 		lblApartamentuarenInformazioa.setFont(new Font("Arial Narrow", Font.BOLD, 24));
@@ -159,13 +168,24 @@ public class P2_hotela extends JFrame {
 		
 	}
 	public void filtroHoteltA() {
-		DefaultTableModel t1 = new DefaultTableModel();
+//		DefaultTableModel t1 = new DefaultTableModel();
+		String[]columnas= {
+				"izarkop", "ostatu_id", "izena", "herria", "helbidea", "postaKod", "ostatu_mota", "gela_kopuru", "erreserba_kopuru"
+			};
+		DefaultTableModel t1= new DefaultTableModel(){
+
+		    public boolean isCellEditable(int rowIndex,int columnIndex){return false;}
+
+		};
+
+		JTable tabla = new JTable (t1);
+		table.setModel(t1);
 		System.out.println(hotelak.size());
 		table.setModel(t1);
 		
-		 String[] columnas={
-				"izarkop", "ostatu_id", "izena", "herria", "helbidea", "postaKod", "ostatu_mota", "gela_kopuru", "erreserba_kopuru"
-		};
+//		 String[] columnas={
+//				"izarkop", "ostatu_id", "izena", "herria", "helbidea", "postaKod", "ostatu_mota", "gela_kopuru", "erreserba_kopuru"
+//		};
 		 t1.addColumn("izarkop");
 		 t1.addColumn("ostatu_id");
 		 t1.addColumn("izena");
@@ -191,6 +211,9 @@ public class P2_hotela extends JFrame {
 					
 				
 			}	
+		table.getColumnModel().getColumn(0).setPreferredWidth(77);
+		table.getColumnModel().getColumn(8).setPreferredWidth(107);
+		scrollPane.setViewportView(table);
 			
 			
 	}
