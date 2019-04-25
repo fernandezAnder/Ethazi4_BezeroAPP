@@ -216,7 +216,8 @@ public class P1 extends JFrame {
 					}else if(letra_ostatu.equalsIgnoreCase("E")) {
 						
 						metodos.bigarrenLehioaEtxea();
-						metodos.filtroEtxea();}
+						metodos.filtroEtxea();
+						}
 					
 					}
 					

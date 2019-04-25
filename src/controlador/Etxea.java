@@ -3,10 +3,10 @@ package controlador;
 public class Etxea extends Ostatua {
 
 	private int komun_kop;
-	private int m2;
+	private double m2;
 
 	
-	public Etxea(int m2,int ostatu_id, String izena, String herria, String helbidea, int posta_kod, String ostatu_mota,
+	public Etxea(double m2,int ostatu_id, String izena, String herria, String helbidea, int posta_kod, String ostatu_mota,
 			int gela_kop, int erreserba_kop, int komun_kop ) {
 		super(ostatu_id, izena, herria, helbidea, posta_kod, ostatu_mota, gela_kop, erreserba_kop);
 		this.komun_kop = komun_kop;
@@ -22,7 +22,7 @@ public class Etxea extends Ostatua {
 		this.komun_kop = komun_kop;
 	}
 
-	public int getM2() {
+	public double getM2() {
 		return m2;
 	}
 

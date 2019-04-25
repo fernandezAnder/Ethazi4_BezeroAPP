@@ -204,12 +204,14 @@ public class Metodoak {
 		etxelista=Consultas.etxeDatuak();
 		ArrayList<Etxea> etxelista2=new ArrayList<Etxea>();
 		
-		for (Etxea p:etxelista2) {
+		for (Etxea p:etxelista) {
+			
 			if (p.getHerria().equalsIgnoreCase(herria)){
 				etxelista2.add(p);
 			}
 		}
-		p2etxe.();
+		p2etxe.ateraE(etxelista2);
+		p2etxe.filtroetxea();
 	}
 			
 			

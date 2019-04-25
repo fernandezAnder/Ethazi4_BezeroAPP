@@ -68,7 +68,7 @@ public class P2_etxea extends JFrame {
 		btnNewButton.setFont(new Font("Arial Narrow", Font.BOLD, 16));
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				metodos.lehioaHotelaItxi();
+				metodos.lehioaEtxeaItxi();
 				metodos.lehenengoLehioa();
 			}
 		});
@@ -82,18 +82,18 @@ public class P2_etxea extends JFrame {
 				int numero=table.getSelectedRow();
 				Etxea etxea2 = etxelista.get(numero);
 				if(etxea2.getErreserba_kop()==100) {
-					 lblNewLabel.setText("Hotela Beteta");
+					 lblNewLabel.setText("Etxea Beteta");
 				}
 				else {
 					id=etxea2.getOstatu_id();
 					 //ohekopurua = hotela2.getGela_kop();
 					if(metodos.logueatuta==false && id!=0) {
-						metodos.lehioaHotelaItxi();
+						metodos.lehioaEtxeaItxi();
 						metodos.loginIreki();
 					}
 					else {
 						if(id!=0) {
-						metodos.lehioaHotelaItxi();
+						metodos.lehioaEtxeaItxi();
 						metodos.p2hotetoOrdainketa();
 						metodos.bidaliDirua();
 						}
@@ -104,7 +104,7 @@ public class P2_etxea extends JFrame {
 				
 				
 				}catch(Exception i) {
-					 lblNewLabel.setText("Aukeratu Hotela");
+					 lblNewLabel.setText("Aukeratu Etxea");
 
 					System.out.println(i.getMessage());
 					
@@ -124,9 +124,12 @@ public class P2_etxea extends JFrame {
 	
 	public void ateraE(ArrayList<Etxea> etxe){
 		etxelista=etxe;
+		for (Etxea e:etxe) {
+			System.out.println(e);
+		}
 	}
-	public void filtroEtxea() {
-
+	public void filtroetxea() {
+		
 		String[]columnas= {
 				"m2", "ostatu_id", "izena", "herria", "helbidea", "postaKod", "ostatu_mota", "gela_kopuru", "erreserba_kopuru","komun_kop"
 			};
@@ -153,7 +156,7 @@ public class P2_etxea extends JFrame {
 		 t1.addColumn("komun_kop");
 		for (Etxea e:etxelista) {
 					
-					columnas[0]=Integer.toString(e.getM2());
+					columnas[0]=Double.toString(e.getM2());
 					columnas[1]=Integer.toString(e.getOstatu_id());
 					columnas[2]=e.getIzena();
 					columnas[3]=e.getHerria();

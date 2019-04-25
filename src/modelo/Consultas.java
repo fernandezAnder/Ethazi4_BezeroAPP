@@ -125,7 +125,7 @@ public class Consultas {
 		try {
 			s = konexioa.prepareStatement("select * from etxeak");
 			ResultSet rs = s.executeQuery();
-			int m2=0; 
+			double m2=0; 
 			int ostatu_id=0;
 			String izena="";
 			String herria="";
@@ -137,9 +137,20 @@ public class Consultas {
 			int komun_kop = 0;
 			
 			while (rs.next()) {
-			
+				m2=rs.getDouble(1); 
+				ostatu_id=rs.getInt(2);
+				izena=rs.getString(3);
+				herria=rs.getString(4);
+				helbidea=rs.getString(5);
+				posta_kod=rs.getInt(6);
+				ostatu_mota=rs.getString(7);			
+				gela_kop=rs.getInt(8);
+				erreserba_kop=rs.getInt(9);
+				komun_kop = rs.getInt(10);
 				Etxea e1 = new Etxea(m2, ostatu_id, izena, herria, helbidea, posta_kod, ostatu_mota,gela_kop, erreserba_kop, komun_kop);
+				
 				etxelista.add(e1);
+				
 			}
 
 		}catch(Exception e) {e.getMessage();
