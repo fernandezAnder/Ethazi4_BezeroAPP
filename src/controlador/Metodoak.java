@@ -209,7 +209,7 @@ public class Metodoak {
 				etxelista2.add(p);
 			}
 		}
-		p2etxe.elalal();
+		p2etxe.();
 	}
 			
 			

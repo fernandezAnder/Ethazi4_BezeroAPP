@@ -41,6 +41,9 @@ public class P2_hotela extends JFrame {
 	private JComboBox comboBox_1;
 	private int contador=0;
 	private JLabel lblNewLabel;
+	private JLabel lblApartamentuarenInformazioa = new JLabel("HOTELAREN INFORMAZIOA");
+	private JButton btnNewButton = new JButton("ATZERA");
+	private JButton btnNewButton_1 = new JButton("AURRERA");
 	
 	
 	public  P2_hotela() {
@@ -82,12 +85,12 @@ public class P2_hotela extends JFrame {
 //		table.getColumnModel().getColumn(8).setPreferredWidth(107);
 //		scrollPane.setViewportView(table);
 		
-		JLabel lblApartamentuarenInformazioa = new JLabel("HOTELAREN INFORMAZIOA");
+		
 		lblApartamentuarenInformazioa.setFont(new Font("Arial Narrow", Font.BOLD, 24));
 		lblApartamentuarenInformazioa.setBounds(315, 11, 336, 25);
 		contentPane.add(lblApartamentuarenInformazioa);
 		
-		JButton btnNewButton = new JButton("ATZERA");
+		
 		btnNewButton.setFont(new Font("Arial Narrow", Font.BOLD, 16));
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -99,7 +102,7 @@ public class P2_hotela extends JFrame {
 		btnNewButton.setBounds(366, 502, 89, 23);
 		contentPane.add(btnNewButton);
 		
-		JButton btnNewButton_1 = new JButton("AURRERA");
+		
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try{
