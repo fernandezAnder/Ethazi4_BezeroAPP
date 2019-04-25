@@ -190,12 +190,13 @@ public class Metodoak {
 		ArrayList<Apartamentua> apartamentulista= new ArrayList<Apartamentua>();
 		apartamentulista=Consultas.apartamentuDatuak();
 		ArrayList<Apartamentua> apartamentulista2= new ArrayList<Apartamentua>();
-		for (Apartamentua p:apartamentulista2) {
+		for (Apartamentua p:apartamentulista) {
 			if (p.getHerria().equalsIgnoreCase(herria)){
 				apartamentulista2.add(p);
 			}
 		}
-		
+		p2apart.ateraA(apartamentulista2);
+		p2apart.filtroapart();
 		return apartamentulista2;
 	}
 	public void filtroEtxea() {

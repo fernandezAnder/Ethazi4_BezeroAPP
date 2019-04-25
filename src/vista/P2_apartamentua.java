@@ -119,7 +119,7 @@ public class P2_apartamentua extends JFrame {
 			System.out.println(e);
 		}
 	}
-	public void filtroetxea() {
+	public void filtroapart() {
 		
 		String[]columnas= {
 				"m2", "ostatu_id", "izena", "herria", "helbidea", "postaKod", "ostatu_mota", "gela_kopuru", "erreserba_kopuru","komun_kop"
