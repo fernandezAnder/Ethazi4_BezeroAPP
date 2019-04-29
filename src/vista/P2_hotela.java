@@ -60,30 +60,9 @@ public class P2_hotela extends JFrame {
 		contentPane.add(scrollPane);
 		
 		table = new JTable();
+		table.getTableHeader().setReorderingAllowed(false) ;
 		
 		table.setFont(new Font("Arial Narrow", Font.BOLD, 11));
-
-
-//		String[]columnas= {
-//				"izarkop", "ostatu_id", "izena", "herria", "helbidea", "postaKod", "ostatu_mota", "gela_kopuru", "erreserba_kopuru"
-//			};
-		//DefaultTableModel t1= new DefaultTableModel(columnas, 10);
-//		DefaultTableModel t1= new DefaultTableModel(columnas.length,10){
-//
-//		    public boolean isCellEditable(int rowIndex,int columnIndex){return false;}
-//
-//		};
-//
-//		JTable tabla = new JTable (t1);
-//		table.setModel(t1);
-		
-		
-			
-			
-		
-//		table.getColumnModel().getColumn(0).setPreferredWidth(77);
-//		table.getColumnModel().getColumn(8).setPreferredWidth(107);
-//		scrollPane.setViewportView(table);
 		
 		
 		lblApartamentuarenInformazioa.setFont(new Font("Arial Narrow", Font.BOLD, 24));
@@ -160,7 +139,7 @@ public class P2_hotela extends JFrame {
 		
 	}
 	public void filtroHoteltA() {
-//		DefaultTableModel t1 = new DefaultTableModel();
+
 		String[]columnas= {
 				"izarkop", "ostatu_id", "izena", "herria", "helbidea", "postaKod", "ostatu_mota", "gela_kopuru", "erreserba_kopuru"
 			};
@@ -170,14 +149,9 @@ public class P2_hotela extends JFrame {
 
 		};
 
-		JTable tabla = new JTable (t1);
 		table.setModel(t1);
 		System.out.println(hotelak.size());
 		table.setModel(t1);
-		
-//		 String[] columnas={
-//				"izarkop", "ostatu_id", "izena", "herria", "helbidea", "postaKod", "ostatu_mota", "gela_kopuru", "erreserba_kopuru"
-//		};
 		 t1.addColumn("izarkop");
 		 t1.addColumn("ostatu_id");
 		 t1.addColumn("izena");
@@ -204,6 +178,7 @@ public class P2_hotela extends JFrame {
 		table.getColumnModel().getColumn(0).setPreferredWidth(77);
 		table.getColumnModel().getColumn(8).setPreferredWidth(107);
 		scrollPane.setViewportView(table);
+		
 			
 			
 
