@@ -109,7 +109,7 @@ public class P2_apartamentua extends JFrame {
 			}
 		});
 		btnNewButton_1.setFont(new Font("Arial Narrow", Font.BOLD, 16));
-		btnNewButton_1.setBounds(518, 502, 113, 23);
+		btnNewButton_1.setBounds(518, 502, 123, 23);
 		contentPane.add(btnNewButton_1);
 	}
 	public void misMetodos(Metodoak metodos) {
