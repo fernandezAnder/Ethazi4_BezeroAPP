@@ -132,8 +132,7 @@ public class P2_apartamentua extends JFrame {
 
 		JTable tabla = new JTable (t1);
 		table.setModel(t1);
-
-		
+				
 
 		 t1.addColumn("m2");
 		 t1.addColumn("ostatu_id");
