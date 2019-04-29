@@ -92,12 +92,12 @@ public class P1 extends JFrame {
 
 
 		lblPais.setFont(new Font("Arial Narrow", Font.BOLD, 16));
-		lblPais.setBounds(34, 117, 112, 40);
+		lblPais.setBounds(34, 117, 120, 40);
 		contentPane.add(lblPais);
 		
 
 		//JCALENDAR LEHEN DATA
-		sartzedata.setBounds(112, 284, 118, 20);
+		sartzedata.setBounds(140, 284, 118, 20);
 		sartzedata.setDateFormatString("yyyy-MM-dd");
 		getContentPane().add(sartzedata);
 		sartzedata.setSelectableDateRange(new Date(), null);
@@ -115,7 +115,7 @@ public class P1 extends JFrame {
 		
 		
 		//JCALENDAR BIGARREN DATA
-		irtetzedata.setBounds(425, 284, 117, 20);
+		irtetzedata.setBounds(141, 342, 117, 20);
 		irtetzedata.setDateFormatString("yyyy-MM-dd");
 		getContentPane().add(irtetzedata);
 		irtetzedata.setSelectableDateRange(new Date(), null);
@@ -129,7 +129,7 @@ public class P1 extends JFrame {
 
 
 		lblGauakgaua.setFont(new Font("Arial Narrow", Font.BOLD, 17));
-		lblGauakgaua.setBounds(34, 284, 68, 25);
+		lblGauakgaua.setBounds(34, 279, 120, 25);
 		contentPane.add(lblGauakgaua);
 		
 		btnAurrera.addActionListener(new ActionListener() {
@@ -230,7 +230,7 @@ public class P1 extends JFrame {
 
 		//Combo1
 
-		comboBox_1.setBounds(148, 129, 82, 20);
+		comboBox_1.setBounds(176, 130, 82, 20);
 		contentPane.add(comboBox_1);
 		String herr="";
 		int cont=0;
@@ -246,7 +246,7 @@ public class P1 extends JFrame {
 		
 		JLabel lblNewLabel = new JLabel("CHECK-OUT");
 		lblNewLabel.setFont(new Font("Arial Narrow", Font.BOLD, 16));
-		lblNewLabel.setBounds(326, 284, 89, 25);
+		lblNewLabel.setBounds(34, 337, 112, 25);
 		contentPane.add(lblNewLabel);
 
 
@@ -269,7 +269,7 @@ public class P1 extends JFrame {
 		}
 
 		lblGelaKopurua.setFont(new Font("Arial Narrow", Font.BOLD, 16));
-		lblGelaKopurua.setBounds(34, 177, 112, 14);
+		lblGelaKopurua.setBounds(29, 177, 130, 14);
 		
 		contentPane.add(lblGelaKopurua);
 		comboBox.addActionListener(new ActionListener() {
@@ -279,11 +279,11 @@ public class P1 extends JFrame {
 				 System.out.println(gela_kop);
 			}
 		});
-		comboBox.setBounds(181, 176, 49, 20);
+		comboBox.setBounds(209, 177, 49, 20);
 		
 		contentPane.add(comboBox);
 		lblOheMota.setFont(new Font("Arial Narrow", Font.BOLD, 16));
-		lblOheMota.setBounds(326, 177, 82, 14);
+		lblOheMota.setBounds(326, 177, 89, 14);
 		
 		contentPane.add(lblOheMota);
 		comboBox_3.addActionListener(new ActionListener() {
@@ -292,17 +292,17 @@ public class P1 extends JFrame {
 			}
 		});
 		comboBox_3.setModel(new DefaultComboBoxModel(new String[] {"", "Banakakoa", "Bikoitza", "Umeena"}));
-		comboBox_3.setBounds(453, 171, 89, 20);
+		comboBox_3.setBounds(453, 177, 89, 20);
 		
 		contentPane.add(comboBox_3);
 		btnAurrera.setFont(new Font("Arial Narrow", Font.BOLD, 16));
-		btnAurrera.setBounds(430, 381, 112, 39);
+		btnAurrera.setBounds(430, 381, 125, 39);
 		
 		contentPane.add(btnAurrera);
 		
-		JLabel lblPertsonaKopurua = new JLabel("PERTSONA KOPURUA");
+		JLabel lblPertsonaKopurua = new JLabel("PERTSONA KOPURU");
 		lblPertsonaKopurua.setFont(new Font("Arial Narrow", Font.BOLD, 16));
-		lblPertsonaKopurua.setBounds(34, 222, 147, 25);
+		lblPertsonaKopurua.setBounds(29, 222, 171, 25);
 		contentPane.add(lblPertsonaKopurua);
 		
 
@@ -310,13 +310,13 @@ public class P1 extends JFrame {
 
 		JComboBox comboBox_4 = new JComboBox();
 		comboBox_4.setModel(new DefaultComboBoxModel(new String[] {"", "1", "2", "3", "4", "5", "6", "7", "8"}));
-		comboBox_4.setBounds(194, 226, 36, 20);
+		comboBox_4.setBounds(222, 227, 36, 20);
 
 		contentPane.add(comboBox_4);
 		
 		JLabel label_3 = new JLabel("OSTATU MOTA");
 		label_3.setFont(new Font("Arial Narrow", Font.BOLD, 16));
-		label_3.setBounds(326, 112, 100, 50);
+		label_3.setBounds(326, 112, 125, 50);
 		contentPane.add(label_3);
 		
 		JComboBox comboBox_5 = new JComboBox();
@@ -335,13 +335,13 @@ public class P1 extends JFrame {
 				}
 			}
 		});
-		comboBox_5.setBounds(448, 129, 94, 20);
+		comboBox_5.setBounds(461, 130, 94, 20);
 		contentPane.add(comboBox_5);
 		comboBox_5.setModel(new DefaultComboBoxModel(new String[] {"","Hotela", "Apartamentua", "Etxea"}));
 		
 		JLabel lblNewLabel_1 = new JLabel("AUKERATU NAHI DUZUNA");
 		lblNewLabel_1.setFont(new Font("Arial Narrow", Font.BOLD, 20));
-		lblNewLabel_1.setBounds(174, 34, 217, 41);
+		lblNewLabel_1.setBounds(174, 34, 300, 41);
 		contentPane.add(lblNewLabel_1);
 
 		
