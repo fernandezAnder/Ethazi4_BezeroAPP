@@ -51,6 +51,8 @@ public class P2_apartamentua extends JFrame {
 		contentPane.add(scrollPane);
 		
 		table = new JTable();
+		table.getTableHeader().setReorderingAllowed(false) ;
+
 		
 		
 		
