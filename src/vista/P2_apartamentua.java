@@ -161,7 +161,7 @@ public class P2_apartamentua extends JFrame {
 
 		table.getColumnModel().getColumn(0).setPreferredWidth(77);
 		table.getColumnModel().getColumn(9).setPreferredWidth(107);
-		scrollPane.setViewportView(table);
+		//scrollPane.setViewportView(table);
 	}
 	
 	public int bidaliId() {
