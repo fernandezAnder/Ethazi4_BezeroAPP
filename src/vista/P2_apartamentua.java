@@ -59,7 +59,7 @@ public class P2_apartamentua extends JFrame {
 		scrollPane.setViewportView(table);
 		
 		lblApartamentuarenInformazioa.setFont(new Font("Arial Narrow", Font.BOLD, 24));
-		lblApartamentuarenInformazioa.setBounds(270, 11, 346, 25);
+		lblApartamentuarenInformazioa.setBounds(270, 11, 452, 25);
 		contentPane.add(lblApartamentuarenInformazioa);
 		
 		btnNewButton.setFont(new Font("Arial Narrow", Font.BOLD, 16));
@@ -67,7 +67,7 @@ public class P2_apartamentua extends JFrame {
 			public void actionPerformed(ActionEvent arg0) {
 			}
 		});
-		btnNewButton.setBounds(366, 502, 89, 23);
+		btnNewButton.setBounds(349, 502, 106, 23);
 		contentPane.add(btnNewButton);
 		
 		
@@ -109,7 +109,7 @@ public class P2_apartamentua extends JFrame {
 			}
 		});
 		btnNewButton_1.setFont(new Font("Arial Narrow", Font.BOLD, 16));
-		btnNewButton_1.setBounds(518, 502, 98, 23);
+		btnNewButton_1.setBounds(518, 502, 113, 23);
 		contentPane.add(btnNewButton_1);
 	}
 	public void misMetodos(Metodoak metodos) {

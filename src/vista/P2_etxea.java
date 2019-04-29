@@ -63,7 +63,7 @@ public class P2_etxea extends JFrame {
 		
 		
 		lblApartamentuarenInformazioa.setFont(new Font("Arial Narrow", Font.BOLD, 24));
-		lblApartamentuarenInformazioa.setBounds(315, 11, 257, 25);
+		lblApartamentuarenInformazioa.setBounds(315, 11, 318, 25);
 		contentPane.add(lblApartamentuarenInformazioa);
 		
 		
@@ -74,7 +74,7 @@ public class P2_etxea extends JFrame {
 				metodos.lehenengoLehioa();
 			}
 		});
-		btnNewButton.setBounds(366, 502, 89, 23);
+		btnNewButton.setBounds(357, 502, 98, 23);
 		contentPane.add(btnNewButton);
 		
 		
@@ -116,7 +116,7 @@ public class P2_etxea extends JFrame {
 			}
 		});
 		btnNewButton_1.setFont(new Font("Arial Narrow", Font.BOLD, 16));
-		btnNewButton_1.setBounds(518, 502, 98, 23);
+		btnNewButton_1.setBounds(518, 502, 115, 23);
 		contentPane.add(btnNewButton_1);
 		
 	}

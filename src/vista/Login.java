@@ -41,13 +41,13 @@ public class Login extends JFrame {
 		// Login textua.
 		JLabel lbllogin = new JLabel("LOG IN");
 		lbllogin.setFont(new Font("Arial Narrow", Font.BOLD, 40));
-		lbllogin.setBounds(217, 32, 122, 92);
+		lbllogin.setBounds(217, 32, 170, 92);
 		getContentPane().add(lbllogin);
 
 		// PASAHITZAREN LETRAK ETA TEXTFIELD
 		JLabel lblPasahitza = new JLabel("PASAHITZA");
 		lblPasahitza.setFont(new Font("Arial Narrow", Font.BOLD, 16));
-		lblPasahitza.setBounds(90, 210, 150, 32);
+		lblPasahitza.setBounds(127, 210, 90, 32);
 		getContentPane().add(lblPasahitza);
 		passwordField = new JPasswordField();
 		passwordField.setFont(new Font("Source Sans Pro Black", Font.ITALIC, 30));
@@ -57,7 +57,7 @@ public class Login extends JFrame {
 		// ERABILTZAILEAREN LETRAK ETA TEXTFIEL
 		JLabel lblErabiltzaile = new JLabel("ERABILTZAILEA");
 		lblErabiltzaile.setFont(new Font("Arial Narrow", Font.BOLD, 16));
-		lblErabiltzaile.setBounds(90, 152, 109, 26);
+		lblErabiltzaile.setBounds(90, 152, 134, 26);
 		getContentPane().add(lblErabiltzaile);
 
 		textField = new JTextField();
