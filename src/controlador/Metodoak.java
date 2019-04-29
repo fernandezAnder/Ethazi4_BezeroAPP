@@ -9,6 +9,7 @@ import java.io.FileWriter;
 import java.math.BigInteger;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.sql.Date;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Timer;
@@ -88,6 +89,11 @@ public class Metodoak {
 	
 	public void loginIreki() {
 		lo1.setVisible(true);
+	}
+	//**********DENBORALDIA KALKULATZEKO METODOAK********
+	public void denboraldiaKalkulatu() {
+		Date data;
+		//data = Consultas.ateraData();
 	}
 	public void bidaliDirua() {
 		String data1=p1.ateraData1();
