@@ -149,6 +149,7 @@ public class Ordainketa extends JFrame {
 		btnOrdaindu.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				precio=textField.getText();
+				String euro = " \u20AC";
 				System.out.println("preziototla "+preziototala);
 				prezioa=Double.parseDouble(precio);
 				String ordaindu=dirua.getText();//Sartutako diru kantitatea testu moduan gordeko da
@@ -190,7 +191,7 @@ public class Ordainketa extends JFrame {
 						
 						}
 					
-						mezua=dirufalta+" � falta zaizkizu";
+						mezua=dirufalta+euro+" falta zaizkizu";
 						Itzuliak.setText(mezua);	
 						btnAtzera.setEnabled(false);
 						btnAmaitu.setEnabled(false);

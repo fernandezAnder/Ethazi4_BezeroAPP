@@ -275,7 +275,7 @@ public class Metodoak {
 
 
 		double kanbio= zbk;
-
+		String euro = " \u20AC";
 		int aldatzailea = (int) (kanbio*100); // int-a parentesisen artean dagoena, double-a int-a bihurtzen du
 		int itzultzeko = aldatzailea;
 		String kanbioa="";
@@ -287,42 +287,42 @@ public class Metodoak {
 		kanbioa=kanbioa+pantailaratu;
 		// para cada moneda
 		if (itzultzeko >= 20000) {
-			pantailaratu=(" 200�-ko billeteak: " + itzultzeko / 20000+" \n");
+			pantailaratu=(" 200"+euro+"-ko billeteak: " + itzultzeko / 20000+" \n");
 			kanbioa=kanbioa+pantailaratu;
 			itzultzeko = itzultzeko % 20000;
 		}
 		if (itzultzeko >= 10000) {
-			pantailaratu=(" 100�-ko billeteak: " + itzultzeko / 10000+" \n");
+			pantailaratu=(" 100"+euro+"-ko billeteak: " + itzultzeko / 10000+" \n");
 			kanbioa=kanbioa+pantailaratu;
 			itzultzeko = itzultzeko % 10000;
 		}
 		if (itzultzeko >= 5000) {
-			pantailaratu=(" 50�-ko billeteak: " + itzultzeko / 5000+" \n");
+			pantailaratu=(" 50"+euro+"-ko billeteak: " + itzultzeko / 5000+" \n");
 			kanbioa=kanbioa+pantailaratu;
 			itzultzeko = itzultzeko % 5000;
 		}
 		if (itzultzeko >= 2000) {
-			pantailaratu=(" 20�-ko billeteak: " + itzultzeko / 2000+" \n");
+			pantailaratu=(" 20"+euro+"-ko billeteak: " + itzultzeko / 2000+" \n");
 			kanbioa=kanbioa+pantailaratu;
 			itzultzeko = itzultzeko % 2000;
 		}
 		if (itzultzeko >= 1000) {
-			pantailaratu=(" 10�-ko billeteak: " + itzultzeko / 1000+" \n");
+			pantailaratu=(" 10"+euro+"-ko billeteak: " + itzultzeko / 1000+" \n");
 			kanbioa=kanbioa+pantailaratu;
 			itzultzeko = itzultzeko % 1000;
 		}
 		if (itzultzeko >= 500) {
-			pantailaratu=(" 5�-ko billeteak: " + itzultzeko / 500+" \n");
+			pantailaratu=(" 5"+euro+"-ko billeteak: " + itzultzeko / 500+" \n");
 			kanbioa=kanbioa+pantailaratu;
 			itzultzeko = itzultzeko % 500;
 		}
 		if (itzultzeko >= 200) {
-			pantailaratu=(" 2�-ko txanponak: " + itzultzeko / 200+" \n");
+			pantailaratu=(" 2"+euro+"-ko txanponak: " + itzultzeko / 200+" \n");
 			kanbioa=kanbioa+pantailaratu;
 			itzultzeko = itzultzeko % 200;
 		}
 		if (itzultzeko >= 100) {
-			pantailaratu=(" 1�-ko txanponak: " + itzultzeko / 100+" \n");
+			pantailaratu=(" 1"+euro+"-ko txanponak: " + itzultzeko / 100+" \n");
 			kanbioa=kanbioa+pantailaratu;
 			itzultzeko = itzultzeko % 100;
 		}
