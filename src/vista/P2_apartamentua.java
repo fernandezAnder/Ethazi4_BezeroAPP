@@ -65,6 +65,8 @@ public class P2_apartamentua extends JFrame {
 		btnNewButton.setFont(new Font("Arial Narrow", Font.BOLD, 16));
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				metodos.lehioaApartamentuaItxi();
+				metodos.lehenengoLehioa();
 			}
 		});
 		btnNewButton.setBounds(349, 502, 106, 23);
@@ -124,7 +126,7 @@ public class P2_apartamentua extends JFrame {
 	public void filtroapart() {
 		
 		String[]columnas= {
-				"m2", "ostatu_id", "izena", "herria", "helbidea", "postaKod", "ostatu_mota", "gela_kopuru", "erreserba_kopuru","komun_kop"
+				"solairua", "ostatu_id", "izena", "herria", "helbidea", "postaKod", "ostatu_mota", "gela_kopuru", "erreserba_kopuru"
 			};
 		DefaultTableModel t1= new DefaultTableModel(){
 
@@ -132,12 +134,11 @@ public class P2_apartamentua extends JFrame {
 
 		};
 
-		JTable tabla = new JTable (t1);
 		table.setModel(t1);
 
 		
 
-		 t1.addColumn("m2");
+		 t1.addColumn("solairua");
 		 t1.addColumn("ostatu_id");
 		 t1.addColumn("izena");
 		 t1.addColumn("herria");
@@ -146,7 +147,7 @@ public class P2_apartamentua extends JFrame {
 		 t1.addColumn("ostatu_mota");
 		 t1.addColumn("gela_kopuru");
 		 t1.addColumn("erreserba_kopuru");
-		 t1.addColumn("komun_kop");
+
 		for (Apartamentua e:apartlista) {
 					
 					columnas[0]=Integer.toString(e.getSolairua());
@@ -161,9 +162,6 @@ public class P2_apartamentua extends JFrame {
 					t1.addRow(columnas);	
 			}	
 
-		table.getColumnModel().getColumn(0).setPreferredWidth(77);
-		table.getColumnModel().getColumn(9).setPreferredWidth(107);
-		//scrollPane.setViewportView(table);
 	}
 	
 	public int bidaliId() {

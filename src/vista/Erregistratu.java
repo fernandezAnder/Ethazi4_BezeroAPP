@@ -76,7 +76,7 @@ public class Erregistratu extends JFrame {
 
 		//LABEL NAN
 		lblNan.setFont(new Font("Arial Narrow", Font.BOLD, 16));
-		lblNan.setBounds(97, 236, 40, 28);
+		lblNan.setBounds(79, 236, 40, 28);
 		getContentPane().add(lblNan);
 
 		//TEXT NAN
@@ -98,7 +98,7 @@ public class Erregistratu extends JFrame {
 			}
 		});
 		zenbakia=textNAN.getText();
-		textNAN.setBounds(165, 237, 109, 28);
+		textNAN.setBounds(142, 237, 109, 28);
 		getContentPane().add(textNAN);
 		textNAN.setColumns(10);
 
@@ -129,28 +129,28 @@ public class Erregistratu extends JFrame {
 		});
 		letra=textLetra.getText();
 		textLetra.setColumns(10);
-		textLetra.setBounds(396, 237, 32, 28);
+		textLetra.setBounds(349, 237, 32, 28);
 		getContentPane().add(textLetra);
 
 		//LETRA LABEL
 		lblLetra.setFont(new Font("Arial Narrow", Font.BOLD, 16));
-		lblLetra.setBounds(323, 236, 63, 28);
+		lblLetra.setBounds(276, 236, 63, 28);
 		getContentPane().add(lblLetra);
 
 		//LABEL PASAHITZA
 		lblPasahitza.setFont(new Font("Arial Narrow", Font.BOLD, 16));
-		lblPasahitza.setBounds(45, 293, 92, 28);
+		lblPasahitza.setBounds(27, 293, 92, 28);
 		getContentPane().add(lblPasahitza);
 
 		//PASAHITZA TEXTUA
 		Pasahitza = new JPasswordField();
 		Pasahitza.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		Pasahitza.setBounds(165, 294, 170, 28);
+		Pasahitza.setBounds(142, 294, 170, 28);
 		getContentPane().add(Pasahitza);
 
 		//Balidatu botoia
 		Balidatu.setFont(new Font("Arial Narrow", Font.BOLD, 16));
-		Balidatu.setBounds(247, 377, 115, 44);
+		Balidatu.setBounds(247, 377, 128, 44);
 		getContentPane().add(Balidatu);
 
 		//LABEL IZENA
@@ -320,7 +320,7 @@ public class Erregistratu extends JFrame {
 			}
 		});
 		btnEzeztatu.setFont(new Font("Dialog", Font.BOLD, 16));
-		btnEzeztatu.setBounds(79, 377, 115, 44);
+		btnEzeztatu.setBounds(79, 377, 122, 44);
 		getContentPane().add(btnEzeztatu);
 
 	}

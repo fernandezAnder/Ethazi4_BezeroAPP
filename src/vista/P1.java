@@ -230,7 +230,7 @@ public class P1 extends JFrame {
 
 		//Combo1
 
-		comboBox_1.setBounds(176, 130, 82, 20);
+		comboBox_1.setBounds(176, 130, 94, 20);
 		contentPane.add(comboBox_1);
 		String herr="";
 		int cont=0;
@@ -279,7 +279,7 @@ public class P1 extends JFrame {
 				 System.out.println(gela_kop);
 			}
 		});
-		comboBox.setBounds(209, 177, 49, 20);
+		comboBox.setBounds(221, 177, 49, 20);
 		
 		contentPane.add(comboBox);
 		lblOheMota.setFont(new Font("Arial Narrow", Font.BOLD, 16));
@@ -292,7 +292,7 @@ public class P1 extends JFrame {
 			}
 		});
 		comboBox_3.setModel(new DefaultComboBoxModel(new String[] {"", "Banakakoa", "Bikoitza", "Umeena"}));
-		comboBox_3.setBounds(453, 177, 89, 20);
+		comboBox_3.setBounds(466, 177, 89, 20);
 		
 		contentPane.add(comboBox_3);
 		btnAurrera.setFont(new Font("Arial Narrow", Font.BOLD, 16));
@@ -310,7 +310,7 @@ public class P1 extends JFrame {
 
 		JComboBox comboBox_4 = new JComboBox();
 		comboBox_4.setModel(new DefaultComboBoxModel(new String[] {"", "1", "2", "3", "4", "5", "6", "7", "8"}));
-		comboBox_4.setBounds(222, 227, 36, 20);
+		comboBox_4.setBounds(234, 227, 36, 20);
 
 		contentPane.add(comboBox_4);
 		

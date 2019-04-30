@@ -157,7 +157,7 @@ public class P2_etxea extends JFrame {
 		 t1.addColumn("erreserba_kopuru");
 		 t1.addColumn("komun_kop");
 		for (Etxea e:etxelista) {
-					
+			
 					columnas[0]=Double.toString(e.getM2());
 					columnas[1]=Integer.toString(e.getOstatu_id());
 					columnas[2]=e.getIzena();
