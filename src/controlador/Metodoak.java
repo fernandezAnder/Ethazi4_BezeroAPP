@@ -11,9 +11,12 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.sql.Date;
 import java.text.DecimalFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Timer;
 import java.util.TimerTask;
+
+import com.sun.org.apache.xerces.internal.util.SynchronizedSymbolTable;
 
 import javafx.scene.control.ComboBox;
 import modelo.Consultas;
@@ -92,8 +95,32 @@ public class Metodoak {
 	}
 	//**********DENBORALDIA KALKULATZEKO METODOAK********
 	public void denboraldiaKalkulatu() {
+		SimpleDateFormat formato = new SimpleDateFormat("yyyy/MM/dd/");
+		Date date1p1 = null;
+		try {
+		 date1p1 = (Date) formato.parse(p1.ateraData1());
+		}catch(Exception e) {
+			System.out.println(e.getMessage());
+			
+		}
+		int eguna1=0;
+		int hilabetea1=0;
+		int urtea1=0;
+		int eguna2=date1p1.getDay();
+		int hilabetea2=date1p1.getMonth();
+		int urtea2=date1p1.getYear();
 		Date data;
-		//data = Consultas.ateraData();
+		ArrayList <Date> datak =  new ArrayList();
+		//datak = Consultas.ateraData();
+		for(int i=0;i<datak.size();i++) {
+			data=datak.get(i);
+			eguna1=data.getDay();
+			hilabetea1=data.getMonth();
+			urtea1=data.getYear();
+			
+			
+			
+		}
 	}
 	public void bidaliDirua() {
 		String data1=p1.ateraData1();
