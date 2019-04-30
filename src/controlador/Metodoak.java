@@ -94,9 +94,11 @@ public class Metodoak {
 		lo1.setVisible(true);
 	}
 	//**********DENBORALDIA KALKULATZEKO METODOAK********
-	public void denboraldiaKalkulatu() {
+	public double denboraldiaKalkulatu() {
 		SimpleDateFormat formato = new SimpleDateFormat("yyyy/MM/dd/");
 		Date date1p1 = null;
+		double recargo = 0.0;
+		boolean esfestivo=false;
 		try {
 		 date1p1 = (Date) formato.parse(p1.ateraData1());
 		}catch(Exception e) {
@@ -117,14 +119,21 @@ public class Metodoak {
 			eguna1=data.getDay();
 			hilabetea1=data.getMonth();
 			urtea1=data.getYear();
-			
-			
-			
+			if(eguna1==eguna2 && hilabetea1==hilabetea2 && urtea1==urtea2) {
+				 esfestivo = true;
+			}
 		}
+		//recargo=Consultas.
+		
+		return recargo;
+		
+		
 	}
 	public void bidaliDirua() {
 		String data1=p1.ateraData1();
 		String data2=p1.ateraData2();
+		double recargo=0.0;
+		//recargo=denboraldiaKalkulatu();
 		int egunak=0;
 		int logelakop=0;
 		double prezioa =0.0;
