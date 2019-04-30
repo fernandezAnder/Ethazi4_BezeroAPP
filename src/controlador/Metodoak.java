@@ -129,6 +129,13 @@ public class Metodoak {
 		
 		
 	}
+	public ArrayList<java.sql.Date> jaiegunLista(){
+		ArrayList<java.sql.Date> jaiegunak=Consultas.jaiegunLista();
+		for (int i=0;i<jaiegunak.size();i++) {
+			System.out.println(jaiegunak.get(i));
+		}
+		return jaiegunak;
+	}
 	public void bidaliDirua() {
 		String data1=p1.ateraData1();
 		String data2=p1.ateraData2();

@@ -4,6 +4,7 @@ import java.sql.Connection;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLData;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
@@ -123,7 +124,7 @@ public class Consultas {
 		Connection konexioa=Conexion.getConexion();
 
 		try {
-			s = konexioa.prepareStatement("select * from etxeak");
+			s = konexioa.prepareStatement("SELECT * FROM `etxeak` WHERE ostatu_mota like 'E'");
 			ResultSet rs = s.executeQuery();
 			double m2=0; 
 			int ostatu_id=0;
@@ -186,6 +187,26 @@ public class Consultas {
 		}
 		return (Arraybezero);
 	}
+	public static ArrayList<java.sql.Date>jaiegunLista() {
+		
+		Connection conexion = modelo.Conexion.getConexion();
+		ArrayList<java.sql.Date> jaiegunak = new ArrayList<java.sql.Date>();
+		java.sql.Date egunak;
+		try {
+			Statement s = conexion.createStatement();
+			String query = "SELECT jaiEgun_data FROM jaiegunak";
+			ResultSet rs = s.executeQuery(query);
+			while (rs.next()) {
+				egunak=rs.getDate(1);
+				jaiegunak.add(egunak);
+
+			}
+
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
+		}
+		return (jaiegunak);
+	}
 	public static void txertatuBezeroa(Bezeroa bezeroa) {
 		Connection conexion = modelo.Conexion.getConexion();
 		
@@ -230,6 +251,7 @@ public class Consultas {
 		}
 
 	}
+	
 	public static boolean konprobatuDatuBasea(String Nan) {
 		Connection conexion = modelo.Conexion.getConexion();
 	
