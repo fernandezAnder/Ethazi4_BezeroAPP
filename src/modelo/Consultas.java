@@ -296,6 +296,25 @@ public class Consultas {
 		}
 		return logela_prezioa;
 	}
+	public static double logela_prezioaEtxeApart(int ostatu_id) {
+		Connection conexion = modelo.Conexion.getConexion();
+	
+		double logela_prezioa=0;
+
+		try {
+			Statement s = conexion.createStatement();
+			String query = ""+ostatu_id;
+			ResultSet rs = s.executeQuery(query);
+			while (rs.next()) {
+				logela_prezioa=rs.getDouble(1);
+				
+			}
+
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
+		}
+		return logela_prezioa;
+	}
 	public void misMetodos(Metodoak metodos) {
 		this.metodos=metodos;
 	}

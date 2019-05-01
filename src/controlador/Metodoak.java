@@ -136,6 +136,7 @@ public class Metodoak {
 		}
 		return jaiegunak;
 	}
+	//*****************ERRESERBAREN PREZIOA KALKULATZEKO METODOAK********************
 	public void bidaliDirua() {
 		String data1=p1.ateraData1();
 		String data2=p1.ateraData2();
@@ -165,7 +166,64 @@ public class Metodoak {
 		
 		
 	}
-	
+	public void bidaliDiruaApartamentua() {
+		String data1=p1.ateraData1();
+		String data2=p1.ateraData2();
+		double recargo=0.0;
+		//recargo=denboraldiaKalkulatu();
+		int egunak=0;
+		int logelakop=0;
+		double prezioa =0.0;
+		int hilabeteak=0;
+		prezioa = Consultas.logela_prezioa(p2apart.bidaliId());
+		logelakop=p1.ateraGelakop();
+		egunak=p1.diadif();
+		
+		
+		prezioa=logelakop*prezioa*egunak;
+
+		
+		String diruaString = "";
+		
+		
+		System.out.println("precio "+prezioa);
+		System.out.println("Dias "+egunak);
+		System.out.println(logelakop);
+		diruaString=Double.toString(prezioa);
+		ord1.idatzi(diruaString);
+		System.out.println(diruaString);
+		
+		
+	}
+	public void bidaliDiruaEtxea() {
+		String data1=p1.ateraData1();
+		String data2=p1.ateraData2();
+		double recargo=0.0;
+		//recargo=denboraldiaKalkulatu();
+		int egunak=0;
+		int logelakop=0;
+		double prezioa =0.0;
+		int hilabeteak=0;
+		prezioa = Consultas.logela_prezioa(p2etxe.eramanaId());
+		logelakop=p1.ateraGelakop();
+		egunak=p1.diadif();
+		
+		
+		prezioa=logelakop*prezioa*egunak;
+
+		
+		String diruaString = "";
+		
+		
+		System.out.println("precio "+prezioa);
+		System.out.println("Dias "+egunak);
+		System.out.println(logelakop);
+		diruaString=Double.toString(prezioa);
+		ord1.idatzi(diruaString);
+		System.out.println(diruaString);
+		
+		
+	}
 	public void hirugarrenLehioa() {
 		lo1.setVisible(false);
 		ord1.setVisible(true);

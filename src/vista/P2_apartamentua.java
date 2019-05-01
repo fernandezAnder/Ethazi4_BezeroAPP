@@ -92,7 +92,7 @@ public class P2_apartamentua extends JFrame {
 						if(id!=0) {
 						metodos.lehioaApartamentuaItxi();
 						metodos.p2hotetoOrdainketa();
-						metodos.bidaliDirua();
+						metodos.bidaliDiruaApartamentua();
 						}
 					}
 					

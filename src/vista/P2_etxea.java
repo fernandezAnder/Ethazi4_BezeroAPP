@@ -97,7 +97,7 @@ public class P2_etxea extends JFrame {
 						if(id!=0) {
 						metodos.lehioaEtxeaItxi();
 						metodos.p2hotetoOrdainketa();
-						metodos.bidaliDirua();
+						metodos.bidaliDiruaEtxea();
 						}
 					}
 					
