@@ -9,7 +9,7 @@ import java.io.FileWriter;
 import java.math.BigInteger;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-import java.sql.Date;
+import java.util.Date;
 import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -147,18 +147,16 @@ public class Metodoak {
 	public void bidaliDirua() {
 		String data1=p1.ateraData1();
 		String data2=p1.ateraData2();
+		int numero1=0;
+		int numero2=0;
+		String [] datak=data1.split("/");
+		numero1=Integer.valueOf(datak[1]);	
+		String [] datak2=data2.split("/");
+		numero2=Integer.valueOf(datak2[1]);	
 		double recargo=0.0;
-		//***Dendoraldia********
-		SimpleDateFormat formato = new SimpleDateFormat("yyyy/MM/dd/");
-		Date datak1 = null;
-		Date datak2 = null;
-		try {
-			 datak1 = (Date) formato.parse(p1.ateraData1());
-			 datak1 = (Date) formato.parse(p1.ateraData2());
-			}catch(Exception e) {
-				System.out.println(e.getMessage());
-				
-			}
+	
+		
+		
 		
 				
 		
@@ -170,9 +168,10 @@ public class Metodoak {
 		prezioa = Consultas.logela_prezioa(p2hot.eramanaId());
 		logelakop=p1.ateraGelakop();
 		egunak=p1.diadif();
-		
+		System.out.println(numero1);
+		System.out.println(numero2);
 		// denboraldi altua: 5,6,9,10
-		if(datak1.getMonth()!=5 || datak1.getMonth()!=6 || datak1.getMonth()!=9 || datak1.getMonth()!=10 || datak2.getMonth()!=5 || datak2.getMonth()!=6 || datak2.getMonth()!=9 || datak2.getMonth()!=10) {
+		if(numero1==1 || numero1==2 || numero1==3 || numero1==4 || numero1==7 || numero1==8|| numero1==11 || numero1==12 || numero2==1 || numero2==2 || numero2==3 || numero2==4 || numero2==7 || numero2==8|| numero2==11 || numero2==12 ) {
 					recargo=50.0;
 		}
 		prezioa=logelakop*prezioa*egunak+recargo;
@@ -187,6 +186,7 @@ public class Metodoak {
 		diruaString=Double.toString(prezioa);
 		ord1.idatzi(diruaString);
 		System.out.println(diruaString);
+		System.out.println(recargo);
 		
 		
 	}
