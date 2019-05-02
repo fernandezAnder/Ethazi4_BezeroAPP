@@ -83,23 +83,27 @@ public class P2_etxea extends JFrame {
 				try{
 				int numero=table.getSelectedRow();
 				Etxea etxea2 = etxelista.get(numero);
-				if(etxea2.getErreserba_kop()==100) {
-					 lblNewLabel.setText("Etxea Beteta");
-				}
-				else {
+//				if(etxea2.getErreserba_kop()==100) {
+//					 lblNewLabel.setText("Etxea Beteta");
+//				}
+//				else {
 					id=etxea2.getOstatu_id();
+					System.out.println("IDDDDDD"+id);
 					 //ohekopurua = hotela2.getGela_kop();
 					if(metodos.logueatuta==false && id!=0) {
+						System.err.println("asfjksdhkj  1");
 						metodos.lehioaEtxeaItxi();
 						metodos.loginIreki();
+						//metodos.bidaliDiruaEtxea();
 					}
 					else {
 						if(id!=0) {
+						System.out.println("alsknfakn 2");
 						metodos.lehioaEtxeaItxi();
 						metodos.p2hotetoOrdainketa();
 						metodos.bidaliDiruaEtxea();
 						}
-					}
+//					}
 					
 				}
 				System.out.println(etxea2);

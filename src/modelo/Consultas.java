@@ -303,11 +303,11 @@ public class Consultas {
 
 		try {
 			Statement s = conexion.createStatement();
-			String query = ""+ostatu_id;
+			String query = "select prezioa from exteakprezioa where etxea_etxe_kod="+ostatu_id;
 			ResultSet rs = s.executeQuery(query);
 			while (rs.next()) {
 				logela_prezioa=rs.getDouble(1);
-				
+				System.out.println("prezioaaaaaaaaaa"+logela_prezioa);
 			}
 
 		} catch (SQLException e) {

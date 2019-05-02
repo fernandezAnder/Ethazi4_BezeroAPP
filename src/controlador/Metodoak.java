@@ -25,6 +25,7 @@ import vista.*;
 
 public class Metodoak {
 	private static String prezio_totala;
+	private String ostatu_mota;
 	private P1 p1;
 	private P2_apartamentua p2apart;
 	private P2_etxea p2etxe;
@@ -44,11 +45,17 @@ public class Metodoak {
 	public void logueatutabai(boolean erabakia) {
 		logueatuta=erabakia;
 	}
-
+	
 ///////////////////////////////////////////////////////////////////////////
 	
 	public void prezio_totala(String prezioa) {
 		prezio_totala=prezioa;
+	}
+	public void ostatu_motaHartu(String ostatu) {
+		ostatu_mota=ostatu;
+	}
+	public String ostatu_motaAtera() {
+		return ostatu_mota;
 	}
 ///////////////////////////////////////////////////////////////////////////
 	public  void lehenengoLehioa() {
@@ -141,6 +148,20 @@ public class Metodoak {
 		String data1=p1.ateraData1();
 		String data2=p1.ateraData2();
 		double recargo=0.0;
+		//***Dendoraldia********
+		SimpleDateFormat formato = new SimpleDateFormat("yyyy/MM/dd/");
+		Date datak1 = null;
+		Date datak2 = null;
+		try {
+			 datak1 = (Date) formato.parse(p1.ateraData1());
+			 datak1 = (Date) formato.parse(p1.ateraData2());
+			}catch(Exception e) {
+				System.out.println(e.getMessage());
+				
+			}
+		
+				
+		
 		//recargo=denboraldiaKalkulatu();
 		int egunak=0;
 		int logelakop=0;
@@ -150,8 +171,11 @@ public class Metodoak {
 		logelakop=p1.ateraGelakop();
 		egunak=p1.diadif();
 		
-		
-		prezioa=logelakop*prezioa*egunak;
+		// denboraldi altua: 5,6,9,10
+		if(datak1.getMonth()!=5 || datak1.getMonth()!=6 || datak1.getMonth()!=9 || datak1.getMonth()!=10 || datak2.getMonth()!=5 || datak2.getMonth()!=6 || datak2.getMonth()!=9 || datak2.getMonth()!=10) {
+					recargo=50.0;
+		}
+		prezioa=logelakop*prezioa*egunak+recargo;
 
 		
 		String diruaString = "";
@@ -175,7 +199,7 @@ public class Metodoak {
 		int logelakop=0;
 		double prezioa =0.0;
 		int hilabeteak=0;
-		prezioa = Consultas.logela_prezioa(p2apart.bidaliId());
+		prezioa = Consultas.logela_prezioaEtxeApart(p2apart.bidaliId());
 		logelakop=p1.ateraGelakop();
 		egunak=p1.diadif();
 		
@@ -204,7 +228,7 @@ public class Metodoak {
 		int logelakop=0;
 		double prezioa =0.0;
 		int hilabeteak=0;
-		prezioa = Consultas.logela_prezioa(p2etxe.eramanaId());
+		prezioa = Consultas.logela_prezioaEtxeApart(p2etxe.eramanaId());
 		logelakop=p1.ateraGelakop();
 		egunak=p1.diadif();
 		
@@ -228,7 +252,7 @@ public class Metodoak {
 		lo1.setVisible(false);
 		ord1.setVisible(true);
 		String diruaString = "";
-		System.out.println("AAAAAAAAAAAAAAAAA");
+		
 		ord1.idatzi(diruaString);
 		System.out.println(diruaString);
 	}

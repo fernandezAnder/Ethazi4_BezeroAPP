@@ -135,10 +135,33 @@ public class Ordainketa extends JFrame {
 
 		btnAtzera.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				metodos.lehioaHotelaIreki();
-				metodos.p2hotetoOrdainketa2();
+				
+				
+//				metodos.lehioaHotelaIreki();
+//				metodos.p2hotetoOrdainketa2();
+				
+			String letra = metodos.ostatu_motaAtera();
+			System.out.println(letra);
+				
+					if (metodos.ostatu_motaAtera().equalsIgnoreCase("H")) {
+						
+						metodos.bigarrenLehioaHotela();
+						metodos.filtroHotela();
+					}else if(metodos.ostatu_motaAtera().equalsIgnoreCase("A")) {
+						
+						metodos.bigarrenLehioaApartamentua();
+						metodos.filtroApartamentua();
+					}else if(metodos.ostatu_motaAtera().equalsIgnoreCase("E")) {
+						
+						metodos.bigarrenLehioaEtxea();
+						metodos.filtroEtxea();
+						}
+					
+					
+					
+				}
 
-			}
+			
 		});
 		btnAtzera.setFont(new Font("Arial Narrow", Font.BOLD, 20));
 		getContentPane().add(btnAtzera);

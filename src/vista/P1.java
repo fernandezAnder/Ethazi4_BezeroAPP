@@ -58,6 +58,7 @@ public class P1 extends JFrame {
 	private int  gela_kop=0;
 	private String oheMota="";
 	private String  letra_ostatu;
+	private String letra;
 	private String hostatu_mota="";
 	private int prezioa=0;
 	private int ostatu_id=0;
@@ -206,15 +207,18 @@ public class P1 extends JFrame {
 				if(!fechaComoCadena.equalsIgnoreCase("") && !fechaComoCadena2.equalsIgnoreCase("")&& !hostatu_mota.equalsIgnoreCase("") && gela_kop!=0 && !oheMota.equalsIgnoreCase("") && pertsona_kopurua!=0) {
 					if(eguna-eguna2!=0) {
 					if (letra_ostatu.equalsIgnoreCase("H")) {
-						
+						letra=letra_ostatu;
+						metodos.ostatu_motaHartu(letra);
 						metodos.bigarrenLehioaHotela();
 						metodos.filtroHotela();
 					}else if(letra_ostatu.equalsIgnoreCase("A")) {
-						
+						letra=letra_ostatu;
+						metodos.ostatu_motaHartu(letra);
 						metodos.bigarrenLehioaApartamentua();
 						metodos.filtroApartamentua();
 					}else if(letra_ostatu.equalsIgnoreCase("E")) {
-						
+						letra=letra_ostatu;
+						metodos.ostatu_motaHartu(letra);
 						metodos.bigarrenLehioaEtxea();
 						metodos.filtroEtxea();
 						}
@@ -225,6 +229,7 @@ public class P1 extends JFrame {
 				
 				
 			}
+			
 			
 		});
 
@@ -411,7 +416,11 @@ public class P1 extends JFrame {
 	public int ohe_kop() {
 		return ohe_kop;
 	}
-	
+
+	public String ostatua() {
+		letra=hostatu_mota;
+		return letra;
+	}
 	
 	public int diadif() {
 		int dias=0;
