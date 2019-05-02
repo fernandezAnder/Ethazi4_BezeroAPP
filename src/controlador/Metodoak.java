@@ -199,7 +199,7 @@ public class Metodoak {
 		int logelakop=0;
 		double prezioa =0.0;
 		int hilabeteak=0;
-		prezioa = Consultas.logela_prezioa(p2apart.bidaliId());
+		prezioa = Consultas.logela_prezioaEtxeApart(p2apart.bidaliId());
 		logelakop=p1.ateraGelakop();
 		egunak=p1.diadif();
 		
@@ -228,7 +228,7 @@ public class Metodoak {
 		int logelakop=0;
 		double prezioa =0.0;
 		int hilabeteak=0;
-		prezioa = Consultas.logela_prezioa(p2etxe.eramanaId());
+		prezioa = Consultas.logela_prezioaEtxeApart(p2etxe.eramanaId());
 		logelakop=p1.ateraGelakop();
 		egunak=p1.diadif();
 		
@@ -252,7 +252,7 @@ public class Metodoak {
 		lo1.setVisible(false);
 		ord1.setVisible(true);
 		String diruaString = "";
-		System.out.println("AAAAAAAAAAAAAAAAA");
+		
 		ord1.idatzi(diruaString);
 		System.out.println(diruaString);
 	}
