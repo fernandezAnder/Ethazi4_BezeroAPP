@@ -25,6 +25,7 @@ import vista.*;
 
 public class Metodoak {
 	private static String prezio_totala;
+	private String ostatu_mota;
 	private P1 p1;
 	private P2_apartamentua p2apart;
 	private P2_etxea p2etxe;
@@ -44,11 +45,17 @@ public class Metodoak {
 	public void logueatutabai(boolean erabakia) {
 		logueatuta=erabakia;
 	}
-
+	
 ///////////////////////////////////////////////////////////////////////////
 	
 	public void prezio_totala(String prezioa) {
 		prezio_totala=prezioa;
+	}
+	public void ostatu_motaHartu(String ostatu) {
+		ostatu_mota=ostatu;
+	}
+	public String ostatu_motaAtera() {
+		return ostatu_mota;
 	}
 ///////////////////////////////////////////////////////////////////////////
 	public  void lehenengoLehioa() {

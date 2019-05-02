@@ -133,8 +133,32 @@ public class Ordainketa extends JFrame {
 
 		btnAtzera.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				metodos.lehioaHotelaIreki();
-				metodos.p2hotetoOrdainketa2();
+				
+				
+//				metodos.lehioaHotelaIreki();
+//				metodos.p2hotetoOrdainketa2();
+				
+			String letra = metodos.ostatu_motaAtera();
+			System.out.println(letra);
+				if(metodos.ostatu_motaAtera().equalsIgnoreCase("")) {
+					
+					if (metodos.ostatu_motaAtera().equalsIgnoreCase("H")) {
+						
+						metodos.bigarrenLehioaHotela();
+						metodos.filtroHotela();
+					}else if(metodos.ostatu_motaAtera().equalsIgnoreCase("A")) {
+						
+						metodos.bigarrenLehioaApartamentua();
+						metodos.filtroApartamentua();
+					}else if(metodos.ostatu_motaAtera().equalsIgnoreCase("E")) {
+						
+						metodos.bigarrenLehioaEtxea();
+						metodos.filtroEtxea();
+						}
+					
+					
+					
+				}
 
 			}
 		});
@@ -250,7 +274,6 @@ public class Ordainketa extends JFrame {
 		textField.setDisabledTextColor(Color.BLACK);
 		textField.setFont(new Font("Tahoma", Font.BOLD, 16));
 		textField.setForeground(Color.BLACK);
-		textField.setText("120");
 		textField.setColumns(10);
 		textField.setBounds(262, 118, 136, 26);
 		getContentPane().add(textField);
