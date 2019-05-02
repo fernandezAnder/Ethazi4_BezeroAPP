@@ -94,7 +94,7 @@ public class P2_etxea extends JFrame {
 						System.err.println("asfjksdhkj  1");
 						metodos.lehioaEtxeaItxi();
 						metodos.loginIreki();
-						metodos.bidaliDiruaEtxea();
+						//metodos.bidaliDiruaEtxea();
 					}
 					else {
 						if(id!=0) {

@@ -95,8 +95,18 @@ public class Login extends JFrame {
 				if (youshouldnotpass == true) {
 					metodos.hirugarrenLehioa();
 					 nana = textField.getText();
-//					 metodos.bidaliDirua();
+				 
 					 metodos.logueatutabai(true);
+					 
+					 if (metodos.ostatu_motaAtera().equalsIgnoreCase("H")) {
+						 metodos.bidaliDirua();
+						}else if(metodos.ostatu_motaAtera().equalsIgnoreCase("A")) {
+							
+						metodos.bidaliDiruaApartamentua();
+						}else if(metodos.ostatu_motaAtera().equalsIgnoreCase("E")) {
+							
+						metodos.bidaliDiruaEtxea();
+							}
 
 				}
 				else {
