@@ -140,8 +140,7 @@ public class Ordainketa extends JFrame {
 				
 			String letra = metodos.ostatu_motaAtera();
 			System.out.println(letra);
-				if(metodos.ostatu_motaAtera().equalsIgnoreCase("")) {
-					
+				
 					if (metodos.ostatu_motaAtera().equalsIgnoreCase("H")) {
 						
 						metodos.bigarrenLehioaHotela();
@@ -160,7 +159,7 @@ public class Ordainketa extends JFrame {
 					
 				}
 
-			}
+			
 		});
 		btnAtzera.setFont(new Font("Arial", Font.PLAIN, 18));
 		getContentPane().add(btnAtzera);

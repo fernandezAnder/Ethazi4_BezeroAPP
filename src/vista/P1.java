@@ -207,17 +207,17 @@ public class P1 extends JFrame {
 				if(!fechaComoCadena.equalsIgnoreCase("") && !fechaComoCadena2.equalsIgnoreCase("")&& !hostatu_mota.equalsIgnoreCase("") && gela_kop!=0 && !oheMota.equalsIgnoreCase("") && pertsona_kopurua!=0) {
 					if(eguna-eguna2!=0) {
 					if (letra_ostatu.equalsIgnoreCase("H")) {
-						letra=hostatu_mota;
+						letra=letra_ostatu;
 						metodos.ostatu_motaHartu(letra);
 						metodos.bigarrenLehioaHotela();
 						metodos.filtroHotela();
 					}else if(letra_ostatu.equalsIgnoreCase("A")) {
-						letra=hostatu_mota;
+						letra=letra_ostatu;
 						metodos.ostatu_motaHartu(letra);
 						metodos.bigarrenLehioaApartamentua();
 						metodos.filtroApartamentua();
 					}else if(letra_ostatu.equalsIgnoreCase("E")) {
-						letra=hostatu_mota;
+						letra=letra_ostatu;
 						metodos.ostatu_motaHartu(letra);
 						metodos.bigarrenLehioaEtxea();
 						metodos.filtroEtxea();
