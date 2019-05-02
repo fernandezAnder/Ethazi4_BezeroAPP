@@ -235,7 +235,7 @@ public class Metodoak {
 		lo1.setVisible(false);
 		ord1.setVisible(true);
 		String diruaString = "";
-		System.out.println("AAAAAAAAAAAAAAAAA");
+		
 		ord1.idatzi(diruaString);
 		System.out.println(diruaString);
 	}
