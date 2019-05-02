@@ -147,7 +147,7 @@ public class Metodoak {
 	public void bidaliDirua() {
 		String data1=p1.ateraData1();
 		String data2=p1.ateraData2();
-		double recargo=50.0;
+		double recargo=0.0;
 		//***Dendoraldia********
 		SimpleDateFormat formato = new SimpleDateFormat("yyyy/MM/dd/");
 		Date datak1 = null;
@@ -172,8 +172,8 @@ public class Metodoak {
 		egunak=p1.diadif();
 		
 		// denboraldi altua: 5,6,9,10
-		if(datak1.getMonth()==5 || datak1.getMonth()==6 || datak1.getMonth()==9 || datak1.getMonth()==10 || datak2.getMonth()==5 || datak2.getMonth()==6 || datak2.getMonth()==9 || datak2.getMonth()==10) {
-					recargo=0.0;
+		if(datak1.getMonth()!=5 || datak1.getMonth()!=6 || datak1.getMonth()!=9 || datak1.getMonth()!=10 || datak2.getMonth()!=5 || datak2.getMonth()!=6 || datak2.getMonth()!=9 || datak2.getMonth()!=10) {
+					recargo=50.0;
 		}
 		prezioa=logelakop*prezioa*egunak+recargo;
 
