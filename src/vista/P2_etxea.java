@@ -88,6 +88,7 @@ public class P2_etxea extends JFrame {
 				}
 				else {
 					id=etxea2.getOstatu_id();
+					System.out.println("IDDDDDD"+id);
 					 //ohekopurua = hotela2.getGela_kop();
 					if(metodos.logueatuta==false && id!=0) {
 						metodos.lehioaEtxeaItxi();
@@ -95,6 +96,7 @@ public class P2_etxea extends JFrame {
 					}
 					else {
 						if(id!=0) {
+							System.out.println("asier pringau");
 						metodos.lehioaEtxeaItxi();
 						metodos.p2hotetoOrdainketa();
 						metodos.bidaliDiruaEtxea();
