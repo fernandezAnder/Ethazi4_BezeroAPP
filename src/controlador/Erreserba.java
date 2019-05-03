@@ -136,7 +136,7 @@ public class Erreserba {
 				" \n"
 				+"                                                             BIDAI ON S.L.                        "+" \t\n"
 				+" **********************************************************************************************************************"+" \t\n"	
-				+"Erreserba erreserba_kod=" + erreserba_kod+" \t" + ", ostatu_id=" + ostatu_id+" \t\n"
+				+ ", ostatu_id=" + ostatu_id+" \t\n"
 				+ ", bezero_nan=" + bezero_nan+" \t"+ ", sartze_data=" + sartze_data+" \t\n" 
 				+ ", irtetze_data=" + irtetze_data+" \t" + ", pertsona_kop=" + pertsona_kop+" \t\n"
 				+ ", prezio_totala=" + prezio_totala+" \t" + ", erreserba_gela_kop=" + erreserba_gela_kop+" \t\n"
