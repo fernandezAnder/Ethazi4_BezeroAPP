@@ -307,7 +307,7 @@ public class Consultas {
 			ResultSet rs = s.executeQuery(query);
 			while (rs.next()) {
 				logela_prezioa=rs.getDouble(1);
-				System.out.println("prezioaaaaaaaaaa"+logela_prezioa);
+				
 			}
 
 		} catch (SQLException e) {
