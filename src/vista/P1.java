@@ -305,7 +305,7 @@ public class P1 extends JFrame {
 		
 		contentPane.add(btnAurrera);
 		
-		JLabel lblPertsonaKopurua = new JLabel("PERTSONA KOPURU");
+		JLabel lblPertsonaKopurua = new JLabel("PERTSONA KOPURUA");
 		lblPertsonaKopurua.setFont(new Font("Arial Narrow", Font.BOLD, 16));
 		lblPertsonaKopurua.setBounds(29, 222, 171, 25);
 		contentPane.add(lblPertsonaKopurua);

@@ -9,8 +9,9 @@ import java.io.FileWriter;
 import java.math.BigInteger;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-import java.sql.Date;
+import java.util.Date;
 import java.text.DecimalFormat;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Timer;
@@ -36,6 +37,8 @@ public class Metodoak {
 	private Amaiera am1;
 	Timer timer = new Timer();
 	public boolean logueatuta=false;
+	private SimpleDateFormat format = new SimpleDateFormat("yyyy/MM/dd");
+	private String tarifa = "Baxua";
 	
 	
 //***************Para que no salga una y otra vez la ventana de login comprobamos logueatutta y asi solo se abre una vez*****
@@ -144,109 +147,201 @@ public class Metodoak {
 		return jaiegunak;
 	}
 	//*****************ERRESERBAREN PREZIOA KALKULATZEKO METODOAK********************
-	public void bidaliDirua() {
+	public void bidaliDirua(){
+		
 		String data1=p1.ateraData1();
 		String data2=p1.ateraData2();
+		int numero1=0;
+		int numero2=0;
+		
+		
+		String [] datak=data1.split("/");
+		numero1=Integer.valueOf(datak[1]);
+		
+		String [] datak2=data2.split("/");
+		numero2=Integer.valueOf(datak2[1]);	
+		
 		double recargo=0.0;
-		//***Dendoraldia********
-		SimpleDateFormat formato = new SimpleDateFormat("yyyy/MM/dd/");
-		Date datak1 = null;
-		Date datak2 = null;
-		try {
-			 datak1 = (Date) formato.parse(p1.ateraData1());
-			 datak1 = (Date) formato.parse(p1.ateraData2());
-			}catch(Exception e) {
-				System.out.println(e.getMessage());
-				
-			}
+		double recargo2=0.0;
 		
-				
-		
-		//recargo=denboraldiaKalkulatu();
+
 		int egunak=0;
 		int logelakop=0;
 		double prezioa =0.0;
 		int hilabeteak=0;
 		prezioa = Consultas.logela_prezioa(p2hot.eramanaId());
+	
 		logelakop=p1.ateraGelakop();
 		egunak=p1.diadif();
-		
-		// denboraldi altua: 5,6,9,10
-		if(datak1.getMonth()!=5 || datak1.getMonth()!=6 || datak1.getMonth()!=9 || datak1.getMonth()!=10 || datak2.getMonth()!=5 || datak2.getMonth()!=6 || datak2.getMonth()!=9 || datak2.getMonth()!=10) {
-					recargo=50.0;
+		System.out.println(numero1);
+		System.out.println(numero2);
+		ArrayList<java.sql.Date> jaiegunak= Consultas.jaiegunLista();
+		for (java.sql.Date jaiak :jaiegunak) {
+			
+			
+			if (jaiak.equals(data1)|| jaiak.equals(data2)) {
+				recargo2=50;				
+			}
+			try {
+				if(jaiak.after(format.parse(data1))) {
+					if(jaiak.before(format.parse(data2))) {
+						recargo2=50;
+					}
+}
+			} catch (ParseException e) {
+				
+				e.printStackTrace();
+			}
 		}
-		prezioa=logelakop*prezioa*egunak+recargo;
+		// denboraldi altua: 5,6,9,10
+		if(numero1==1 || numero1==2 || numero1==3 || numero1==4 || numero1==7 || numero1==8|| numero1==11 || numero1==12 || numero2==1 || numero2==2 || numero2==3 || numero2==4 || numero2==7 || numero2==8|| numero2==11 || numero2==12 ) {
+					recargo=50.0;
+					tarifa = "Altua";
+					
+		}
+		System.out.println("logelakop "+logelakop);
+		System.out.println("prezioa: "+prezioa);
+		System.out.println("egunak "+egunak);
+		System.out.println("recargo1: "+recargo);
+		System.out.println("recargo2: "+recargo2);
+		prezioa=logelakop*prezioa*egunak+recargo+recargo2;
 
 		
 		String diruaString = "";
 		
-		
-		System.out.println("precio "+prezioa);
 		System.out.println("Dias "+egunak);
-		System.out.println(logelakop);
 		diruaString=Double.toString(prezioa);
-		ord1.idatzi(diruaString);
-		System.out.println(diruaString);
-		
-		
+		ord1.idatzi(diruaString);		
 	}
+
+
 	public void bidaliDiruaApartamentua() {
+
 		String data1=p1.ateraData1();
 		String data2=p1.ateraData2();
+		int numero1=0;
+		int numero2=0;
+		
+		String [] datak=data1.split("/");
+		numero1=Integer.valueOf(datak[1]);
+		
+		String [] datak2=data2.split("/");
+		numero2=Integer.valueOf(datak2[1]);	
+		
 		double recargo=0.0;
-		//recargo=denboraldiaKalkulatu();
+		double recargo2=0.0;
+		
+
 		int egunak=0;
 		int logelakop=0;
 		double prezioa =0.0;
 		int hilabeteak=0;
 		prezioa = Consultas.logela_prezioaEtxeApart(p2apart.bidaliId());
+	
 		logelakop=p1.ateraGelakop();
 		egunak=p1.diadif();
-		
-		
-		prezioa=logelakop*prezioa*egunak;
+		System.out.println(numero1);
+		System.out.println(numero2);
+		ArrayList<java.sql.Date> jaiegunak= Consultas.jaiegunLista();
+		for (java.sql.Date jaiak :jaiegunak) {
+			
+			
+			if (jaiak.equals(data1)|| jaiak.equals(data2)) {
+				recargo2=50;				
+			}
+			try {
+				if(jaiak.after(format.parse(data1))) {
+					if(jaiak.before(format.parse(data2))) {
+						recargo2=50;
+					}
+}
+			} catch (ParseException e) {
+				
+				e.printStackTrace();
+			}
+		}
+		// denboraldi altua: 5,6,9,10
+		if(numero1==1 || numero1==2 || numero1==3 || numero1==4 || numero1==7 || numero1==8|| numero1==11 || numero1==12 || numero2==1 || numero2==2 || numero2==3 || numero2==4 || numero2==7 || numero2==8|| numero2==11 || numero2==12 ) {
+					recargo=50.0;
+					tarifa = "Altua";
+		}
+		System.out.println("logelakop "+logelakop);
+		System.out.println("prezioa: "+prezioa);
+		System.out.println("egunak "+egunak);
+		System.out.println("recargo1: "+recargo);
+		System.out.println("recargo2: "+recargo2);
+		prezioa=logelakop*prezioa*egunak+recargo+recargo2;
 
 		
 		String diruaString = "";
 		
-		
-		System.out.println("precio "+prezioa);
 		System.out.println("Dias "+egunak);
-		System.out.println(logelakop);
 		diruaString=Double.toString(prezioa);
-		ord1.idatzi(diruaString);
-		System.out.println(diruaString);
-		
-		
+		ord1.idatzi(diruaString);	
 	}
 	public void bidaliDiruaEtxea() {
+
 		String data1=p1.ateraData1();
 		String data2=p1.ateraData2();
+		int numero1=0;
+		int numero2=0;
+		
+		String [] datak=data1.split("/");
+		numero1=Integer.valueOf(datak[1]);
+		
+		String [] datak2=data2.split("/");
+		numero2=Integer.valueOf(datak2[1]);	
+		
 		double recargo=0.0;
-		//recargo=denboraldiaKalkulatu();
+		double recargo2=0.0;
+		
+
 		int egunak=0;
 		int logelakop=0;
 		double prezioa =0.0;
 		int hilabeteak=0;
 		prezioa = Consultas.logela_prezioaEtxeApart(p2etxe.eramanaId());
+	
 		logelakop=p1.ateraGelakop();
 		egunak=p1.diadif();
-		
-		
-		prezioa=logelakop*prezioa*egunak;
+		System.out.println(numero1);
+		System.out.println(numero2);
+		ArrayList<java.sql.Date> jaiegunak= Consultas.jaiegunLista();
+		for (java.sql.Date jaiak :jaiegunak) {
+			
+			
+			if (jaiak.equals(data1)|| jaiak.equals(data2)) {
+				recargo2=50;				
+			}
+			try {
+				if(jaiak.after(format.parse(data1))) {
+					if(jaiak.before(format.parse(data2))) {
+						recargo2=50;
+					}
+}
+			} catch (ParseException e) {
+				
+				e.printStackTrace();
+			}
+		}
+		// denboraldi altua: 5,6,9,10
+		if(numero1==1 || numero1==2 || numero1==3 || numero1==4 || numero1==7 || numero1==8|| numero1==11 || numero1==12 || numero2==1 || numero2==2 || numero2==3 || numero2==4 || numero2==7 || numero2==8|| numero2==11 || numero2==12 ) {
+					recargo=50.0;
+					tarifa = "Altua";
+		}
+		System.out.println("logelakop "+logelakop);
+		System.out.println("prezioa: "+prezioa);
+		System.out.println("egunak "+egunak);
+		System.out.println("recargo1: "+recargo);
+		System.out.println("recargo2: "+recargo2);
+		prezioa=logelakop*prezioa*egunak+recargo+recargo2;
 
 		
 		String diruaString = "";
 		
-		
-		System.out.println("precio "+prezioa);
 		System.out.println("Dias "+egunak);
-		System.out.println(logelakop);
 		diruaString=Double.toString(prezioa);
-		ord1.idatzi(diruaString);
-		System.out.println(diruaString);
-		
-		
+		ord1.idatzi(diruaString);	
 	}
 	public void hirugarrenLehioa() {
 		lo1.setVisible(false);
@@ -292,10 +387,20 @@ public class Metodoak {
 		er1.setVisible(false);
 	}
 	public void recivirReserva() {
+		int id =0;
+		String caracter = ostatu_motaAtera();
+		if(caracter.equalsIgnoreCase("H")) {
+			id =p2hot.eramanaId();
+		}
+		if(caracter.equalsIgnoreCase("A")) {
+			id = p2apart.bidaliId();			}
+		if(caracter.equalsIgnoreCase("E")) {
+			id = p2etxe.eramanaId();
+		}
 		String data1 = p1.ateraData1();
 		System.out.println(data1);
 		System.out.println(p1.ateraData1());
-		Erreserba erreserba =new Erreserba(0, p2hot.eramanaId(), lo1.ateraNana(), p1.ateraData1(), p1.ateraData2(), p1.ateraPertsonakop(), ord1.prezio_totala(), p1.ateraGelakop(), p1.ateraPentsio(), p1.ateraOheMota(), p1.ateraPertsonakop(), null);
+		Erreserba erreserba =new Erreserba(0, id , lo1.ateraNana(), p1.ateraData1(), p1.ateraData2(), p1.ateraPertsonakop(), ord1.prezio_totala(), p1.ateraGelakop(), p1.ateraPentsio(), p1.ateraOheMota(), p1.ateraPertsonakop(), tarifa);
 		imprimatuTiketa(erreserba);
 		Consultas.txertatuErreserba(erreserba);
 		System.out.println(erreserba);

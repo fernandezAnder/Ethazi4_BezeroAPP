@@ -28,14 +28,14 @@ import java.awt.Color;
 public class Ordainketa extends JFrame {
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane=new JPanel();
-	private JLabel lblOrdainketa = new JLabel("Ordainketa :");
-	private JLabel lblSartuDirua = new JLabel("Sartu Dirua :");
-	private JLabel lblItzuliak = new JLabel("Itzuliak :");
-	private JButton btnAmaitu = new JButton("Amaitu");
+	private JLabel lblOrdainketa = new JLabel("ZENBATEKOA :");
+	private JLabel lblSartuDirua = new JLabel("SARTU DIRUA :");
+	private JLabel lblItzuliak = new JLabel("ITZULIAK :");
+	private JButton btnAmaitu = new JButton("AMAITU");
 	private JTextField dirua= new JTextField();
-	private JButton btnEzeztatu = new JButton("Ezeztatu");
-	private JButton btnAtzera = new JButton("Atzera");
-	private JButton btnOrdaindu = new JButton("Ordaindu");
+	private JButton btnEzeztatu = new JButton("EZEZTATU");
+	private JButton btnAtzera = new JButton("ATZERA");
+	private JButton btnOrdaindu = new JButton("ORDAINDU");
 	private JTextArea Itzuliak = new JTextArea();
 	private JLabel lblOrdainketa_Tituloa = new JLabel("ORDAINKETA");
 	private static double preziototala=1;
@@ -54,6 +54,8 @@ public class Ordainketa extends JFrame {
 	 * Create the frame.
 	 */
 	public Ordainketa() {
+		getContentPane().setBackground(new Color(135, 206, 250));
+		getContentPane().setForeground(Color.CYAN);
 
 
 		this.setBounds(275,100,700,600);
@@ -61,24 +63,24 @@ public class Ordainketa extends JFrame {
 		lblOrdainketa.setBounds(90, 106, 162, 34);
 
 		//LABEL ORDAINKETA
-		lblOrdainketa.setFont(new Font("Arial", Font.BOLD, 25));
+		lblOrdainketa.setFont(new Font("Arial Narrow", Font.BOLD, 20));
 		getContentPane().add(lblOrdainketa);
 		lblSartuDirua.setBounds(90, 151, 162, 37);
 
 		//LABEL SARTU DIRUA
-		lblSartuDirua.setFont(new Font("Arial", Font.BOLD, 24));
+		lblSartuDirua.setFont(new Font("Arial Narrow", Font.BOLD, 20));
 		getContentPane().add(lblSartuDirua);
-		lblItzuliak.setBounds(135, 199, 105, 34);
+		lblItzuliak.setBounds(69, 238, 105, 34);
 
 
 		//LABEL ITZULIAK
-		lblItzuliak.setFont(new Font("Arial", Font.BOLD, 24));
+		lblItzuliak.setFont(new Font("Arial Narrow", Font.BOLD, 20));
 		getContentPane().add(lblItzuliak);
 		btnAmaitu.setEnabled(false);
-		btnAmaitu.setBounds(514, 467, 97, 43);
+		btnAmaitu.setBounds(514, 467, 116, 43);
 
 		//BOTOIA AMAITU
-		btnAmaitu.setFont(new Font("Arial", Font.PLAIN, 18));
+		btnAmaitu.setFont(new Font("Arial Narrow", Font.BOLD, 20));
 		btnAmaitu.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 
@@ -101,7 +103,7 @@ public class Ordainketa extends JFrame {
 		dirua = new JTextField();
 		dirua.setHorizontalAlignment(SwingConstants.CENTER);
 		dirua.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		dirua.setBounds(262, 161, 136, 26);
+		dirua.setBounds(262, 157, 136, 26);
 		dirua.addKeyListener(new KeyAdapter() {
 			@Override
 			public void keyTyped(java.awt.event.KeyEvent evt) {
@@ -119,9 +121,9 @@ public class Ordainketa extends JFrame {
 		});
 		getContentPane().add(dirua);
 		dirua.setColumns(10);
-		btnEzeztatu.setBounds(339, 468, 112, 41);
+		btnEzeztatu.setBounds(325, 468, 136, 41);
 
-		btnEzeztatu.setFont(new Font("Arial", Font.PLAIN, 18));
+		btnEzeztatu.setFont(new Font("Arial Narrow", Font.BOLD, 20));
 		btnEzeztatu.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				metodos.lehenengoLehioa2();
@@ -129,7 +131,7 @@ public class Ordainketa extends JFrame {
 			}
 		});
 		getContentPane().add(btnEzeztatu);
-		btnAtzera.setBounds(176, 467, 105, 43);
+		btnAtzera.setBounds(165, 467, 116, 43);
 
 		btnAtzera.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -161,9 +163,9 @@ public class Ordainketa extends JFrame {
 
 			
 		});
-		btnAtzera.setFont(new Font("Arial", Font.PLAIN, 18));
+		btnAtzera.setFont(new Font("Arial Narrow", Font.BOLD, 20));
 		getContentPane().add(btnAtzera);
-		btnOrdaindu.setBounds(470, 151, 141, 37);
+		btnOrdaindu.setBounds(262, 196, 162, 37);
 		//Arraylistari prezioa sartu
 
 		
@@ -253,18 +255,18 @@ public class Ordainketa extends JFrame {
 		} }
 	});
 		
-		btnOrdaindu.setFont(new Font("Arial", Font.PLAIN, 20));
+		btnOrdaindu.setFont(new Font("Arial Narrow", Font.BOLD, 20));
 
 		getContentPane().add(btnOrdaindu);
 		Itzuliak.setFont(new Font("Arial", Font.PLAIN, 18));
 
-		Itzuliak.setBounds(231, 244, 380, 195);
+		Itzuliak.setBounds(176, 244, 435, 195);
 		getContentPane().add(Itzuliak);
 		Itzuliak.setEditable(false);
 		String ordaintzeko = String.valueOf(prezioa);
 
 		lblOrdainketa_Tituloa.setHorizontalAlignment(SwingConstants.CENTER);
-		lblOrdainketa_Tituloa.setFont(new Font("Arial", Font.BOLD, 37));
+		lblOrdainketa_Tituloa.setFont(new Font("Arial Narrow", Font.BOLD, 37));
 		lblOrdainketa_Tituloa.setBounds(223, 41, 273, 43);
 		getContentPane().add(lblOrdainketa_Tituloa);
 
@@ -274,7 +276,7 @@ public class Ordainketa extends JFrame {
 		textField.setFont(new Font("Tahoma", Font.BOLD, 16));
 		textField.setForeground(Color.BLACK);
 		textField.setColumns(10);
-		textField.setBounds(262, 118, 136, 26);
+		textField.setBounds(262, 111, 136, 26);
 		getContentPane().add(textField);
 		textField.setEditable(false);
 		textField.setEnabled(false);
