@@ -70,14 +70,14 @@ public class Ordainketa extends JFrame {
 		//LABEL SARTU DIRUA
 		lblSartuDirua.setFont(new Font("Arial Narrow", Font.BOLD, 20));
 		getContentPane().add(lblSartuDirua);
-		lblItzuliak.setBounds(90, 239, 105, 34);
+		lblItzuliak.setBounds(69, 238, 105, 34);
 
 
 		//LABEL ITZULIAK
 		lblItzuliak.setFont(new Font("Arial Narrow", Font.BOLD, 20));
 		getContentPane().add(lblItzuliak);
 		btnAmaitu.setEnabled(false);
-		btnAmaitu.setBounds(514, 467, 97, 43);
+		btnAmaitu.setBounds(514, 467, 116, 43);
 
 		//BOTOIA AMAITU
 		btnAmaitu.setFont(new Font("Arial Narrow", Font.BOLD, 20));
@@ -131,7 +131,7 @@ public class Ordainketa extends JFrame {
 			}
 		});
 		getContentPane().add(btnEzeztatu);
-		btnAtzera.setBounds(176, 467, 105, 43);
+		btnAtzera.setBounds(165, 467, 116, 43);
 
 		btnAtzera.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
