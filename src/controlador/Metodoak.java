@@ -387,10 +387,20 @@ public class Metodoak {
 		er1.setVisible(false);
 	}
 	public void recivirReserva() {
+		int id =0;
+		String caracter = ostatu_motaAtera();
+		if(caracter.equalsIgnoreCase("H")) {
+			id =p2hot.eramanaId();
+		}
+		if(caracter.equalsIgnoreCase("A")) {
+			id = p2apart.bidaliId();			}
+		if(caracter.equalsIgnoreCase("E")) {
+			id = p2etxe.eramanaId();
+		}
 		String data1 = p1.ateraData1();
 		System.out.println(data1);
 		System.out.println(p1.ateraData1());
-		Erreserba erreserba =new Erreserba(0, p2hot.eramanaId(), lo1.ateraNana(), p1.ateraData1(), p1.ateraData2(), p1.ateraPertsonakop(), ord1.prezio_totala(), p1.ateraGelakop(), p1.ateraPentsio(), p1.ateraOheMota(), p1.ateraPertsonakop(), tarifa);
+		Erreserba erreserba =new Erreserba(0, id , lo1.ateraNana(), p1.ateraData1(), p1.ateraData2(), p1.ateraPertsonakop(), ord1.prezio_totala(), p1.ateraGelakop(), p1.ateraPentsio(), p1.ateraOheMota(), p1.ateraPertsonakop(), tarifa);
 		imprimatuTiketa(erreserba);
 		Consultas.txertatuErreserba(erreserba);
 		System.out.println(erreserba);
