@@ -38,6 +38,7 @@ public class Metodoak {
 	Timer timer = new Timer();
 	public boolean logueatuta=false;
 	private SimpleDateFormat format = new SimpleDateFormat("yyyy/MM/dd");
+	private String tarifa = "Baxua";
 	
 	
 //***************Para que no salga una y otra vez la ventana de login comprobamos logueatutta y asi solo se abre una vez*****
@@ -153,6 +154,7 @@ public class Metodoak {
 		int numero1=0;
 		int numero2=0;
 		
+		
 		String [] datak=data1.split("/");
 		numero1=Integer.valueOf(datak[1]);
 		
@@ -194,6 +196,8 @@ public class Metodoak {
 		// denboraldi altua: 5,6,9,10
 		if(numero1==1 || numero1==2 || numero1==3 || numero1==4 || numero1==7 || numero1==8|| numero1==11 || numero1==12 || numero2==1 || numero2==2 || numero2==3 || numero2==4 || numero2==7 || numero2==8|| numero2==11 || numero2==12 ) {
 					recargo=50.0;
+					tarifa = "Altua";
+					
 		}
 		System.out.println("logelakop "+logelakop);
 		System.out.println("prezioa: "+prezioa);
@@ -259,6 +263,7 @@ public class Metodoak {
 		// denboraldi altua: 5,6,9,10
 		if(numero1==1 || numero1==2 || numero1==3 || numero1==4 || numero1==7 || numero1==8|| numero1==11 || numero1==12 || numero2==1 || numero2==2 || numero2==3 || numero2==4 || numero2==7 || numero2==8|| numero2==11 || numero2==12 ) {
 					recargo=50.0;
+					tarifa = "Altua";
 		}
 		System.out.println("logelakop "+logelakop);
 		System.out.println("prezioa: "+prezioa);
@@ -322,6 +327,7 @@ public class Metodoak {
 		// denboraldi altua: 5,6,9,10
 		if(numero1==1 || numero1==2 || numero1==3 || numero1==4 || numero1==7 || numero1==8|| numero1==11 || numero1==12 || numero2==1 || numero2==2 || numero2==3 || numero2==4 || numero2==7 || numero2==8|| numero2==11 || numero2==12 ) {
 					recargo=50.0;
+					tarifa = "Altua";
 		}
 		System.out.println("logelakop "+logelakop);
 		System.out.println("prezioa: "+prezioa);
@@ -384,7 +390,7 @@ public class Metodoak {
 		String data1 = p1.ateraData1();
 		System.out.println(data1);
 		System.out.println(p1.ateraData1());
-		Erreserba erreserba =new Erreserba(0, p2hot.eramanaId(), lo1.ateraNana(), p1.ateraData1(), p1.ateraData2(), p1.ateraPertsonakop(), ord1.prezio_totala(), p1.ateraGelakop(), p1.ateraPentsio(), p1.ateraOheMota(), p1.ateraPertsonakop(), null);
+		Erreserba erreserba =new Erreserba(0, p2hot.eramanaId(), lo1.ateraNana(), p1.ateraData1(), p1.ateraData2(), p1.ateraPertsonakop(), ord1.prezio_totala(), p1.ateraGelakop(), p1.ateraPentsio(), p1.ateraOheMota(), p1.ateraPertsonakop(), tarifa);
 		imprimatuTiketa(erreserba);
 		Consultas.txertatuErreserba(erreserba);
 		System.out.println(erreserba);
