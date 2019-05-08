@@ -301,7 +301,6 @@ public class Erregistratu extends JFrame {
 				dispose();
 				Bezeroa bezeroa =new Bezeroa(nan,izena2,abizena,pasahitza,jaio_data);
 				System.out.println(bezeroa);
-				metodos.legediaonartua();
 				metodos.bezeroaIgo(bezeroa);
 				metodos.loginIreki();
 				metodos.erregistroPantailaItxi();

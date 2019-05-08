@@ -46,14 +46,19 @@ public class Ordainketa extends JFrame {
 	private String precio="0";
 	private int precioo=0;
 	private JTextField textField;
+	private boolean descuento;
 	
 	int kont1=0;
 	int kont2=0;
-	double dirufalta;
+	private double dirufalta=0.0;
+	private final JTextField textField_1 = new JTextField();
+	private String kodigo;
 	/**
 	 * Create the frame.
 	 */
 	public Ordainketa() {
+		textField_1.setBounds(263, 207, 135, 20);
+		textField_1.setColumns(10);
 		getContentPane().setBackground(new Color(135, 206, 250));
 		getContentPane().setForeground(Color.CYAN);
 
@@ -165,7 +170,7 @@ public class Ordainketa extends JFrame {
 		});
 		btnAtzera.setFont(new Font("Arial Narrow", Font.BOLD, 20));
 		getContentPane().add(btnAtzera);
-		btnOrdaindu.setBounds(262, 196, 162, 37);
+		btnOrdaindu.setBounds(408, 151, 162, 37);
 		//Arraylistari prezioa sartu
 
 		
@@ -173,6 +178,8 @@ public class Ordainketa extends JFrame {
 		//ORDAINDU BOTOIA
 		btnOrdaindu.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				
+				
 				precio=textField.getText();
 				String euro = " \u20AC";
 				System.out.println("preziototla "+preziototala);
@@ -215,9 +222,13 @@ public class Ordainketa extends JFrame {
 						
 						
 						}
-						
+
+						double din = dirufalta;
+						mandarDirus(din);
 						mezua=dirufalta+euro+" falta zaizkizu";
-						Itzuliak.setText(mezua);	
+						Itzuliak.setText(mezua);
+						
+						//textField.setText(dirufalta.);       
 						btnAtzera.setEnabled(false);
 						btnAmaitu.setEnabled(false);
 						
@@ -279,6 +290,34 @@ public class Ordainketa extends JFrame {
 		getContentPane().add(textField);
 		textField.setEditable(false);
 		textField.setEnabled(false);
+		
+		getContentPane().add(textField_1);
+		
+		JLabel lblKodea = new JLabel("Kodea");
+		lblKodea.setBounds(315, 194, 46, 14);
+		getContentPane().add(lblKodea);
+		
+		JButton btnNewButton = new JButton("Gehitu kodea");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				kodigo = textField_1.getText();
+				descuento=metodos.deskontua(kodigo);
+				if(descuento) {
+					String ordaindu=textField.getText();
+					double zbk= Double.parseDouble(ordaindu);
+					double descontua=zbk*0.05;
+					zbk=zbk-descontua;
+					mandarDirus(zbk);
+					btnNewButton.setEnabled(false);
+					textField_1.setEditable(false);
+					
+					
+					
+				}
+			}
+		});
+		btnNewButton.setBounds(408, 210, 136, 23);
+		getContentPane().add(btnNewButton);
 
 
 
@@ -314,6 +353,10 @@ public class Ordainketa extends JFrame {
 
 public double prezio_totala() {
 	return prezioa;
+}
+public void mandarDirus(double dirusa) {
+	String dirua = Double.toString(dirusa);
+	textField.setText(dirua);
 }
 
 
