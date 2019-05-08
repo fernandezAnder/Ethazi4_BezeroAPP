@@ -47,6 +47,7 @@ public class P1 extends JFrame {
 	private JTextField textField_3= new JTextField();
 	private String[] zerrenda= new String[30];
 	private String prezioa1="";
+	private SimpleDateFormat sdf;
 	private JComboBox comboBox_1= new JComboBox();
 	private JComboBox comboBox_4 = new JComboBox();
 	private JLabel lblPais = new JLabel("HERRIA / HIRIA");
@@ -83,6 +84,8 @@ public class P1 extends JFrame {
 	
 	public P1(ArrayList<String> herriak) {
 		rellenar();
+		
+//		btnAurrera.setEnabled(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 600, 500);
 		contentPane = new JPanel();
@@ -143,16 +146,24 @@ public class P1 extends JFrame {
 
 				//metodos.bigarrenLehioa();
 
-				precio = textField_2.getText();
+				//precio = textField_2.getText();
 				//precioadoubleprecio=Double.parseDouble(precio);
 				
 				//**************Fechas**********
 				//1
-				SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
+				try {
+				 sdf = new SimpleDateFormat("yyyy/MM/dd");
 				 fechaComoCadena = sdf.format(sartzedata.getDate());
+				}catch(Exception k) {
+					System.out.println(k.getMessage());
+				}
 				
 				//2
+				try {
 				 fechaComoCadena2 = sdf.format(irtetzedata.getDate());
+				}catch(Exception cosa) {
+					System.out.println(cosa.getMessage());
+				}
 				
 				System.out.println(fechaComoCadena);
 				System.out.println(fechaComoCadena2);
@@ -180,7 +191,11 @@ public class P1 extends JFrame {
 				
 				String formato1="dd";
 			    SimpleDateFormat dateFormat = new SimpleDateFormat(formato1);
+			    try {
 			    eguna= Integer.parseInt(dateFormat.format(data1));
+			    }catch(Exception l) {
+			    	System.out.println(l.getMessage());
+			    }
 			    
 			    String formato2="MM";
 			    SimpleDateFormat dateFormat2 = new SimpleDateFormat(formato2);
@@ -205,7 +220,7 @@ public class P1 extends JFrame {
 				
 
 				if(!fechaComoCadena.equalsIgnoreCase("") && !fechaComoCadena2.equalsIgnoreCase("")&& !hostatu_mota.equalsIgnoreCase("") && gela_kop!=0 && !oheMota.equalsIgnoreCase("") && pertsona_kopurua!=0) {
-					if(eguna-eguna2!=0) {
+					if(eguna-eguna2!=0 && !metodos.esVisible()) {
 					if (letra_ostatu.equalsIgnoreCase("H")) {
 						letra=letra_ostatu;
 						metodos.ostatu_motaHartu(letra);

@@ -35,10 +35,12 @@ public class Metodoak {
 	private Login lo1;
 	private Ordainketa ord1;
 	private Amaiera am1;
+	private Baldintzak bal1;
 	Timer timer = new Timer();
 	public boolean logueatuta=false;
 	private SimpleDateFormat format = new SimpleDateFormat("yyyy/MM/dd");
 	private String tarifa = "Baxua";
+	private PruebScroll pr;
 	
 	
 //***************Para que no salga una y otra vez la ventana de login comprobamos logueatutta y asi solo se abre una vez*****
@@ -73,7 +75,15 @@ public class Metodoak {
 		
 	}
 	
+	public boolean esVisible() {
+		boolean visible = true;
+		if(!bal1.isVisible()) {
+			visible = false;
+		}
+		return visible;
 	
+		
+	}
 
 	public void bigarrenLehioaHotela() {
 		p1.setVisible(false);
@@ -739,7 +749,13 @@ public class Metodoak {
 		this.am1 = am1;
 	}
 	
+	public void setBaldintzak(Baldintzak bal1) {
+		this.bal1 = bal1;
+	}
 	
+	public void setBaldintzak(PruebScroll pr) {
+		this.pr = pr;
+	}
 
 
 		
