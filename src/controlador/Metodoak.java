@@ -39,6 +39,7 @@ public class Metodoak {
 	public boolean logueatuta=false;
 	private SimpleDateFormat format = new SimpleDateFormat("yyyy/MM/dd");
 	private String tarifa = "Baxua";
+	private PruebScroll pr;
 	
 	
 //***************Para que no salga una y otra vez la ventana de login comprobamos logueatutta y asi solo se abre una vez*****
@@ -382,6 +383,8 @@ public class Metodoak {
 	public void erregistratzekoPantailara() {
 		lo1.setVisible(false);
 		er1.setVisible(true);
+		pr.setVisible(true);
+		pr.terminos();
 		}
 	public void erregistroPantailaItxi() {
 		er1.setVisible(false);
@@ -738,6 +741,11 @@ public class Metodoak {
 	public void setMiam1(Amaiera am1) {
 		this.am1 = am1;
 	}
+	
+	public void setBaldintzak(PruebScroll pr) {
+		this.pr = pr;
+	}
+	
 	
 	
 
