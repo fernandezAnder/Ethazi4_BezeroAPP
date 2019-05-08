@@ -410,6 +410,24 @@ public class Metodoak {
 		Consultas.txertatuErreserba(erreserba);
 		System.out.println(erreserba);
 	}
+	public void erreserbaJaiegunBete() {
+		ArrayList<java.sql.Date> jaiegunak= Consultas.jaiegunLista();
+		int jaiegun_kod=0;
+		int erreserba_kod=Consultas.erreserbaKod();
+		System.out.println("jaiegun kod "+jaiegun_kod);
+		System.out.println("erreserba kod"+erreserba_kod);
+		for (int i=0;i<jaiegunak.size();i++) {
+			if(jaiegunak.get(i).equals(p1.ateraData1())) {
+				jaiegun_kod=i+1;
+			}
+		if (erreserba_kod>1) {
+			erreserba_kod=erreserba_kod+1;
+		}
+		if(jaiegun_kod>0) {
+		Consultas.erreserbaJaiegunaIgo(erreserba_kod, jaiegun_kod);
+		}
+		}
+	}
 	
 	public void filtroHotela() {
 		String herria=p1.ateraHerria();

@@ -90,7 +90,7 @@ public class Ordainketa extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 
 				metodos.recivirReserva();
-				
+				metodos.erreserbaJaiegunBete();
 //				Contador contador = new Contador();
 //				contador.start();
 				metodos.amaieraIreki();
