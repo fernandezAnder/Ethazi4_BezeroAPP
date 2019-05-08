@@ -15,6 +15,7 @@ public class BezeroAPP {
 	private P2_hotela p2hot ;
 	private P2_etxea p2etxe;
 	private P2_apartamentua p2apart;
+	private PruebScroll pr;
 	
 	
 	
@@ -42,7 +43,7 @@ public class BezeroAPP {
 		p2hot = new P2_hotela();
 		p2apart=new P2_apartamentua();
 		p2etxe = new P2_etxea();
-		
+		pr = new PruebScroll();
 		
 		
 		
@@ -63,6 +64,7 @@ public class BezeroAPP {
 		 p2hot.misMetodos(m1);
 		 p2apart.misMetodos(m1);
 		 p2etxe.misMetodos(m1);
+		 pr.misMetodos(m1);
 		 
 		 //DE METODOS  A LAS VENTANAS
 		 m1.setMip1(p1);
@@ -73,7 +75,7 @@ public class BezeroAPP {
 		 m1.setMip2hot(p2hot);
 		 m1.setMip2etxe(p2etxe);
 		 m1.setMip2apart(p2apart);
-		 
+		 m1.setBaldintzak(pr);
 		 
 		 
 		 p1.setVisible(true);
