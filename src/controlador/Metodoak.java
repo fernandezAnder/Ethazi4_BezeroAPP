@@ -745,6 +745,14 @@ public class Metodoak {
 	public void setBaldintzak(PruebScroll pr) {
 		this.pr = pr;
 	}
+	public boolean deskontua(String kodigo) {
+		boolean descuento=false;
+		if(kodigo.equals(kodigo)) {
+			descuento=true;
+		}
+		return descuento;
+		
+	}
 	
 	
 	
