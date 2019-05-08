@@ -256,7 +256,8 @@ public class Consultas {
 		
 		try {
 			PreparedStatement s = (PreparedStatement) conexion.prepareStatement(
-					"INSERT INTO `legedia`(`id_bezeroa`) VALUES (0)");
+					"INSERT INTO `legedia`(`id_bezeroa`) VALUES (?)");
+			s.setInt(1, 0);
 			s.executeUpdate();
 			s.close();
 
