@@ -49,7 +49,9 @@ public class Metodoak {
 	public void logueatutabai(boolean erabakia) {
 		logueatuta=erabakia;
 	}
-	
+	public void legediaonartua() {
+		Consultas.legediaonartua();
+	}
 ///////////////////////////////////////////////////////////////////////////
 	
 	public void prezio_totala(String prezioa) {

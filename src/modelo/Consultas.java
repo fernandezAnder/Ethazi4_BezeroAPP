@@ -251,6 +251,20 @@ public class Consultas {
 		}
 
 	}
+	public static void legediaonartua() {
+		Connection conexion = modelo.Conexion.getConexion();
+		
+		try {
+			PreparedStatement s = (PreparedStatement) conexion.prepareStatement(
+					"INSERT INTO `legedia`(`id_bezeroa`) VALUES (0)");
+			s.executeUpdate();
+			s.close();
+
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+
+	}
 	
 	public static boolean konprobatuDatuBasea(String Nan) {
 		Connection conexion = modelo.Conexion.getConexion();
