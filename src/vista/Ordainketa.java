@@ -215,7 +215,7 @@ public class Ordainketa extends JFrame {
 						
 						
 						}
-					
+						
 						mezua=dirufalta+euro+" falta zaizkizu";
 						Itzuliak.setText(mezua);	
 						btnAtzera.setEnabled(false);
@@ -254,7 +254,6 @@ public class Ordainketa extends JFrame {
 				}dirua.setText("");	
 		} }
 	});
-		
 		btnOrdaindu.setFont(new Font("Arial Narrow", Font.BOLD, 20));
 
 		getContentPane().add(btnOrdaindu);
