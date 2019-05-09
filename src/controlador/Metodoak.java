@@ -405,7 +405,7 @@ public class Metodoak {
 		String data1 = p1.ateraData1();
 		System.out.println(data1);
 		System.out.println(p1.ateraData1());
-		Erreserba erreserba =new Erreserba(0, id , lo1.ateraNana(), p1.ateraData1(), p1.ateraData2(), p1.ateraPertsonakop(), ord1.prezio_totala(), p1.ateraGelakop(), p1.ateraPentsio(), p1.ateraOheMota(), p1.ateraPertsonakop(), tarifa);
+		Erreserba erreserba =new Erreserba(0, id , getMD5(lo1.ateraNana()), p1.ateraData1(), p1.ateraData2(), p1.ateraPertsonakop(), ord1.prezio_totala(), p1.ateraGelakop(), p1.ateraPentsio(), p1.ateraOheMota(), p1.ateraPertsonakop(), tarifa);
 		imprimatuTiketa(erreserba);
 		Consultas.txertatuErreserba(erreserba);
 		System.out.println(erreserba);
@@ -414,15 +414,18 @@ public class Metodoak {
 		ArrayList<java.sql.Date> jaiegunak= Consultas.jaiegunLista();
 		int jaiegun_kod=0;
 		int erreserba_kod=Consultas.erreserbaKod();
-		System.out.println("jaiegun kod "+jaiegun_kod);
-		System.out.println("erreserba kod"+erreserba_kod);
+		
 		for (int i=0;i<jaiegunak.size();i++) {
-			if(jaiegunak.get(i).equals(p1.ateraData1())) {
+			String data=jaiegunak.get(i).toString();
+			if(data.equals(p1.ateraData1())) {
+				System.out.println("lo hace");
 				jaiegun_kod=i+1;
 			}
 		if (erreserba_kod>1) {
 			erreserba_kod=erreserba_kod+1;
 		}
+		System.out.println("jaiegun kod "+jaiegun_kod);
+		System.out.println("erreserba kod"+erreserba_kod);
 		if(jaiegun_kod>0) {
 		Consultas.erreserbaJaiegunaIgo(erreserba_kod, jaiegun_kod);
 		}
