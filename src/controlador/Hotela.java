@@ -3,11 +3,15 @@ package controlador;
 public class Hotela extends Ostatua {
 
 	private int izarkop;
+	private String mota;
+	private double prezioa;
 
 	public Hotela( int izarkop,int ostatu_id, String izena, String herria, String helbidea, int posta_kod, String ostatu_mota,
-			int gela_kop, int erreserba_kop) {
+			int gela_kop, int erreserba_kop,String mota, double prezioa) {
 		super(ostatu_id, izena, herria, helbidea, posta_kod, ostatu_mota, gela_kop, erreserba_kop);
 		this.izarkop = izarkop;
+		this.mota=mota;
+		this.prezioa=prezioa;
 	}
 
 	public int getIzarkop() {
@@ -16,6 +20,22 @@ public class Hotela extends Ostatua {
 
 	public void setIzarkop(int izarkop) {
 		this.izarkop = izarkop;
+	}
+
+	public String getMota() {
+		return mota;
+	}
+
+	public void setMota(String mota) {
+		this.mota = mota;
+	}
+
+	public double getPrezioa() {
+		return prezioa;
+	}
+
+	public void setPrezioa(double prezioa) {
+		this.prezioa = prezioa;
 	}
 
 	@Override
