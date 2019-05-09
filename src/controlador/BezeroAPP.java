@@ -16,6 +16,7 @@ public class BezeroAPP {
 	private P2_etxea p2etxe;
 	private P2_apartamentua p2apart;
 	private PruebScroll pr;
+	private P1_copia p1cop;
 	
 	
 	
@@ -34,7 +35,8 @@ public class BezeroAPP {
 	public void arrancar() {
 		ArrayList <String> herriak= new ArrayList<String>();
 		herriak= Consultas.herriakAtera();
-		p1 = new P1(herriak);
+		//p1 = new P1(herriak);
+		p1cop  = new P1_copia(herriak);
 		m1 = new Metodoak();
 		er1 = new Erregistratu();
 		lo1 = new Login();
@@ -56,7 +58,8 @@ public class BezeroAPP {
 		 
 		
 		 //DE LA VENTANA A METODOS
-		 p1.misMetodos(m1);
+		 //p1.misMetodos(m1);
+		 p1cop.misMetodos(m1);
 		 lo1.misMetodos(m1);
 		 er1.misMetodos(m1);
 		 ord1.misMetodos(m1);
@@ -66,8 +69,10 @@ public class BezeroAPP {
 		 p2etxe.misMetodos(m1);
 		 pr.misMetodos(m1);
 		 
+		 
 		 //DE METODOS  A LAS VENTANAS
-		 m1.setMip1(p1);
+		 //m1.setMip1(p1);
+		 m1.setP1_copia(p1cop);
 		 m1.setMielo1(lo1);
 		 m1.setMier1(er1);
 		 m1.setMiord1(ord1);
@@ -78,8 +83,8 @@ public class BezeroAPP {
 		 m1.setBaldintzak(pr);
 		 
 		 
-		 p1.setVisible(true);
-		
+		 //p1.setVisible(true);
+		 p1cop.setVisible(true);
 		 
 		 
 		 

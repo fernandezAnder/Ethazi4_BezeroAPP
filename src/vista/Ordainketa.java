@@ -47,6 +47,7 @@ public class Ordainketa extends JFrame {
 	private int precioo=0;
 	private JTextField textField;
 	private boolean descuento;
+	private JTextArea textArea ;
 	
 	int kont1=0;
 	int kont2=0;
@@ -318,6 +319,10 @@ public class Ordainketa extends JFrame {
 		});
 		btnNewButton.setBounds(408, 210, 136, 23);
 		getContentPane().add(btnNewButton);
+		
+		 textArea = new JTextArea();
+		textArea.setBounds(24, 284, 116, 155);
+		getContentPane().add(textArea);
 
 
 
@@ -366,5 +371,11 @@ public void misMetodos(Metodoak metodos) {
 }
 public void idatzi(String textua) {
 	textField.setText(textua);
-}
+	}
+	public void KargatuKodeak(ArrayList <String> kodigoak) {
+		
+		for(int i =0;i<kodigoak.size();i++) {
+			textArea.setText(kodigoak.get(i));
+		}
+	}
 }

@@ -40,6 +40,7 @@ public class Metodoak {
 	private SimpleDateFormat format = new SimpleDateFormat("yyyy/MM/dd");
 	private String tarifa = "Baxua";
 	private PruebScroll pr;
+	private P1_copia p1cop;
 	
 	
 //***************Para que no salga una y otra vez la ventana de login comprobamos logueatutta y asi solo se abre una vez*****
@@ -389,6 +390,8 @@ public class Metodoak {
 		pr.terminos();
 		}
 	public void erregistroPantailaItxi() {
+		er1.dispose();
+		er1 = new Erregistratu();
 		er1.setVisible(false);
 	}
 	public void recivirReserva() {
@@ -764,6 +767,10 @@ public class Metodoak {
 	
 	public void setBaldintzak(PruebScroll pr) {
 		this.pr = pr;
+	}
+	
+	public void setP1_copia(P1_copia p1cop) {
+		this.p1cop = p1cop;
 	}
 	public boolean deskontua(String kodigo) {
 		boolean descuento=false;
