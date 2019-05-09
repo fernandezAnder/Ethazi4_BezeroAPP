@@ -90,7 +90,7 @@ public class Ordainketa extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 
 				metodos.recivirReserva();
-				
+				metodos.erreserbaJaiegunBete();
 //				Contador contador = new Contador();
 //				contador.start();
 				metodos.amaieraIreki();
@@ -222,6 +222,7 @@ public class Ordainketa extends JFrame {
 						
 						
 						}
+
 						double din = dirufalta;
 						mandarDirus(din);
 						mezua=dirufalta+euro+" falta zaizkizu";
@@ -264,7 +265,6 @@ public class Ordainketa extends JFrame {
 				}dirua.setText("");	
 		} }
 	});
-		
 		btnOrdaindu.setFont(new Font("Arial Narrow", Font.BOLD, 20));
 
 		getContentPane().add(btnOrdaindu);

@@ -233,15 +233,37 @@ public class Consultas {
 		
 		try {
 			PreparedStatement s = (PreparedStatement) conexion.prepareStatement(
-					"INSERT INTO `erreserba` (`erreserba_kod`, `ostatu_ostatu_id`, `bezeroa_nan`, `pertsona_kopuru`, `prezio_totala`,`erreserbaGela_kopuru`,`pentsio_mota`)"
-								+ " VALUES(?, ?, ?, ?, ?, ?, ?)"); //
-			s.setInt(1, 0);
-			s.setInt(2,e1.getOstatu_id());
-			s.setString(3, e1.getBezero_nan());
-			s.setInt(4, e1.getPertsona_kop());
-			s.setDouble(5,e1.getPrezio_totala());
-			s.setInt(6,e1.getErreserba_gela_kop() );
-			s.setString(7, e1.getPentsio_mota());
+					"INSERT INTO `erreserba` ( `ostatu_ostatu_id`, `bezeroa_nan`, `pertsona_kopuru`, `erreserbaGela_kopuru`, `pentsio_mota`, `tarifa_denboraldia`, `sartze_data`, `irtetze_data`, `prezio_totala`)"
+								+ " VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?)");
+			
+			s.setInt(1,e1.getOstatu_id());
+			s.setString(2, e1.getBezero_nan());
+			s.setInt(3, e1.getPertsona_kop());
+			s.setInt(4,e1.getErreserba_gela_kop() );
+			s.setString(5, e1.getPentsio_mota());
+			s.setString(6, e1.getTarifa_denboraldia());
+			s.setString(7, e1.getSartze_data());
+			s.setString(8, e1.getIrtetze_data());
+			s.setDouble(9,e1.getPrezio_totala());
+			
+			s.executeUpdate();
+			s.close();
+
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+
+	}
+	
+	public static void erreserbaJaiegunaIgo(int erreserba_kod, int jaiegun_kod) {
+		Connection conexion = modelo.Conexion.getConexion();
+		
+		try {
+			PreparedStatement s = (PreparedStatement) conexion.prepareStatement(
+					"INSERT INTO `erreserba_jaiegunak`(`erreserba_erreserba_kod`, `jaiEgunak_jaiEgunak_kod`)"
+					+ " VALUES (?, ?)");
+			s.setInt(1, erreserba_kod);
+			s.setInt(2, jaiegun_kod);
 			
 			s.executeUpdate();
 			s.close();
@@ -256,7 +278,8 @@ public class Consultas {
 		
 		try {
 			PreparedStatement s = (PreparedStatement) conexion.prepareStatement(
-					"INSERT INTO `legedia`(`id_bezeroa`) VALUES (0)");
+					"INSERT INTO `legedia`(`id_bezeroa`) VALUES (?)");
+			s.setInt(1, 0);
 			s.executeUpdate();
 			s.close();
 
@@ -328,6 +351,25 @@ public class Consultas {
 			System.out.println(e.getMessage());
 		}
 		return logela_prezioa;
+	}
+	public static int erreserbaKod() {
+		Connection conexion = modelo.Conexion.getConexion();
+	
+		
+		int erreserba_kod=0;
+		try {
+			Statement s = conexion.createStatement();
+			String query = "SELECT MAX(erreserba_kod) FROM erreserba";
+			ResultSet rs = s.executeQuery(query);
+			while (rs.next()) {
+				erreserba_kod=rs.getInt(1);
+				
+			}
+
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
+		}
+		return erreserba_kod;
 	}
 	public void misMetodos(Metodoak metodos) {
 		this.metodos=metodos;
