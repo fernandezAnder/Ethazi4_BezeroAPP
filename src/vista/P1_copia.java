@@ -61,7 +61,9 @@ public class P1_copia extends JFrame {
 	private int pertsona_kopurua=0;
 	private int  gela_kop=0;
 	private String oheMota="";
-	
+	private String gela_mota;
+	private Double maximoa;
+	private Double minimo;
 	
 	private String hostatu_mota="";
 	private JTextField textField= new JTextField();
@@ -80,6 +82,7 @@ public class P1_copia extends JFrame {
 	private String fechaComoCadena2="";
 	private JComboBox preziomin;
 	private JComboBox preziomax;
+	private JComboBox comboBox_pertsonakop;
 	
 	
 	private String letra;
@@ -97,7 +100,7 @@ public class P1_copia extends JFrame {
 	private double precioadoubleprecio=0.0;
 	private Erreserba erreserba;
 	private final JLabel lblGelaKopurua = new JLabel("GELA KOPURUA");
-	private final JComboBox comboBox = new JComboBox();
+	private final JComboBox comboBox_gelakop = new JComboBox();
 	private final JLabel lblOheMota = new JLabel("OHE MOTA");
 	private final JComboBox comboBox_ohemota = new JComboBox();
 	private final JButton btnAurrera = new JButton("AURRERA");
@@ -165,7 +168,7 @@ public class P1_copia extends JFrame {
 		btnAurrera.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 
-				herria=(String)comboBox_1.getSelectedItem();
+				
 				
 				
 				
@@ -261,6 +264,11 @@ public class P1_copia extends JFrame {
 			
 			
 		});
+		comboBox_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				herria=(String)comboBox_1.getSelectedItem();
+			}
+		});
 
 		//Combo1
 
@@ -296,26 +304,26 @@ public class P1_copia extends JFrame {
 		int cont2=0;
 		for( i=0;i<zerrenda.length;i++) {
 			if(cont2==0) {
-				comboBox.addItem("");
+				comboBox_gelakop.addItem("");
 				cont2++;
 			}
-			comboBox.addItem(zerrenda[i]);
+			comboBox_gelakop.addItem(zerrenda[i]);
 		}
 
 		lblGelaKopurua.setFont(new Font("Arial Narrow", Font.BOLD, 16));
 		lblGelaKopurua.setBounds(29, 177, 130, 14);
 		
 		contentPane.add(lblGelaKopurua);
-		comboBox.addActionListener(new ActionListener() {
+		comboBox_gelakop.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				String kopurua=(String) comboBox.getSelectedItem();
+				String kopurua=(String) comboBox_gelakop.getSelectedItem();
 				 gela_kop=Integer.parseInt(kopurua);
 				 System.out.println(gela_kop);
 			}
 		});
-		comboBox.setBounds(221, 177, 49, 20);
+		comboBox_gelakop.setBounds(221, 177, 49, 20);
 		
-		contentPane.add(comboBox);
+		contentPane.add(comboBox_gelakop);
 		lblOheMota.setFont(new Font("Arial Narrow", Font.BOLD, 16));
 		lblOheMota.setBounds(374, 177, 89, 14);
 		
@@ -342,11 +350,11 @@ public class P1_copia extends JFrame {
 
 		comboBox_4.setBounds(104, 244, 36, 20);
 
-		JComboBox comboBox_4 = new JComboBox();
-		comboBox_4.setModel(new DefaultComboBoxModel(new String[] {"", "1", "2", "3", "4", "5", "6", "7", "8"}));
-		comboBox_4.setBounds(234, 227, 36, 20);
+		 comboBox_pertsonakop = new JComboBox();
+		comboBox_pertsonakop.setModel(new DefaultComboBoxModel(new String[] {"", "1", "2", "3", "4", "5", "6", "7", "8"}));
+		comboBox_pertsonakop.setBounds(234, 227, 36, 20);
 
-		contentPane.add(comboBox_4);
+		contentPane.add(comboBox_pertsonakop);
 		
 		JLabel label_3 = new JLabel("OSTATU MOTA");
 		label_3.setFont(new Font("Arial Narrow", Font.BOLD, 16));
@@ -357,18 +365,29 @@ public class P1_copia extends JFrame {
 		comboBox_5.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				 hostatu_mota=(String) comboBox_5.getSelectedItem();
+				 
 				 letra_ostatu="";
 				if(hostatu_mota.equalsIgnoreCase("Hotela")) {
-					letra_ostatu="H";
 					
+					letra_ostatu="H";
+					comboBox_ohemota.setEnabled(true);
+					comboBox_pertsonakop.setEnabled(true);
 				}
 				if(hostatu_mota.equalsIgnoreCase("Apartamentua")) {
+					
 					letra_ostatu="A";
 					comboBox_ohemota.setEnabled(false);
+					comboBox_pertsonakop.setEnabled(false);
+					System.out.println("entra");
+
+					
 				}
 				if(hostatu_mota.equalsIgnoreCase("Etxea")) {
 					letra_ostatu="E";
 					comboBox_ohemota.setEnabled(false);
+					comboBox_pertsonakop.setEnabled(false);
+
+					
 				}
 			}
 		});
@@ -400,10 +419,20 @@ public class P1_copia extends JFrame {
 		preziomax.setBounds(461, 317, 94, 20);
 		contentPane.add(preziomax);
 		precio_max();
+		 preziomax.addActionListener(new ActionListener() {
+			 	public void actionPerformed(ActionEvent e) {
+			 		 maximoa =(Double) preziomax.getSelectedItem();
+			 	}
+			 });
 		
 		
 		
 		 preziomin = new JComboBox();
+		 preziomin.addActionListener(new ActionListener() {
+		 	public void actionPerformed(ActionEvent e) {
+		 		 minimo = (Double) preziomin.getSelectedItem();
+		 	}
+		 });
 		preziomin.setBounds(461, 367, 94, 20);
 		contentPane.add(preziomin);
 		precio_min();
@@ -413,6 +442,12 @@ public class P1_copia extends JFrame {
 		contentPane.add(lblZerbitzuGehigarriak);
 			/******Radio piscina*****/
 		radio_wifi = new JRadioButton("Wifi");
+		radio_wifi.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				radio_wifi.isSelected();
+				
+			}
+		});
 		radio_wifi.setBounds(39, 475, 60, 23);
 		contentPane.add(radio_wifi);
 		radio_wifi.setEnabled(false);
@@ -425,12 +460,12 @@ public class P1_copia extends JFrame {
 		
 		 radio_aire = new JRadioButton("Aire Girotua");
 		 radio_aire.setEnabled(false);
-		radio_aire.setBounds(254, 475, 83, 23);
+		radio_aire.setBounds(254, 475, 94, 23);
 		contentPane.add(radio_aire);
 		
 		 radio_taberna = new JRadioButton("Taberna");
 		 radio_taberna.setEnabled(false);
-		radio_taberna.setBounds(374, 475, 71, 23);
+		radio_taberna.setBounds(392, 475, 71, 23);
 		contentPane.add(radio_taberna);
 		
 		 radio_spa = new JRadioButton("Spa");
@@ -445,12 +480,12 @@ public class P1_copia extends JFrame {
 		
 		 radio_gim = new JRadioButton("Gimnasioa");
 		 radio_gim.setEnabled(false);
-		radio_gim.setBounds(254, 521, 83, 23);
+		radio_gim.setBounds(254, 521, 94, 23);
 		contentPane.add(radio_gim);
 		
 		 radio_jate = new JRadioButton("Jatetxea");
 		 radio_jate.setEnabled(false);
-		radio_jate.setBounds(374, 521, 71, 23);
+		radio_jate.setBounds(392, 521, 71, 23);
 		contentPane.add(radio_jate);
 		
 		 chckbxNewCheckBox = new JCheckBox("");
@@ -467,7 +502,14 @@ public class P1_copia extends JFrame {
 		 		radio_wifi.setEnabled(true);
 		 		}
 		 		else {
-		 			
+		 			radio_aire.setEnabled(false);
+			 		radio_aparkalekua.setEnabled(false);
+			 		radio_gim.setEnabled(false);
+			 		radio_igerilekua.setEnabled(false);
+			 		radio_jate.setEnabled(false);
+			 		radio_spa.setEnabled(false);
+			 		radio_taberna.setEnabled(false);
+			 		radio_wifi.setEnabled(false);
 		 		}
 		 		
 		 	}
@@ -481,23 +523,30 @@ public class P1_copia extends JFrame {
 		contentPane.add(lblGelaMota);
 		
 		comboBox_gelamota = new JComboBox();
+		
 		comboBox_gelamota.setBounds(461, 226, 94, 20);
 		contentPane.add(comboBox_gelamota);
 		gela_mota();
+		comboBox_gelamota.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				 gela_mota = (String) comboBox_gelamota.getSelectedItem();
+				}
+		});
+		
 		
 		int cont3=0;
 		for(int pertsona=1;pertsona<=10;pertsona++) {
 			if(cont3==0) {
-				comboBox_4.addItem("");
+				comboBox_pertsonakop.addItem("");
 				cont3++;
 			}
 			
-			comboBox_4.addItem(pertsona);
+			comboBox_pertsonakop.addItem(pertsona);
 		}
 		
-		comboBox_4.addActionListener(new ActionListener() {
+		comboBox_pertsonakop.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				String pertsona_kop = comboBox_4.getSelectedItem().toString();
+				String pertsona_kop = comboBox_pertsonakop.getSelectedItem().toString();
 				pertsona_kopurua= Integer.parseInt(pertsona_kop);
 				
 			}
@@ -571,25 +620,25 @@ public class P1_copia extends JFrame {
 		return dias;
 	}
 	public void precio_max() {
-		ArrayList<Integer> pre_max= new ArrayList<Integer>() ;
-		pre_max.add(1000);
-		pre_max.add(900);
-		pre_max.add(800);
-		pre_max.add(700);
-		pre_max.add(600);
-		pre_max.add(500);
+		ArrayList<Double> pre_max= new ArrayList<Double>() ;
+		pre_max.add(1000.00);
+		pre_max.add(900.00);
+		pre_max.add(800.00);
+		pre_max.add(700.00);
+		pre_max.add(600.00);
+		pre_max.add(500.00);
 		for(int i=0;i<pre_max.size();i++) {
 			preziomax.addItem(pre_max.get(i));
 		}
 	}
 	public void precio_min() {
-		ArrayList<Integer> pre_min= new ArrayList<Integer>() ;
-		pre_min.add(10);
-		pre_min.add(20);
-		pre_min.add(30);
-		pre_min.add(40);
-		pre_min.add(80);
-		pre_min.add(100);
+		ArrayList<Double> pre_min= new ArrayList<Double>() ;
+		pre_min.add(10.00);
+		pre_min.add(20.00);
+		pre_min.add(30.00);
+		pre_min.add(40.00);
+		pre_min.add(80.00);
+		pre_min.add(100.00);
 		for(int i=0;i<pre_min.size();i++) {
 			preziomin.addItem(pre_min.get(i));
 		}
