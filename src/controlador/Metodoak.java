@@ -436,7 +436,10 @@ public class Metodoak {
 		String herria=p1.ateraHerria();
 		ArrayList<Hotela> hotelenlista= new ArrayList<Hotela>();
 		ArrayList<Hotela> hotelenlistaFiltro= new ArrayList<Hotela>();
-		hotelenlista=Consultas.hotelendatuak();
+		// hotelendatuakBanakakoa()
+		// hotelendatuakBikoitza()
+		// hotelendatuakSuite()
+		hotelenlista=Consultas.hotelendatuakBanakakoa();
 		for (Hotela p:hotelenlista) {
 			if (p.getHerria().equalsIgnoreCase(herria)){
 				hotelenlistaFiltro.add(p);

@@ -39,14 +39,14 @@ public class Consultas {
 		return herrilista;
 	}
 	
-	public static ArrayList <Hotela> hotelendatuak() {
+	public static ArrayList <Hotela> hotelendatuakBanakakoa() {
 
 		ArrayList <Hotela> hotelenlista = new ArrayList<Hotela>();
 		PreparedStatement s=null;
 		Connection konexioa=Conexion.getConexion();
 
 		try {
-			s = konexioa.prepareStatement("select * from hotelak");
+			s = konexioa.prepareStatement("select * from hotelak_banakakoa");
 			ResultSet rs = s.executeQuery();
 			int izarkop=0;
 			int ostatu_id=0;
@@ -57,6 +57,8 @@ public class Consultas {
 			String ostatu_mota="";
 			int gela_kop=0;
 			int erreserba_kop=0;
+			String mota="";
+			double prezioa=0;
 			while (rs.next()) {
 				izarkop=(rs.getInt(1));
 				ostatu_id=(rs.getInt(2));
@@ -67,8 +69,53 @@ public class Consultas {
 				ostatu_mota=(rs.getString(7));
 				gela_kop=(rs.getInt(8));
 				erreserba_kop=(rs.getInt(9));
+				mota=rs.getString(10);
+				prezioa=rs.getDouble(11);
 
-				Hotela h1= new Hotela(izarkop,ostatu_id,izena,herria,helbidea,postaKod,ostatu_mota,gela_kop,erreserba_kop);
+				Hotela h1= new Hotela(izarkop,ostatu_id,izena,herria,helbidea,postaKod,ostatu_mota,gela_kop,erreserba_kop,mota,prezioa);
+				hotelenlista.add(h1);
+			}
+
+		}catch(Exception e) {e.getMessage();
+		System.out.println(e.getMessage());
+		}
+		return hotelenlista;
+		
+	}
+	public static ArrayList <Hotela> hotelendatuakBikoitza() {
+
+		ArrayList <Hotela> hotelenlista = new ArrayList<Hotela>();
+		PreparedStatement s=null;
+		Connection konexioa=Conexion.getConexion();
+
+		try {
+			s = konexioa.prepareStatement("select * from hotelak_bikoitza");
+			ResultSet rs = s.executeQuery();
+			int izarkop=0;
+			int ostatu_id=0;
+			String izena="";
+			String herria="";
+			String helbidea="";
+			int postaKod=0;
+			String ostatu_mota="";
+			int gela_kop=0;
+			int erreserba_kop=0;
+			String mota="";
+			double prezioa=0;
+			while (rs.next()) {
+				izarkop=(rs.getInt(1));
+				ostatu_id=(rs.getInt(2));
+				izena=(rs.getString(3));
+				herria=(rs.getString(4));
+				helbidea=(rs.getString(5));
+				postaKod=(rs.getInt(6));
+				ostatu_mota=(rs.getString(7));
+				gela_kop=(rs.getInt(8));
+				erreserba_kop=(rs.getInt(9));
+				mota=rs.getString(10);
+				prezioa=rs.getDouble(11);
+
+				Hotela h1= new Hotela(izarkop,ostatu_id,izena,herria,helbidea,postaKod,ostatu_mota,gela_kop,erreserba_kop,mota,prezioa);
 				hotelenlista.add(h1);
 			}
 
@@ -77,6 +124,49 @@ public class Consultas {
 		}
 		return hotelenlista;
 	}
+	public static ArrayList <Hotela> hotelendatuakSuite() {
+
+		ArrayList <Hotela> hotelenlista = new ArrayList<Hotela>();
+		PreparedStatement s=null;
+		Connection konexioa=Conexion.getConexion();
+
+		try {
+			s = konexioa.prepareStatement("select * from hotelak_suite");
+			ResultSet rs = s.executeQuery();
+			int izarkop=0;
+			int ostatu_id=0;
+			String izena="";
+			String herria="";
+			String helbidea="";
+			int postaKod=0;
+			String ostatu_mota="";
+			int gela_kop=0;
+			int erreserba_kop=0;
+			String mota="";
+			double prezioa=0;
+			while (rs.next()) {
+				izarkop=(rs.getInt(1));
+				ostatu_id=(rs.getInt(2));
+				izena=(rs.getString(3));
+				herria=(rs.getString(4));
+				helbidea=(rs.getString(5));
+				postaKod=(rs.getInt(6));
+				ostatu_mota=(rs.getString(7));
+				gela_kop=(rs.getInt(8));
+				erreserba_kop=(rs.getInt(9));
+				mota=rs.getString(10);
+				prezioa=rs.getDouble(11);
+
+				Hotela h1= new Hotela(izarkop,ostatu_id,izena,herria,helbidea,postaKod,ostatu_mota,gela_kop,erreserba_kop,mota,prezioa);
+				hotelenlista.add(h1);
+			}
+
+		}catch(Exception e) {e.getMessage();
+		System.out.println(e.getMessage());
+		}
+		return hotelenlista;
+	}
+	
 	public static ArrayList <Apartamentua> apartamentuDatuak() {
 
 		ArrayList <Apartamentua> apartamentulista = new ArrayList<Apartamentua>();
