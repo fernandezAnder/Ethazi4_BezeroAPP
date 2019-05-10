@@ -40,22 +40,28 @@ public class Metodoak {
 	private SimpleDateFormat format = new SimpleDateFormat("yyyy/MM/dd");
 	private String tarifa = "Baxua";
 	private PruebScroll pr;
+	private String kod_err1;
 	//private p1cop_copia p1cop;
 	
 	
 	
 	
 	public void kodea() {
-		String kodea = er1.ateraKodea2();
-		if(kodea!=null){
-		kodea=kodea +"-"+lo1.kodea_eraman();
+		String kodea;
+		System.out.println("1. "+kod_err1);
+		if(kod_err1!=null){
+			
+		kodea=kod_err1 +"-"+lo1.kodea_eraman();
+		System.out.println("2. "+kodea);
 		}
 		else {
 			kodea = lo1.kodea_eraman();
+			System.out.println("3. "+kodea);
 		}
+		System.out.println("4. "+kodea);
 		ord1.hartu_Kodea(kodea);
 		
-		System.out.println(kodea);
+		
 			
 		
 	}
@@ -409,6 +415,7 @@ public class Metodoak {
 		pr.terminos();
 		}
 	public void erregistroPantailaItxi() {
+		kod_err1=er1.ateraKodea2();
 		er1.dispose();
 		er1 = new Erregistratu();
 		er1.setVisible(false);

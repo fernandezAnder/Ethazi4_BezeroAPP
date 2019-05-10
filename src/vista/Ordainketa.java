@@ -386,8 +386,12 @@ public void idatzi(String textua) {
 		 String[] parts = katea.split("-");
 		 for(int i=0;i<parts.length;i++) {
 			 if(i==0) {
-				 textArea.setText(katea+" %5 Deskotua"+"\n");
+				 textArea.setText(parts[0]+" %10 Deskotua"+"\n");
 			 }
+			 if(i==1) {
+				 textArea.setText(parts[1]+" %5 Deskotua"+"\n");
+			 }
+			 
 		 }
 		 
 	}

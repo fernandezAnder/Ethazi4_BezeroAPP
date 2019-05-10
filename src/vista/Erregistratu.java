@@ -297,8 +297,9 @@ public class Erregistratu extends JFrame {
 				metodos.legediaonartua();
 				metodos.bezeroaIgo(bezeroa);
 				metodos.loginIreki();
-				metodos.erregistroPantailaItxi();
 				ateraKodea();
+				metodos.erregistroPantailaItxi();
+				
 			}
 		});
 		//Jarraitu Botoiaren egitura
@@ -329,8 +330,6 @@ public class Erregistratu extends JFrame {
 	public void ateraKodea() {
 		SecureRandom random = new SecureRandom();
 		 kodea = new BigInteger(6 , random).toString();
-		System.out.println("El kodigo: ");
-		System.out.println(kodea);
 		
 	}
 	public String ateraKodea2() {

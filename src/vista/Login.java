@@ -154,9 +154,6 @@ public class Login extends JFrame {
 	public void ateraKodea3() {
 		SecureRandom random = new SecureRandom();
 		kodea = new BigInteger(6 , random).toString();
-		kodea = kodea;
-		System.out.println("El kodigo: ");
-		System.out.println(kodea);
 		}
 	public String kodea_eraman() {
 		return kodea;
