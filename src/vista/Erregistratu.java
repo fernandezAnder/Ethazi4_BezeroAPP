@@ -330,4 +330,11 @@ public class Erregistratu extends JFrame {
 	public void misMetodos(Metodoak metodos) {
 		this.metodos=metodos;
 	}
+
+
+	public String ateraKodea() {
+		String kodea ="";
+		
+		return kodea;
+	}
 }

@@ -43,6 +43,14 @@ public class Metodoak {
 	private P1_copia p1cop;
 	
 	
+	
+	
+	public void kodea() {
+		String kodea = er1.ateraKodea();
+			
+		
+	}
+	
 //***************Para que no salga una y otra vez la ventana de login comprobamos logueatutta y asi solo se abre una vez*****
 	public boolean logueatuta(){
 		return logueatuta;
@@ -648,6 +656,7 @@ public class Metodoak {
 			throw new RuntimeException(e);
 		}
 	}
+	
 
 	public  boolean ateraErabiltzailea(String nan, String pasahitza) {
 		boolean erabakia = false;
