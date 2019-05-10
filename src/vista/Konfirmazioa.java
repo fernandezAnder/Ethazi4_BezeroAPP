@@ -67,12 +67,12 @@ public class Konfirmazioa extends JFrame {
 		
 		JLabel lblNewLabel = new JLabel("HAU DA ZURE AUKERA");
 		lblNewLabel.setFont(new Font("Arial Narrow", Font.BOLD, 16));
-		lblNewLabel.setBounds(58, 58, 192, 14);
+		lblNewLabel.setBounds(196, 60, 156, 14);
 		contentPane.add(lblNewLabel);
 		
 		JLabel lblNewLabel_1 = new JLabel("ZERBAIT ALDATU NAHI DUZU?");
 		lblNewLabel_1.setFont(new Font("Arial Narrow", Font.BOLD, 16));
-		lblNewLabel_1.setBounds(58, 97, 253, 14);
+		lblNewLabel_1.setBounds(183, 97, 199, 14);
 		contentPane.add(lblNewLabel_1);
 	}
 }

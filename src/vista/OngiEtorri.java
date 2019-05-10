@@ -6,10 +6,10 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
-import javax.swing.border.MatteBorder;
 import java.awt.Color;
+import javax.swing.border.MatteBorder;
 
-public class Amaiera extends JFrame {
+public class OngiEtorri extends JFrame {
 
 	private JPanel contentPane;
 
@@ -20,7 +20,7 @@ public class Amaiera extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					Amaiera frame = new Amaiera();
+					OngiEtorri frame = new OngiEtorri();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -32,7 +32,7 @@ public class Amaiera extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public Amaiera() {
+	public OngiEtorri() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();

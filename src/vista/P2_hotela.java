@@ -26,6 +26,7 @@ import java.util.ArrayList;
 import java.awt.event.ActionEvent;
 import javax.swing.JComboBox;
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.border.MatteBorder;
 
 public class P2_hotela extends JFrame {
 
@@ -51,12 +52,12 @@ public class P2_hotela extends JFrame {
 		setBounds(100, 100, 998, 588);
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(135, 206, 235));
-		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		contentPane.setBorder(new MatteBorder(20, 10, 20, 10, (Color) new Color(70, 130, 180)));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
 		 scrollPane = new JScrollPane();
-		scrollPane.setBounds(0, 64, 982, 427);
+		scrollPane.setBounds(34, 64, 905, 427);
 		contentPane.add(scrollPane);
 		
 		table = new JTable();
@@ -66,7 +67,7 @@ public class P2_hotela extends JFrame {
 		
 		
 		lblApartamentuarenInformazioa.setFont(new Font("Arial Narrow", Font.BOLD, 24));
-		lblApartamentuarenInformazioa.setBounds(315, 11, 336, 25);
+		lblApartamentuarenInformazioa.setBounds(315, 28, 336, 25);
 		contentPane.add(lblApartamentuarenInformazioa);
 		
 		
