@@ -21,6 +21,7 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.awt.event.ActionEvent;
+import javax.swing.border.MatteBorder;
 
 public class P2_apartamentua extends JFrame {
 
@@ -42,12 +43,12 @@ public class P2_apartamentua extends JFrame {
 		setBounds(100, 100, 998, 588);
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(135, 206, 235));
-		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		contentPane.setBorder(new MatteBorder(20, 10, 20, 10, (Color) new Color(70, 130, 180)));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(0, 62, 982, 427);
+		scrollPane.setBounds(37, 62, 908, 427);
 		contentPane.add(scrollPane);
 		
 		table = new JTable();
@@ -59,7 +60,7 @@ public class P2_apartamentua extends JFrame {
 		scrollPane.setViewportView(table);
 		
 		lblApartamentuarenInformazioa.setFont(new Font("Arial Narrow", Font.BOLD, 24));
-		lblApartamentuarenInformazioa.setBounds(270, 11, 452, 25);
+		lblApartamentuarenInformazioa.setBounds(297, 26, 452, 25);
 		contentPane.add(lblApartamentuarenInformazioa);
 		
 		btnNewButton.setFont(new Font("Arial Narrow", Font.BOLD, 16));
