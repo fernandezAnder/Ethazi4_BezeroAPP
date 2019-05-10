@@ -27,7 +27,7 @@ import vista.*;
 public class Metodoak {
 	private static String prezio_totala;
 	private String ostatu_mota;
-	private P1 p1;
+	private P1_copia p1cop;
 	private P2_apartamentua p2apart;
 	private P2_etxea p2etxe;
 	private P2_hotela p2hot;
@@ -40,13 +40,22 @@ public class Metodoak {
 	private SimpleDateFormat format = new SimpleDateFormat("yyyy/MM/dd");
 	private String tarifa = "Baxua";
 	private PruebScroll pr;
-	private P1_copia p1cop;
+	//private p1cop_copia p1cop;
 	
 	
 	
 	
 	public void kodea() {
-		String kodea = er1.ateraKodea();
+		String kodea = er1.ateraKodea2();
+		if(kodea!=null){
+		kodea=kodea +"-"+lo1.kodea_eraman();
+		}
+		else {
+			kodea = lo1.kodea_eraman();
+		}
+		ord1.hartu_Kodea(kodea);
+		
+		System.out.println(kodea);
 			
 		
 	}
@@ -74,12 +83,12 @@ public class Metodoak {
 	}
 ///////////////////////////////////////////////////////////////////////////
 	public  void lehenengoLehioa() {
-		p1.setVisible(true);
+		p1cop.setVisible(true);
 		
 	}
 	public  void lehenengoLehioa2() {
 		ord1.setVisible(false);
-		p1.dispose();
+		p1cop.dispose();
 		BezeroAPP ap = new BezeroAPP();
 		ap.arrancar();
 		
@@ -88,15 +97,15 @@ public class Metodoak {
 	
 
 	public void bigarrenLehioaHotela() {
-		p1.setVisible(false);
+		p1cop.setVisible(false);
 		p2hot.setVisible(true);
 	}
 	public void bigarrenLehioaApartamentua() {
-		p1.setVisible(false);
+		p1cop.setVisible(false);
 		p2apart.setVisible(true);
 	}
 	public void bigarrenLehioaEtxea() {
-		p1.setVisible(false);
+		p1cop.setVisible(false);
 		p2etxe.setVisible(true);
 	}
 	public void lehioaHotelaItxi() {
@@ -113,16 +122,18 @@ public class Metodoak {
 	}
 	
 	public void loginIreki() {
+		System.out.println("kaixo");
 		lo1.setVisible(true);
+		
 	}
 	//**********DENBORALDIA KALKULATZEKO METODOAK********
 	public double denboraldiaKalkulatu() {
 		SimpleDateFormat formato = new SimpleDateFormat("yyyy/MM/dd/");
-		Date date1p1 = null;
+		Date date1p1cop = null;
 		double recargo = 0.0;
 		boolean esfestivo=false;
 		try {
-		 date1p1 = (Date) formato.parse(p1.ateraData1());
+		 date1p1cop = (Date) formato.parse(p1cop.ateraData1());
 		}catch(Exception e) {
 			System.out.println(e.getMessage());
 			
@@ -130,9 +141,9 @@ public class Metodoak {
 		int eguna1=0;
 		int hilabetea1=0;
 		int urtea1=0;
-		int eguna2=date1p1.getDay();
-		int hilabetea2=date1p1.getMonth();
-		int urtea2=date1p1.getYear();
+		int eguna2=date1p1cop.getDay();
+		int hilabetea2=date1p1cop.getMonth();
+		int urtea2=date1p1cop.getYear();
 		Date data;
 		ArrayList <Date> datak =  new ArrayList();
 		//datak = Consultas.ateraData();
@@ -161,8 +172,8 @@ public class Metodoak {
 	//*****************ERRESERBAREN PREZIOA KALKULATZEKO METODOAK********************
 	public void bidaliDirua(){
 		
-		String data1=p1.ateraData1();
-		String data2=p1.ateraData2();
+		String data1=p1cop.ateraData1();
+		String data2=p1cop.ateraData2();
 		int numero1=0;
 		int numero2=0;
 		
@@ -183,8 +194,8 @@ public class Metodoak {
 		int hilabeteak=0;
 		prezioa = Consultas.logela_prezioa(p2hot.eramanaId());
 	
-		logelakop=p1.ateraGelakop();
-		egunak=p1.diadif();
+		logelakop=p1cop.ateraGelakop();
+		egunak=p1cop.diadif();
 		System.out.println(numero1);
 		System.out.println(numero2);
 		ArrayList<java.sql.Date> jaiegunak= Consultas.jaiegunLista();
@@ -229,8 +240,8 @@ public class Metodoak {
 
 	public void bidaliDiruaApartamentua() {
 
-		String data1=p1.ateraData1();
-		String data2=p1.ateraData2();
+		String data1=p1cop.ateraData1();
+		String data2=p1cop.ateraData2();
 		int numero1=0;
 		int numero2=0;
 		
@@ -250,8 +261,8 @@ public class Metodoak {
 		int hilabeteak=0;
 		prezioa = Consultas.logela_prezioaEtxeApart(p2apart.bidaliId());
 	
-		logelakop=p1.ateraGelakop();
-		egunak=p1.diadif();
+		logelakop=p1cop.ateraGelakop();
+		egunak=p1cop.diadif();
 		System.out.println(numero1);
 		System.out.println(numero2);
 		ArrayList<java.sql.Date> jaiegunak= Consultas.jaiegunLista();
@@ -293,8 +304,8 @@ public class Metodoak {
 	}
 	public void bidaliDiruaEtxea() {
 
-		String data1=p1.ateraData1();
-		String data2=p1.ateraData2();
+		String data1=p1cop.ateraData1();
+		String data2=p1cop.ateraData2();
 		int numero1=0;
 		int numero2=0;
 		
@@ -314,8 +325,8 @@ public class Metodoak {
 		int hilabeteak=0;
 		prezioa = Consultas.logela_prezioaEtxeApart(p2etxe.eramanaId());
 	
-		logelakop=p1.ateraGelakop();
-		egunak=p1.diadif();
+		logelakop=p1cop.ateraGelakop();
+		egunak=p1cop.diadif();
 		System.out.println(numero1);
 		System.out.println(numero2);
 		ArrayList<java.sql.Date> jaiegunak= Consultas.jaiegunLista();
@@ -369,7 +380,7 @@ public class Metodoak {
 		am1.setVisible(true);
 
 		amaiera();
-		p1.dispose();
+		p1cop.dispose();
 		BezeroAPP ap = new BezeroAPP();
 		ap.arrancar();
 		}
@@ -380,7 +391,7 @@ public class Metodoak {
 		ord1.setVisible(false);
 	}
 	
-	public void agurratoP1() {
+	public void agurratop1cop() {
 		am1.setVisible(false);
 		
 		
@@ -413,10 +424,10 @@ public class Metodoak {
 		if(caracter.equalsIgnoreCase("E")) {
 			id = p2etxe.eramanaId();
 		}
-		String data1 = p1.ateraData1();
+		String data1 = p1cop.ateraData1();
 		System.out.println(data1);
-		System.out.println(p1.ateraData1());
-		Erreserba erreserba =new Erreserba(0, id , getMD5(lo1.ateraNana()), p1.ateraData1(), p1.ateraData2(), p1.ateraPertsonakop(), ord1.prezio_totala(), p1.ateraGelakop(), p1.ateraPentsio(), p1.ateraOheMota(), p1.ateraPertsonakop(), tarifa);
+		System.out.println(p1cop.ateraData1());
+		Erreserba erreserba =new Erreserba(0, id , getMD5(lo1.ateraNana()), p1cop.ateraData1(), p1cop.ateraData2(), p1cop.ateraPertsonakop(), ord1.prezio_totala(), p1cop.ateraGelakop(), p1cop.ateraPentsio(), p1cop.ateraOheMota(), p1cop.ateraPertsonakop(), tarifa);
 		imprimatuTiketa(erreserba);
 		Consultas.txertatuErreserba(erreserba);
 		System.out.println(erreserba);
@@ -428,7 +439,7 @@ public class Metodoak {
 		
 		for (int i=0;i<jaiegunak.size();i++) {
 			String data=jaiegunak.get(i).toString();
-			if(data.equals(p1.ateraData1())) {
+			if(data.equals(p1cop.ateraData1())) {
 				System.out.println("lo hace");
 				jaiegun_kod=i+1;
 			}
@@ -444,7 +455,7 @@ public class Metodoak {
 	}
 	
 	public void filtroHotela() {
-		String herria=p1.ateraHerria();
+		String herria=p1cop.ateraHerria();
 		ArrayList<Hotela> hotelenlista= new ArrayList<Hotela>();
 		ArrayList<Hotela> hotelenlistaFiltro= new ArrayList<Hotela>();
 		// hotelendatuakBanakakoa()
@@ -462,7 +473,7 @@ public class Metodoak {
 		
 	}
 	public ArrayList<Apartamentua> filtroApartamentua() {
-		String herria=p1.ateraHerria();
+		String herria=p1cop.ateraHerria();
 		ArrayList<Apartamentua> apartamentulista= new ArrayList<Apartamentua>();
 		apartamentulista=Consultas.apartamentuDatuak();
 		ArrayList<Apartamentua> apartamentulista2= new ArrayList<Apartamentua>();
@@ -476,7 +487,7 @@ public class Metodoak {
 		return apartamentulista2;
 	}
 	public void filtroEtxea() {
-		String herria=p1.ateraHerria();
+		String herria=p1cop.ateraHerria();
 		ArrayList<Etxea> etxelista=new ArrayList<Etxea>();
 		etxelista=Consultas.etxeDatuak();
 		ArrayList<Etxea> etxelista2=new ArrayList<Etxea>();
@@ -752,9 +763,9 @@ public class Metodoak {
 	}
 
 ///////////////////////////////////////////////////////////////////////////
-	public void setMip1(P1 p1) {
-		this.p1 = p1;
-	}
+//	public void setMip1cop(p1cop p1cop) {
+//		this.p1cop = p1cop;
+//	}
 	public void setMip2hot(P2_hotela p2hot) {
 		this.p2hot=p2hot;
 	}
@@ -784,7 +795,7 @@ public class Metodoak {
 		this.pr = pr;
 	}
 	
-	public void setP1_copia(P1_copia p1cop) {
+	public void setp1cop_copia(P1_copia p1cop) {
 		this.p1cop = p1cop;
 	}
 	public boolean deskontua(String kodigo) {

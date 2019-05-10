@@ -84,20 +84,26 @@ public class P2_hotela extends JFrame {
 		
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				System.out.println("1");
 				try{
 				int numero=table.getSelectedRow();
 				Hotela hotela2 = hotelak.get(numero);
 				if(hotela2.getErreserba_kop()==100) {
 					 lblNewLabel.setText("Hotela Beteta");
 				}
+				
 				else {
 					id=hotela2.getOstatu_id();
+					System.out.println("2");
 					 //ohekopurua = hotela2.getGela_kop();
 					if(metodos.logueatuta==false && id!=0) {
+						System.out.println("HOLA KARAKOLA");
 						metodos.lehioaHotelaItxi();
+						System.out.println("preeeee kaixo");
 						metodos.loginIreki();
 					}
 					else {
+						System.out.println("3jyhfjyh");
 						if(id!=0) {
 						metodos.lehioaHotelaItxi();
 						metodos.p2hotetoOrdainketa();
@@ -106,7 +112,7 @@ public class P2_hotela extends JFrame {
 					}
 					
 				}
-				System.out.println(hotela2);
+				System.out.println("es: "+hotela2);
 				
 				
 				}catch(Exception i) {

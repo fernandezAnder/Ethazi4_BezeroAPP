@@ -58,7 +58,7 @@ public class Amaiera extends JFrame {
 			            e1.printStackTrace();
 			        }
 			    
-			metodos.agurratoP1();
+			metodos.agurratop1cop();
 			}
 		});
 		btnAmaitu.setBounds(169, 397, 347, 89);

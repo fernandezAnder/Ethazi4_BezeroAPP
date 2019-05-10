@@ -3,6 +3,8 @@ package vista;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.math.BigInteger;
+import java.security.SecureRandom;
 
 import javax.swing.AbstractButton;
 import javax.swing.JButton;
@@ -30,6 +32,7 @@ public class Login extends JFrame {
 	private JLabel lblNewLabel;
 	private Metodoak metodos;
 	private JTextField txtCodigo;
+	private String kodea;
 
 	/**
 	 * LOGIN frame-aren kodea da.
@@ -104,6 +107,8 @@ public class Login extends JFrame {
 				if (youshouldnotpass == true) {
 					metodos.hirugarrenLehioa();
 					 nana = textField.getText();
+					 ateraKodea3();
+					 metodos.kodea();
 				 
 					 metodos.logueatutabai(true);
 					 
@@ -134,6 +139,7 @@ public class Login extends JFrame {
 	private void logindatuak() {
 		pasahitza = new String(passwordField.getPassword());
 		Nan = new String(textField.getText());
+		Nan=metodos.getMD5(Nan);
 		System.out.println("pasahitza: " + pasahitza);
 		System.out.println("erabiltzaile: " + Nan);
 	}
@@ -144,5 +150,15 @@ public class Login extends JFrame {
 	}
 	public String ateraNana() {
 		return  nana;
+	}
+	public void ateraKodea3() {
+		SecureRandom random = new SecureRandom();
+		kodea = new BigInteger(6 , random).toString();
+		kodea = kodea;
+		System.out.println("El kodigo: ");
+		System.out.println(kodea);
+		}
+	public String kodea_eraman() {
+		return kodea;
 	}
 }

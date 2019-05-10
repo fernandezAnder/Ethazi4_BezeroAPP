@@ -48,6 +48,7 @@ public class Ordainketa extends JFrame {
 	private JTextField textField;
 	private boolean descuento;
 	private JTextArea textArea ;
+	private String katea;
 	
 	int kont1=0;
 	int kont2=0;
@@ -377,5 +378,17 @@ public void idatzi(String textua) {
 		for(int i =0;i<kodigoak.size();i++) {
 			textArea.setText(kodigoak.get(i));
 		}
+	}
+	
+	public void hartu_Kodea(String kodea) {
+		 katea = kodea;
+		 System.out.println("LLgemaos a la ultima: "+katea);
+		 String[] parts = katea.split("-");
+		 for(int i=0;i<parts.length;i++) {
+			 if(i==0) {
+				 textArea.setText(katea+" %5 Deskotua"+"\n");
+			 }
+		 }
+		 
 	}
 }
