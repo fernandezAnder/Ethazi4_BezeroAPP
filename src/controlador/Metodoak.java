@@ -49,15 +49,7 @@ public class Metodoak {
 	public void kodea() {
 		String kodea;
 		System.out.println("1. "+kod_err1);
-		if(kod_err1!=null){
-			
 		kodea=kod_err1 +"-"+lo1.kodea_eraman();
-		System.out.println("2. "+kodea);
-		}
-		else {
-			kodea = lo1.kodea_eraman();
-			System.out.println("3. "+kodea);
-		}
 		System.out.println("4. "+kodea);
 		ord1.hartu_Kodea(kodea);
 		

@@ -382,14 +382,23 @@ public void idatzi(String textua) {
 	
 	public void hartu_Kodea(String kodea) {
 		 katea = kodea;
+		 String textarea = "";
 		 System.out.println("LLgemaos a la ultima: "+katea);
 		 String[] parts = katea.split("-");
 		 for(int i=0;i<parts.length;i++) {
-			 if(i==0) {
-				 textArea.setText(parts[0]+" %10 Deskotua"+"\n");
+			 if(!parts[0].equalsIgnoreCase("null")) {
+				 textarea=parts[0]+" %10 Deskotua"+"\n";
+				 textArea.setText(textarea);
 			 }
 			 if(i==1) {
-				 textArea.setText(parts[1]+" %5 Deskotua"+"\n");
+				 if(!parts[0].equalsIgnoreCase("null")) {
+					 textarea=textarea+"\n"+parts[1]+" %5 Deskotua";
+				 textArea.setText(textarea);
+				 }
+				 else {
+					 textarea=parts[1]+" %5 Deskotua";
+					 textArea.setText(textarea);
+				 }
 			 }
 			 
 		 }
