@@ -49,7 +49,7 @@ public class P2_hotela extends JFrame {
 	
 	public  P2_hotela() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 998, 588);
+		setBounds(100, 100, 998, 645);
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(135, 206, 235));
 		contentPane.setBorder(new MatteBorder(20, 10, 20, 10, (Color) new Color(70, 130, 180)));
