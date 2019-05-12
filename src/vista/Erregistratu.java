@@ -4,6 +4,8 @@ import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyAdapter;
+import java.math.BigInteger;
+import java.security.SecureRandom;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -48,7 +50,7 @@ public class Erregistratu extends JFrame {
 	private JLabel lblDatuPertsonalak = new JLabel("DATU PERTSONALAK  --------------------------------------------------------------------------------------------------");
 	private SimpleDateFormat sm = new SimpleDateFormat("yyyy-MM-dd");
 	private JButton btnEzeztatu = new JButton("EZEZTATU");
-
+	private String kodea;
 	private String nan="";
 	private String nan2="1";
 	private String letra="";
@@ -267,17 +269,8 @@ public class Erregistratu extends JFrame {
 				if(metodos.ateraErabiltzailea(nan, pasahitza)) {
 					Jarraitu.setEnabled(true);
 					Balidatu.setEnabled(false);
-				}else {
-					//JOptionPane.showMessageDialog(null, "Nan hau erregistratuta dago");
+					
 				}
-////				for (int i=0;i<bezeroak.size();i++) {
-////					if (bezeroak.get(i).getDni().equals(nan)) {
-////						
-////						Jarraitu.setEnabled(false);
-////						Balidatu.setEnabled(true);
-////						
-//					}
-//				}
 				
 				izena2=izena.getText();
 				abizena=abizenatextfield.getText();
@@ -304,7 +297,9 @@ public class Erregistratu extends JFrame {
 				metodos.legediaonartua();
 				metodos.bezeroaIgo(bezeroa);
 				metodos.loginIreki();
+				ateraKodea();
 				metodos.erregistroPantailaItxi();
+				
 			}
 		});
 		//Jarraitu Botoiaren egitura
@@ -332,9 +327,12 @@ public class Erregistratu extends JFrame {
 	}
 
 
-	public String ateraKodea() {
-		String kodea ="";
+	public void ateraKodea() {
+		SecureRandom random = new SecureRandom();
+		 kodea = new BigInteger(2 , random).toString();
 		
+	}
+	public String ateraKodea2() {
 		return kodea;
 	}
 }

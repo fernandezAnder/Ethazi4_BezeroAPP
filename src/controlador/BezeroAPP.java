@@ -72,10 +72,10 @@ public class BezeroAPP {
 		 
 		 //DE METODOS  A LAS VENTANAS
 		 //m1.setMip1(p1);
-		 m1.setP1_copia(p1cop);
-		 m1.setMielo1(lo1);
+		 m1.setp1cop_copia(p1cop);
 		 m1.setMier1(er1);
 		 m1.setMiord1(ord1);
+		 m1.setMielo1(lo1);
 		 m1.setMiam1(am1);
 		 m1.setMip2hot(p2hot);
 		 m1.setMip2etxe(p2etxe);
