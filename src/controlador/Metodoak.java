@@ -718,13 +718,20 @@ public class Metodoak {
 		ArrayList <Bezeroa> arraybezer = new ArrayList<Bezeroa>();
 		arraybezer=modelo.Consultas.ateraErabiltzaileak();
 		pasahitza = getMD5(pasahitza);
+
+		
+
 		for (Bezeroa p : arraybezer) {
+
 			if (p.getDni().equals(nan) && p.getPasahitza().equals(pasahitza)) {
 				erabakia = true;
-				System.out.println(erabakia);
+				System.out.println(erabakia);}
+
+
+				
 
 			}
-		}
+		
 
 		return (erabakia);
 
