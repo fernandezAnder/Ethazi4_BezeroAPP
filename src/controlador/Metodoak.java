@@ -88,15 +88,15 @@ public class Metodoak {
 	
 
 	public void bigarrenLehioaHotela() {
-		p1.setVisible(false);
+		p1cop.setVisible(false);
 		p2hot.setVisible(true);
 	}
 	public void bigarrenLehioaApartamentua() {
-		p1.setVisible(false);
+		p1cop.setVisible(false);
 		p2apart.setVisible(true);
 	}
 	public void bigarrenLehioaEtxea() {
-		p1.setVisible(false);
+		p1cop.setVisible(false);
 		p2etxe.setVisible(true);
 	}
 	public void lehioaHotelaItxi() {
@@ -444,7 +444,7 @@ public class Metodoak {
 	}
 	
 	public void filtroHotela() {
-		String herria=p1.ateraHerria();
+		String herria=p1cop.ateraHerria();
 		ArrayList<Hotela> hotelenlista= new ArrayList<Hotela>();
 		ArrayList<Hotela> hotelenlistaFiltro= new ArrayList<Hotela>();
 		// hotelendatuakBanakakoa()
