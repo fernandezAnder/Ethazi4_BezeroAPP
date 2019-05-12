@@ -49,6 +49,7 @@ public class Ordainketa extends JFrame {
 	private boolean descuento;
 	private JTextArea textArea ;
 	private String katea;
+	private String[] parts;
 	
 	int kont1=0;
 	int kont2=0;
@@ -303,19 +304,54 @@ public class Ordainketa extends JFrame {
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				kodigo = textField_1.getText();
-				descuento=metodos.deskontua(kodigo);
-				if(descuento) {
-					String ordaindu=textField.getText();
-					double zbk= Double.parseDouble(ordaindu);
-					double descontua=zbk*0.05;
-					zbk=zbk-descontua;
+				String ordaindu=textField.getText();
+				double zbk= Double.parseDouble(ordaindu);
+				
+				if(parts.length==3) {
+					if(kodigo.equalsIgnoreCase(parts[0])) {
+						double descontua=zbk*0.1;
+						zbk=zbk-descontua;
+						
+					}
+					if(kodigo.equalsIgnoreCase(parts[1])) {
+						double descontua=zbk*0.05;
+						zbk=zbk-descontua;
+						
+					}
+					if(kodigo.equalsIgnoreCase(parts[2])) {
+						double descontua=zbk*0.15;
+						zbk=zbk-descontua;
+						}
+					}
+				
+				if(parts.length==2) {
+					if(kodigo.equalsIgnoreCase(parts[0])) {
+						double descontua=zbk*0.05;
+						zbk=zbk-descontua;
+						}
+					if(kodigo.equalsIgnoreCase(parts[1])) {
+						double descontua=zbk*0.15;
+						zbk=zbk-descontua;
+						}
+					
+				}
+				if(parts.length==1) {
+					if(kodigo.equalsIgnoreCase(parts[0])) {
+						double descontua=zbk*0.05;
+						zbk=zbk-descontua;
+						}
+					
+					
+				}
+				
+				
 					mandarDirus(zbk);
 					btnNewButton.setEnabled(false);
 					textField_1.setEditable(false);
 					
 					
 					
-				}
+				
 			}
 		});
 		btnNewButton.setBounds(408, 210, 136, 23);
@@ -384,16 +420,17 @@ public void idatzi(String textua) {
 		 katea = kodea;
 		 String textarea = "";
 		 System.out.println("LLgemaos a la ultima: "+katea);
-		 String[] parts = katea.split("-");
+		  parts = katea.split("-");
 		 for(int i=0;i<parts.length;i++) {
+			 if(i==0){
 			 if(!parts[0].equalsIgnoreCase("null")) {
 				 textarea=parts[0]+" %10 Deskotua"+"\n";
 				 textArea.setText(textarea);
-			 }
+			 }}
 			 if(i==1) {
 				 if(!parts[0].equalsIgnoreCase("null")) {
 					 textarea=textarea+"\n"+parts[1]+" %5 Deskotua";
-				 textArea.setText(textarea);
+					 textArea.setText(textarea);
 				 }
 				 else {
 					 textarea=parts[1]+" %5 Deskotua";
@@ -401,6 +438,11 @@ public void idatzi(String textua) {
 				 }
 			 }
 			 
+			 if(i==2) {
+			 if(parts[2].equalsIgnoreCase("Temp_baja")) {
+				 textarea=textarea+"\n"+parts[2]+" %15 Deskotua";
+			 	 textArea.setText(textarea);}}
+			 		 
 		 }
 		 
 	}

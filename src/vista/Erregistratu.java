@@ -329,7 +329,7 @@ public class Erregistratu extends JFrame {
 
 	public void ateraKodea() {
 		SecureRandom random = new SecureRandom();
-		 kodea = new BigInteger(6 , random).toString();
+		 kodea = new BigInteger(2 , random).toString();
 		
 	}
 	public String ateraKodea2() {

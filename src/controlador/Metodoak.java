@@ -51,6 +51,9 @@ public class Metodoak {
 		System.out.println("1. "+kod_err1);
 		kodea=kod_err1 +"-"+lo1.kodea_eraman();
 		System.out.println("4. "+kodea);
+		if(tarifa.equalsIgnoreCase("Baxua")) {
+			kodea=kodea+"-"+"Temp_baja";
+		}
 		ord1.hartu_Kodea(kodea);
 		
 		
@@ -797,14 +800,7 @@ public class Metodoak {
 	public void setp1cop_copia(P1_copia p1cop) {
 		this.p1cop = p1cop;
 	}
-	public boolean deskontua(String kodigo) {
-		boolean descuento=false;
-		if(kodigo.equals(kodigo)) {
-			descuento=true;
-		}
-		return descuento;
-		
-	}
+	
 	
 	
 	
