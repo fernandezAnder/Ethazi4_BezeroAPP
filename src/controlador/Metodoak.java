@@ -691,24 +691,18 @@ public class Metodoak {
 		boolean erabakia = false;
 		ArrayList <Bezeroa> arraybezer = new ArrayList<Bezeroa>();
 		arraybezer=modelo.Consultas.ateraErabiltzaileak();
-		nan=getMD5(nan);
-		System.out.println("nananan: "+nan);
 		
 		pasahitza = getMD5(pasahitza);
-		System.out.println("pasahitza: "+pasahitza);
+		
 		for (Bezeroa p : arraybezer) {
-			System.out.println("nan 2 : "+p.getDni());
-			System.out.println("pasahitza 2 : "+p.getPasahitza());
-			if (p.getDni().equals(nan)) {
-				System.out.println("nan berdina");
-				if (p.getPasahitza().equals(pasahitza)){
+			
+			if (p.getDni().equals(nan) && p.getPasahitza().equals(pasahitza)){
 					erabakia = true;
 					System.out.println(erabakia);
 				}
 				
-
 			}
-		}
+		
 
 		return (erabakia);
 
