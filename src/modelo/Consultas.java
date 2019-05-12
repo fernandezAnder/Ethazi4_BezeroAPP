@@ -176,6 +176,7 @@ public class Consultas {
 		try {
 			s = konexioa.prepareStatement("select * from apartamentuak");
 			ResultSet rs = s.executeQuery();
+			int m2;
 			int solairua;
 			int ostatu_id;
 			String izena;
@@ -185,20 +186,23 @@ public class Consultas {
 			String ostatu_mota;
 			int gela_kopuru;
 			int erreserba_kopuru;
+			int komun_kop;
+			double prezioa;
 
 			while (rs.next()) {
-				solairua=rs.getInt(1);
-				ostatu_id=rs.getInt(2);
-				izena=rs.getString(3);
-				herria=rs.getString(4);
-				helbidea=rs.getString(5);
-				postaKod=rs.getInt(6);
-				ostatu_mota=rs.getString(7);
-				gela_kopuru=rs.getInt(8);
-				erreserba_kopuru=rs.getInt(9);
-
-				Apartamentua a1= new Apartamentua(solairua, ostatu_id, izena,herria, helbidea, 
-													postaKod,ostatu_mota, gela_kopuru, erreserba_kopuru);
+				m2= rs.getInt(1);
+				solairua=rs.getInt(2);
+				ostatu_id=rs.getInt(3);
+				izena=rs.getString(4);
+				herria=rs.getString(5);
+				helbidea=rs.getString(6);
+				postaKod=rs.getInt(7);
+				ostatu_mota=rs.getString(8);
+				gela_kopuru=rs.getInt(9);
+				erreserba_kopuru=rs.getInt(10);
+				komun_kop=rs.getInt(11);
+				prezioa=rs.getDouble(12);
+				Apartamentua a1= new Apartamentua(m2,solairua, ostatu_id, izena,herria, helbidea, postaKod,ostatu_mota, gela_kopuru, erreserba_kopuru,komun_kop,prezioa);
 				apartamentulista.add(a1);
 			}
 
@@ -226,6 +230,7 @@ public class Consultas {
 			int gela_kop=0;
 			int erreserba_kop=0;
 			int komun_kop = 0;
+			double prezioa;
 			
 			while (rs.next()) {
 				m2=rs.getDouble(1); 
@@ -238,7 +243,8 @@ public class Consultas {
 				gela_kop=rs.getInt(8);
 				erreserba_kop=rs.getInt(9);
 				komun_kop = rs.getInt(10);
-				Etxea e1 = new Etxea(m2, ostatu_id, izena, herria, helbidea, posta_kod, ostatu_mota,gela_kop, erreserba_kop, komun_kop);
+				prezioa= rs.getDouble(11);
+				Etxea e1 = new Etxea(m2, ostatu_id, izena, herria, helbidea, posta_kod, ostatu_mota,gela_kop, erreserba_kop, komun_kop,prezioa);
 				
 				etxelista.add(e1);
 				
@@ -404,14 +410,52 @@ public class Consultas {
 		return erabakia;
 	}
 
-	public static double logela_prezioa(int ostatu_id) {
+	public static double logelaPrezioaSuite(int ostatu_id) {
 		Connection conexion = modelo.Conexion.getConexion();
 	
 		double logela_prezioa=0;
 
 		try {
 			Statement s = conexion.createStatement();
-			String query = "SELECT MAX(prezioa) FROM gelamota_hotela gh, gelamota g where gh.gelaMota_gela_kodea=g.gela_kodea AND gh.hotela_hotel_kod="+ostatu_id;
+			String query = "SELECT prezioa FROM `hotelak_suite` WHERE ostatu_id ="+ostatu_id;
+			ResultSet rs = s.executeQuery(query);
+			while (rs.next()) {
+				logela_prezioa=rs.getDouble(1);
+				
+			}
+
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
+		}
+		return logela_prezioa;
+	}
+	public static double logelaPrezioaBikoitza(int ostatu_id) {
+		Connection conexion = modelo.Conexion.getConexion();
+	
+		double logela_prezioa=0;
+
+		try {
+			Statement s = conexion.createStatement();
+			String query = "SELECT prezioa FROM `hotelak_bikoitza` WHERE ostatu_id ="+ostatu_id;
+			ResultSet rs = s.executeQuery(query);
+			while (rs.next()) {
+				logela_prezioa=rs.getDouble(1);
+				
+			}
+
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
+		}
+		return logela_prezioa;
+	}
+	public static double logelaPrezioaBanakakoa(int ostatu_id) {
+		Connection conexion = modelo.Conexion.getConexion();
+	
+		double logela_prezioa=0;
+
+		try {
+			Statement s = conexion.createStatement();
+			String query = "SELECT prezioa FROM `hotelak_banakakoa` WHERE ostatu_id ="+ostatu_id;
 			ResultSet rs = s.executeQuery(query);
 			while (rs.next()) {
 				logela_prezioa=rs.getDouble(1);

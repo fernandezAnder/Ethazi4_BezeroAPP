@@ -127,7 +127,7 @@ public class P2_apartamentua extends JFrame {
 	public void filtroapart() {
 		
 		String[]columnas= {
-				"solairua", "ostatu_id", "izena", "herria", "helbidea", "postaKod", "ostatu_mota", "gela_kopuru", "erreserba_kopuru"
+				"m2","solairua", "ostatu_id", "izena", "herria", "helbidea", "postaKod", "ostatu_mota", "gela_kopuru", "erreserba_kopuru","komun_kop","prezioa"
 			};
 		DefaultTableModel t1= new DefaultTableModel(){
 
@@ -137,29 +137,32 @@ public class P2_apartamentua extends JFrame {
 
 		table.setModel(t1);
 
-		
-
-		 t1.addColumn("solairua");
-		 t1.addColumn("ostatu_id");
-		 t1.addColumn("izena");
-		 t1.addColumn("herria");
-		 t1.addColumn("helbidea");
-		 t1.addColumn("postaKod");
-		 t1.addColumn("ostatu_mota");
-		 t1.addColumn("gela_kopuru");
-		 t1.addColumn("erreserba_kopuru");
+		t1.addColumn("m2");
+		t1.addColumn("solairua");
+		t1.addColumn("ostatu_id");
+		t1.addColumn("izena");
+		t1.addColumn("herria");
+		t1.addColumn("helbidea");
+		t1.addColumn("postaKod");
+		t1.addColumn("ostatu_mota");
+		t1.addColumn("gela_kopuru");
+		t1.addColumn("erreserba_kopuru");
+		t1.addColumn("komun_kop");
+		t1.addColumn("prezioa");
 
 		for (Apartamentua e:apartlista) {
-					
-					columnas[0]=Integer.toString(e.getSolairua());
-					columnas[1]=Integer.toString(e.getOstatu_id());
-					columnas[2]=e.getIzena();
-					columnas[3]=e.getHerria();
-					columnas[4]=e.getHelbidea();
-					columnas[5]=Integer.toString(e.getPosta_kod());
-					columnas[6]=e.getOstatu_mota();
-					columnas[7]=Integer.toString( e.getGela_kop());
-					columnas[8]=Integer.toString(e.getErreserba_kop());
+					columnas[0]=Integer.toString(e.getM2());
+					columnas[1]=Integer.toString(e.getSolairua());
+					columnas[2]=Integer.toString(e.getOstatu_id());
+					columnas[3]=e.getIzena();
+					columnas[4]=e.getHerria();
+					columnas[5]=e.getHelbidea();
+					columnas[6]=Integer.toString(e.getPosta_kod());
+					columnas[7]=e.getOstatu_mota();
+					columnas[8]=Integer.toString( e.getGela_kop());
+					columnas[9]=Integer.toString(e.getErreserba_kop());
+					columnas[10]=Integer.toString(e.getKomun_kop());
+					columnas[11]=Double.toString(e.getPrezioa());
 					t1.addRow(columnas);	
 			}	
 

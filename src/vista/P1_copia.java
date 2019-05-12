@@ -1,34 +1,29 @@
 package vista;
 
+import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.Date;
 
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
+import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JRadioButton;
 import javax.swing.JTextField;
+import javax.swing.border.MatteBorder;
 
 import com.toedter.calendar.JDateChooser;
 
-import controlador.*;
-
-
 import controlador.Erreserba;
-import controlador.Hotela;
 import controlador.Metodoak;
-import java.awt.Color;
-import javax.swing.border.MatteBorder;
-import javax.swing.JRadioButton;
-import javax.swing.JCheckBox;
+import javafx.scene.control.ComboBox;
 
 
 public class P1_copia extends JFrame {
@@ -77,13 +72,18 @@ public class P1_copia extends JFrame {
 	private JLabel lblPais = new JLabel("HERRIA / HIRIA");
 	private JDateChooser sartzedata = new JDateChooser();
 	private JDateChooser irtetzedata = new JDateChooser();
-	
+	private JLabel label_3 = new JLabel("OSTATU MOTA");
 	private String fechaComoCadena="";
 	private String fechaComoCadena2="";
 	private JComboBox preziomin;
 	private JComboBox preziomax;
 	private JComboBox comboBox_pertsonakop;
-	
+	private JLabel lblPertsonaKopurua = new JLabel("PERTSONA KOPURUA");
+	private JLabel lblMax = new JLabel("Max:");
+	private JLabel lblMin = new JLabel("Min:");
+	private JLabel lblPrezioa = new JLabel("Prezioa:");
+	private JComboBox comboBox_5 = new JComboBox();
+	JLabel lblNewLabel_1 = new JLabel("AUKERATU NAHI DUZUNA");
 	
 	private String letra;
 	
@@ -92,7 +92,7 @@ public class P1_copia extends JFrame {
 	private String ohe_kops="";
 	private int ohe_kop=0;
 	private JLabel lblGauakgaua = new JLabel("CHECK-IN");
-
+	String gela_mota2;
 	private Metodoak m1;
 	//para poder hacer setVisible sin que se joda
 	private Metodoak metodos;
@@ -240,6 +240,8 @@ public class P1_copia extends JFrame {
 					if(eguna-eguna2!=0) {
 					if (letra_ostatu.equalsIgnoreCase("H")) {
 						letra=letra_ostatu;
+						gela_mota2=comboBox_gelamota.getSelectedItem().toString();
+						System.out.println(gela_mota2+": gelamota");
 						metodos.ostatu_motaHartu(letra);
 						metodos.bigarrenLehioaHotela();
 						metodos.filtroHotela();
@@ -342,7 +344,7 @@ public class P1_copia extends JFrame {
 		
 		contentPane.add(btnAurrera);
 		
-		JLabel lblPertsonaKopurua = new JLabel("PERTSONA KOPURUA");
+		
 		lblPertsonaKopurua.setFont(new Font("Arial Narrow", Font.BOLD, 16));
 		lblPertsonaKopurua.setBounds(29, 222, 171, 25);
 		contentPane.add(lblPertsonaKopurua);
@@ -356,12 +358,12 @@ public class P1_copia extends JFrame {
 
 		contentPane.add(comboBox_pertsonakop);
 		
-		JLabel label_3 = new JLabel("OSTATU MOTA");
+		
 		label_3.setFont(new Font("Arial Narrow", Font.BOLD, 16));
 		label_3.setBounds(374, 112, 125, 50);
 		contentPane.add(label_3);
 		
-		JComboBox comboBox_5 = new JComboBox();
+	
 		comboBox_5.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				 hostatu_mota=(String) comboBox_5.getSelectedItem();
@@ -395,22 +397,22 @@ public class P1_copia extends JFrame {
 		contentPane.add(comboBox_5);
 		comboBox_5.setModel(new DefaultComboBoxModel(new String[] {"","Hotela", "Apartamentua", "Etxea"}));
 		
-		JLabel lblNewLabel_1 = new JLabel("AUKERATU NAHI DUZUNA");
+		
 		lblNewLabel_1.setFont(new Font("Arial Narrow", Font.BOLD, 20));
 		lblNewLabel_1.setBounds(174, 34, 300, 41);
 		contentPane.add(lblNewLabel_1);
 		
-		JLabel lblPrezioa = new JLabel("Prezioa:");
+		
 		lblPrezioa.setFont(new Font("Arial Narrow", Font.BOLD, 16));
 		lblPrezioa.setBounds(478, 279, 66, 25);
 		contentPane.add(lblPrezioa);
 		
-		JLabel lblMax = new JLabel("Max:");
+		
 		lblMax.setFont(new Font("Arial Narrow", Font.BOLD, 16));
 		lblMax.setBounds(374, 313, 66, 25);
 		contentPane.add(lblMax);
 		
-		JLabel lblMin = new JLabel("Min:");
+		
 		lblMin.setFont(new Font("Arial Narrow", Font.BOLD, 16));
 		lblMin.setBounds(374, 363, 66, 25);
 		contentPane.add(lblMin);
@@ -643,7 +645,10 @@ public class P1_copia extends JFrame {
 			preziomin.addItem(pre_min.get(i));
 		}
 	}
-	
+	public String gelamota() {
+		
+		return gela_mota2;
+	}
 	public void gela_mota() {
 		comboBox_gelamota.addItem("");
 		comboBox_gelamota.addItem("Suite");

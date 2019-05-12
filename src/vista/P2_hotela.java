@@ -148,7 +148,7 @@ public class P2_hotela extends JFrame {
 	public void filtroHoteltA() {
 
 		String[]columnas= {
-				"izarkop", "ostatu_id", "izena", "herria", "helbidea", "postaKod", "ostatu_mota", "gela_kopuru", "erreserba_kopuru"
+				"izarkop", "ostatu_id", "izena", "herria", "helbidea", "postaKod", "ostatu_mota", "gela_kopuru", "erreserba_kopuru","mota","prezioa"
 			};
 		DefaultTableModel t1= new DefaultTableModel(){
 
@@ -168,8 +168,10 @@ public class P2_hotela extends JFrame {
 		 t1.addColumn("ostatu_mota");
 		 t1.addColumn("gela_kopuru");
 		 t1.addColumn("erreserba_kopuru");
+		 t1.addColumn("mota");
+		 t1.addColumn("prezioa");
 		for (Hotela e:hotelak) {
-					
+					System.out.println(e);
 					columnas[0]=Integer.toString(e.getIzarkop());
 					columnas[1]=Integer.toString(e.getOstatu_id());
 					columnas[2]=e.getIzena();
@@ -179,11 +181,13 @@ public class P2_hotela extends JFrame {
 					columnas[6]=e.getOstatu_mota();
 					columnas[7]=Integer.toString( e.getGela_kop());
 					columnas[8]=Integer.toString(e.getErreserba_kop());
+					columnas[9]=e.getMota();
+					columnas[10]=Double.toString(e.getPrezioa());
 					t1.addRow(columnas);	
 			}	
 
 		table.getColumnModel().getColumn(0).setPreferredWidth(77);
-		table.getColumnModel().getColumn(8).setPreferredWidth(107);
+		table.getColumnModel().getColumn(10).setPreferredWidth(107);
 		scrollPane.setViewportView(table);
 		
 			

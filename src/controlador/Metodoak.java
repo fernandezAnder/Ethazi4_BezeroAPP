@@ -193,7 +193,16 @@ public class Metodoak {
 		int logelakop=0;
 		double prezioa =0.0;
 		int hilabeteak=0;
-		prezioa = Consultas.logela_prezioa(p2hot.eramanaId());
+		String gelamota=p1cop.gelamota();
+		if (gelamota.equals("Suite")) {
+			prezioa=Consultas.logelaPrezioaSuite(p2hot.eramanaId());
+		}else if(gelamota.equals("Bikoitza")) {
+			prezioa=Consultas.logelaPrezioaBikoitza(p2hot.eramanaId());
+		}else if (gelamota.equals("Banakakoa")) {
+			prezioa=Consultas.logelaPrezioaBanakakoa(p2hot.eramanaId());
+		}
+		
+		System.out.println("PrezioOOOAAAAA: "+prezioa);
 	
 		logelakop=p1cop.ateraGelakop();
 		egunak=p1cop.diadif();
@@ -460,10 +469,17 @@ public class Metodoak {
 		String herria=p1cop.ateraHerria();
 		ArrayList<Hotela> hotelenlista= new ArrayList<Hotela>();
 		ArrayList<Hotela> hotelenlistaFiltro= new ArrayList<Hotela>();
-		// hotelendatuakBanakakoa()
-		// hotelendatuakBikoitza()
-		// hotelendatuakSuite()
-		hotelenlista=Consultas.hotelendatuakBanakakoa();
+
+		String gelamota=p1cop.gelamota();
+		if (gelamota.equals("Suite")) {
+			hotelenlista=Consultas.hotelendatuakSuite();	
+		}else if(gelamota.equals("Bikoitza")) {
+			hotelenlista=Consultas.hotelendatuakBikoitza();
+		}else if (gelamota.equals("Banakakoa")) {
+			hotelenlista=Consultas.hotelendatuakBanakakoa();
+		}
+		
+		
 		for (Hotela p:hotelenlista) {
 			if (p.getHerria().equalsIgnoreCase(herria)){
 				hotelenlistaFiltro.add(p);
@@ -675,11 +691,21 @@ public class Metodoak {
 		boolean erabakia = false;
 		ArrayList <Bezeroa> arraybezer = new ArrayList<Bezeroa>();
 		arraybezer=modelo.Consultas.ateraErabiltzaileak();
+		nan=getMD5(nan);
+		System.out.println("nananan: "+nan);
+		
 		pasahitza = getMD5(pasahitza);
+		System.out.println("pasahitza: "+pasahitza);
 		for (Bezeroa p : arraybezer) {
-			if (p.getDni().equals(nan) && p.getPasahitza().equals(pasahitza)) {
-				erabakia = true;
-				System.out.println(erabakia);
+			System.out.println("nan 2 : "+p.getDni());
+			System.out.println("pasahitza 2 : "+p.getPasahitza());
+			if (p.getDni().equals(nan)) {
+				System.out.println("nan berdina");
+				if (p.getPasahitza().equals(pasahitza)){
+					erabakia = true;
+					System.out.println(erabakia);
+				}
+				
 
 			}
 		}

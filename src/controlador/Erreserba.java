@@ -134,8 +134,8 @@ public class Erreserba {
 		
 		return
 				" \n"
-				+"                                                             BIDAI ON S.L.                        "+" \t\n"
-				+" **********************************************************************************************************************"+" \t\n"	
+				+"                        BIDAI ON S.L.                        "+" \t\n"
+				+" *******************************************************************************************"+" \t\n"	
 				+ ", ostatu_id=" + ostatu_id+" \t\n"
 				+ ", bezero_nan=" + bezero_nan+" \t"+ ", sartze_data=" + sartze_data+" \t\n" 
 				+ ", irtetze_data=" + irtetze_data+" \t" + ", pertsona_kop=" + pertsona_kop+" \t\n"
