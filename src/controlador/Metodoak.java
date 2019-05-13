@@ -48,18 +48,8 @@ public class Metodoak {
 	
 	public void kodea() {
 		String kodea="";
-		if(!kod_err1.equalsIgnoreCase("null")) {
-			kodea=kod_err1 +"-"+lo1.kodea_eraman();
-		}
-		if(kod_err1.equalsIgnoreCase("null")) {
-			kodea = lo1.kodea_eraman();
-			System.out.println(kodea);
-		}
-		
-		
-		if(tarifa.equalsIgnoreCase("Baxua")) {
-			kodea=kodea+"-"+"Temp_baja";
-		}
+		kod_err1= Consultas.promozioKod1(lo1.ateraNanMd5());
+		kodea=kod_err1+"-"+Consultas.promozioKod2(lo1.ateraNanMd5());
 		ord1.hartu_Kodea(kodea);
 		
 		

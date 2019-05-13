@@ -98,7 +98,6 @@ public class Login extends JFrame {
 				if (youshouldnotpass == true) {
 					metodos.hirugarrenLehioa();
 					 nana = textField.getText();
-					 ateraKodea3();
 					 metodos.kodea();
 					 metodos.logueatutabai(true);
 					 

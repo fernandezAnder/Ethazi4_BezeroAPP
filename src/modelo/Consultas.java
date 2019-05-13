@@ -299,7 +299,7 @@ public class Consultas {
 			}
 
 		} catch (SQLException e) {
-			System.out.println(e.getMessage());
+			System.out.println("Kod errorea1 "+e.getMessage());
 		}
 		return promozio_kod;
 	}
@@ -318,7 +318,7 @@ public class Consultas {
 			}
 
 		} catch (SQLException e) {
-			System.out.println(e.getMessage());
+			System.out.println("Kod errorea2 "+e.getMessage());
 		}
 		return promozio_kod;
 	}
