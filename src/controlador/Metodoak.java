@@ -47,10 +47,15 @@ public class Metodoak {
 	
 	
 	public void kodea() {
-		String kodea;
-		System.out.println("1. "+kod_err1);
-		kodea=kod_err1 +"-"+lo1.kodea_eraman();
-		System.out.println("4. "+kodea);
+		String kodea="";
+		if(!kod_err1.equalsIgnoreCase("null")) {
+			kodea=kod_err1 +"-"+lo1.kodea_eraman();
+		}
+		if(kod_err1.equalsIgnoreCase(null)) {
+			kodea = lo1.kodea_eraman();
+		}
+		
+		
 		if(tarifa.equalsIgnoreCase("Baxua")) {
 			kodea=kodea+"-"+"Temp_baja";
 		}
