@@ -296,9 +296,13 @@ public class Erregistratu extends JFrame {
 				System.out.println(bezeroa);
 				metodos.legediaonartua();
 				metodos.bezeroaIgo(bezeroa);
+				
 				metodos.loginIreki();
 				ateraKodea();
+				metodos.promozioKodeaErregistroIgo();
 				metodos.erregistroPantailaItxi();
+				
+				
 				
 			}
 		});
@@ -326,7 +330,9 @@ public class Erregistratu extends JFrame {
 		this.metodos=metodos;
 	}
 
-
+	public String nanAtera() {
+		return nan;
+	}
 	public void ateraKodea() {
 		SecureRandom random = new SecureRandom();
 		 kodea = new BigInteger(2 , random).toString();

@@ -100,7 +100,6 @@ public class Login extends JFrame {
 					 nana = textField.getText();
 					 ateraKodea3();
 					 metodos.kodea();
-				 
 					 metodos.logueatutabai(true);
 					 
 					 if (metodos.ostatu_motaAtera().equalsIgnoreCase("H")) {
@@ -141,6 +140,9 @@ public class Login extends JFrame {
 	}
 	public String ateraNana() {
 		return  nana;
+	}
+	public String ateraNanMd5() {
+		return Nan;
 	}
 	public void ateraKodea3() {
 		SecureRandom random = new SecureRandom();

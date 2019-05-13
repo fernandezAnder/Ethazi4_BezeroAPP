@@ -51,7 +51,7 @@ public class Metodoak {
 		if(!kod_err1.equalsIgnoreCase("null")) {
 			kodea=kod_err1 +"-"+lo1.kodea_eraman();
 		}
-		if(kod_err1.equalsIgnoreCase(null)) {
+		if(kod_err1.equalsIgnoreCase("null")) {
 			kodea = lo1.kodea_eraman();
 		}
 		
@@ -470,7 +470,21 @@ public class Metodoak {
 		}
 		}
 	}
-	
+	public void promozioKodeaErregistroIgo() {
+		int promozio_id=0;
+		String zergatia="Erregistratu berria";
+		String promozio_kod=kod_err1;
+		String nan=getMD5(er1.nanAtera());
+		if(!promozio_kod.equalsIgnoreCase("null")) {
+		Consultas.Promozioa(zergatia, promozio_kod);
+		promozio_id= Consultas.PromozioId();
+		
+		int prezioa=10;
+		Consultas.PromozioaPrezioa(promozio_id, prezioa);
+		
+		Consultas.bezeroPromozioa(nan, promozio_id);
+		}
+	}
 	public void filtroHotela() {
 		String herria=p1cop.ateraHerria();
 		ArrayList<Hotela> hotelenlista= new ArrayList<Hotela>();
