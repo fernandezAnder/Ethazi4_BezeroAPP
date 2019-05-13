@@ -208,12 +208,11 @@ public class Metodoak {
 			prezioa=Consultas.logelaPrezioaBanakakoa(p2hot.eramanaId());
 		}
 		
-		System.out.println("PrezioOOOAAAAA: "+prezioa);
+		
 	
 		logelakop=p1cop.ateraGelakop();
 		egunak=p1cop.diadif();
-		System.out.println(numero1);
-		System.out.println(numero2);
+		
 		ArrayList<java.sql.Date> jaiegunak= Consultas.jaiegunLista();
 		for (java.sql.Date jaiak :jaiegunak) {
 			
@@ -238,17 +237,13 @@ public class Metodoak {
 					tarifa = "Altua";
 					
 		}
-		System.out.println("logelakop "+logelakop);
-		System.out.println("prezioa: "+prezioa);
-		System.out.println("egunak "+egunak);
-		System.out.println("recargo1: "+recargo);
-		System.out.println("recargo2: "+recargo2);
+		
 		prezioa=logelakop*prezioa*egunak+recargo+recargo2;
 
 		
 		String diruaString = "";
 		
-		System.out.println("Dias "+egunak);
+		
 		diruaString=Double.toString(prezioa);
 		ord1.idatzi(diruaString);		
 	}
@@ -279,8 +274,7 @@ public class Metodoak {
 	
 		logelakop=p1cop.ateraGelakop();
 		egunak=p1cop.diadif();
-		System.out.println(numero1);
-		System.out.println(numero2);
+		
 		ArrayList<java.sql.Date> jaiegunak= Consultas.jaiegunLista();
 		for (java.sql.Date jaiak :jaiegunak) {
 			
@@ -304,17 +298,13 @@ public class Metodoak {
 					recargo=50.0;
 					tarifa = "Altua";
 		}
-		System.out.println("logelakop "+logelakop);
-		System.out.println("prezioa: "+prezioa);
-		System.out.println("egunak "+egunak);
-		System.out.println("recargo1: "+recargo);
-		System.out.println("recargo2: "+recargo2);
+		
 		prezioa=logelakop*prezioa*egunak+recargo+recargo2;
 
 		
 		String diruaString = "";
 		
-		System.out.println("Dias "+egunak);
+		
 		diruaString=Double.toString(prezioa);
 		ord1.idatzi(diruaString);	
 	}
@@ -343,8 +333,7 @@ public class Metodoak {
 	
 		logelakop=p1cop.ateraGelakop();
 		egunak=p1cop.diadif();
-		System.out.println(numero1);
-		System.out.println(numero2);
+		
 		ArrayList<java.sql.Date> jaiegunak= Consultas.jaiegunLista();
 		for (java.sql.Date jaiak :jaiegunak) {
 			
@@ -368,17 +357,13 @@ public class Metodoak {
 					recargo=50.0;
 					tarifa = "Altua";
 		}
-		System.out.println("logelakop "+logelakop);
-		System.out.println("prezioa: "+prezioa);
-		System.out.println("egunak "+egunak);
-		System.out.println("recargo1: "+recargo);
-		System.out.println("recargo2: "+recargo2);
+		
 		prezioa=logelakop*prezioa*egunak+recargo+recargo2;
 
 		
 		String diruaString = "";
 		
-		System.out.println("Dias "+egunak);
+		
 		diruaString=Double.toString(prezioa);
 		ord1.idatzi(diruaString);	
 	}
@@ -447,7 +432,21 @@ public class Metodoak {
 		Erreserba erreserba =new Erreserba(0, id , getMD5(lo1.ateraNana()), p1cop.ateraData1(), p1cop.ateraData2(), p1cop.ateraPertsonakop(), ord1.prezio_totala(), p1cop.ateraGelakop(), p1cop.ateraPentsio(), p1cop.ateraOheMota(), p1cop.ateraPertsonakop(), tarifa);
 		imprimatuTiketa(erreserba);
 		Consultas.txertatuErreserba(erreserba);
-		System.out.println(erreserba);
+		
+	}
+	public void erreserbaKopGehitu() {
+		int id =0;
+		String caracter = ostatu_motaAtera();
+		if(caracter.equalsIgnoreCase("H")) {
+			id =p2hot.eramanaId();
+		}
+		if(caracter.equalsIgnoreCase("A")) {
+			id = p2apart.bidaliId();			}
+		if(caracter.equalsIgnoreCase("E")) {
+			id = p2etxe.eramanaId();
+		}
+		System.out.println(id+" OSTATU ID");
+		Consultas.erreserbaKopGehitu(id);
 	}
 	public void erreserbaJaiegunBete() {
 		ArrayList<java.sql.Date> jaiegunak= Consultas.jaiegunLista();
