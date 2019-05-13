@@ -62,6 +62,7 @@ public class Erregistratu extends JFrame {
 	private String jaio_data;
 	private String sexua;
 	private Metodoak metodos;
+	private String zergatia;
 
 
 	@SuppressWarnings({ "rawtypes", "unchecked" })
@@ -330,9 +331,12 @@ public class Erregistratu extends JFrame {
 	public void ateraKodea() {
 		SecureRandom random = new SecureRandom();
 		 kodea = new BigInteger(2 , random).toString();
-		
+		zergatia = "Erregistratu Berria";
 	}
 	public String ateraKodea2() {
 		return kodea;
+	}
+	public String aterazergatia() {
+		return zergatia;
 	}
 }
