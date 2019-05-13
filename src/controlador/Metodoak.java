@@ -486,6 +486,15 @@ public class Metodoak {
 		Consultas.PromozioaPrezioa(promozio_id, prezioa);
 		
 		Consultas.bezeroPromozioa(nan, promozio_id);
+		if(tarifa.equalsIgnoreCase("Baxua")) {
+			Consultas.Promozioa("Denboraldi Baxua", "Temp_baja");
+			promozio_id= Consultas.PromozioId();
+			
+			int prezioa2=15;
+			Consultas.PromozioaPrezioa(promozio_id, prezioa2);
+			
+			Consultas.bezeroPromozioa(nan, promozio_id);
+			}
 		}
 	}
 	public void filtroHotela() {
