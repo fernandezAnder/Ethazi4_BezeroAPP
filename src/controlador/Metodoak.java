@@ -42,7 +42,7 @@ public class Metodoak {
 	private PruebScroll pr;
 	private String kod_err1 = "null";
 	//private p1cop_copia p1cop;
-	
+	private int promozio_id=0;
 	
 	
 	
@@ -442,10 +442,9 @@ public class Metodoak {
 			id = p2etxe.eramanaId();
 		}
 		String data1 = p1cop.ateraData1();
-		System.out.println(data1);
-		System.out.println(p1cop.ateraData1());
-		String promozio_kod=null;
-		Erreserba erreserba =new Erreserba(0, id , getMD5(lo1.ateraNana()), p1cop.ateraData1(), p1cop.ateraData2(), p1cop.ateraPertsonakop(), ord1.prezio_totala(), p1cop.ateraGelakop(), p1cop.ateraPentsio(), p1cop.ateraOheMota(), p1cop.ateraPertsonakop(), tarifa,promozio_kod);
+		
+		
+		Erreserba erreserba =new Erreserba(0, id , getMD5(lo1.ateraNana()), p1cop.ateraData1(), p1cop.ateraData2(), p1cop.ateraPertsonakop(), ord1.prezio_totala(), p1cop.ateraGelakop(), p1cop.ateraPentsio(), p1cop.ateraOheMota(), p1cop.ateraPertsonakop(), tarifa);
 		imprimatuTiketa(erreserba);
 		Consultas.txertatuErreserba(erreserba);
 		System.out.println(erreserba);
@@ -473,7 +472,7 @@ public class Metodoak {
 	}
 	public void promozioKodeaErregistroIgo() {
 		kod_err1=er1.ateraKodea2();
-		int promozio_id=0;
+		
 		String zergatia="Erregistratu berria";
 		String promozio_kod=kod_err1;
 		String nan=getMD5(er1.nanAtera());
@@ -875,7 +874,9 @@ public class Metodoak {
 		this.p1cop = p1cop;
 	}
 	
-	
+	public void setPromozioID(int promozioid) {
+		promozio_id=promozioid;
+	}
 	
 	
 

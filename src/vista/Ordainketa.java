@@ -53,9 +53,10 @@ public class Ordainketa extends JFrame {
 	private String[] parts;
 	private String zergatia;
 	private String kod_promozioa;
-	
-	int kont1=0;
-	int kont2=0;
+	private JLabel lblKodea = new JLabel("Kodea");
+	private JButton btnNewButton = new JButton("Gehitu kodea");
+	private int kont1=0;
+	private int kont2=0;
 	private double dirufalta=0.0;
 	private final JTextField textField_1 = new JTextField();
 	private String kodigo;
@@ -94,6 +95,7 @@ public class Ordainketa extends JFrame {
 		btnAmaitu.setFont(new Font("Arial Narrow", Font.BOLD, 20));
 		btnAmaitu.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				
 
 				metodos.recivirReserva();
 				metodos.erreserbaJaiegunBete();
@@ -303,11 +305,11 @@ public class Ordainketa extends JFrame {
 		getContentPane().add(textField_1);
 		
 		
-		JLabel lblKodea = new JLabel("Kodea");
+		
 		lblKodea.setBounds(315, 194, 46, 14);
 		getContentPane().add(lblKodea);
 		
-		JButton btnNewButton = new JButton("Gehitu kodea");
+		
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				kodigo = textField_1.getText();
