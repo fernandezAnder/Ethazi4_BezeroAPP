@@ -399,7 +399,7 @@ public class Ordainketa extends JFrame {
 		getContentPane().add(btnNewButton);
 		
 		 textArea = new JTextArea();
-		textArea.setBounds(24, 284, 116, 155);
+		textArea.setBounds(10, 284, 145, 155);
 		getContentPane().add(textArea);
 	}
 

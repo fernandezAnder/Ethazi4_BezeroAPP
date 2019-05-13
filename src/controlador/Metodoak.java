@@ -40,7 +40,7 @@ public class Metodoak {
 	private SimpleDateFormat format = new SimpleDateFormat("yyyy/MM/dd");
 	private String tarifa = "Baxua";
 	private PruebScroll pr;
-	private String kod_err1;
+	private String kod_err1 = "null";
 	//private p1cop_copia p1cop;
 	
 	
