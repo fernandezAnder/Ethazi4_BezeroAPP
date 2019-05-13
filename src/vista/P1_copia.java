@@ -79,9 +79,9 @@ public class P1_copia extends JFrame {
 	private JComboBox preziomax;
 	private JComboBox comboBox_pertsonakop;
 	private JLabel lblPertsonaKopurua = new JLabel("PERTSONA KOPURUA");
-	private JLabel lblMax = new JLabel("Max:");
-	private JLabel lblMin = new JLabel("Min:");
-	private JLabel lblPrezioa = new JLabel("Prezioa:");
+	private JLabel lblMax = new JLabel("MAX:");
+	private JLabel lblMin = new JLabel("MIN:");
+	private JLabel lblPrezioa = new JLabel("PREZIOA:");
 	private JComboBox comboBox_5 = new JComboBox();
 	JLabel lblNewLabel_1 = new JLabel("AUKERATU NAHI DUZUNA");
 	
@@ -107,7 +107,7 @@ public class P1_copia extends JFrame {
 	
 	
 	int ostatu_aukera=0;
-	private final JLabel lblZerbitzuGehigarriak = new JLabel("Zerbitzu gehigarriak:");
+	private final JLabel lblZerbitzuGehigarriak = new JLabel("ZERBITZU GEHIGARRIAK:");
 	private JLabel lblGelaMota;
 	
 	public P1_copia(ArrayList<String> herriak) {
@@ -358,7 +358,7 @@ public class P1_copia extends JFrame {
 		
 		contentPane.add(comboBox_gelakop);
 		lblOheMota.setFont(new Font("Arial Narrow", Font.BOLD, 16));
-		lblOheMota.setBounds(374, 177, 89, 14);
+		lblOheMota.setBounds(471, 177, 89, 14);
 		
 		contentPane.add(lblOheMota);
 		comboBox_ohemota.addActionListener(new ActionListener() {
@@ -367,11 +367,11 @@ public class P1_copia extends JFrame {
 			}
 		});
 		comboBox_ohemota.setModel(new DefaultComboBoxModel(new String[] {"", "Banakakoa", "Bikoitza", "Umeena"}));
-		comboBox_ohemota.setBounds(541, 176, 94, 20);
+		comboBox_ohemota.setBounds(607, 176, 94, 20);
 		
 		contentPane.add(comboBox_ohemota);
 		btnAurrera.setFont(new Font("Arial Narrow", Font.BOLD, 16));
-		btnAurrera.setBounds(576, 427, 125, 39);
+		btnAurrera.setBounds(521, 475, 180, 69);
 		
 		contentPane.add(btnAurrera);
 		
@@ -391,7 +391,7 @@ public class P1_copia extends JFrame {
 		
 		
 		label_3.setFont(new Font("Arial Narrow", Font.BOLD, 16));
-		label_3.setBounds(374, 112, 125, 50);
+		label_3.setBounds(472, 112, 125, 50);
 		contentPane.add(label_3);
 		
 	
@@ -424,32 +424,32 @@ public class P1_copia extends JFrame {
 				}
 			}
 		});
-		comboBox_5.setBounds(541, 129, 94, 20);
+		comboBox_5.setBounds(607, 129, 94, 20);
 		contentPane.add(comboBox_5);
 		comboBox_5.setModel(new DefaultComboBoxModel(new String[] {"","Hotela", "Apartamentua", "Etxea"}));
 		
 		
 		lblNewLabel_1.setFont(new Font("Arial Narrow", Font.BOLD, 20));
-		lblNewLabel_1.setBounds(174, 34, 300, 41);
+		lblNewLabel_1.setBounds(232, 32, 222, 41);
 		contentPane.add(lblNewLabel_1);
 		
 		
 		lblPrezioa.setFont(new Font("Arial Narrow", Font.BOLD, 16));
-		lblPrezioa.setBounds(478, 279, 66, 25);
+		lblPrezioa.setBounds(471, 279, 66, 25);
 		contentPane.add(lblPrezioa);
 		
 		
 		lblMax.setFont(new Font("Arial Narrow", Font.BOLD, 16));
-		lblMax.setBounds(374, 313, 66, 25);
+		lblMax.setBounds(471, 313, 66, 25);
 		contentPane.add(lblMax);
 		
 		
 		lblMin.setFont(new Font("Arial Narrow", Font.BOLD, 16));
-		lblMin.setBounds(374, 363, 66, 25);
+		lblMin.setBounds(471, 359, 66, 25);
 		contentPane.add(lblMin);
 		
 		 preziomax = new JComboBox();
-		preziomax.setBounds(461, 317, 94, 20);
+		preziomax.setBounds(607, 317, 94, 20);
 		contentPane.add(preziomax);
 		precio_max();
 		 preziomax.addActionListener(new ActionListener() {
@@ -466,11 +466,11 @@ public class P1_copia extends JFrame {
 		 		 minimo = (Double) preziomin.getSelectedItem();
 		 	}
 		 });
-		preziomin.setBounds(461, 367, 94, 20);
+		preziomin.setBounds(607, 363, 94, 20);
 		contentPane.add(preziomin);
 		precio_min();
 		lblZerbitzuGehigarriak.setFont(new Font("Arial Narrow", Font.BOLD, 16));
-		lblZerbitzuGehigarriak.setBounds(39, 404, 149, 25);
+		lblZerbitzuGehigarriak.setBounds(39, 404, 180, 25);
 		
 		contentPane.add(lblZerbitzuGehigarriak);
 			/******Radio piscina*****/
@@ -547,17 +547,17 @@ public class P1_copia extends JFrame {
 		 		
 		 	}
 		 });
-		chckbxNewCheckBox.setBounds(176, 406, 26, 23);
+		chckbxNewCheckBox.setBounds(232, 404, 26, 23);
 		contentPane.add(chckbxNewCheckBox);
 		
-		lblGelaMota = new JLabel("Gela Mota");
+		lblGelaMota = new JLabel("GELA MOTA");
 		lblGelaMota.setFont(new Font("Arial Narrow", Font.BOLD, 16));
-		lblGelaMota.setBounds(374, 229, 89, 14);
+		lblGelaMota.setBounds(471, 227, 89, 14);
 		contentPane.add(lblGelaMota);
 		
 		comboBox_gelamota = new JComboBox();
 		
-		comboBox_gelamota.setBounds(461, 226, 94, 20);
+		comboBox_gelamota.setBounds(607, 226, 94, 20);
 		contentPane.add(comboBox_gelamota);
 		gela_mota();
 		comboBox_gelamota.addActionListener(new ActionListener() {
