@@ -438,7 +438,8 @@ public class Metodoak {
 		String data1 = p1cop.ateraData1();
 		System.out.println(data1);
 		System.out.println(p1cop.ateraData1());
-		Erreserba erreserba =new Erreserba(0, id , getMD5(lo1.ateraNana()), p1cop.ateraData1(), p1cop.ateraData2(), p1cop.ateraPertsonakop(), ord1.prezio_totala(), p1cop.ateraGelakop(), p1cop.ateraPentsio(), p1cop.ateraOheMota(), p1cop.ateraPertsonakop(), tarifa);
+		String promozio_kod=null;
+		Erreserba erreserba =new Erreserba(0, id , getMD5(lo1.ateraNana()), p1cop.ateraData1(), p1cop.ateraData2(), p1cop.ateraPertsonakop(), ord1.prezio_totala(), p1cop.ateraGelakop(), p1cop.ateraPentsio(), p1cop.ateraOheMota(), p1cop.ateraPertsonakop(), tarifa,promozio_kod);
 		imprimatuTiketa(erreserba);
 		Consultas.txertatuErreserba(erreserba);
 		System.out.println(erreserba);

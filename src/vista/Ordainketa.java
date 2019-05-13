@@ -19,7 +19,7 @@ import javax.swing.border.EmptyBorder;
 
 import controlador.Contador;
 
-import controlador.DatuBiltegia;
+
 import controlador.Erreserba;
 
 import controlador.Metodoak;
