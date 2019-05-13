@@ -292,7 +292,7 @@ public class Erregistratu extends JFrame {
 		//Jarraitu Botoiak egiten duena
 		Jarraitu.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				dispose();
+				
 				Bezeroa bezeroa =new Bezeroa(metodos.getMD5(nan),izena2,abizena,pasahitza,jaio_data);
 				System.out.println(bezeroa);
 				metodos.legediaonartua();
@@ -300,8 +300,9 @@ public class Erregistratu extends JFrame {
 				
 				metodos.loginIreki();
 				ateraKodea();
-				metodos.erregistroPantailaItxi();
 				metodos.promozioKodeaErregistroIgo();
+				metodos.erregistroPantailaItxi();
+				dispose();
 				
 				
 			}

@@ -425,7 +425,7 @@ public class Metodoak {
 		pr.terminos();
 		}
 	public void erregistroPantailaItxi() {
-		kod_err1=er1.ateraKodea2();
+		
 		er1.dispose();
 		er1 = new Erregistratu();
 		er1.setVisible(false);
@@ -472,10 +472,12 @@ public class Metodoak {
 		}
 	}
 	public void promozioKodeaErregistroIgo() {
+		kod_err1=er1.ateraKodea2();
 		int promozio_id=0;
 		String zergatia="Erregistratu berria";
 		String promozio_kod=kod_err1;
 		String nan=getMD5(er1.nanAtera());
+		System.out.println("nan atera: "+nan);
 		if(!promozio_kod.equalsIgnoreCase("null")) {
 		Consultas.Promozioa(zergatia, promozio_kod);
 		promozio_id= Consultas.PromozioId();
