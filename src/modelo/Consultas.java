@@ -510,11 +510,13 @@ public class Consultas {
 	}
 	public static void bezeroPromozioa(String nan, int promozio_id) {
 		Connection conexion = modelo.Conexion.getConexion();
-		
+		System.out.println(nan);
 		try {
 			PreparedStatement s = (PreparedStatement) conexion.prepareStatement(
-					"INSERT INTO `bezeroa_promozioa`(`bezeroa_nan`, `promozio_id`) VALUES ("+"'"+nan+"'"+", "+promozio_id+")");
-			
+					"INSERT INTO `bezeroa_promozioa`(`bezeroa_nan`, `promozio_id`) "
+					+ "VALUES (? ,?)");
+			s.setString(1, nan);
+			s.setInt(2, promozio_id);
 			s.executeUpdate();
 			s.close();
 

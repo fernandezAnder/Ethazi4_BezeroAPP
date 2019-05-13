@@ -300,9 +300,8 @@ public class Erregistratu extends JFrame {
 				
 				metodos.loginIreki();
 				ateraKodea();
-				metodos.promozioKodeaErregistroIgo();
 				metodos.erregistroPantailaItxi();
-				
+				metodos.promozioKodeaErregistroIgo();
 				
 				
 			}
