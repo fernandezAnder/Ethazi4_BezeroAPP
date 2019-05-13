@@ -14,10 +14,10 @@ public class Erreserba {
 	private String ohe_mota;
 	private int ohe_kop;
 	private String tarifa_denboraldia;
-	
+	private String promozio_kod;
 	public Erreserba(int erreserba_kod, int ostatu_id, String bezero_nan, String sartze_data, String irtetze_data,
 			int pertsona_kop, double prezio_totala, int erreserba_gela_kop, String pentsio_mota, String ohe_mota,
-			int ohe_kop, String tarifa_denboraldia) {
+			int ohe_kop, String tarifa_denboraldia,String promozio_kod) {
 		
 		this.erreserba_kod = erreserba_kod;
 		this.ostatu_id = ostatu_id;
@@ -31,6 +31,7 @@ public class Erreserba {
 		this.ohe_mota = ohe_mota;
 		this.ohe_kop = ohe_kop;
 		this.tarifa_denboraldia = tarifa_denboraldia;
+		this.promozio_kod=promozio_kod;
 	}
 
 	public int getErreserba_kod() {
@@ -128,6 +129,15 @@ public class Erreserba {
 	public void setTarifa_denboraldia(String tarifa_denboraldia) {
 		this.tarifa_denboraldia = tarifa_denboraldia;
 	}
+	
+
+	public String getPromozio_kod() {
+		return promozio_kod;
+	}
+
+	public void setPromozio_kod(String promozio_kod) {
+		this.promozio_kod = promozio_kod;
+	}
 
 	@Override
 	public String toString() {
@@ -141,7 +151,7 @@ public class Erreserba {
 				+ ", irtetze_data=" + irtetze_data+" \t" + ", pertsona_kop=" + pertsona_kop+" \t\n"
 				+ ", prezio_totala=" + prezio_totala+" \t" + ", erreserba_gela_kop=" + erreserba_gela_kop+" \t\n"
 				+ ", pentsio_mota="+ pentsio_mota+" \t" + ", ohe_mota=" + ohe_mota+" \t\n"
-				+ ", ohe_kop=" + ohe_kop+" \t" + ", tarifa_denboraldia="+ tarifa_denboraldia;
+				+ ", ohe_kop=" + ohe_kop+" \t" + ", tarifa_denboraldia="+ tarifa_denboraldia+" \t"+", promozio_kod= "+promozio_kod;
 	}
 	
 	

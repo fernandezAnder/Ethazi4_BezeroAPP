@@ -508,4 +508,72 @@ public class Consultas {
 	public void misMetodos(Metodoak metodos) {
 		this.metodos=metodos;
 	}
+	public static void bezeroPromozioa(String nan, int promozio_id) {
+		Connection conexion = modelo.Conexion.getConexion();
+		
+		try {
+			PreparedStatement s = (PreparedStatement) conexion.prepareStatement(
+					"INSERT INTO `bezeroa_promozioa`(`bezeroa_nan`, `promozio_id`) VALUES ("+"'"+nan+"'"+", "+promozio_id+")");
+			
+			s.executeUpdate();
+			s.close();
+
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+
+	}
+	public static void Promozioa(String zergatia, String promozio_kod) {
+		Connection conexion = modelo.Conexion.getConexion();
+		
+		try {
+			PreparedStatement s = (PreparedStatement) conexion.prepareStatement(
+					"INSERT INTO `promozioa`( `promozio_zergatia`, `promozio_kodea`) "
+					+ "VALUES (?, ?)");
+			s.setString(1, zergatia);
+			s.setString(2, promozio_kod);
+			s.executeUpdate();
+			s.close();
+
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+
+	}
+	public static void PromozioaPrezioa(int promozio_id, int prezioa) {
+		Connection conexion = modelo.Conexion.getConexion();
+		
+		try {
+			PreparedStatement s = (PreparedStatement) conexion.prepareStatement(
+					"INSERT INTO `promozio_prezioa`(`prom_prez_kod`, `promozio_prez`) "
+					+ "VALUES (?, ?)");
+			s.setInt(1, promozio_id);
+			s.setInt(2, prezioa);
+			s.executeUpdate();
+			s.close();
+
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+
+	}
+	public static int PromozioId() {
+		Connection conexion = modelo.Conexion.getConexion();
+	
+		
+		int promozio_id=0;
+		try {
+			Statement s = conexion.createStatement();
+			String query = "SELECT MAX(promozio_id) FROM promozioa";
+			ResultSet rs = s.executeQuery(query);
+			while (rs.next()) {
+				promozio_id=rs.getInt(1);
+				
+			}
+
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
+		}
+		return promozio_id;
+	}
 }

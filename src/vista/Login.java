@@ -31,7 +31,6 @@ public class Login extends JFrame {
 	private String nana;
 	private JLabel lblNewLabel;
 	private Metodoak metodos;
-	private JTextField txtCodigo;
 	private String kodea;
 
 	/**
@@ -90,14 +89,6 @@ public class Login extends JFrame {
 		 lblNewLabel = new JLabel("");
 		lblNewLabel.setBounds(109, 418, 201, 14);
 		getContentPane().add(lblNewLabel);
-		
-		txtCodigo = new JTextField();
-		txtCodigo.setEnabled(false);
-		txtCodigo.setEditable(false);
-		txtCodigo.setText("Codigo promocional por estar registrado: JCK");
-		txtCodigo.setBounds(90, 418, 314, 32);
-		getContentPane().add(txtCodigo);
-		txtCodigo.setColumns(10);
 		btnSartu.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				// botoiaren kodea
@@ -109,7 +100,6 @@ public class Login extends JFrame {
 					 nana = textField.getText();
 					 ateraKodea3();
 					 metodos.kodea();
-				 
 					 metodos.logueatutabai(true);
 					 
 					 if (metodos.ostatu_motaAtera().equalsIgnoreCase("H")) {
@@ -150,6 +140,9 @@ public class Login extends JFrame {
 	}
 	public String ateraNana() {
 		return  nana;
+	}
+	public String ateraNanMd5() {
+		return Nan;
 	}
 	public void ateraKodea3() {
 		SecureRandom random = new SecureRandom();

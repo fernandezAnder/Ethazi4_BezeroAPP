@@ -40,17 +40,23 @@ public class Metodoak {
 	private SimpleDateFormat format = new SimpleDateFormat("yyyy/MM/dd");
 	private String tarifa = "Baxua";
 	private PruebScroll pr;
-	private String kod_err1;
+	private String kod_err1 = "null";
 	//private p1cop_copia p1cop;
 	
 	
 	
 	
 	public void kodea() {
-		String kodea;
-		System.out.println("1. "+kod_err1);
-		kodea=kod_err1 +"-"+lo1.kodea_eraman();
-		System.out.println("4. "+kodea);
+		String kodea="";
+		if(!kod_err1.equalsIgnoreCase("null")) {
+			kodea=kod_err1 +"-"+lo1.kodea_eraman();
+		}
+		if(kod_err1.equalsIgnoreCase("null")) {
+			kodea = lo1.kodea_eraman();
+			System.out.println(kodea);
+		}
+		
+		
 		if(tarifa.equalsIgnoreCase("Baxua")) {
 			kodea=kodea+"-"+"Temp_baja";
 		}
@@ -438,7 +444,8 @@ public class Metodoak {
 		String data1 = p1cop.ateraData1();
 		System.out.println(data1);
 		System.out.println(p1cop.ateraData1());
-		Erreserba erreserba =new Erreserba(0, id , getMD5(lo1.ateraNana()), p1cop.ateraData1(), p1cop.ateraData2(), p1cop.ateraPertsonakop(), ord1.prezio_totala(), p1cop.ateraGelakop(), p1cop.ateraPentsio(), p1cop.ateraOheMota(), p1cop.ateraPertsonakop(), tarifa);
+		String promozio_kod=null;
+		Erreserba erreserba =new Erreserba(0, id , getMD5(lo1.ateraNana()), p1cop.ateraData1(), p1cop.ateraData2(), p1cop.ateraPertsonakop(), ord1.prezio_totala(), p1cop.ateraGelakop(), p1cop.ateraPentsio(), p1cop.ateraOheMota(), p1cop.ateraPertsonakop(), tarifa,promozio_kod);
 		imprimatuTiketa(erreserba);
 		Consultas.txertatuErreserba(erreserba);
 		System.out.println(erreserba);
@@ -464,7 +471,21 @@ public class Metodoak {
 		}
 		}
 	}
-	
+	public void promozioKodeaErregistroIgo() {
+		int promozio_id=0;
+		String zergatia="Erregistratu berria";
+		String promozio_kod=kod_err1;
+		String nan=getMD5(er1.nanAtera());
+		if(!promozio_kod.equalsIgnoreCase("null")) {
+		Consultas.Promozioa(zergatia, promozio_kod);
+		promozio_id= Consultas.PromozioId();
+		
+		int prezioa=10;
+		Consultas.PromozioaPrezioa(promozio_id, prezioa);
+		
+		Consultas.bezeroPromozioa(nan, promozio_id);
+		}
+	}
 	public void filtroHotela() {
 		String herria=p1cop.ateraHerria();
 		ArrayList<Hotela> hotelenlista= new ArrayList<Hotela>();

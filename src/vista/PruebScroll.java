@@ -79,7 +79,7 @@ import java.awt.event.ActionEvent;
 			String linea = leer.readLine();
 			while(cont<=101) {
 
- 				System.out.println(linea);
+ 				
 				jt.append(linea+"\n");
 				linea = leer.readLine();
 				cont++;

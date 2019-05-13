@@ -3,6 +3,7 @@ package vista;
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
 import java.awt.Font;
+import java.awt.TextArea;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyAdapter;
@@ -19,7 +20,7 @@ import javax.swing.border.EmptyBorder;
 
 import controlador.Contador;
 
-import controlador.DatuBiltegia;
+
 import controlador.Erreserba;
 
 import controlador.Metodoak;
@@ -45,11 +46,13 @@ public class Ordainketa extends JFrame {
 	private Metodoak metodos;
 	private String precio="0";
 	private int precioo=0;
-	private JTextField textField;
+	private JTextField textField ;
 	private boolean descuento;
-	private JTextArea textArea ;
+	private JTextArea textArea  = new JTextArea(); ;
 	private String katea;
 	private String[] parts;
+	private String zergatia;
+	private String kod_promozioa;
 	
 	int kont1=0;
 	int kont2=0;
@@ -103,8 +106,11 @@ public class Ordainketa extends JFrame {
 			}
 		});
 		getContentPane().add(btnAmaitu);
+		textArea.setEditable(false);
 
-
+		
+		textArea.setBounds(10, 284, 156, 155);
+		getContentPane().add(textArea);
 
 
 		//TEXTUA SARTZEKO DIRUA
@@ -296,6 +302,7 @@ public class Ordainketa extends JFrame {
 		
 		getContentPane().add(textField_1);
 		
+		
 		JLabel lblKodea = new JLabel("Kodea");
 		lblKodea.setBounds(315, 194, 46, 14);
 		getContentPane().add(lblKodea);
@@ -311,16 +318,31 @@ public class Ordainketa extends JFrame {
 					if(kodigo.equalsIgnoreCase(parts[0])) {
 						double descontua=zbk*0.1;
 						zbk=zbk-descontua;
+						mandarDirus(zbk);
+						btnNewButton.setEnabled(false);
+						textField_1.setEditable(false);
+						 zergatia = "Erregistratu Berria";
+						 kod_promozioa = textField_1.getText();
 						
 					}
 					if(kodigo.equalsIgnoreCase(parts[1])) {
 						double descontua=zbk*0.05;
 						zbk=zbk-descontua;
+						mandarDirus(zbk);
+						btnNewButton.setEnabled(false);
+						textField_1.setEditable(false);
+						zergatia = "Logueatuta";
+						 kod_promozioa = textField_1.getText();
 						
 					}
 					if(kodigo.equalsIgnoreCase(parts[2])) {
 						double descontua=zbk*0.15;
 						zbk=zbk-descontua;
+						mandarDirus(zbk);
+						btnNewButton.setEnabled(false);
+						textField_1.setEditable(false);
+						zergatia = "Denboraldi Baxua";
+						 kod_promozioa = textField_1.getText();
 						}
 					}
 				
@@ -328,45 +350,72 @@ public class Ordainketa extends JFrame {
 					if(kodigo.equalsIgnoreCase(parts[0])) {
 						double descontua=zbk*0.05;
 						zbk=zbk-descontua;
+						mandarDirus(zbk);
+						btnNewButton.setEnabled(false);
+						textField_1.setEditable(false);
+						if(parts[1].equalsIgnoreCase("Temp_Baja")) {
+							zergatia = "Logueatuta";
+							kod_promozioa = textField_1.getText();
+							}
+						else {
+							zergatia = "Erregistratu Berria";
+							kod_promozioa = textField_1.getText();
+							}
+						
 						}
 					if(kodigo.equalsIgnoreCase(parts[1])) {
 						double descontua=zbk*0.15;
 						zbk=zbk-descontua;
+						mandarDirus(zbk);
+						btnNewButton.setEnabled(false);
+						textField_1.setEditable(false);
+						if(kodigo.equalsIgnoreCase("Temp_baja")) {
+							zergatia = "Denboraldi Baxua";
+							kod_promozioa = textField_1.getText();
+						}
+						else {
+						zergatia = "Erregistratu Berria";
+						kod_promozioa = textField_1.getText();
 						}
 					
+					}
 				}
 				if(parts.length==1) {
 					if(kodigo.equalsIgnoreCase(parts[0])) {
 						double descontua=zbk*0.05;
 						zbk=zbk-descontua;
+						mandarDirus(zbk);
+						btnNewButton.setEnabled(false);
+						textField_1.setEditable(false);
+						zergatia = "Logueatuta";
+						kod_promozioa = textField_1.getText();
 						}
 					
 					
 				}
-				
-				
-					mandarDirus(zbk);
-					btnNewButton.setEnabled(false);
-					textField_1.setEditable(false);
-					
-					
-					
-				
 			}
+				
+				
+					
+					
+					
+					
+						
+			
+			
 		});
 		btnNewButton.setBounds(408, 210, 136, 23);
 		getContentPane().add(btnNewButton);
 		
-		 textArea = new JTextArea();
-		textArea.setBounds(24, 284, 116, 155);
-		getContentPane().add(textArea);
+		
+	}
 
 
 
 
 
 
-}
+
 
 
 
@@ -396,7 +445,7 @@ public class Ordainketa extends JFrame {
 public double prezio_totala() {
 	return prezioa;
 }
-public void mandarDirus(double dirusa) {
+public void mandarDirus (double dirusa) {
 	String dirua = Double.toString(dirusa);
 	textField.setText(dirua);
 }
@@ -421,29 +470,78 @@ public void idatzi(String textua) {
 		 String textarea = "";
 		 System.out.println("LLgemaos a la ultima: "+katea);
 		  parts = katea.split("-");
-		 for(int i=0;i<parts.length;i++) {
-			 if(i==0){
-			 if(!parts[0].equalsIgnoreCase("null")) {
-				 textarea=parts[0]+" %10 Deskotua"+"\n";
-				 textArea.setText(textarea);
-			 }}
-			 if(i==1) {
-				 if(!parts[0].equalsIgnoreCase("null")) {
-					 textarea=textarea+"\n"+parts[1]+" %5 Deskotua";
-					 textArea.setText(textarea);
-				 }
-				 else {
-					 textarea=parts[1]+" %5 Deskotua";
-					 textArea.setText(textarea);
-				 }
+		 
+			 if(parts.length==3) {
+				 textarea=parts[0]+" %10 Deskontua"+"\n"+parts[1]+" %5 Deskontua"+"\n"+parts[2]+" %15 Deskontua ";
 			 }
+			 if(parts.length==2) {
+				if(parts[1].equalsIgnoreCase("Temp_baja")) {
+					textarea=parts[0]+" %5 Deskontua"+"\n"+parts[1]+" %15 Deskontua ";
+				}
+				else {
+					textarea=parts[0]+" %10 Deskontua"+"\n"+parts[1]+" %5 Deskontua ";
+				}
+			 }
+			 if(parts.length==1) {
+					if(parts[1].equalsIgnoreCase("Temp_baja")) {
+						textarea=parts[0]+" %5 Deskontua";
+					}
+					
+				 }
+			 textArea.setText(textarea);
 			 
-			 if(i==2) {
-			 if(parts[2].equalsIgnoreCase("Temp_baja")) {
-				 textarea=textarea+"\n"+parts[2]+" %15 Deskotua";
-			 	 textArea.setText(textarea);}}
-			 		 
-		 }
+			 
+			 
+			 
+//			 if(i==0){
+//			 if(!parts[0].equalsIgnoreCase("null")) {
+//				 textarea=parts[0]+" %10 Deskontua"+"\n";
+//				 textArea.setText(textarea);
+//			 }}
+//			 if(i==1) {
+//				 if(!parts[0].equalsIgnoreCase("null")) {
+//					 textarea=textarea+"\n"+parts[1]+" %5 Deskontua";
+//					 textArea.setText(textarea);
+//				 }
+//				 else {
+//					 textarea=parts[1]+" %5 Deskontua";
+//					 textArea.setText(textarea);
+//				 }
+//			 }
+//			 
+//			 if(i==2) {
+//			 if(parts[2].equalsIgnoreCase("Temp_baja")) {
+//				 textarea=textarea+"\n"+parts[2]+" %15 Deskontua";
+//			 	 textArea.setText(textarea);}}
+		 		
+			 
+			 
+			 
+			 
+			 
+			 
+			 
+			 
+			 
+			 
+			 
+			 
+			 
+			 
+			 
+			 
+		 	
+		 
 		 
 	}
-}
+	
+	
+	public String zergatia() {
+		return zergatia;
+	}
+	public String kod_zenb() {
+		return kod_promozioa;
+	}
+			}
+	
+

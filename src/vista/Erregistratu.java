@@ -62,6 +62,7 @@ public class Erregistratu extends JFrame {
 	private String jaio_data;
 	private String sexua;
 	private Metodoak metodos;
+	private String zergatia;
 
 
 	@SuppressWarnings({ "rawtypes", "unchecked" })
@@ -296,9 +297,13 @@ public class Erregistratu extends JFrame {
 				System.out.println(bezeroa);
 				metodos.legediaonartua();
 				metodos.bezeroaIgo(bezeroa);
+				
 				metodos.loginIreki();
 				ateraKodea();
+				metodos.promozioKodeaErregistroIgo();
 				metodos.erregistroPantailaItxi();
+				
+				
 				
 			}
 		});
@@ -326,13 +331,18 @@ public class Erregistratu extends JFrame {
 		this.metodos=metodos;
 	}
 
-
+	public String nanAtera() {
+		return nan;
+	}
 	public void ateraKodea() {
 		SecureRandom random = new SecureRandom();
 		 kodea = new BigInteger(2 , random).toString();
-		
+		zergatia = "Erregistratu Berria";
 	}
 	public String ateraKodea2() {
 		return kodea;
+	}
+	public String aterazergatia() {
+		return zergatia;
 	}
 }
