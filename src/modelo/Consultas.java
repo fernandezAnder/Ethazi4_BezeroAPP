@@ -284,9 +284,10 @@ public class Consultas {
 
 		
 	}
-	public static String promozioKod1(String nan) {
+	public static String[] promozioKod1(String nan) {
 		Connection conexion = modelo.Conexion.getConexion();
-		String promozio_kod="";
+		String [] promozio_kod=new String[3];
+		int kont =0;
 		try {
 			Statement s = conexion.createStatement();
 			String query = ("SELECT promozioa.promozio_kodea FROM promozioa, bezeroa, bezeroa_promozioa\r\n" + 
@@ -295,7 +296,8 @@ public class Consultas {
 					"AND bezeroa.nan like '"+nan+"'");
 			ResultSet rs = s.executeQuery(query);
 			while (rs.next()) {
-				promozio_kod=rs.getString(1);
+				promozio_kod[kont]=rs.getString(1);
+				kont++;
 			}
 
 		} catch (SQLException e) {

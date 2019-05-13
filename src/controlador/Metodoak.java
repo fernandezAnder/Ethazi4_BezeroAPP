@@ -48,8 +48,13 @@ public class Metodoak {
 	
 	public void kodea() {
 		String kodea="";
-		kod_err1= Consultas.promozioKod1(lo1.ateraNanMd5());
-		kodea=kod_err1+"-"+Consultas.promozioKod2(lo1.ateraNanMd5());
+		String nana = lo1.ateraNanMd5();
+		String [] promozio_array = new String[3];
+		promozio_array= Consultas.promozioKod1(nana);
+		kodea = promozio_array[0]+"-"+promozio_array[1];
+		System.out.println("Kodea: "+kod_err1);
+		
+		//kodea=kod_err1+"-"+Consultas.promozioKod2(nana);
 		ord1.hartu_Kodea(kodea);
 		
 		
