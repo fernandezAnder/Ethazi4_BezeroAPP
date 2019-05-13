@@ -323,6 +323,9 @@ public class Ordainketa extends JFrame {
 					if(kodigo.equalsIgnoreCase(parts[1])) {
 						double descontua=zbk*0.05;
 						zbk=zbk-descontua;
+						mandarDirus(zbk);
+						btnNewButton.setEnabled(false);
+						textField_1.setEditable(false);
 						zergatia = "Logueatuta";
 						 kod_promozioa = textField_1.getText();
 						
