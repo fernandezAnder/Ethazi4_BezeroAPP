@@ -284,6 +284,44 @@ public class Consultas {
 
 		
 	}
+	public static String promozioKod1(String nan) {
+		Connection conexion = modelo.Conexion.getConexion();
+		String promozio_kod="";
+		try {
+			Statement s = conexion.createStatement();
+			String query = ("SELECT promozioa.promozio_kodea FROM promozioa, bezeroa, bezeroa_promozioa\r\n" + 
+					"WHERE bezeroa.nan = bezeroa_promozioa.bezeroa_nan AND\r\n" + 
+					"bezeroa_promozioa.promozio_id = promozioa.promozio_id\r\n" + 
+					"AND bezeroa.nan like '"+nan+"'");
+			ResultSet rs = s.executeQuery(query);
+			while (rs.next()) {
+				promozio_kod=rs.getString(1);
+			}
+
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
+		}
+		return promozio_kod;
+	}
+	public static String promozioKod2(String nan) {
+		Connection conexion = modelo.Conexion.getConexion();
+		String promozio_kod="";
+		try {
+			Statement s = conexion.createStatement();
+			String query = ("SELECT promozioa.promozio_kodea FROM promozioa, bezeroa, bezeroa_promozioa\r\n" + 
+					"WHERE bezeroa.nan = bezeroa_promozioa.bezeroa_nan AND\r\n" + 
+					"bezeroa_promozioa.promozio_id = promozioa.promozio_id\r\n" + 
+					"AND bezeroa.nan like '"+nan+"'");
+			ResultSet rs = s.executeQuery(query);
+			while (rs.next()) {
+				promozio_kod=rs.getString(2);
+			}
+
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
+		}
+		return promozio_kod;
+	}
 	public static ArrayList<Bezeroa> ateraErabiltzaileak() {
 		Connection conexion = modelo.Conexion.getConexion();
 		ArrayList<Bezeroa> Arraybezero = new ArrayList<Bezeroa>();
