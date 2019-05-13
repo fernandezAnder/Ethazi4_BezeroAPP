@@ -46,13 +46,13 @@ public class OngiEtorri extends JFrame {
 		
 		JLabel lblOngiEtorri = new JLabel("ONGI ETORRI");
 		lblOngiEtorri.setFont(new Font("Arial Narrow", Font.BOLD, 70));
-		lblOngiEtorri.setBounds(82, 49, 397, 141);
+		lblOngiEtorri.setBounds(92, 48, 397, 141);
 		contentPane.add(lblOngiEtorri);
 		
 		JButton btnNewButton = new JButton("BIDAI ON");
 		btnNewButton.setBackground(new Color(70, 130, 180));
 		btnNewButton.setFont(new Font("Arial Narrow", Font.BOLD, 60));
-		btnNewButton.setBounds(93, 246, 368, 150);
+		btnNewButton.setBounds(93, 246, 379, 150);
 		contentPane.add(btnNewButton);
 	}
 }
