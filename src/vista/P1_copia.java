@@ -236,7 +236,7 @@ public class P1_copia extends JFrame {
 				
 				
 
-				if(!fechaComoCadena.equalsIgnoreCase("") && !fechaComoCadena2.equalsIgnoreCase("")&& !hostatu_mota.equalsIgnoreCase("") && gela_kop!=0 && !oheMota.equalsIgnoreCase("") && pertsona_kopurua!=0) {
+				if(!fechaComoCadena.equalsIgnoreCase("") && !fechaComoCadena2.equalsIgnoreCase("")&& !hostatu_mota.equalsIgnoreCase("") && gela_kop!=0 ) {
 					if(eguna-eguna2!=0) {
 					if (letra_ostatu.equalsIgnoreCase("H")) {
 						letra=letra_ostatu;

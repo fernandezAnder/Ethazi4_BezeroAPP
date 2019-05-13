@@ -50,6 +50,8 @@ public class Ordainketa extends JFrame {
 	private JTextArea textArea ;
 	private String katea;
 	private String[] parts;
+	private String zergatia;
+	private String kod_promozioa;
 	
 	int kont1=0;
 	int kont2=0;
@@ -311,16 +313,28 @@ public class Ordainketa extends JFrame {
 					if(kodigo.equalsIgnoreCase(parts[0])) {
 						double descontua=zbk*0.1;
 						zbk=zbk-descontua;
+						mandarDirus(zbk);
+						btnNewButton.setEnabled(false);
+						textField_1.setEditable(false);
+						 zergatia = "Erregistratu Berria";
+						 kod_promozioa = textField_1.getText();
 						
 					}
 					if(kodigo.equalsIgnoreCase(parts[1])) {
 						double descontua=zbk*0.05;
 						zbk=zbk-descontua;
+						zergatia = "Logueatuta";
+						 kod_promozioa = textField_1.getText();
 						
 					}
 					if(kodigo.equalsIgnoreCase(parts[2])) {
 						double descontua=zbk*0.15;
 						zbk=zbk-descontua;
+						mandarDirus(zbk);
+						btnNewButton.setEnabled(false);
+						textField_1.setEditable(false);
+						zergatia = "Denboraldi Baxua";
+						 kod_promozioa = textField_1.getText();
 						}
 					}
 				
@@ -328,31 +342,58 @@ public class Ordainketa extends JFrame {
 					if(kodigo.equalsIgnoreCase(parts[0])) {
 						double descontua=zbk*0.05;
 						zbk=zbk-descontua;
+						mandarDirus(zbk);
+						btnNewButton.setEnabled(false);
+						textField_1.setEditable(false);
+						if(parts[1].equalsIgnoreCase("Temp_Baja")) {
+							zergatia = "Logueatuta";
+							kod_promozioa = textField_1.getText();
+							}
+						else {
+							zergatia = "Erregistratu Berria";
+							kod_promozioa = textField_1.getText();
+							}
+						
 						}
 					if(kodigo.equalsIgnoreCase(parts[1])) {
 						double descontua=zbk*0.15;
 						zbk=zbk-descontua;
+						mandarDirus(zbk);
+						btnNewButton.setEnabled(false);
+						textField_1.setEditable(false);
+						if(kodigo.equalsIgnoreCase("Temp_baja")) {
+							zergatia = "Denboraldi Baxua";
+							kod_promozioa = textField_1.getText();
+						}
+						else {
+						zergatia = "Erregistratu Berria";
+						kod_promozioa = textField_1.getText();
 						}
 					
+					}
 				}
 				if(parts.length==1) {
 					if(kodigo.equalsIgnoreCase(parts[0])) {
 						double descontua=zbk*0.05;
 						zbk=zbk-descontua;
+						mandarDirus(zbk);
+						btnNewButton.setEnabled(false);
+						textField_1.setEditable(false);
+						zergatia = "Logueatuta";
+						kod_promozioa = textField_1.getText();
 						}
 					
 					
 				}
-				
-				
-					mandarDirus(zbk);
-					btnNewButton.setEnabled(false);
-					textField_1.setEditable(false);
-					
-					
-					
-				
 			}
+				
+				
+					
+					
+					
+					
+				
+			
 		});
 		btnNewButton.setBounds(408, 210, 136, 23);
 		getContentPane().add(btnNewButton);
@@ -360,13 +401,14 @@ public class Ordainketa extends JFrame {
 		 textArea = new JTextArea();
 		textArea.setBounds(24, 284, 116, 155);
 		getContentPane().add(textArea);
+	}
 
 
 
 
 
 
-}
+
 
 
 
@@ -396,7 +438,7 @@ public class Ordainketa extends JFrame {
 public double prezio_totala() {
 	return prezioa;
 }
-public void mandarDirus(double dirusa) {
+public void mandarDirus (double dirusa) {
 	String dirua = Double.toString(dirusa);
 	textField.setText(dirua);
 }
@@ -442,8 +484,11 @@ public void idatzi(String textua) {
 			 if(parts[2].equalsIgnoreCase("Temp_baja")) {
 				 textarea=textarea+"\n"+parts[2]+" %15 Deskotua";
 			 	 textArea.setText(textarea);}}
-			 		 
-		 }
+		 		 
+		 	}
+		 
 		 
 	}
-}
+			}
+	
+
