@@ -399,7 +399,7 @@ public class Ordainketa extends JFrame {
 		getContentPane().add(btnNewButton);
 		
 		 textArea = new JTextArea();
-		textArea.setBounds(24, 284, 116, 155);
+		textArea.setBounds(10, 284, 156, 155);
 		getContentPane().add(textArea);
 	}
 
@@ -463,29 +463,67 @@ public void idatzi(String textua) {
 		 String textarea = "";
 		 System.out.println("LLgemaos a la ultima: "+katea);
 		  parts = katea.split("-");
-		 for(int i=0;i<parts.length;i++) {
-			 if(i==0){
-			 if(!parts[0].equalsIgnoreCase("null")) {
-				 textarea=parts[0]+" %10 Deskotua"+"\n";
-				 textArea.setText(textarea);
-			 }}
-			 if(i==1) {
-				 if(!parts[0].equalsIgnoreCase("null")) {
-					 textarea=textarea+"\n"+parts[1]+" %5 Deskotua";
-					 textArea.setText(textarea);
-				 }
-				 else {
-					 textarea=parts[1]+" %5 Deskotua";
-					 textArea.setText(textarea);
-				 }
+		 
+			 if(parts.length==3) {
+				 textarea=parts[0]+" %10 Deskontua"+"\n"+parts[1]+" %5 Deskontua"+"\n"+parts[2]+" %15 Deskontua ";
 			 }
+			 if(parts.length==2) {
+				if(parts[1].equalsIgnoreCase("Temp_baja")) {
+					textarea=parts[0]+" %5 Deskontua"+"\n"+parts[1]+" %15 Deskontua ";
+				}
+				else {
+					textarea=parts[0]+" %10 Deskontua"+"\n"+parts[1]+" %5 Deskontua ";
+				}
+			 }
+			 if(parts.length==1) {
+					if(parts[1].equalsIgnoreCase("Temp_baja")) {
+						textarea=parts[0]+" %5 Deskontua";
+					}
+					
+				 }
+			 textArea.setText(textarea);
 			 
-			 if(i==2) {
-			 if(parts[2].equalsIgnoreCase("Temp_baja")) {
-				 textarea=textarea+"\n"+parts[2]+" %15 Deskotua";
-			 	 textArea.setText(textarea);}}
-		 		 
-		 	}
+			 
+			 
+			 
+//			 if(i==0){
+//			 if(!parts[0].equalsIgnoreCase("null")) {
+//				 textarea=parts[0]+" %10 Deskontua"+"\n";
+//				 textArea.setText(textarea);
+//			 }}
+//			 if(i==1) {
+//				 if(!parts[0].equalsIgnoreCase("null")) {
+//					 textarea=textarea+"\n"+parts[1]+" %5 Deskontua";
+//					 textArea.setText(textarea);
+//				 }
+//				 else {
+//					 textarea=parts[1]+" %5 Deskontua";
+//					 textArea.setText(textarea);
+//				 }
+//			 }
+//			 
+//			 if(i==2) {
+//			 if(parts[2].equalsIgnoreCase("Temp_baja")) {
+//				 textarea=textarea+"\n"+parts[2]+" %15 Deskontua";
+//			 	 textArea.setText(textarea);}}
+		 		
+			 
+			 
+			 
+			 
+			 
+			 
+			 
+			 
+			 
+			 
+			 
+			 
+			 
+			 
+			 
+			 
+		 	
 		 
 		 
 	}

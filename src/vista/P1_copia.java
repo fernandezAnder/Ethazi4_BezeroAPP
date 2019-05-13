@@ -181,10 +181,15 @@ public class P1_copia extends JFrame {
 				//**************Fechas**********
 				//1
 				SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
-				 fechaComoCadena = sdf.format(sartzedata.getDate());
+				try {
+					 fechaComoCadena = sdf.format(sartzedata.getDate());
+						
+						//2
+						 fechaComoCadena2 = sdf.format(irtetzedata.getDate());
+				}catch(Exception m){
+					System.out.println(m.getMessage());
+				}
 				
-				//2
-				 fechaComoCadena2 = sdf.format(irtetzedata.getDate());
 				
 				System.out.println(fechaComoCadena);
 				System.out.println(fechaComoCadena2);
@@ -212,27 +217,53 @@ public class P1_copia extends JFrame {
 				
 				String formato1="dd";
 			    SimpleDateFormat dateFormat = new SimpleDateFormat(formato1);
-			    eguna= Integer.parseInt(dateFormat.format(data1));
+			    try {
+			    	eguna= Integer.parseInt(dateFormat.format(data1));
+			    }catch(Exception fecha1) {
+			    	System.out.println(fecha1.getMessage());
+			    }
+			    
 			    
 			    String formato2="MM";
 			    SimpleDateFormat dateFormat2 = new SimpleDateFormat(formato2);
-			    hila= Integer.parseInt(dateFormat2.format(data1));
+			    try {
+			    	hila= Integer.parseInt(dateFormat2.format(data1));
+			    }catch(Exception kk) {
+			    	System.out.println(kk.getMessage());
+			    }
+			    
 			    
 			    //***************IrtetzeData***********
 			    
 			    Date data2 = irtetzedata.getDate();
 				String formato3="dd";
 			    SimpleDateFormat dateFormat3 = new SimpleDateFormat(formato3);
-			     eguna2= Integer.parseInt(dateFormat3.format(data2));
+			    try {
+			    	eguna2= Integer.parseInt(dateFormat3.format(data2));
+			    }catch(Exception kk2) {
+			    	 
+			    }
+			    
 			    
 			    String formato4="MM";
 			    SimpleDateFormat dateFormat4 = new SimpleDateFormat(formato4);
-			     hila2= Integer.parseInt(dateFormat4.format(data2));
+			    
+			     try {
+			    	 hila2= Integer.parseInt(dateFormat4.format(data2));
+				    }catch(Exception kk2) {
+				    	 
+				    }
 	
 			    String formatourtea="yyyy";
-			    SimpleDateFormat dateformatourtea = new SimpleDateFormat(formatourtea);
-			    int urtea=Integer.parseInt(dateformatourtea.format(data1));
-				data1=sartzedata.getDate();
+			    
+				
+				  try {
+					  SimpleDateFormat dateformatourtea = new SimpleDateFormat(formatourtea);
+					    int urtea=Integer.parseInt(dateformatourtea.format(data1));
+						data1=sartzedata.getDate();
+					    }catch(Exception kk2) {
+					    	 
+					    }
 				
 				
 
