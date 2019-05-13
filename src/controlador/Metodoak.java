@@ -53,6 +53,7 @@ public class Metodoak {
 		}
 		if(kod_err1.equalsIgnoreCase("null")) {
 			kodea = lo1.kodea_eraman();
+			System.out.println(kodea);
 		}
 		
 		

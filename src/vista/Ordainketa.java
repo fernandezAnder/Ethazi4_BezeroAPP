@@ -3,6 +3,7 @@ package vista;
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
 import java.awt.Font;
+import java.awt.TextArea;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyAdapter;
@@ -45,9 +46,9 @@ public class Ordainketa extends JFrame {
 	private Metodoak metodos;
 	private String precio="0";
 	private int precioo=0;
-	private JTextField textField;
+	private JTextField textField ;
 	private boolean descuento;
-	private JTextArea textArea ;
+	private JTextArea textArea  = new JTextArea(); ;
 	private String katea;
 	private String[] parts;
 	private String zergatia;
@@ -105,8 +106,11 @@ public class Ordainketa extends JFrame {
 			}
 		});
 		getContentPane().add(btnAmaitu);
+		textArea.setEditable(false);
 
-
+		
+		textArea.setBounds(10, 284, 156, 155);
+		getContentPane().add(textArea);
 
 
 		//TEXTUA SARTZEKO DIRUA
@@ -298,6 +302,7 @@ public class Ordainketa extends JFrame {
 		
 		getContentPane().add(textField_1);
 		
+		
 		JLabel lblKodea = new JLabel("Kodea");
 		lblKodea.setBounds(315, 194, 46, 14);
 		getContentPane().add(lblKodea);
@@ -323,6 +328,9 @@ public class Ordainketa extends JFrame {
 					if(kodigo.equalsIgnoreCase(parts[1])) {
 						double descontua=zbk*0.05;
 						zbk=zbk-descontua;
+						mandarDirus(zbk);
+						btnNewButton.setEnabled(false);
+						textField_1.setEditable(false);
 						zergatia = "Logueatuta";
 						 kod_promozioa = textField_1.getText();
 						
@@ -392,15 +400,14 @@ public class Ordainketa extends JFrame {
 					
 					
 					
-				
+						
+			
 			
 		});
 		btnNewButton.setBounds(408, 210, 136, 23);
 		getContentPane().add(btnNewButton);
 		
-		 textArea = new JTextArea();
-		textArea.setBounds(10, 284, 156, 155);
-		getContentPane().add(textArea);
+		
 	}
 
 
@@ -526,6 +533,14 @@ public void idatzi(String textua) {
 		 	
 		 
 		 
+	}
+	
+	
+	public String zergatia() {
+		return zergatia;
+	}
+	public String kod_zenb() {
+		return kod_promozioa;
 	}
 			}
 	
