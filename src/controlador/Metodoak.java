@@ -212,8 +212,8 @@ public class Metodoak {
 		}catch(Exception e) {
 			System.out.println(e.getMessage());
 			
-		}
-		int eguna1=0;
+		} 
+		int eguna1=0; 
 		int hilabetea1=0;
 		int urtea1=0;
 		int eguna2=date1p1cop.getDay();
@@ -307,7 +307,7 @@ public class Metodoak {
 			} catch (ParseException e) {
 				
 				e.printStackTrace();
-			}
+			} 
 		}
 		// denboraldi altua: 5,6,9,10
 		if(numero1==1 || numero1==2 || numero1==3 || numero1==4 || numero1==7 || numero1==8|| numero1==11 || numero1==12 || numero2==1 || numero2==2 || numero2==3 || numero2==4 || numero2==7 || numero2==8|| numero2==11 || numero2==12 ) {
@@ -642,7 +642,7 @@ public class Metodoak {
 	
 
 ///////////////////////////////////////////////////////////////////////////
-	public static void itxaron(int segundos){
+	public  void itxaron(int segundos){
         try {
             Thread.sleep(segundos * 1000);
          } catch (Exception e) {
