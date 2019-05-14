@@ -474,10 +474,7 @@ public class Metodoak {
 		ord1.setVisible(false);
 		am1.setVisible(true);
 
-		amaiera();
-		p1cop.dispose();
-		BezeroAPP ap = new BezeroAPP();
-		ap.arrancar();
+		
 		}
 	/**
 	 * Ordainketa pantaila irekitzen du hotelaren pantailatik
@@ -499,6 +496,11 @@ public class Metodoak {
 	 */
 	public void agurratop1cop() {
 		am1.setVisible(false);
+		//amaiera();
+		p1cop.dispose();
+		BezeroAPP ap = new BezeroAPP();
+		ap.arrancar();
+		
 		}
 	/**
 	 * Amaiera pantaila bost segundu eta gero amatatzen du
@@ -710,7 +712,6 @@ public class Metodoak {
          } catch (Exception e) {
             System.out.println(e.getMessage());
          }
-        System.out.println("BUKATU DA");
     }  
 	/**
 	 * Zenbaki bat negatiboa bat da balidatzen du

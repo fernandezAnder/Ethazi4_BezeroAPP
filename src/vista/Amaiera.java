@@ -32,6 +32,7 @@ public class Amaiera extends JFrame {
 	private final JLabel lblNewLabel_1 = new JLabel("BIDAI ON");
 
 	public Amaiera() {
+		
 		getContentPane().setBackground(new Color(135, 206, 250));
 		setBackground(new Color(135, 206, 250));
 		
@@ -100,6 +101,23 @@ public class Amaiera extends JFrame {
 //			
 //			
 //		}
+
+
+/*Timer t = null;
+
+public NewJFrame() {
+initComponents();
+t = new Timer(5000, this);
+t.start();
+}
+
+@Override
+public void actionPerformed(ActionEvent e) {
+if(e.getSource() == t){
+dispose();
+}
+}
+} */
 
 	
 	
