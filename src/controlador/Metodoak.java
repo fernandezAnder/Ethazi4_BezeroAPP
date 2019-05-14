@@ -391,7 +391,8 @@ public class Metodoak {
 		ord1.idatzi(diruaString);	
 	}
 	/**
-	 * Ostatu mota etxea hartzen du eta 
+	 * Ostatu mota etxea hartzen du eta datu basetik informazioa hartzen du etxearen prezioari buruz
+	 * @author taldea 4
 	 */
 	public void bidaliDiruaEtxea() {
 
@@ -452,6 +453,10 @@ public class Metodoak {
 		diruaString=Double.toString(prezioa);
 		ord1.idatzi(diruaString);	
 	}
+	/**
+	 * Hirugarren lehioa irekitzen du
+	 * @author taldea 4
+	 */
 	public void hirugarrenLehioa() {
 		lo1.setVisible(false);
 		ord1.setVisible(true);
@@ -460,6 +465,10 @@ public class Metodoak {
 		ord1.idatzi(diruaString);
 		System.out.println(diruaString);
 	}
+	/**
+	 * Amaiera lehioa irekitzen du
+	 * @author taldea 4
+	 */
 	public void amaieraIreki() {
 
 		ord1.setVisible(false);
@@ -470,36 +479,59 @@ public class Metodoak {
 		BezeroAPP ap = new BezeroAPP();
 		ap.arrancar();
 		}
+	/**
+	 * Ordainketa pantaila irekitzen du hotelaren pantailatik
+	 * @author taldea 4
+	 */
 	public void p2hotetoOrdainketa() {
 		ord1.setVisible(true);
 	}
+	/**
+	 * Ordainketa pantaila amatatzen du hotelaren pantailatik
+	 * @author taldea 4
+	 */
 	public void p2hotetoOrdainketa2() {
 		ord1.setVisible(false);
 	}
-	
+	/**
+	 * amaiera pantaila amatatzen du
+	 * @author taldea 4
+	 */
 	public void agurratop1cop() {
 		am1.setVisible(false);
-		
-		
-		
 		}
+	/**
+	 * Amaiera pantaila bost segundu eta gero amatatzen du
+	 * @author taldea 4
+	 */
 	public void amaiera() {
 		itxaron(5);
 		am1.setVisible(false);
 	}
-	
+	/**
+	 * erregistratzeko pantaila eta legedia agertarazten du.
+	 * @author taldea 4
+	 */
 	public void erregistratzekoPantailara() {
 		lo1.setVisible(false);
 		er1.setVisible(true);
 		pr.setVisible(true);
 		pr.terminos();
 		}
+	/**
+	 * Erregistratzeko pantaila itxi eta datuak ezabatzen ditu
+	 * @author taldea 4
+	 */
 	public void erregistroPantailaItxi() {
 		
 		er1.dispose();
 		er1 = new Erregistratu();
 		er1.setVisible(false);
 	}
+	/**
+	 * Erreserba datu basera eramaten du
+	 * @author taldea 4
+	 */
 	public void recivirReserva() {
 		int id =0;
 		String caracter = ostatu_motaAtera();
@@ -519,6 +551,10 @@ public class Metodoak {
 		Consultas.txertatuErreserba(erreserba);
 		
 	}
+	/**
+	 * Erreserba kopurua gehitzen ditu
+	 * @author taldea 4
+	 */
 	public void erreserbaKopGehitu() {
 		int id =0;
 		String caracter = ostatu_motaAtera();
@@ -533,6 +569,10 @@ public class Metodoak {
 		System.out.println(id+" OSTATU ID");
 		Consultas.erreserbaKopGehitu(id);
 	}
+	/**
+	 * Erreserba kodea eta jaieguna datu basera bidaltzen ditu
+	 * @author taldea 4
+	 */
 	public void erreserbaJaiegunBete() {
 		ArrayList<java.sql.Date> jaiegunak= Consultas.jaiegunLista();
 		int jaiegun_kod=0;
@@ -551,9 +591,13 @@ public class Metodoak {
 		System.out.println("erreserba kod"+erreserba_kod);
 		if(jaiegun_kod>0) {
 		Consultas.erreserbaJaiegunaIgo(erreserba_kod, jaiegun_kod);
-		}
+			}
 		}
 	}
+	/**
+	 * Erregistratu diren berriak dauzkaten kodeak datu basera igotzen du
+	 * @author taldea 4
+	 */
 	public void promozioKodeaErregistroIgo() {
 		kod_err1=er1.ateraKodea2();
 		
@@ -580,6 +624,10 @@ public class Metodoak {
 			}
 		}
 	}
+	/**
+	 * Hotelaren filtroa
+	 * @author taldea 4
+	 */
 	public void filtroHotela() {
 		String herria=p1cop.ateraHerria();
 		ArrayList<Hotela> hotelenlista= new ArrayList<Hotela>();
@@ -605,6 +653,11 @@ public class Metodoak {
 		p2hot.filtroHoteltA();
 		
 	}
+	/**
+	 * Datu basetik filtratutako array apartamentu ateratzen du
+	 * @author taldea 4
+	 * @return apartamentulista2
+	 */
 	public ArrayList<Apartamentua> filtroApartamentua() {
 		String herria=p1cop.ateraHerria();
 		ArrayList<Apartamentua> apartamentulista= new ArrayList<Apartamentua>();
@@ -619,6 +672,10 @@ public class Metodoak {
 		p2apart.filtroapart();
 		return apartamentulista2;
 	}
+	/**
+	 * Datu basetik etxeen filtroa emandako datuak bere pantailara eramaten ditu
+	 * @author taldea 4
+	 */
 	public void filtroEtxea() {
 		String herria=p1cop.ateraHerria();
 		ArrayList<Etxea> etxelista=new ArrayList<Etxea>();
@@ -642,6 +699,11 @@ public class Metodoak {
 	
 
 ///////////////////////////////////////////////////////////////////////////
+	/**
+	 * Bost segundo pantaila amatatzeko metodoa
+	 * @author taldea 4
+	 * @param segundos
+	 */
 	public  void itxaron(int segundos){
         try {
             Thread.sleep(segundos * 1000);
@@ -650,14 +712,22 @@ public class Metodoak {
          }
         System.out.println("BUKATU DA");
     }  
-	
+	/**
+	 * Zenbaki bat negatiboa bat da balidatzen du
+	 * @param zbk
+	 * @return balidatu
+	 */
 	public boolean konprobatuNegatibo(double zbk) {
 		boolean balidatu=false;
 		if (zbk>0)
 			balidatu=true;
 		return balidatu;
 	}
-	
+	/**
+	 * Bzeroari itzuliak emateko metodoa
+	 * @param zbk
+	 * @return kanbioa
+	 */
 	public  String kanbioMetodoa(double zbk) {
 
 
@@ -745,6 +815,12 @@ public class Metodoak {
 		}
 		return kanbioa;
 	}
+	/**
+	 * Letra balidatzeko metodoa
+	 * @author taldea 4
+	 * @param zbk
+	 * @return balidatu
+	 */
 	public  boolean konprobatuLetra(String zbk) {
 		System.out.println(zbk);
 		boolean balidatu=false;
@@ -758,7 +834,13 @@ public class Metodoak {
 		}
 		return balidatu;
 	}
-
+	/**
+	 * Faltatzen den dirua kalkulatzen du
+	 * @author taldea 4
+	 * @param prezioa
+	 * @param zbk
+	 * @return diru_falta
+	 */
 	public static boolean diruFalta(double prezioa,double zbk) {
 
 		boolean diru_falta=false;
@@ -771,6 +853,11 @@ public class Metodoak {
 		return diru_falta;
 	}
 ///////////////////////////////////////////////////////////////////////////
+	/**
+	 * Tiketa inprimatzeko metodoa
+	 * @author taldea 4
+	 * @param r1
+	 */
 	public  void imprimatuTiketa(Erreserba r1) {
 
 		System.out.println(r1);
@@ -785,6 +872,11 @@ public class Metodoak {
 		}
 	}
 ///////////////////////////////////////////////////////////////////////////	
+	/**
+	 * MD5-ra pasatzeko metodoa
+	 * @param input
+	 * @return hashtext
+	 */
 	public  String getMD5(String input) {
 		try {
 			MessageDigest md = MessageDigest.getInstance("MD5");
@@ -828,6 +920,12 @@ public class Metodoak {
 //		return (erabakia);
 //
 //	}
+	/**
+	 * Datu basetik erabiltzaileak badagoen ala ez komprobatzeko
+	 * @param nan
+	 * @param pasahitza
+	 * @return erabakia
+	 */
 	public  boolean ateraErabiltzailea(String nan, String pasahitza) {
 		boolean erabakia = false;
 		ArrayList <Bezeroa> arraybezer = new ArrayList<Bezeroa>();
@@ -853,7 +951,7 @@ public class Metodoak {
 	
 	/**
 	 * Sexuaren eremua balidatzen du.
-	 * 
+	 * @author taldea 4
 	 * @param sexua
 	 * @return
 	 */
@@ -874,41 +972,13 @@ public class Metodoak {
 
 		return erabakia;
 	}
-	/**
-	 * Pasahitzaren eremua balidatzen du.
-	 * 
-	 * @param passwd
-	 * @param passwd2
-	 * @return
-	 */
-
-
-	/**
-	 * Abizena balidatzeko metodoa da.
-	 * 
-	 * @param Abizena
-	 * @return
-	 */
-
-
-	/**
-	 * Izenaren eremua balidatzen du.
-	 * 
-	 * @param izena
-	 * @return
-	 */
-
-
-	/**
-	 * NaN-a balidatzen du.
-	 * 
-	 * @param zenbakiak
-	 * @param letra
-	 * @return
-	 */
 	
-
-
+	/**
+	 * Zenbakien bitartzen nana-ren letra kalkulatzen du
+	 * @author taldea 4
+	 * @param dni
+	 * @return
+	 */
 	public String KalkulatuLetra(int dni){
 		String karaktereak="TRWAGMYFPDXBNJZSQVHLCKE";
 		int modulo= dni % 23;
@@ -916,7 +986,11 @@ public class Metodoak {
 		String letra = Character.toString(letra1);
 		return letra; 
 	} 
-
+	/**
+	 * Bezero objektua hartu eta datui basera igotzen du
+	 * @author taldea 4
+	 * @param bezeroa
+	 */
 	public  void bezeroaIgo(Bezeroa bezeroa) {
 		Consultas.txertatuBezeroa(bezeroa);
 	}
@@ -925,39 +999,84 @@ public class Metodoak {
 //	public void setMip1cop(p1cop p1cop) {
 //		this.p1cop = p1cop;
 //	}
+	/**
+	 * Hotela pamntailaren erreferentzia
+	 * @author taldea 4
+	 * @param p2hot
+	 */
 	public void setMip2hot(P2_hotela p2hot) {
 		this.p2hot=p2hot;
 	}
+	/**
+	 * Apartamentua pantailaren erreferentzia
+	 * @author taldea 4
+	 * @param p2apart
+	 */
 	public void setMip2apart(P2_apartamentua p2apart) {
 		this.p2apart=p2apart;
 	}
+	/**
+	 * Etxea pantailaren erreferentzia
+	 * @author taldea 4
+	 * @param p2etxe
+	 */
 	public void setMip2etxe(P2_etxea p2etxe) {
 		this.p2etxe=p2etxe;
 	}
+	/**
+	 * Erregistratu pantailaren erreferentzia 
+	 * @author taldea 4
+	 * @param er1
+	 */
 	public void setMier1(Erregistratu er1) {
 		this.er1 = er1;
 	}
+	/**
+	 * Loginaren pantaila erreferentzia
+	 * @author taldea 4
+	 * @param lo1
+	 */
 	public void setMielo1(Login lo1) {
 		this.lo1 = lo1;
 	}
 	
-	
+	/**
+	 * Ordainketa pantailaren erreferentzia
+	 * @author taldea 4
+	 * @param ord1
+	 */
 	public void setMiord1(Ordainketa ord1) {
 		this.ord1 = ord1;
 	}
-	
+	/**
+	 * Amaiera pantailaren erreferentzia
+	 * @author taldea 4
+	 * @param am1
+	 */
 	public void setMiam1(Amaiera am1) {
 		this.am1 = am1;
 	}
-	
+	/**
+	 * Baldintzen pantailaren erreferentzia
+	 * @author taldea 4
+	 * @param pr
+	 */
 	public void setBaldintzak(PruebScroll pr) {
 		this.pr = pr;
 	}
-	
+	/**
+	 * p1 kopiaren pantailaren erreferentzia
+	 * @author taldea 4
+	 * @param p1cop
+	 */
 	public void setp1cop_copia(P1_copia p1cop) {
 		this.p1cop = p1cop;
 	}
-	
+	/**
+	 * Promozio id-aren datuak gordetzen ditu
+	 * @author taldea 4
+	 * @param promozioid
+	 */
 	public void setPromozioID(int promozioid) {
 		promozio_id=promozioid;
 	}
