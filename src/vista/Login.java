@@ -3,6 +3,8 @@ package vista;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.math.BigInteger;
+import java.security.SecureRandom;
 
 import javax.swing.AbstractButton;
 import javax.swing.JButton;
@@ -29,6 +31,7 @@ public class Login extends JFrame {
 	private String nana;
 	private JLabel lblNewLabel;
 	private Metodoak metodos;
+	private String kodea;
 
 	/**
 	 * LOGIN frame-aren kodea da.
@@ -41,13 +44,13 @@ public class Login extends JFrame {
 		// Login textua.
 		JLabel lbllogin = new JLabel("LOG IN");
 		lbllogin.setFont(new Font("Arial Narrow", Font.BOLD, 40));
-		lbllogin.setBounds(217, 32, 122, 92);
+		lbllogin.setBounds(217, 32, 170, 92);
 		getContentPane().add(lbllogin);
 
 		// PASAHITZAREN LETRAK ETA TEXTFIELD
 		JLabel lblPasahitza = new JLabel("PASAHITZA");
 		lblPasahitza.setFont(new Font("Arial Narrow", Font.BOLD, 16));
-		lblPasahitza.setBounds(90, 210, 150, 32);
+		lblPasahitza.setBounds(127, 210, 90, 32);
 		getContentPane().add(lblPasahitza);
 		passwordField = new JPasswordField();
 		passwordField.setFont(new Font("Source Sans Pro Black", Font.ITALIC, 30));
@@ -57,7 +60,7 @@ public class Login extends JFrame {
 		// ERABILTZAILEAREN LETRAK ETA TEXTFIEL
 		JLabel lblErabiltzaile = new JLabel("ERABILTZAILEA");
 		lblErabiltzaile.setFont(new Font("Arial Narrow", Font.BOLD, 16));
-		lblErabiltzaile.setBounds(90, 152, 109, 26);
+		lblErabiltzaile.setBounds(90, 152, 134, 26);
 		getContentPane().add(lblErabiltzaile);
 
 		textField = new JTextField();
@@ -95,8 +98,18 @@ public class Login extends JFrame {
 				if (youshouldnotpass == true) {
 					metodos.hirugarrenLehioa();
 					 nana = textField.getText();
-					 metodos.bidaliDirua();
+					 metodos.kodea();
 					 metodos.logueatutabai(true);
+					 
+					 if (metodos.ostatu_motaAtera().equalsIgnoreCase("H")) {
+						 metodos.bidaliDirua();
+						}else if(metodos.ostatu_motaAtera().equalsIgnoreCase("A")) {
+							
+						metodos.bidaliDiruaApartamentua();
+						}else if(metodos.ostatu_motaAtera().equalsIgnoreCase("E")) {
+							
+						metodos.bidaliDiruaEtxea();
+							}
 
 				}
 				else {
@@ -115,6 +128,7 @@ public class Login extends JFrame {
 	private void logindatuak() {
 		pasahitza = new String(passwordField.getPassword());
 		Nan = new String(textField.getText());
+		Nan=metodos.getMD5(Nan);
 		System.out.println("pasahitza: " + pasahitza);
 		System.out.println("erabiltzaile: " + Nan);
 	}
@@ -125,5 +139,15 @@ public class Login extends JFrame {
 	}
 	public String ateraNana() {
 		return  nana;
+	}
+	public String ateraNanMd5() {
+		return Nan;
+	}
+	public void ateraKodea3() {
+		SecureRandom random = new SecureRandom();
+		kodea = new BigInteger(6 , random).toString();
+		}
+	public String kodea_eraman() {
+		return kodea;
 	}
 }

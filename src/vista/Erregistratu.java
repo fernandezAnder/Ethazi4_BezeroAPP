@@ -4,6 +4,8 @@ import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyAdapter;
+import java.math.BigInteger;
+import java.security.SecureRandom;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -36,7 +38,6 @@ public class Erregistratu extends JFrame {
 	private JLabel lblNan = new JLabel("NAN");
 	private JLabel lblLetra = new JLabel("LETRA");
 	private JLabel lblPasahitza = new JLabel("PASAHITZA");
-	private JButton Ezeztatu = new JButton("Atzera");
 	private JButton Jarraitu = new JButton("JARRAITU");
 	private JButton Balidatu = new JButton("BALIDATU");
 	private JTextField izena = new JTextField();
@@ -45,11 +46,11 @@ public class Erregistratu extends JFrame {
 	private JLabel lblIzena = new JLabel("IZENA");
 	private JLabel lblJaiotzeData = new JLabel("JAIOTZE DATA");
 	private JLabel lblAbizena = new JLabel("ABIZENA");
-	private JLabel lblErabiltzaileDatuak = new JLabel("ERABILTZAILE DATUAK  ----------------------------------------------------------------------------------------------------------------------------------");
-	private JLabel lblDatuPertsonalak = new JLabel("DATU PERTSONALAK  ----------------------------------------------------------------------------------------------------------------------------------");
-	SimpleDateFormat sm = new SimpleDateFormat("yyyy-MM-dd");
-
-
+	private JLabel lblErabiltzaileDatuak = new JLabel("ERABILTZAILE DATUAK  ------------------------------------------------------------------------------------------------\r\n");
+	private JLabel lblDatuPertsonalak = new JLabel("DATU PERTSONALAK  --------------------------------------------------------------------------------------------------");
+	private SimpleDateFormat sm = new SimpleDateFormat("yyyy-MM-dd");
+	private JButton btnEzeztatu = new JButton("EZEZTATU");
+	private String kodea;
 	private String nan="";
 	private String nan2="1";
 	private String letra="";
@@ -61,6 +62,7 @@ public class Erregistratu extends JFrame {
 	private String jaio_data;
 	private String sexua;
 	private Metodoak metodos;
+	private String zergatia;
 
 
 	@SuppressWarnings({ "rawtypes", "unchecked" })
@@ -72,12 +74,12 @@ public class Erregistratu extends JFrame {
 
 		//LABEL TXARTEL ERREGISTROA
 		lblTxatelaErregistroa.setFont(new Font("Arial Narrow", Font.BOLD, 30));
-		lblTxatelaErregistroa.setBounds(142, 44, 288, 37);
+		lblTxatelaErregistroa.setBounds(142, 44, 347, 37);
 		getContentPane().add(lblTxatelaErregistroa);
 
 		//LABEL NAN
 		lblNan.setFont(new Font("Arial Narrow", Font.BOLD, 16));
-		lblNan.setBounds(63, 236, 47, 28);
+		lblNan.setBounds(79, 236, 40, 28);
 		getContentPane().add(lblNan);
 
 		//TEXT NAN
@@ -99,7 +101,7 @@ public class Erregistratu extends JFrame {
 			}
 		});
 		zenbakia=textNAN.getText();
-		textNAN.setBounds(142, 236, 109, 28);
+		textNAN.setBounds(142, 237, 109, 28);
 		getContentPane().add(textNAN);
 		textNAN.setColumns(10);
 
@@ -130,33 +132,33 @@ public class Erregistratu extends JFrame {
 		});
 		letra=textLetra.getText();
 		textLetra.setColumns(10);
-		textLetra.setBounds(142, 315, 32, 28);
+		textLetra.setBounds(349, 237, 32, 28);
 		getContentPane().add(textLetra);
 
 		//LETRA LABEL
 		lblLetra.setFont(new Font("Arial Narrow", Font.BOLD, 16));
-		lblLetra.setBounds(63, 315, 52, 28);
+		lblLetra.setBounds(276, 236, 63, 28);
 		getContentPane().add(lblLetra);
 
 		//LABEL PASAHITZA
 		lblPasahitza.setFont(new Font("Arial Narrow", Font.BOLD, 16));
-		lblPasahitza.setBounds(63, 275, 92, 28);
+		lblPasahitza.setBounds(27, 293, 92, 28);
 		getContentPane().add(lblPasahitza);
 
 		//PASAHITZA TEXTUA
 		Pasahitza = new JPasswordField();
 		Pasahitza.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		Pasahitza.setBounds(142, 275, 170, 28);
+		Pasahitza.setBounds(142, 294, 170, 28);
 		getContentPane().add(Pasahitza);
 
 		//Balidatu botoia
 		Balidatu.setFont(new Font("Arial Narrow", Font.BOLD, 16));
-		Balidatu.setBounds(247, 377, 115, 44);
+		Balidatu.setBounds(247, 377, 128, 44);
 		getContentPane().add(Balidatu);
 
 		//LABEL IZENA
 		lblIzena.setFont(new Font("Arial Narrow", Font.BOLD, 16));
-		lblIzena.setBounds(63, 125, 63, 28);
+		lblIzena.setBounds(45, 124, 63, 28);
 		getContentPane().add(lblIzena);
 		izena.addKeyListener(new KeyAdapter() {
 			@Override
@@ -180,7 +182,7 @@ public class Erregistratu extends JFrame {
 
 		//LABEL ABIZENA
 		lblAbizena.setFont(new Font("Arial Narrow", Font.BOLD, 16));
-		lblAbizena.setBounds(63, 164, 92, 28);
+		lblAbizena.setBounds(45, 163, 92, 28);
 		getContentPane().add(lblAbizena);
 
 		//LABEL TEXT
@@ -204,11 +206,11 @@ public class Erregistratu extends JFrame {
 
 		//LABEL JAIOTZE DATA
 		lblJaiotzeData.setFont(new Font("Arial Narrow", Font.BOLD, 16));
-		lblJaiotzeData.setBounds(312, 125, 98, 28);
+		lblJaiotzeData.setBounds(276, 124, 116, 28);
 		getContentPane().add(lblJaiotzeData);
 
 		//DATA JCALENDAR
-		jaiodata.setBounds(408, 125, 122, 28);
+		jaiodata.setBounds(408, 124, 122, 28);
 		jaiodata.setVerifyInputWhenFocusTarget(false);
 		jaiodata.setDateFormatString("yyyy-MM-dd");	
 		getContentPane().add(jaiodata);
@@ -218,28 +220,13 @@ public class Erregistratu extends JFrame {
 		lblDatuPertsonalak.setFont(new Font("Arial Narrow", Font.BOLD, 12));
 
 		//LABEL DATU PERSTSONALAK
-		lblDatuPertsonalak.setBounds(22, 92, 526, 22);
+		lblDatuPertsonalak.setBounds(22, 92, 552, 22);
 		getContentPane().add(lblDatuPertsonalak);
 		lblErabiltzaileDatuak.setFont(new Font("Arial Narrow", Font.BOLD, 12));
 
 		//LABEL ERABILTZAILE DATUAK
-		lblErabiltzaileDatuak.setBounds(22, 203, 632, 22);
+		lblErabiltzaileDatuak.setBounds(22, 203, 552, 22);
 		getContentPane().add(lblErabiltzaileDatuak);
-
-
-		//EZEZTATU BOTOIA
-		Ezeztatu.setFont(new Font("Comic Sans MS", Font.BOLD, 15));
-		Ezeztatu.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent arg0) {
-				dispose();
-				//Metodoak.lehenengoLehioa();
-
-
-			}
-		});
-		Ezeztatu.setBounds(165, 377, 109, 119);
-		getContentPane().add(Ezeztatu);
 		//DNI ETA PASAHITZA BALIDATZEKO BOTOIA
 
 		Balidatu.addActionListener(new ActionListener() {
@@ -283,17 +270,8 @@ public class Erregistratu extends JFrame {
 				if(metodos.ateraErabiltzailea(nan, pasahitza)) {
 					Jarraitu.setEnabled(true);
 					Balidatu.setEnabled(false);
-				}else {
-					//JOptionPane.showMessageDialog(null, "Nan hau erregistratuta dago");
+					
 				}
-////				for (int i=0;i<bezeroak.size();i++) {
-////					if (bezeroak.get(i).getDni().equals(nan)) {
-////						
-////						Jarraitu.setEnabled(false);
-////						Balidatu.setEnabled(true);
-////						
-//					}
-//				}
 				
 				izena2=izena.getText();
 				abizena=abizenatextfield.getText();
@@ -308,34 +286,63 @@ public class Erregistratu extends JFrame {
 				}
 			}
 		});
-
-		//Ezeztatu Botoia
-
-		Ezeztatu.setBounds(165, 452, 109, 44);
-		getContentPane().add(Ezeztatu);
 		
 		//JARRAITU BOTOIA
 		Jarraitu.setEnabled(false);
 		//Jarraitu Botoiak egiten duena
 		Jarraitu.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				dispose();
-				Bezeroa bezeroa =new Bezeroa(nan,izena2,abizena,pasahitza,jaio_data);
+				
+				Bezeroa bezeroa =new Bezeroa(metodos.getMD5(nan),izena2,abizena,pasahitza,jaio_data);
 				System.out.println(bezeroa);
+				metodos.legediaonartua();
 				metodos.bezeroaIgo(bezeroa);
+				
 				metodos.loginIreki();
+				ateraKodea();
+				metodos.promozioKodeaErregistroIgo();
 				metodos.erregistroPantailaItxi();
+				dispose();
+				
+				
 			}
 		});
 		//Jarraitu Botoiaren egitura
 		Jarraitu.setFont(new Font("Arial Narrow", Font.BOLD, 16));
 		Jarraitu.setBounds(415, 377, 115, 44);
 		getContentPane().add(Jarraitu);
+		
+		
+		btnEzeztatu.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				dispose();
+				metodos.loginIreki();
+				
+			}
+		});
+		btnEzeztatu.setFont(new Font("Dialog", Font.BOLD, 16));
+		btnEzeztatu.setBounds(79, 377, 122, 44);
+		getContentPane().add(btnEzeztatu);
 
 	}
 	
 	
 	public void misMetodos(Metodoak metodos) {
 		this.metodos=metodos;
+	}
+
+	public String nanAtera() {
+		return nan;
+	}
+	public void ateraKodea() {
+		SecureRandom random = new SecureRandom();
+		 kodea = new BigInteger(2 , random).toString();
+		zergatia = "Erregistratu Berria";
+	}
+	public String ateraKodea2() {
+		return kodea;
+	}
+	public String aterazergatia() {
+		return zergatia;
 	}
 }

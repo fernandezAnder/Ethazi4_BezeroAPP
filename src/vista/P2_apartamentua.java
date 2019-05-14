@@ -21,6 +21,7 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.awt.event.ActionEvent;
+import javax.swing.border.MatteBorder;
 
 public class P2_apartamentua extends JFrame {
 
@@ -42,30 +43,34 @@ public class P2_apartamentua extends JFrame {
 		setBounds(100, 100, 998, 588);
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(135, 206, 235));
-		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		contentPane.setBorder(new MatteBorder(20, 10, 20, 10, (Color) new Color(70, 130, 180)));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(0, 62, 982, 427);
+		scrollPane.setBounds(37, 62, 908, 427);
 		contentPane.add(scrollPane);
 		
 		table = new JTable();
+		table.getTableHeader().setReorderingAllowed(false) ;
+
 		
 		
 		
 		scrollPane.setViewportView(table);
 		
 		lblApartamentuarenInformazioa.setFont(new Font("Arial Narrow", Font.BOLD, 24));
-		lblApartamentuarenInformazioa.setBounds(270, 11, 346, 25);
+		lblApartamentuarenInformazioa.setBounds(297, 26, 452, 25);
 		contentPane.add(lblApartamentuarenInformazioa);
 		
 		btnNewButton.setFont(new Font("Arial Narrow", Font.BOLD, 16));
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				metodos.lehioaApartamentuaItxi();
+				metodos.lehenengoLehioa();
 			}
 		});
-		btnNewButton.setBounds(366, 502, 89, 23);
+		btnNewButton.setBounds(349, 502, 106, 23);
 		contentPane.add(btnNewButton);
 		
 		
@@ -88,7 +93,7 @@ public class P2_apartamentua extends JFrame {
 						if(id!=0) {
 						metodos.lehioaApartamentuaItxi();
 						metodos.p2hotetoOrdainketa();
-						metodos.bidaliDirua();
+//						metodos.bidaliDiruaApartamentua();
 						}
 					}
 					
@@ -107,7 +112,7 @@ public class P2_apartamentua extends JFrame {
 			}
 		});
 		btnNewButton_1.setFont(new Font("Arial Narrow", Font.BOLD, 16));
-		btnNewButton_1.setBounds(518, 502, 98, 23);
+		btnNewButton_1.setBounds(518, 502, 123, 23);
 		contentPane.add(btnNewButton_1);
 	}
 	public void misMetodos(Metodoak metodos) {
@@ -122,7 +127,7 @@ public class P2_apartamentua extends JFrame {
 	public void filtroapart() {
 		
 		String[]columnas= {
-				"m2", "ostatu_id", "izena", "herria", "helbidea", "postaKod", "ostatu_mota", "gela_kopuru", "erreserba_kopuru","komun_kop"
+				"m2","solairua", "ostatu_id", "izena", "herria", "helbidea", "postaKod", "ostatu_mota", "gela_kopuru", "erreserba_kopuru","komun_kop","prezioa"
 			};
 		DefaultTableModel t1= new DefaultTableModel(){
 
@@ -130,37 +135,39 @@ public class P2_apartamentua extends JFrame {
 
 		};
 
-		JTable tabla = new JTable (t1);
 		table.setModel(t1);
-				
 
-		 t1.addColumn("m2");
-		 t1.addColumn("ostatu_id");
-		 t1.addColumn("izena");
-		 t1.addColumn("herria");
-		 t1.addColumn("helbidea");
-		 t1.addColumn("postaKod");
-		 t1.addColumn("ostatu_mota");
-		 t1.addColumn("gela_kopuru");
-		 t1.addColumn("erreserba_kopuru");
-		 t1.addColumn("komun_kop");
+
+		t1.addColumn("m2");
+		t1.addColumn("solairua");
+		t1.addColumn("ostatu_id");
+		t1.addColumn("izena");
+		t1.addColumn("herria");
+		t1.addColumn("helbidea");
+		t1.addColumn("postaKod");
+		t1.addColumn("ostatu_mota");
+		t1.addColumn("gela_kopuru");
+		t1.addColumn("erreserba_kopuru");
+		t1.addColumn("komun_kop");
+		t1.addColumn("prezioa");
+
+
 		for (Apartamentua e:apartlista) {
-					
-					columnas[0]=Integer.toString(e.getSolairua());
-					columnas[1]=Integer.toString(e.getOstatu_id());
-					columnas[2]=e.getIzena();
-					columnas[3]=e.getHerria();
-					columnas[4]=e.getHelbidea();
-					columnas[5]=Integer.toString(e.getPosta_kod());
-					columnas[6]=e.getOstatu_mota();
-					columnas[7]=Integer.toString( e.getGela_kop());
-					columnas[8]=Integer.toString(e.getErreserba_kop());
+					columnas[0]=Integer.toString(e.getM2());
+					columnas[1]=Integer.toString(e.getSolairua());
+					columnas[2]=Integer.toString(e.getOstatu_id());
+					columnas[3]=e.getIzena();
+					columnas[4]=e.getHerria();
+					columnas[5]=e.getHelbidea();
+					columnas[6]=Integer.toString(e.getPosta_kod());
+					columnas[7]=e.getOstatu_mota();
+					columnas[8]=Integer.toString( e.getGela_kop());
+					columnas[9]=Integer.toString(e.getErreserba_kop());
+					columnas[10]=Integer.toString(e.getKomun_kop());
+					columnas[11]=Double.toString(e.getPrezioa());
 					t1.addRow(columnas);	
 			}	
 
-		table.getColumnModel().getColumn(0).setPreferredWidth(77);
-		table.getColumnModel().getColumn(9).setPreferredWidth(107);
-		//scrollPane.setViewportView(table);
 	}
 	
 	public int bidaliId() {

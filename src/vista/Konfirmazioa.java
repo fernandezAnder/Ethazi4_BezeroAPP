@@ -52,27 +52,27 @@ public class Konfirmazioa extends JFrame {
 		
 		JButton btnNewButton = new JButton("ATZERA");
 		btnNewButton.setFont(new Font("Arial Narrow", Font.BOLD, 16));
-		btnNewButton.setBounds(58, 371, 89, 23);
+		btnNewButton.setBounds(58, 371, 110, 23);
 		contentPane.add(btnNewButton);
 		
 		JButton btnNewButton_1 = new JButton("EZEZTATU");
 		btnNewButton_1.setFont(new Font("Arial Narrow", Font.BOLD, 16));
-		btnNewButton_1.setBounds(243, 371, 110, 23);
+		btnNewButton_1.setBounds(224, 371, 128, 23);
 		contentPane.add(btnNewButton_1);
 		
 		JButton btnNewButton_2 = new JButton("AURRERA");
 		btnNewButton_2.setFont(new Font("Arial Narrow", Font.BOLD, 16));
-		btnNewButton_2.setBounds(414, 371, 104, 23);
+		btnNewButton_2.setBounds(414, 371, 113, 23);
 		contentPane.add(btnNewButton_2);
 		
 		JLabel lblNewLabel = new JLabel("HAU DA ZURE AUKERA");
 		lblNewLabel.setFont(new Font("Arial Narrow", Font.BOLD, 16));
-		lblNewLabel.setBounds(209, 57, 154, 14);
+		lblNewLabel.setBounds(196, 60, 156, 14);
 		contentPane.add(lblNewLabel);
 		
 		JLabel lblNewLabel_1 = new JLabel("ZERBAIT ALDATU NAHI DUZU?");
 		lblNewLabel_1.setFont(new Font("Arial Narrow", Font.BOLD, 16));
-		lblNewLabel_1.setBounds(195, 96, 192, 14);
+		lblNewLabel_1.setBounds(183, 97, 199, 14);
 		contentPane.add(lblNewLabel_1);
 	}
 }

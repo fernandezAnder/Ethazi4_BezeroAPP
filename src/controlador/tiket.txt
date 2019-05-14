@@ -1,9 +1,9 @@
  
                                                              BIDAI ON S.L.                         	
  ********************************************************************************************************************** 	
-Erreserba erreserba_kod=0 	, ostatu_id=4 	
-, bezero_nan=12345678Z 	, sartze_data=2019/04/12 	
-, irtetze_data=2019/04/14 	, pertsona_kop=2 	
-, prezio_totala=378.0 	, erreserba_gela_kop=3 	
-, pentsio_mota=H 	, ohe_mota=Banakakoa 	
-, ohe_kop=2 	, tarifa_denboraldia=null
+, ostatu_id=20 	
+, bezero_nan=edcdb39bcd7d186385ad3c4b9532d299 	, sartze_data=2019/07/10 	
+, irtetze_data=2019/07/15 	, pertsona_kop=4 	
+, prezio_totala=2250.0 	, erreserba_gela_kop=4 	
+, pentsio_mota=E 	, ohe_mota=Bikoitza 	
+, ohe_kop=4 	, tarifa_denboraldia=Altua

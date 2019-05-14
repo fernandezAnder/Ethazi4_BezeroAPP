@@ -22,6 +22,7 @@ import java.awt.event.ActionListener;
 import java.io.Externalizable;
 import java.util.ArrayList;
 import java.awt.event.ActionEvent;
+import javax.swing.border.MatteBorder;
 
 public class P2_etxea extends JFrame {
 
@@ -44,15 +45,17 @@ public class P2_etxea extends JFrame {
 		setBounds(100, 100, 998, 588);
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(135, 206, 235));
-		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		contentPane.setBorder(new MatteBorder(20, 10, 20, 10, (Color) new Color(70, 130, 180)));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
 		 scrollPane = new JScrollPane();
-		scrollPane.setBounds(0, 64, 982, 427);
+		scrollPane.setBounds(36, 64, 905, 427);
 		contentPane.add(scrollPane);
 		
 		table = new JTable();
+		table.getTableHeader().setReorderingAllowed(false) ;
+
 
 
 
@@ -61,7 +64,7 @@ public class P2_etxea extends JFrame {
 		
 		
 		lblApartamentuarenInformazioa.setFont(new Font("Arial Narrow", Font.BOLD, 24));
-		lblApartamentuarenInformazioa.setBounds(315, 11, 257, 25);
+		lblApartamentuarenInformazioa.setBounds(315, 28, 318, 25);
 		contentPane.add(lblApartamentuarenInformazioa);
 		
 		
@@ -72,7 +75,7 @@ public class P2_etxea extends JFrame {
 				metodos.lehenengoLehioa();
 			}
 		});
-		btnNewButton.setBounds(366, 502, 89, 23);
+		btnNewButton.setBounds(357, 502, 98, 23);
 		contentPane.add(btnNewButton);
 		
 		
@@ -81,23 +84,27 @@ public class P2_etxea extends JFrame {
 				try{
 				int numero=table.getSelectedRow();
 				Etxea etxea2 = etxelista.get(numero);
-				if(etxea2.getErreserba_kop()==100) {
-					 lblNewLabel.setText("Etxea Beteta");
-				}
-				else {
+//				if(etxea2.getErreserba_kop()==100) {
+//					 lblNewLabel.setText("Etxea Beteta");
+//				}
+//				else {
 					id=etxea2.getOstatu_id();
+					System.out.println("IDDDDDD"+id);
 					 //ohekopurua = hotela2.getGela_kop();
 					if(metodos.logueatuta==false && id!=0) {
+						System.err.println("asfjksdhkj  1");
 						metodos.lehioaEtxeaItxi();
 						metodos.loginIreki();
+						//metodos.bidaliDiruaEtxea();
 					}
 					else {
 						if(id!=0) {
+						System.out.println("alsknfakn 2");
 						metodos.lehioaEtxeaItxi();
 						metodos.p2hotetoOrdainketa();
-						metodos.bidaliDirua();
+						metodos.bidaliDiruaEtxea();
 						}
-					}
+//					}
 					
 				}
 				System.out.println(etxea2);
@@ -114,7 +121,7 @@ public class P2_etxea extends JFrame {
 			}
 		});
 		btnNewButton_1.setFont(new Font("Arial Narrow", Font.BOLD, 16));
-		btnNewButton_1.setBounds(518, 502, 98, 23);
+		btnNewButton_1.setBounds(518, 502, 115, 23);
 		contentPane.add(btnNewButton_1);
 		
 	}
@@ -131,7 +138,7 @@ public class P2_etxea extends JFrame {
 	public void filtroetxea() {
 		
 		String[]columnas= {
-				"m2", "ostatu_id", "izena", "herria", "helbidea", "postaKod", "ostatu_mota", "gela_kopuru", "erreserba_kopuru","komun_kop"
+				"m2", "ostatu_id", "izena", "herria", "helbidea", "postaKod", "ostatu_mota", "gela_kopuru", "erreserba_kopuru","komun_kop","prezioa"
 			};
 		DefaultTableModel t1= new DefaultTableModel(){
 
@@ -154,8 +161,9 @@ public class P2_etxea extends JFrame {
 		 t1.addColumn("gela_kopuru");
 		 t1.addColumn("erreserba_kopuru");
 		 t1.addColumn("komun_kop");
+		 t1.addColumn("prezioa");
 		for (Etxea e:etxelista) {
-					
+			
 					columnas[0]=Double.toString(e.getM2());
 					columnas[1]=Integer.toString(e.getOstatu_id());
 					columnas[2]=e.getIzena();
@@ -166,6 +174,7 @@ public class P2_etxea extends JFrame {
 					columnas[7]=Integer.toString( e.getGela_kop());
 					columnas[8]=Integer.toString(e.getErreserba_kop());
 					columnas[9]=Integer.toString(e.getKomun_kop());
+					columnas[10]=Double.toString(e.getPrezioa());
 					t1.addRow(columnas);	
 			}	
 

@@ -3,14 +3,18 @@ package controlador;
 public class Apartamentua extends Ostatua {
 
 	private int solairua;
+	private int m2;
+	private int komun_kop;
+	private double prezioa;
 	
-	
-	public Apartamentua( int solairua, int ostatu_id, String izena, 
+	public Apartamentua( int m2,int solairua, int ostatu_id, String izena, 
 						String herria, String helbidea, int posta_kod, String ostatu_mota,
-							int gela_kop, int erreserba_kop) {
+							int gela_kop, int erreserba_kop,int komun_kop,double prezioa) {
 		super(ostatu_id, izena, herria, helbidea, posta_kod, ostatu_mota, gela_kop, erreserba_kop);
 		this.solairua = solairua;
-		
+		this.m2=m2;
+		this.komun_kop=komun_kop;
+		this.prezioa=prezioa;
 	}
 
 	public int getSolairua() {
@@ -21,6 +25,31 @@ public class Apartamentua extends Ostatua {
 		this.solairua = solairua;
 	}
 
+	
+
+	public int getM2() {
+		return m2;
+	}
+
+	public void setM2(int m2) {
+		this.m2 = m2;
+	}
+
+	public int getKomun_kop() {
+		return komun_kop;
+	}
+
+	public void setKomun_kop(int komun_kop) {
+		this.komun_kop = komun_kop;
+	}
+
+	public double getPrezioa() {
+		return prezioa;
+	}
+
+	public void setPrezioa(double prezioa) {
+		this.prezioa = prezioa;
+	}
 
 	@Override
 	public int getOstatu_id() {

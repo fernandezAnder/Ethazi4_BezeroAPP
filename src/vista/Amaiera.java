@@ -1,23 +1,24 @@
 package vista;
 
+	
+import java.awt.Color;
 import java.awt.Font;
-
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-
-import controlador.Contador;
-import controlador.Metodoak;
-import javax.swing.JButton;
+import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.concurrent.TimeUnit;
-import java.awt.event.ActionEvent;
-import java.awt.Color;
-/**
- * 
- * @author oier, ander, aintzane
- *
- */
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+
+import controlador.Metodoak;
+
 public class Amaiera extends JFrame {
+
+	private JPanel contentPane;
+	private Metodoak metodos;
+
 	/**
 	 * 
 	 */
@@ -26,7 +27,7 @@ public class Amaiera extends JFrame {
 	private JLabel lblEskerrikAsko = new JLabel("ESKERRIK ASKO ");
 	private JLabel lblZureTxartelaOrain = new JLabel("ERABILTZEAGATIK");
 
-	private Metodoak metodos;
+
 	private final JButton btnAmaitu = new JButton("AMAITU");
 	private final JLabel lblNewLabel_1 = new JLabel("BIDAI ON");
 
@@ -40,12 +41,12 @@ public class Amaiera extends JFrame {
 		
 		//LABEL ESKERRIK ASKO
 		lblEskerrikAsko.setFont(new Font("Arial Narrow", Font.BOLD, 44));
-		lblEskerrikAsko.setBounds(193, 52, 323, 78);
+		lblEskerrikAsko.setBounds(186, 48, 310, 78);
 		getContentPane().add(lblEskerrikAsko);
 		
 		//LABEL ZURE TXARTELA ORAIN
 		lblZureTxartelaOrain.setFont(new Font("Arial Narrow", Font.BOLD, 44));
-		lblZureTxartelaOrain.setBounds(172, 203, 356, 45);
+		lblZureTxartelaOrain.setBounds(169, 212, 347, 45);
 		getContentPane().add(lblZureTxartelaOrain);
 		btnAmaitu.setBackground(new Color(135, 206, 250));
 		btnAmaitu.setFont(new Font("Arial Narrow", Font.BOLD, 16));
@@ -58,7 +59,7 @@ public class Amaiera extends JFrame {
 			            e1.printStackTrace();
 			        }
 			    
-			metodos.agurratoP1();
+			metodos.agurratop1cop();
 			}
 		});
 		btnAmaitu.setBounds(169, 397, 347, 89);
@@ -67,13 +68,20 @@ public class Amaiera extends JFrame {
 		
 		JLabel lblNewLabel = new JLabel("ONDO IBILI!");
 		lblNewLabel.setFont(new Font("Arial Narrow", Font.BOLD, 40));
-		lblNewLabel.setBounds(232, 272, 198, 78);
+		lblNewLabel.setBounds(246, 272, 201, 78);
 		getContentPane().add(lblNewLabel);
 		lblNewLabel_1.setFont(new Font("Arial Narrow", Font.BOLD, 44));
-		lblNewLabel_1.setBounds(250, 141, 180, 40);
+		lblNewLabel_1.setBounds(256, 139, 168, 40);
 		
 		getContentPane().add(lblNewLabel_1);
+	}
 		//icono.setIcon(new ImageIcon(Ventana7.class.getResource("/argazkiak/termibus.png")));
+
+
+	public void misMetodos(Metodoak metodos) {
+		this.metodos=metodos;
+	}
+
 
 //		Metodoak m1 =new Metodoak();
 //		if (this.isVisible()) {
@@ -96,7 +104,5 @@ public class Amaiera extends JFrame {
 	
 	
 	
-	public void misMetodos(Metodoak metodos) {
-		this.metodos=metodos;
-	}
-}
+
+
