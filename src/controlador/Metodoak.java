@@ -45,7 +45,10 @@ public class Metodoak {
 	private int promozio_id=0;
 	
 	
-	
+	/**
+	 * Kodeak datu basetik hartzen du eta ordaintzeko pantailatzen eramaten du
+	 * @author taldea 4
+	 */
 	public void kodea() {
 		String kodea="";
 		String nana = lo1.ateraNanMd5();
@@ -63,31 +66,67 @@ public class Metodoak {
 	}
 	
 //***************Para que no salga una y otra vez la ventana de login comprobamos logueatutta y asi solo se abre una vez*****
+	/**
+	 * Logueatu bazaude erakuzten du
+	 * @author taldea 4
+	 * @return logueatuta
+	 */
 	public boolean logueatuta(){
 		return logueatuta;
 	}
+	/**
+	 * Logueatuta bazaude esaten du
+	 * @author taldea 4
+	 * @param erabakia
+	 */
 	public void logueatutabai(boolean erabakia) {
 		logueatuta=erabakia;
 	}
+	/**
+	 * Legedia onartuta badago esaten du eta datu bazean idazten du
+	 * @author taldea 4
+	 */
 	public void legediaonartua() {
 		Consultas.legediaonartua();
 	}
 ///////////////////////////////////////////////////////////////////////////
-	
+	/**
+	 * Prezioa metodoen klasera eramaten du
+	 * @author taldea 4
+	 * @param prezioa
+	 */
 	public void prezio_totala(String prezioa) {
 		prezio_totala=prezioa;
 	}
+	/**
+	 * Ostatu mota metodoen klasera eramaten du
+	 * @author taldea 4
+	 * @param ostatu
+	 */
 	public void ostatu_motaHartu(String ostatu) {
 		ostatu_mota=ostatu;
 	}
+	/**
+	 * ostatu mota metodoen pantailatik bueltatzen du
+	 * @author taldea 4
+	 * @return ostatu_mota
+	 */
 	public String ostatu_motaAtera() {
 		return ostatu_mota;
 	}
 ///////////////////////////////////////////////////////////////////////////
+	/**
+	 * lehenengo pantaila pizten du
+	 * @author taldea 4
+	 */
 	public  void lehenengoLehioa() {
 		p1cop.setVisible(true);
 		
 	}
+	/**
+	 * Ordaintzeko pantailatik lehenengora bueltatzen da
+	 * @author taldea 4
+	 */
 	public  void lehenengoLehioa2() {
 		ord1.setVisible(false);
 		p1cop.dispose();
@@ -97,38 +136,72 @@ public class Metodoak {
 	}
 	
 	
-
+	/**
+	 * Bigarren lehioa hotela pizten du
+	 * @author taldea 4
+	 */
 	public void bigarrenLehioaHotela() {
 		p1cop.setVisible(false);
 		p2hot.setVisible(true);
 	}
+	/**
+	 * bigarren lehioa apartamentua pizten du
+	 * @author taldea 4
+	 */
 	public void bigarrenLehioaApartamentua() {
 		p1cop.setVisible(false);
 		p2apart.setVisible(true);
 	}
+	/**
+	 * bigarren lehioa etxea pizten du
+	 * @author taldea 4
+	 */
 	public void bigarrenLehioaEtxea() {
 		p1cop.setVisible(false);
 		p2etxe.setVisible(true);
 	}
+	/**
+	 * hotela lehioa amatatzen du
+	 * @author taldea 4
+	 */
 	public void lehioaHotelaItxi() {
 		p2hot.setVisible(false);
 	}
+	/**
+	 * Lehioa hotela irekitzen du
+	 * @author taldea 4
+	 */
 	public void lehioaHotelaIreki() {
 		p2hot.setVisible(true);
 	}
+	/**
+	 * Lehioa apartamentua amatatzen du
+	 * @author taldea 4
+	 */
 	public void lehioaApartamentuaItxi() {
 		p2apart.setVisible(false);
 	}
+	/**
+	 * etxea lehioa amatatzen du
+	 * @author taldea 4
+	 */
 	public void lehioaEtxeaItxi() {
 		p2etxe.setVisible(false);
 	}
-	
+	/**
+	 * Login lehioa irekitzen du
+	 * @author taldea 4
+	 */
 	public void loginIreki() {
-		System.out.println("kaixo");
 		lo1.setVisible(true);
 		
 	}
 	//**********DENBORALDIA KALKULATZEKO METODOAK********
+	/**
+	 * Denboraldia kalkulatzen du prezioari gehitzeko
+	 * @author taldea 4
+	 * @return recargo
+	 */
 	public double denboraldiaKalkulatu() {
 		SimpleDateFormat formato = new SimpleDateFormat("yyyy/MM/dd/");
 		Date date1p1cop = null;
@@ -156,6 +229,7 @@ public class Metodoak {
 			urtea1=data.getYear();
 			if(eguna1==eguna2 && hilabetea1==hilabetea2 && urtea1==urtea2) {
 				 esfestivo = true;
+				 recargo = 50.00;
 			}
 		}
 		//recargo=Consultas.
@@ -164,6 +238,11 @@ public class Metodoak {
 		
 		
 	}
+	/**
+	 * Datu basetik jaiegunak ateratzen ditu
+	 * @author taldea 4
+	 * @return jaiegunak
+	 */
 	public ArrayList<java.sql.Date> jaiegunLista(){
 		ArrayList<java.sql.Date> jaiegunak=Consultas.jaiegunLista();
 		for (int i=0;i<jaiegunak.size();i++) {
@@ -172,6 +251,10 @@ public class Metodoak {
 		return jaiegunak;
 	}
 	//*****************ERRESERBAREN PREZIOA KALKULATZEKO METODOAK********************
+	/**
+	 * Ostatu mota hartzen du eta horrekin datu basean begiratzen dut gauzak zenbat balio diren ikusteko
+	 * @author taldea 4
+	 */
 	public void bidaliDirua(){
 		
 		String data1=p1cop.ateraData1();
@@ -242,7 +325,11 @@ public class Metodoak {
 		diruaString=Double.toString(prezioa);
 		ord1.idatzi(diruaString);		
 	}
-
+	
+	/**
+	 * ostatu mota = apartamentua hartzen du datu basean begiratzen dut gauzak zenbat balio diren ikusteko
+	 * @author taldea 4
+	 */
 
 	public void bidaliDiruaApartamentua() {
 
@@ -303,6 +390,9 @@ public class Metodoak {
 		diruaString=Double.toString(prezioa);
 		ord1.idatzi(diruaString);	
 	}
+	/**
+	 * Ostatu mota etxea hartzen du eta 
+	 */
 	public void bidaliDiruaEtxea() {
 
 		String data1=p1cop.ateraData1();
