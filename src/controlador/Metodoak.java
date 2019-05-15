@@ -496,9 +496,9 @@ public class Metodoak {
 	 */
 	public void agurratop1cop() {
 		am1.setVisible(false);
-		//amaiera();
-		p1cop.dispose();
+		
 		BezeroAPP ap = new BezeroAPP();
+		p1cop.dispose();
 		ap.arrancar();
 		
 		}
