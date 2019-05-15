@@ -59,6 +59,7 @@ public class P1_copia extends JFrame {
 	private String gela_mota;
 	private Double maximoa;
 	private Double minimo;
+	ArrayList <String> zerbitzus = new ArrayList<String>();
 	
 	private String hostatu_mota="";
 	private JTextField textField= new JTextField();
@@ -276,6 +277,7 @@ public class P1_copia extends JFrame {
 						metodos.ostatu_motaHartu(letra);
 						metodos.bigarrenLehioaHotela();
 						metodos.filtroHotela();
+						metodos.filtroZerbitzuak();
 					}else if(letra_ostatu.equalsIgnoreCase("A")) {
 						letra=letra_ostatu;
 						metodos.ostatu_motaHartu(letra);
@@ -482,12 +484,16 @@ public class P1_copia extends JFrame {
 		lblZerbitzuGehigarriak.setBounds(39, 404, 212, 25);
 		
 		contentPane.add(lblZerbitzuGehigarriak);
-			/******Radio piscina*****/
+			/******Radio Wifi*****/
 		radio_wifi = new JRadioButton("Wifi");
 		radio_wifi.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				radio_wifi.isSelected();
-				
+				if(radio_wifi.isSelected()) {
+					zerbitzus.add("Wifi");
+				}
+				if(!radio_wifi.isSelected()) {
+					zerbitzus.remove(zerbitzus.indexOf("Wifi"));
+				}
 			}
 		});
 		radio_wifi.setBounds(39, 475, 60, 23);
@@ -495,37 +501,107 @@ public class P1_copia extends JFrame {
 		radio_wifi.setEnabled(false);
 		/******Radio piscina*****/
 		 radio_igerilekua = new JRadioButton("Igerilekua");
+		 radio_igerilekua.addActionListener(new ActionListener() {
+		 	public void actionPerformed(ActionEvent e) {
+		 		if(radio_igerilekua.isSelected()) {
+					zerbitzus.add("igerilekua");
+				}
+				if(!radio_igerilekua.isSelected()) {
+					zerbitzus.remove(zerbitzus.indexOf("igerilekua"));
+				}
+		 	}
+		 });
 		 radio_igerilekua.setEnabled(false);
 		radio_igerilekua.setBounds(128, 475, 91, 23);
 		contentPane.add(radio_igerilekua);
 		radio_wifi.setEnabled(false);
 		
 		 radio_aire = new JRadioButton("Aire Girotua");
+		 radio_aire.addActionListener(new ActionListener() {
+		 	public void actionPerformed(ActionEvent e) {
+		 		if(radio_aire.isSelected()) {
+					zerbitzus.add("aire girotua");
+				}
+				if(!radio_aire.isSelected()) {
+					zerbitzus.remove(zerbitzus.indexOf("aire girotua"));
+				}
+		 	}
+		 });
 		 radio_aire.setEnabled(false);
 		radio_aire.setBounds(254, 475, 94, 23);
 		contentPane.add(radio_aire);
 		
 		 radio_taberna = new JRadioButton("Taberna");
+		 radio_taberna.addActionListener(new ActionListener() {
+		 	public void actionPerformed(ActionEvent e) {
+		 		if(radio_taberna.isSelected()) {
+					zerbitzus.add("taberna");
+				}
+				if(!radio_taberna.isSelected()) {
+					zerbitzus.remove(zerbitzus.indexOf("taberna"));
+				}
+		 	}
+		 });
 		 radio_taberna.setEnabled(false);
 		radio_taberna.setBounds(392, 475, 71, 23);
 		contentPane.add(radio_taberna);
 		
 		 radio_spa = new JRadioButton("Spa");
+		 radio_spa.addActionListener(new ActionListener() {
+		 	public void actionPerformed(ActionEvent arg0) {
+		 		if(radio_spa.isSelected()) {
+					zerbitzus.add("spa");
+				}
+				if(!radio_spa.isSelected()) {
+					zerbitzus.remove(zerbitzus.indexOf("spa"));
+				}
+		 	}
+		 });
 		 radio_spa.setEnabled(false);
 		radio_spa.setBounds(39, 521, 60, 23);
 		contentPane.add(radio_spa);
 		
 		 radio_aparkalekua = new JRadioButton("Aparkalekua");
+		 radio_aparkalekua.addActionListener(new ActionListener() {
+		 	public void actionPerformed(ActionEvent e) {
+		 		if(radio_aparkalekua.isSelected()) {
+					zerbitzus.add("aparkalekua");
+				}
+				if(!radio_aparkalekua.isSelected()) {
+					zerbitzus.remove(zerbitzus.indexOf("aparkalekua"));
+				}
+		 	}
+		 });
 		 radio_aparkalekua.setEnabled(false);
 		radio_aparkalekua.setBounds(128, 521, 91, 23);
 		contentPane.add(radio_aparkalekua);
 		
 		 radio_gim = new JRadioButton("Gimnasioa");
+		 radio_gim.addActionListener(new ActionListener() {
+		 	public void actionPerformed(ActionEvent e) {
+		 		if(radio_gim.isSelected()) {
+					zerbitzus.add("gimnasioa");
+				}
+				if(!radio_gim.isSelected()) {
+					zerbitzus.remove(zerbitzus.indexOf("gimnasioa"));
+				}
+		 	}
+		 });
 		 radio_gim.setEnabled(false);
 		radio_gim.setBounds(254, 521, 94, 23);
 		contentPane.add(radio_gim);
 		
 		 radio_jate = new JRadioButton("Jatetxea");
+		 radio_jate.addActionListener(new ActionListener() {
+		 	public void actionPerformed(ActionEvent e) {
+		 		if(radio_jate.isSelected()) {
+					zerbitzus.add("jatetxea");
+				}
+				if(!radio_jate.isSelected()) {
+					zerbitzus.remove(zerbitzus.indexOf("jatetxea"));
+				}
+		 	}
+		 });
 		 radio_jate.setEnabled(false);
 		radio_jate.setBounds(392, 521, 71, 23);
 		contentPane.add(radio_jate);
@@ -708,7 +784,6 @@ public class P1_copia extends JFrame {
 	}
 
 	public ArrayList<String> ateraZerbitzuak() {
-		// TODO Auto-generated method stub
-		return null;
+		return zerbitzus;
 	}
 }

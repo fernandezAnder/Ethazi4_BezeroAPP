@@ -28,5 +28,12 @@ public class Zerbitzuak {
 	public void setZerbitzu_kod(int zerbitzu_kod) {
 		this.zerbitzu_kod = zerbitzu_kod;
 	}
+	/* (non-Javadoc)
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		return String.format("Zerbitzuak [ostatu_id=%s, izena=%s, zerbitzu_kod=%s]", ostatu_id, izena, zerbitzu_kod);
+	}
 	
 }

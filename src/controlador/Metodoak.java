@@ -632,40 +632,34 @@ public class Metodoak {
 		ArrayList<Zerbitzuak> zerbitzulist = Consultas.ostatuZerbitzuak();
 		ArrayList <String> zerbitzus = new ArrayList<String>();
 		zerbitzus = p1cop.ateraZerbitzuak();
+		for(int x=0;x<zerbitzus.size();x++) {
+	        System.out.println(zerbitzus.get(x).toString());
+	      }
 		ArrayList<Integer> hotelak_id = new ArrayList<Integer>();
 		String primero = "";
 		ArrayList<Integer> intocables = new ArrayList<Integer>();
 		primero=zerbitzus.get(0);
+		
 			for(Zerbitzuak z: zerbitzulist) {
 				if (primero.equalsIgnoreCase(z.getIzena())) {
+					System.out.println(z);
 					if(hotelak_id.indexOf(z.getOstatu_id())==-1) {
-						hotelak_id.add(z.getOstatu_id());}
-					}
-				
-				
-			}
-			
-			for(int i=1;i<zerbitzus.size();i++) {
-				for(Zerbitzuak z: zerbitzulist) {
-					if(zerbitzus.get(i).equalsIgnoreCase(z.getIzena())) {
-						if(hotelak_id.indexOf(z.getOstatu_id())!=-1) {
-							
+						hotelak_id.add(z.getOstatu_id());
+						//System.out.println("Los que tienen el primer elemento: "+z.getOstatu_id());
 						}
 					}
-					if(zerbitzus.get(i).equalsIgnoreCase(z.getIzena())) {
-						
-					}
-					
 				}
-			}
 			boolean badago = false;
 			boolean tiene_el_servicio=false;
 			int cont=0;
 			for(int m=0;m<hotelak_id.size();m++) {
 				for(int i=1;i<zerbitzus.size();i++) {
 					for(Zerbitzuak z: zerbitzulist) {
+						
 					if(hotelak_id.get(m)==z.getOstatu_id()) {
+						
 							if(z.getIzena().equalsIgnoreCase(zerbitzus.get(i))){
+								//System.out.println("Tiene "+zerbitzus.get(i));
 								badago=true;
 							}
 						}
@@ -675,7 +669,7 @@ public class Metodoak {
 						badago=false;
 						break;
 					}
-					else {
+					if(badago==false) {
 						tiene_el_servicio=false;
 						break;
 					}
@@ -685,8 +679,12 @@ public class Metodoak {
 				}
 				if(tiene_el_servicio==true) {
 					intocables.add(hotelak_id.get(m));
+					
 					cont++;
 				}
+			}
+			for(int kaka =0;kaka<intocables.size();kaka++) {
+				//System.out.println("El numero premiadom es:"+intocables.get(kaka));
 			}
 			
 			
