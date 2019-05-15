@@ -647,4 +647,49 @@ public class Consultas {
 		}
 		return promozio_id;
 	}
+	public static ArrayList<Integer> zerbitzuPrezioak() {
+		Connection conexion = modelo.Conexion.getConexion();
+		ArrayList<Integer> prezioak = new ArrayList<Integer>();
+		
+		try {
+			Statement s = conexion.createStatement();
+			String query = "SELECT zerbitzu_prezioa.prezioa FROM zerbitzugehigarriak, zerbitzugehigarriak_zerbitzu_prezioa,zerbitzu_prezioa WHERE zerbitzugehigarriak.kod_zerbitzuak = zerbitzugehigarriak_zerbitzu_prezioa.zerbitzuGehigarriak_kod_zerbitzuak AND zerbitzugehigarriak_zerbitzu_prezioa.zerbitzu_prezioa_prezio_kod = zerbitzu_prezioa.prezio_kod";
+			ResultSet rs = s.executeQuery(query);
+			while (rs.next()) {
+				prezioak.add(rs.getInt(1));
+				
+			}
+
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
+		}
+		return prezioak;
+	}
+	public static ArrayList<Zerbitzuak> ostatuZerbitzuak() {
+		Connection conexion = modelo.Conexion.getConexion();
+		ArrayList<Zerbitzuak> zerbitzulist = new ArrayList<Zerbitzuak>();
+		int ostatu_id;
+		String izena;
+		int zerbitzu_kod;
+		
+		try {
+			Statement s = conexion.createStatement();
+			String query = "SELECT ostatu.ostatu_id, zerbitzugehigarriak.izena, zerbitzugehigarriak.kod_zerbitzuak\r\n" + 
+					"FROM zerbitzugehigarriak, zerbitzugehigarriak_zerbitzu_prezioa,zerbitzu_prezioa, ostatu, zerbitzugehigarriak_ostatu\r\n" + 
+					"WHERE zerbitzugehigarriak.kod_zerbitzuak = zerbitzugehigarriak_zerbitzu_prezioa.zerbitzuGehigarriak_kod_zerbitzuak\r\n" + 
+					"AND zerbitzugehigarriak_zerbitzu_prezioa.zerbitzu_prezioa_prezio_kod = zerbitzu_prezioa.prezio_kod";
+			ResultSet rs = s.executeQuery(query);
+			while (rs.next()) {
+				ostatu_id=rs.getInt(1);
+				izena=rs.getString(2);
+				zerbitzu_kod=rs.getInt(3);
+				Zerbitzuak z= new Zerbitzuak(ostatu_id, izena, zerbitzu_kod);
+				zerbitzulist.add(z);
+			}
+
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
+		}
+		return zerbitzulist;
+	}
 }
