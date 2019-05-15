@@ -104,8 +104,8 @@ public class P1_copia extends JFrame {
 	private final JLabel lblOheMota = new JLabel("OHE MOTA");
 	private final JComboBox comboBox_ohemota = new JComboBox();
 	private final JButton btnAurrera = new JButton("AURRERA");
-	
-	
+	private double prezio__max=1000.00;
+	private double prezio__min=0.00;
 	int ostatu_aukera=0;
 	private final JLabel lblZerbitzuGehigarriak = new JLabel("ZERBITZU GEHIGARRIAK:");
 	private JLabel lblGelaMota;
@@ -699,5 +699,11 @@ public class P1_copia extends JFrame {
 		comboBox_gelamota.addItem("Banakakoa");
 		comboBox_gelamota.addItem("Bikoitza");
 
+	}
+	public double atera_Prezio_maximoa() {
+		return prezio__max;
+	}
+	public double atera_Prezio_minimoa() {
+		return prezio__min;
 	}
 }

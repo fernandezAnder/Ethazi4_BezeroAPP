@@ -626,6 +626,18 @@ public class Metodoak {
 			}
 		}
 	}
+	public void filtro_asier() {
+		ArrayList <String> zerbitzus = new ArrayList<String>();
+		ArrayList <Object> zerbitzu_zerrenda = new ArrayList();
+		ArrayList <Integer> hotelak_id = new ArrayList<Integer>();
+		for(int i=0;i<zerbitzus.size();i++) {
+			for(int kk=0;kk<zerbitzus.size();kk++) {
+				if(zerbitzus[kk].eq) {
+					
+				}
+			}
+		}
+	}
 	/**
 	 * Hotelaren filtroa
 	 * @author taldea 4
@@ -646,8 +658,16 @@ public class Metodoak {
 		
 		
 		for (Hotela p:hotelenlista) {
+			int gela_kop = p.getGela_kop();
+			int erreserba_kop=p.getErreserba_kop() +p1cop.ateraGelakop();
 			if (p.getHerria().equalsIgnoreCase(herria)){
-				hotelenlistaFiltro.add(p);
+				if(gela_kop>erreserba_kop) {
+					if(p.getPrezioa()<p1cop.atera_Prezio_maximoa() && p.getPrezioa()>p1cop.atera_Prezio_minimoa()) {
+						hotelenlistaFiltro.add(p);
+					}
+					
+				}
+				
 			}
 		}
 		
