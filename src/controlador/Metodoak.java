@@ -642,12 +642,21 @@ public class Metodoak {
 	 * Hotelaren filtroa
 	 * @author taldea 4
 	 */
+	public void filtroZerbitzuak() {
+		ArrayList<Zerbitzuak> zerbitzulist = Consultas.ostatuZerbitzuak();
+		for (Zerbitzuak z:zerbitzulist) {
+			
+		}
+	}
 	public void filtroHotela() {
 		String herria=p1cop.ateraHerria();
 		ArrayList<Hotela> hotelenlista= new ArrayList<Hotela>();
 		ArrayList<Hotela> hotelenlistaFiltro= new ArrayList<Hotela>();
 
 		String gelamota=p1cop.gelamota();
+		
+	
+		
 		if (gelamota.equals("Suite")) {
 			hotelenlista=Consultas.hotelendatuakSuite();	
 		}else if(gelamota.equals("Bikoitza")) {
