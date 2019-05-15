@@ -2,10 +2,7 @@ package controlador;
 
 
 import java.io.FileWriter;
-
-
-
-
+import java.lang.reflect.Array;
 import java.math.BigInteger;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
@@ -626,27 +623,78 @@ public class Metodoak {
 			}
 		}
 	}
-	public void filtro_asier() {
-		ArrayList <String> zerbitzus = new ArrayList<String>();
-		ArrayList <Object> zerbitzu_zerrenda = new ArrayList();
-		ArrayList <Integer> hotelak_id = new ArrayList<Integer>();
-		for(int i=0;i<zerbitzus.size();i++) {
-			for(int kk=0;kk<zerbitzus.size();kk++) {
-				if(zerbitzus[kk].eq) {
-					
-				}
-			}
-		}
-	}
+	
 	/**
 	 * Hotelaren filtroa
 	 * @author taldea 4
 	 */
 	public void filtroZerbitzuak() {
 		ArrayList<Zerbitzuak> zerbitzulist = Consultas.ostatuZerbitzuak();
-		for (Zerbitzuak z:zerbitzulist) {
+		ArrayList <String> zerbitzus = new ArrayList<String>();
+		zerbitzus = p1cop.ateraZerbitzuak();
+		ArrayList<Integer> hotelak_id = new ArrayList<Integer>();
+		String primero = "";
+		ArrayList<Integer> intocables = new ArrayList<Integer>();
+		primero=zerbitzus.get(0);
+			for(Zerbitzuak z: zerbitzulist) {
+				if (primero.equalsIgnoreCase(z.getIzena())) {
+					if(hotelak_id.indexOf(z.getOstatu_id())==-1) {
+						hotelak_id.add(z.getOstatu_id());}
+					}
+				
+				
+			}
 			
-		}
+			for(int i=1;i<zerbitzus.size();i++) {
+				for(Zerbitzuak z: zerbitzulist) {
+					if(zerbitzus.get(i).equalsIgnoreCase(z.getIzena())) {
+						if(hotelak_id.indexOf(z.getOstatu_id())!=-1) {
+							
+						}
+					}
+					if(zerbitzus.get(i).equalsIgnoreCase(z.getIzena())) {
+						
+					}
+					
+				}
+			}
+			boolean badago = false;
+			boolean tiene_el_servicio=false;
+			int cont=0;
+			for(int m=0;m<hotelak_id.size();m++) {
+				for(int i=1;i<zerbitzus.size();i++) {
+					for(Zerbitzuak z: zerbitzulist) {
+					if(hotelak_id.get(m)==z.getOstatu_id()) {
+							if(z.getIzena().equalsIgnoreCase(zerbitzus.get(i))){
+								badago=true;
+							}
+						}
+					}
+					if(badago==true) {
+						tiene_el_servicio=true;
+						badago=false;
+						break;
+					}
+					else {
+						tiene_el_servicio=false;
+						break;
+					}
+					
+					
+					
+				}
+				if(tiene_el_servicio==true) {
+					intocables.add(hotelak_id.get(m));
+					cont++;
+				}
+			}
+			
+			
+			
+		
+//		for (Zerbitzuak z:zerbitzulist) {
+//			
+//		}
 	}
 	public void filtroHotela() {
 		String herria=p1cop.ateraHerria();

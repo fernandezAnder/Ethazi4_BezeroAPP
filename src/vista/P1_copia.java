@@ -706,4 +706,9 @@ public class P1_copia extends JFrame {
 	public double atera_Prezio_minimoa() {
 		return prezio__min;
 	}
+
+	public ArrayList<String> ateraZerbitzuak() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }
