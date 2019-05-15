@@ -579,8 +579,12 @@ public class P1_copia extends JFrame {
 		
 		comboBox_pertsonakop.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				try {
 				String pertsona_kop = comboBox_pertsonakop.getSelectedItem().toString();
 				pertsona_kopurua= Integer.parseInt(pertsona_kop);
+				}catch(Exception num) {
+					System.out.println(num.getMessage());
+				}
 				
 			}
 		});
