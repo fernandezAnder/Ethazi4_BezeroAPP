@@ -125,12 +125,12 @@ public class P1_copia extends JFrame {
 
 
 		lblPais.setFont(new Font("Arial Narrow", Font.BOLD, 16));
-		lblPais.setBounds(34, 117, 120, 40);
+		lblPais.setBounds(29, 117, 120, 40);
 		contentPane.add(lblPais);
 		
 
 		//JCALENDAR LEHEN DATA
-		sartzedata.setBounds(140, 284, 118, 20);
+		sartzedata.setBounds(152, 284, 118, 20);
 		sartzedata.setDateFormatString("yyyy-MM-dd");
 		getContentPane().add(sartzedata);
 		sartzedata.setSelectableDateRange(new Date(), null);
@@ -148,7 +148,7 @@ public class P1_copia extends JFrame {
 		
 		
 		//JCALENDAR BIGARREN DATA
-		irtetzedata.setBounds(141, 342, 117, 20);
+		irtetzedata.setBounds(153, 342, 117, 20);
 		irtetzedata.setDateFormatString("yyyy-MM-dd");
 		getContentPane().add(irtetzedata);
 		irtetzedata.setSelectableDateRange(new Date(), null);
@@ -162,7 +162,7 @@ public class P1_copia extends JFrame {
 
 
 		lblGauakgaua.setFont(new Font("Arial Narrow", Font.BOLD, 17));
-		lblGauakgaua.setBounds(34, 279, 120, 25);
+		lblGauakgaua.setBounds(29, 279, 120, 25);
 		contentPane.add(lblGauakgaua);
 		
 		btnAurrera.addActionListener(new ActionListener() {
@@ -321,7 +321,7 @@ public class P1_copia extends JFrame {
 		
 		JLabel lblNewLabel = new JLabel("CHECK-OUT");
 		lblNewLabel.setFont(new Font("Arial Narrow", Font.BOLD, 16));
-		lblNewLabel.setBounds(34, 337, 112, 25);
+		lblNewLabel.setBounds(29, 337, 112, 25);
 		contentPane.add(lblNewLabel);
 
 
@@ -344,7 +344,7 @@ public class P1_copia extends JFrame {
 		}
 
 		lblGelaKopurua.setFont(new Font("Arial Narrow", Font.BOLD, 16));
-		lblGelaKopurua.setBounds(29, 177, 130, 14);
+		lblGelaKopurua.setBounds(471, 173, 130, 20);
 		
 		contentPane.add(lblGelaKopurua);
 		comboBox_gelakop.addActionListener(new ActionListener() {
@@ -354,11 +354,11 @@ public class P1_copia extends JFrame {
 				 System.out.println(gela_kop);
 			}
 		});
-		comboBox_gelakop.setBounds(221, 177, 49, 20);
+		comboBox_gelakop.setBounds(652, 173, 49, 20);
 		
 		contentPane.add(comboBox_gelakop);
 		lblOheMota.setFont(new Font("Arial Narrow", Font.BOLD, 16));
-		lblOheMota.setBounds(471, 177, 89, 14);
+		lblOheMota.setBounds(471, 227, 89, 14);
 		
 		contentPane.add(lblOheMota);
 		comboBox_ohemota.addActionListener(new ActionListener() {
@@ -367,7 +367,7 @@ public class P1_copia extends JFrame {
 			}
 		});
 		comboBox_ohemota.setModel(new DefaultComboBoxModel(new String[] {"", "Banakakoa", "Bikoitza", "Umeena"}));
-		comboBox_ohemota.setBounds(607, 176, 94, 20);
+		comboBox_ohemota.setBounds(607, 227, 94, 20);
 		
 		contentPane.add(comboBox_ohemota);
 		btnAurrera.setFont(new Font("Arial Narrow", Font.BOLD, 16));
@@ -377,7 +377,7 @@ public class P1_copia extends JFrame {
 		
 		
 		lblPertsonaKopurua.setFont(new Font("Arial Narrow", Font.BOLD, 16));
-		lblPertsonaKopurua.setBounds(29, 222, 171, 25);
+		lblPertsonaKopurua.setBounds(29, 222, 190, 25);
 		contentPane.add(lblPertsonaKopurua);
 		
 
@@ -385,7 +385,7 @@ public class P1_copia extends JFrame {
 
 		 comboBox_pertsonakop = new JComboBox();
 		comboBox_pertsonakop.setModel(new DefaultComboBoxModel(new String[] {"", "1", "2", "3", "4", "5", "6", "7", "8"}));
-		comboBox_pertsonakop.setBounds(234, 227, 36, 20);
+		comboBox_pertsonakop.setBounds(221, 227, 49, 20);
 
 		contentPane.add(comboBox_pertsonakop);
 		
@@ -435,12 +435,12 @@ public class P1_copia extends JFrame {
 		
 		
 		lblNewLabel_1.setFont(new Font("Arial Narrow", Font.BOLD, 20));
-		lblNewLabel_1.setBounds(232, 32, 222, 41);
+		lblNewLabel_1.setBounds(232, 32, 260, 41);
 		contentPane.add(lblNewLabel_1);
 		
 		
 		lblPrezioa.setFont(new Font("Arial Narrow", Font.BOLD, 16));
-		lblPrezioa.setBounds(471, 279, 66, 25);
+		lblPrezioa.setBounds(471, 279, 89, 25);
 		contentPane.add(lblPrezioa);
 		
 		
@@ -475,7 +475,7 @@ public class P1_copia extends JFrame {
 		contentPane.add(preziomin);
 		precio_min();
 		lblZerbitzuGehigarriak.setFont(new Font("Arial Narrow", Font.BOLD, 16));
-		lblZerbitzuGehigarriak.setBounds(39, 404, 180, 25);
+		lblZerbitzuGehigarriak.setBounds(39, 404, 212, 25);
 		
 		contentPane.add(lblZerbitzuGehigarriak);
 			/******Radio piscina*****/
@@ -552,17 +552,17 @@ public class P1_copia extends JFrame {
 		 		
 		 	}
 		 });
-		chckbxNewCheckBox.setBounds(232, 404, 26, 23);
+		chckbxNewCheckBox.setBounds(257, 404, 26, 23);
 		contentPane.add(chckbxNewCheckBox);
 		
 		lblGelaMota = new JLabel("GELA MOTA");
 		lblGelaMota.setFont(new Font("Arial Narrow", Font.BOLD, 16));
-		lblGelaMota.setBounds(471, 227, 89, 14);
+		lblGelaMota.setBounds(29, 174, 103, 19);
 		contentPane.add(lblGelaMota);
 		
 		comboBox_gelamota = new JComboBox();
 		
-		comboBox_gelamota.setBounds(607, 226, 94, 20);
+		comboBox_gelamota.setBounds(176, 173, 94, 20);
 		contentPane.add(comboBox_gelamota);
 		gela_mota();
 		comboBox_gelamota.addActionListener(new ActionListener() {
