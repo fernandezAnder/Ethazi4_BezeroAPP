@@ -407,6 +407,8 @@ public class P1_copia extends JFrame {
 					comboBox_ohemota.setVisible(true);
 					lblPertsonaKopurua.setVisible(true);
 					comboBox_pertsonakop.setVisible(true);
+					lblGelaMota.setVisible(true);
+					comboBox_gelamota.setVisible(true);
 				}
 				if(hostatu_mota.equalsIgnoreCase("Apartamentua")) {
 					
@@ -415,7 +417,8 @@ public class P1_copia extends JFrame {
 					comboBox_ohemota.setVisible(false);
 					lblPertsonaKopurua.setVisible(false);
 					comboBox_pertsonakop.setVisible(false);
-
+					lblGelaMota.setVisible(false);
+					comboBox_gelamota.setVisible(false);
 					
 				}
 				if(hostatu_mota.equalsIgnoreCase("Etxea")) {
@@ -424,7 +427,8 @@ public class P1_copia extends JFrame {
 					comboBox_ohemota.setVisible(false);
 					lblPertsonaKopurua.setVisible(false);
 					comboBox_pertsonakop.setVisible(false);
-
+					lblGelaMota.setVisible(false);
+					comboBox_gelamota.setVisible(false);
 					
 				}
 			}
