@@ -403,22 +403,27 @@ public class P1_copia extends JFrame {
 				if(hostatu_mota.equalsIgnoreCase("Hotela")) {
 					
 					letra_ostatu="H";
-					comboBox_ohemota.setEnabled(true);
-					comboBox_pertsonakop.setEnabled(true);
+					lblOheMota.setVisible(true);
+					comboBox_ohemota.setVisible(true);
+					lblPertsonaKopurua.setVisible(true);
+					comboBox_pertsonakop.setVisible(true);
 				}
 				if(hostatu_mota.equalsIgnoreCase("Apartamentua")) {
 					
 					letra_ostatu="A";
-					comboBox_ohemota.setEnabled(false);
-					comboBox_pertsonakop.setEnabled(false);
-					System.out.println("entra");
+					lblOheMota.setVisible(false);
+					comboBox_ohemota.setVisible(false);
+					lblPertsonaKopurua.setVisible(false);
+					comboBox_pertsonakop.setVisible(false);
 
 					
 				}
 				if(hostatu_mota.equalsIgnoreCase("Etxea")) {
 					letra_ostatu="E";
-					comboBox_ohemota.setEnabled(false);
-					comboBox_pertsonakop.setEnabled(false);
+					lblOheMota.setVisible(false);
+					comboBox_ohemota.setVisible(false);
+					lblPertsonaKopurua.setVisible(false);
+					comboBox_pertsonakop.setVisible(false);
 
 					
 				}
