@@ -42,12 +42,12 @@ public class Amaiera extends JFrame {
 		
 		//LABEL ESKERRIK ASKO
 		lblEskerrikAsko.setFont(new Font("Arial Narrow", Font.BOLD, 44));
-		lblEskerrikAsko.setBounds(186, 48, 310, 78);
+		lblEskerrikAsko.setBounds(154, 50, 388, 78);
 		getContentPane().add(lblEskerrikAsko);
 		
 		//LABEL ZURE TXARTELA ORAIN
 		lblZureTxartelaOrain.setFont(new Font("Arial Narrow", Font.BOLD, 44));
-		lblZureTxartelaOrain.setBounds(169, 212, 347, 45);
+		lblZureTxartelaOrain.setBounds(154, 216, 413, 45);
 		getContentPane().add(lblZureTxartelaOrain);
 		btnAmaitu.setBackground(new Color(135, 206, 250));
 		btnAmaitu.setFont(new Font("Arial Narrow", Font.BOLD, 16));
@@ -69,10 +69,10 @@ public class Amaiera extends JFrame {
 		
 		JLabel lblNewLabel = new JLabel("ONDO IBILI!");
 		lblNewLabel.setFont(new Font("Arial Narrow", Font.BOLD, 40));
-		lblNewLabel.setBounds(246, 272, 201, 78);
+		lblNewLabel.setBounds(234, 272, 280, 78);
 		getContentPane().add(lblNewLabel);
 		lblNewLabel_1.setFont(new Font("Arial Narrow", Font.BOLD, 44));
-		lblNewLabel_1.setBounds(256, 139, 168, 40);
+		lblNewLabel_1.setBounds(234, 139, 232, 40);
 		
 		getContentPane().add(lblNewLabel_1);
 	}
