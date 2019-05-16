@@ -676,8 +676,10 @@ public class Consultas {
 			Statement s = conexion.createStatement();
 			String query = "SELECT ostatu.ostatu_id, zerbitzugehigarriak.izena, zerbitzugehigarriak.kod_zerbitzuak\r\n" + 
 					"FROM zerbitzugehigarriak, zerbitzugehigarriak_zerbitzu_prezioa,zerbitzu_prezioa, ostatu, zerbitzugehigarriak_ostatu\r\n" + 
-					"WHERE zerbitzugehigarriak.kod_zerbitzuak = zerbitzugehigarriak_zerbitzu_prezioa.zerbitzuGehigarriak_kod_zerbitzuak\r\n" + 
-					"AND zerbitzugehigarriak_zerbitzu_prezioa.zerbitzu_prezioa_prezio_kod = zerbitzu_prezioa.prezio_kod";
+					"WHERE zerbitzugehigarriak.kod_zerbitzuak = zerbitzugehigarriak_zerbitzu_prezioa.zerbitzuGehigarriak_kod_zerbitzuak \r\n" + 
+					"AND zerbitzugehigarriak_zerbitzu_prezioa.zerbitzu_prezioa_prezio_kod = zerbitzu_prezioa.prezio_kod\r\n" + 
+					"AND ostatu.ostatu_id = zerbitzugehigarriak_ostatu.ostatu_ostatu_id\r\n" + 
+					"AND zerbitzugehigarriak_ostatu.zerbitzuGehigarriak_kod_zerbitzuak = zerbitzugehigarriak.kod_zerbitzuak  ";
 			ResultSet rs = s.executeQuery(query);
 			while (rs.next()) {
 				ostatu_id=rs.getInt(1);
