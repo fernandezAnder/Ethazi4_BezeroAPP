@@ -475,21 +475,21 @@ public class P1_copia extends JFrame {
 		
 		
 		lblPrezioa.setFont(new Font("Arial Narrow", Font.BOLD, 16));
-		lblPrezioa.setBounds(471, 279, 89, 25);
+		lblPrezioa.setBounds(471, 290, 89, 25);
 		contentPane.add(lblPrezioa);
 		
 		
 		lblMax.setFont(new Font("Arial Narrow", Font.BOLD, 16));
-		lblMax.setBounds(471, 313, 66, 25);
+		lblMax.setBounds(471, 337, 66, 25);
 		contentPane.add(lblMax);
 		
 		
 		lblMin.setFont(new Font("Arial Narrow", Font.BOLD, 16));
-		lblMin.setBounds(471, 359, 66, 25);
+		lblMin.setBounds(471, 369, 66, 25);
 		contentPane.add(lblMin);
 		
 		 preziomax = new JComboBox();
-		preziomax.setBounds(607, 317, 94, 20);
+		preziomax.setBounds(607, 342, 94, 20);
 		contentPane.add(preziomax);
 		precio_max();
 		 preziomax.addActionListener(new ActionListener() {
@@ -506,7 +506,7 @@ public class P1_copia extends JFrame {
 		 		prezio__min = (Double) preziomin.getSelectedItem();
 		 	}
 		 });
-		preziomin.setBounds(607, 363, 94, 20);
+		preziomin.setBounds(607, 374, 94, 20);
 		contentPane.add(preziomin);
 		precio_min();
 		lblZerbitzuGehigarriak.setFont(new Font("Arial Narrow", Font.BOLD, 16));
