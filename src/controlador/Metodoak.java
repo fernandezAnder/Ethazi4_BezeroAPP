@@ -628,16 +628,18 @@ public class Metodoak {
 	 * Hotelaren filtroa
 	 * @author taldea 4
 	 */
-	public void filtroZerbitzuak() {
+	public ArrayList<Integer> filtroZerbitzuak() {
 		ArrayList<Zerbitzuak> zerbitzulist = Consultas.ostatuZerbitzuak();
 		ArrayList <String> zerbitzus = new ArrayList<String>();
 		zerbitzus = p1cop.ateraZerbitzuak();
+		
 		for(int x=0;x<zerbitzus.size();x++) {
 	        System.out.println(zerbitzus.get(x).toString());
 	      }
 		ArrayList<Integer> hotelak_id = new ArrayList<Integer>();
 		String primero = "";
 		ArrayList<Integer> intocables = new ArrayList<Integer>();
+		if(zerbitzus.size()>0) {
 		primero=zerbitzus.get(0);
 		
 			for(Zerbitzuak z: zerbitzulist) {
@@ -663,9 +665,10 @@ public class Metodoak {
 							}
 						}
 					}
+					System.out.println(badago);
 					if(badago==true) {
 						tiene_el_servicio=true;
-						badago=false;
+						
 						
 					}
 					if(badago==false) {
@@ -674,24 +677,24 @@ public class Metodoak {
 					}
 					
 					
-					
+					badago=false;
 				}
+				//System.out.println("El servicio es"+tiene_el_servicio +" para: "+hotelak_id.get(m));
 				if(tiene_el_servicio==true) {
 					intocables.add(hotelak_id.get(m));
-					
 					cont++;
+					badago=false;
 				}
 			}
+			System.out.println(intocables.size());
 			for(int kaka =0;kaka<intocables.size();kaka++) {
 				System.out.println("El numero premiadom es:"+intocables.get(kaka));
-			}
+			}}
 			
 			
 			
-		
-//		for (Zerbitzuak z:zerbitzulist) {
-//			
-//		}
+			return intocables;
+
 	}
 	public void filtroHotela() {
 		String herria=p1cop.ateraHerria();
@@ -710,14 +713,22 @@ public class Metodoak {
 			hotelenlista=Consultas.hotelendatuakBanakakoa();
 		}
 		
-		
+		ArrayList <Integer> zerbitzuak=filtroZerbitzuak();
 		for (Hotela p:hotelenlista) {
 			int gela_kop = p.getGela_kop();
 			int erreserba_kop=p.getErreserba_kop() +p1cop.ateraGelakop();
 			if (p.getHerria().equalsIgnoreCase(herria)){
 				if(gela_kop>erreserba_kop) {
-					if(p.getPrezioa()<p1cop.atera_Prezio_maximoa() && p.getPrezioa()>p1cop.atera_Prezio_minimoa()) {
-						hotelenlistaFiltro.add(p);
+					if(p.getPrezioa()<p1cop.atera_Prezio_maximoa() && p.getPrezioa()>=p1cop.atera_Prezio_minimoa()) {
+						if(zerbitzuak.size()>0) {
+						if(zerbitzuak.indexOf(p.getOstatu_id())!=-1) {
+							hotelenlistaFiltro.add(p);
+						}}
+						else {
+							hotelenlistaFiltro.add(p);
+						}
+						
+						
 					}
 					
 				}
@@ -735,13 +746,23 @@ public class Metodoak {
 	 * @return apartamentulista2
 	 */
 	public ArrayList<Apartamentua> filtroApartamentua() {
+		ArrayList <Integer> zerbitzuak=filtroZerbitzuak();
 		String herria=p1cop.ateraHerria();
 		ArrayList<Apartamentua> apartamentulista= new ArrayList<Apartamentua>();
 		apartamentulista=Consultas.apartamentuDatuak();
 		ArrayList<Apartamentua> apartamentulista2= new ArrayList<Apartamentua>();
 		for (Apartamentua p:apartamentulista) {
 			if (p.getHerria().equalsIgnoreCase(herria)){
-				apartamentulista2.add(p);
+				if(p1cop.ateraGelakop()==p.getGela_kop()) {
+					if(p.getPrezioa()<p1cop.atera_Prezio_maximoa() && p.getPrezioa()>=p1cop.atera_Prezio_minimoa()) {
+						if(zerbitzuak.size()>0) {
+							if(zerbitzuak.indexOf(p.getOstatu_id())!=-1) {
+								apartamentulista2.add(p);
+							}}
+						else {
+							apartamentulista2.add(p);}
+						}}
+
 			}
 		}
 		p2apart.ateraA(apartamentulista2);
@@ -753,16 +774,31 @@ public class Metodoak {
 	 * @author taldea 4
 	 */
 	public void filtroEtxea() {
+		ArrayList <Integer> zerbitzuak=filtroZerbitzuak();
 		String herria=p1cop.ateraHerria();
 		ArrayList<Etxea> etxelista=new ArrayList<Etxea>();
 		etxelista=Consultas.etxeDatuak();
 		ArrayList<Etxea> etxelista2=new ArrayList<Etxea>();
 		
 		for (Etxea p:etxelista) {
-			
 			if (p.getHerria().equalsIgnoreCase(herria)){
-				etxelista2.add(p);
-			}
+				if(p1cop.ateraGelakop()==p.getGela_kop()) {
+					if(p.getPrezioa()<p1cop.atera_Prezio_maximoa() && p.getPrezioa()>=p1cop.atera_Prezio_minimoa()) {
+						if(zerbitzuak.size()>0) {
+							if(zerbitzuak.indexOf(p.getOstatu_id())!=-1) {
+								etxelista2.add(p);}
+						}
+						else {
+							etxelista2.add(p);}
+					}}}
+
+
+
+
+
+			//			if (p.getHerria().equalsIgnoreCase(herria)){
+			//				etxelista2.add(p);
+			//			}
 		}
 		p2etxe.ateraE(etxelista2);
 		p2etxe.filtroetxea();

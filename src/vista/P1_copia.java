@@ -278,6 +278,8 @@ public class P1_copia extends JFrame {
 						metodos.bigarrenLehioaHotela();
 						metodos.filtroHotela();
 						metodos.filtroZerbitzuak();
+						
+						
 					}else if(letra_ostatu.equalsIgnoreCase("A")) {
 						letra=letra_ostatu;
 						metodos.ostatu_motaHartu(letra);
@@ -465,7 +467,7 @@ public class P1_copia extends JFrame {
 		precio_max();
 		 preziomax.addActionListener(new ActionListener() {
 			 	public void actionPerformed(ActionEvent e) {
-			 		 maximoa =(Double) preziomax.getSelectedItem();
+			 		prezio__max =(Double) preziomax.getSelectedItem();
 			 	}
 			 });
 		
@@ -474,7 +476,7 @@ public class P1_copia extends JFrame {
 		 preziomin = new JComboBox();
 		 preziomin.addActionListener(new ActionListener() {
 		 	public void actionPerformed(ActionEvent e) {
-		 		 minimo = (Double) preziomin.getSelectedItem();
+		 		prezio__min = (Double) preziomin.getSelectedItem();
 		 	}
 		 });
 		preziomin.setBounds(607, 363, 94, 20);
