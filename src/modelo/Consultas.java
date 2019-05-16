@@ -294,6 +294,35 @@ public class Consultas {
 
 		
 	}
+	public static void ospeaGehitu(int ostatu_id) {
+		Connection conexion = modelo.Conexion.getConexion();
+		
+		int ospea=0;
+		try {
+			Statement s = conexion.createStatement();
+			String query = ("SELECT ostatu.ospea FROM ostatu WHERE ostatu_id ="+ostatu_id);
+			ResultSet rs = s.executeQuery(query);
+			while (rs.next()) {
+				ospea=rs.getInt(1);
+			}
+
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
+		}
+		ospea=ospea+1;
+		try {
+			PreparedStatement s = (PreparedStatement) conexion.prepareStatement(
+					"UPDATE `ostatu` SET `ospea`="+ospea+" WHERE ostatu_id="+ostatu_id);
+				
+			s.executeUpdate();
+			s.close();
+
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+
+		
+	}
 	public static String[] promozioKod1(String nan) {
 		Connection conexion = modelo.Conexion.getConexion();
 		String [] promozio_kod=new String[3];
