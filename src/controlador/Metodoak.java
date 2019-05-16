@@ -715,6 +715,18 @@ public class Metodoak {
 			return intocables;
 
 	}
+	public ArrayList<Erreserba> ateraIrtetzeDatak(){
+		ArrayList<Erreserba> datak= Consultas.ateraIrtetzeDatak();
+		return datak;
+	}
+	/**
+	 * Erreserba kopurua gehitzen ditu
+	 * @author taldea 4
+	 */
+	public void erreserbaKopKendu(int id) {
+		
+		Consultas.erreserbaKopKendu(id);
+	}
 	public void filtroHotela() {
 		String herria=p1cop.ateraHerria();
 		ArrayList<Hotela> hotelenlista= new ArrayList<Hotela>();

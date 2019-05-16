@@ -5,8 +5,11 @@ import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
+import java.util.GregorianCalendar;
 
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
@@ -18,6 +21,7 @@ import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 import javax.swing.JTextField;
 import javax.swing.border.MatteBorder;
+import javax.xml.bind.JAXB;
 
 import com.toedter.calendar.JDateChooser;
 
@@ -269,7 +273,17 @@ public class P1_copia extends JFrame {
 					    	 
 					    }
 				
-				
+				  ArrayList<Erreserba> datak= metodos.ateraIrtetzeDatak();
+				  		LocalDate gaurkodata = LocalDate.now();
+				  		String gaur=gaurkodata.toString();
+					 for (Erreserba er:datak) {
+						 String datubasedata=er.getIrtetze_data().toString();
+						 if (gaur.equals(datubasedata)) {
+							 int id_ostatu=er.getOstatu_id();
+							 System.out.println("Sartu da eta id: "+er.getOstatu_id());
+							 metodos.erreserbaKopKendu(id_ostatu);
+						 }
+					 }
 
 				if(!fechaComoCadena.equalsIgnoreCase("") && !fechaComoCadena2.equalsIgnoreCase("")&& !hostatu_mota.equalsIgnoreCase("") && gela_kop!=0 ) {
 					if(eguna-eguna2!=0) {

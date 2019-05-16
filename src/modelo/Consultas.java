@@ -321,9 +321,45 @@ public class Consultas {
 			System.out.println(e.getMessage());
 		}
 		
-		
 	}
-	
+	public static ArrayList<Erreserba> ateraIrtetzeDatak() {
+		Connection conexion = modelo.Conexion.getConexion();
+		ArrayList<Erreserba> erreserbak= new ArrayList<Erreserba>();
+		int erreserba_kod;
+		int ostatu_id;
+		String bezero_nan;
+		String sartze_data;
+		String irtetze_data;
+		int pertsona_kop;
+		double prezio_totala;
+		int erreserba_gela_kop;
+		String pentsio_mota;
+		String ohe_mota;
+		int ohe_kop;
+		String tarifa_denboraldia;
+		try {
+			Statement s = conexion.createStatement();
+			String query = ("SELECT e.erreserba_kod,e.ostatu_ostatu_id,e.bezeroa_nan,e.sartze_data,e.irtetze_data,e.pertsona_kopuru,e.prezio_totala,e.erreserbaGela_kopuru,e.pentsio_mota from erreserba e");
+			ResultSet rs = s.executeQuery(query);
+			while (rs.next()) {
+				 erreserba_kod=rs.getInt(1);
+				 ostatu_id=rs.getInt(2);
+				 bezero_nan=rs.getString(3);
+				 sartze_data=rs.getString(4);
+				 irtetze_data=rs.getString(5);
+				 pertsona_kop=rs.getInt(6);
+				 prezio_totala=rs.getDouble(7);
+				 erreserba_gela_kop=rs.getInt(8);
+				 pentsio_mota=rs.getString(9);
+				 Erreserba er= new Erreserba(erreserba_kod, ostatu_id, bezero_nan, sartze_data, irtetze_data, pertsona_kop, prezio_totala, erreserba_gela_kop, pentsio_mota, null, 0, null);
+				 erreserbak.add(er);
+			}
+
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
+		}
+		return erreserbak;
+	}
 	public static void ospeaGehitu(int ostatu_id) {
 		Connection conexion = modelo.Conexion.getConexion();
 		
