@@ -719,6 +719,7 @@ public class Metodoak {
 		String herria=p1cop.ateraHerria();
 		ArrayList<Hotela> hotelenlista= new ArrayList<Hotela>();
 		ArrayList<Hotela> hotelenlistaFiltro= new ArrayList<Hotela>();
+		ArrayList<Hotela> hotelenlistaIzarkop= new ArrayList<Hotela>();
 
 		String gelamota=p1cop.gelamota();
 		
@@ -731,7 +732,7 @@ public class Metodoak {
 		}else if (gelamota.equals("Banakakoa")) {
 			hotelenlista=Consultas.hotelendatuakBanakakoa();
 		}
-		
+		int izarrak = p1cop.ateraIzarrak();
 		ArrayList <Integer> zerbitzuak=filtroZerbitzuak();
 		for (Hotela p:hotelenlista) {
 			int gela_kop = p.getGela_kop();
@@ -755,7 +756,13 @@ public class Metodoak {
 			}
 		}
 		
-		p2hot.prno(hotelenlistaFiltro);
+		
+		for(Hotela p:hotelenlistaFiltro) {
+			if(p.getIzarkop()==izarrak) {
+				hotelenlistaIzarkop.add(p);
+				}
+			}
+		p2hot.prno(hotelenlistaIzarkop);
 		p2hot.filtroHoteltA();
 		
 	}
