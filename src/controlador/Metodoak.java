@@ -642,10 +642,9 @@ public class Metodoak {
 		
 			for(Zerbitzuak z: zerbitzulist) {
 				if (primero.equalsIgnoreCase(z.getIzena())) {
-					System.out.println(z);
 					if(hotelak_id.indexOf(z.getOstatu_id())==-1) {
 						hotelak_id.add(z.getOstatu_id());
-						//System.out.println("Los que tienen el primer elemento: "+z.getOstatu_id());
+						System.out.println("Los que tienen el primer elemento: "+z.getOstatu_id());
 						}
 					}
 				}
@@ -667,7 +666,7 @@ public class Metodoak {
 					if(badago==true) {
 						tiene_el_servicio=true;
 						badago=false;
-						break;
+						
 					}
 					if(badago==false) {
 						tiene_el_servicio=false;
@@ -684,7 +683,7 @@ public class Metodoak {
 				}
 			}
 			for(int kaka =0;kaka<intocables.size();kaka++) {
-				//System.out.println("El numero premiadom es:"+intocables.get(kaka));
+				System.out.println("El numero premiadom es:"+intocables.get(kaka));
 			}
 			
 			
