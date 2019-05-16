@@ -11,6 +11,9 @@ import java.text.DecimalFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -583,7 +586,7 @@ public class Metodoak {
 		if(caracter.equalsIgnoreCase("E")) {
 			id = p2etxe.eramanaId();
 		}
-	System.out.println("ñsflglskfnglkasjrghlrsu id : "+id);
+	System.out.println("ï¿½sflglskfnglkasjrghlrsu id : "+id);
 		Consultas.ospeaGehitu(id);
 	}
 	/**
@@ -720,6 +723,8 @@ public class Metodoak {
 		ArrayList<Hotela> hotelenlista= new ArrayList<Hotela>();
 		ArrayList<Hotela> hotelenlistaFiltro= new ArrayList<Hotela>();
 		ArrayList<Hotela> hotelenlistaIzarkop= new ArrayList<Hotela>();
+		ArrayList<Hotela> hotelenlistaospe= new ArrayList<Hotela>();
+		ArrayList<Integer> ospe = new ArrayList();
 
 		String gelamota=p1cop.gelamota();
 		
@@ -762,7 +767,27 @@ public class Metodoak {
 				hotelenlistaIzarkop.add(p);
 				}
 			}
-		p2hot.prno(hotelenlistaIzarkop);
+		
+		for(Hotela p:hotelenlistaFiltro) {
+			if(ospe.indexOf(p.getOspea())==-1) {
+				ospe.add(p.getOspea());
+				}
+			}
+		Collections.sort(ospe);
+//		Comparator<Integer> comparador = Collections.reverseOrder();
+//		Collections.sort(ospe, comparador);
+		
+		for(int i=ospe.size()-1;i>=0;i--) {
+			for(Hotela p:hotelenlistaIzarkop) {
+				if(ospe.get(i)==p.getOspea()) {
+					if(p.getErreserba_kop()<p.getGela_kop()) {
+						hotelenlistaospe.add(p);
+					}
+					
+				}
+			}
+		}
+		p2hot.prno(hotelenlistaospe);
 		p2hot.filtroHoteltA();
 		
 	}
@@ -771,7 +796,7 @@ public class Metodoak {
 	 * @author taldea 4
 	 * @return apartamentulista2
 	 */
-	public ArrayList<Apartamentua> filtroApartamentua() {
+	public void filtroApartamentua() {
 		ArrayList <Integer> zerbitzuak=filtroZerbitzuak();
 		String herria=p1cop.ateraHerria();
 		ArrayList<Apartamentua> apartamentulista= new ArrayList<Apartamentua>();
@@ -791,9 +816,30 @@ public class Metodoak {
 
 			}
 		}
-		p2apart.ateraA(apartamentulista2);
+		ArrayList<Integer> ospe = new ArrayList();
+		ArrayList<Apartamentua> apartamentulista3= new ArrayList<Apartamentua>();
+		for(Apartamentua p:apartamentulista2) {
+			if(ospe.indexOf(p.getOspea())==-1) {
+				ospe.add(p.getOspea());
+				}
+			}
+		Collections.sort(ospe);
+//		Comparator<Integer> comparador = Collections.reverseOrder();
+//		Collections.sort(ospe, comparador);
+		
+		for(int i=ospe.size()-1;i>=0;i--) {
+			for(Apartamentua p:apartamentulista2) {
+				if(ospe.get(i)==p.getOspea()) {
+					if(p.getErreserba_kop()<1) {
+						apartamentulista3.add(p);
+					}
+					
+				}
+			}
+		}
+		p2apart.ateraA(apartamentulista3);
 		p2apart.filtroapart();
-		return apartamentulista2;
+		
 	}
 	/**
 	 * Datu basetik etxeen filtroa emandako datuak bere pantailara eramaten ditu
@@ -826,7 +872,28 @@ public class Metodoak {
 			//				etxelista2.add(p);
 			//			}
 		}
-		p2etxe.ateraE(etxelista2);
+		ArrayList<Integer> ospe = new ArrayList();
+		ArrayList<Etxea> etxelista3= new ArrayList<Etxea>();
+		for(Etxea p:etxelista2) {
+			if(ospe.indexOf(p.getOspea())==-1) {
+				ospe.add(p.getOspea());
+				}
+			}
+		Collections.sort(ospe);
+//		Comparator<Integer> comparador = Collections.reverseOrder();
+//		Collections.sort(ospe, comparador);
+		
+		for(int i=ospe.size()-1;i>=0;i--) {
+			for(Etxea p:etxelista2) {
+				if(ospe.get(i)==p.getOspea()) {
+					if(p.getErreserba_kop()<1) {
+						etxelista3.add(p);
+					}
+					
+				}
+			}
+		}
+		p2etxe.ateraE(etxelista3);
 		p2etxe.filtroetxea();
 	}
 			
