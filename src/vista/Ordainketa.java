@@ -101,6 +101,7 @@ public class Ordainketa extends JFrame {
 				
 				metodos.erreserbaJaiegunBete();
 				metodos.erreserbaKopGehitu();
+				
 //				Contador contador = new Contador();
 //				contador.start();
 				metodos.amaieraIreki();

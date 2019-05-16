@@ -565,8 +565,26 @@ public class Metodoak {
 		if(caracter.equalsIgnoreCase("E")) {
 			id = p2etxe.eramanaId();
 		}
-		System.out.println(id+" OSTATU ID");
+	
 		Consultas.erreserbaKopGehitu(id);
+	}
+	/**
+	 * Ospe kopurua gehitzen ditu
+	 * @author taldea 4
+	 */
+	public void ospeaGehitu() {
+		int id =0;
+		String caracter = ostatu_motaAtera();
+		if(caracter.equalsIgnoreCase("H")) {
+			id =p2hot.eramanaId();
+		}
+		if(caracter.equalsIgnoreCase("A")) {
+			id = p2apart.bidaliId();			}
+		if(caracter.equalsIgnoreCase("E")) {
+			id = p2etxe.eramanaId();
+		}
+	
+		Consultas.ospeaGehitu(id);
 	}
 	/**
 	 * Erreserba kodea eta jaieguna datu basera bidaltzen ditu
