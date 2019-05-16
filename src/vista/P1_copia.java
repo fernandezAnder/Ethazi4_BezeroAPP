@@ -365,7 +365,7 @@ public class P1_copia extends JFrame {
 		}
 
 		lblGelaKopurua.setFont(new Font("Arial Narrow", Font.BOLD, 16));
-		lblGelaKopurua.setBounds(471, 173, 130, 20);
+		lblGelaKopurua.setBounds(471, 170, 130, 20);
 		
 		contentPane.add(lblGelaKopurua);
 		comboBox_gelakop.addActionListener(new ActionListener() {
@@ -676,7 +676,7 @@ public class P1_copia extends JFrame {
 		
 		 lblIzarrak = new JLabel("IZARRAK:");
 		lblIzarrak.setFont(new Font("Arial Narrow", Font.BOLD, 16));
-		lblIzarrak.setBounds(471, 218, 66, 25);
+		lblIzarrak.setBounds(471, 207, 89, 20);
 		contentPane.add(lblIzarrak);
 		
 		 comboBox = new JComboBox();
@@ -687,7 +687,7 @@ public class P1_copia extends JFrame {
 				 izarra = Integer.parseInt(izarrak);
 			}
 		});
-		comboBox.setBounds(652, 222, 40, 20);
+		comboBox.setBounds(662, 210, 40, 20);
 		contentPane.add(comboBox);
 		gela_mota();
 		comboBox_gelamota.addActionListener(new ActionListener() {
