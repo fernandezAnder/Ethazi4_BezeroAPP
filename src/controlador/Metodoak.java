@@ -583,7 +583,7 @@ public class Metodoak {
 		if(caracter.equalsIgnoreCase("E")) {
 			id = p2etxe.eramanaId();
 		}
-	
+	System.out.println("ñsflglskfnglkasjrghlrsu id : "+id);
 		Consultas.ospeaGehitu(id);
 	}
 	/**
