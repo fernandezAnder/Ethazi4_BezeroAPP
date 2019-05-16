@@ -70,6 +70,7 @@ public class P1_copia extends JFrame {
 	private JComboBox comboBox_1= new JComboBox();
 	private JComboBox comboBox_4 = new JComboBox();
 	private JComboBox comboBox_gelamota;
+	private JComboBox comboBox;
 	private JLabel lblPais = new JLabel("HERRIA / HIRIA");
 	private JDateChooser sartzedata = new JDateChooser();
 	private JDateChooser irtetzedata = new JDateChooser();
@@ -91,6 +92,7 @@ public class P1_copia extends JFrame {
 	private int prezioa=0;
 	private int ostatu_id=0;
 	private String ohe_kops="";
+	private String izarrak;
 	private int ohe_kop=0;
 	private JLabel lblGauakgaua = new JLabel("CHECK-IN");
 	String gela_mota2;
@@ -107,6 +109,7 @@ public class P1_copia extends JFrame {
 	private final JButton btnAurrera = new JButton("AURRERA");
 	private double prezio__max=1000.00;
 	private double prezio__min=0.00;
+	private JLabel lblIzarrak;
 	int ostatu_aukera=0;
 	private final JLabel lblZerbitzuGehigarriak = new JLabel("ZERBITZU GEHIGARRIAK:");
 	private JLabel lblGelaMota;
@@ -362,7 +365,7 @@ public class P1_copia extends JFrame {
 		
 		contentPane.add(comboBox_gelakop);
 		lblOheMota.setFont(new Font("Arial Narrow", Font.BOLD, 16));
-		lblOheMota.setBounds(471, 227, 89, 14);
+		lblOheMota.setBounds(471, 254, 89, 14);
 		
 		contentPane.add(lblOheMota);
 		comboBox_ohemota.addActionListener(new ActionListener() {
@@ -371,7 +374,7 @@ public class P1_copia extends JFrame {
 			}
 		});
 		comboBox_ohemota.setModel(new DefaultComboBoxModel(new String[] {"", "Banakakoa", "Bikoitza", "Umeena"}));
-		comboBox_ohemota.setBounds(607, 227, 94, 20);
+		comboBox_ohemota.setBounds(607, 253, 94, 20);
 		
 		contentPane.add(comboBox_ohemota);
 		btnAurrera.setFont(new Font("Arial Narrow", Font.BOLD, 16));
@@ -413,6 +416,8 @@ public class P1_copia extends JFrame {
 					comboBox_pertsonakop.setVisible(true);
 					lblGelaMota.setVisible(true);
 					comboBox_gelamota.setVisible(true);
+					lblIzarrak.setVisible(true);
+					comboBox.setVisible(true);
 				}
 				if(hostatu_mota.equalsIgnoreCase("Apartamentua")) {
 					
@@ -423,6 +428,8 @@ public class P1_copia extends JFrame {
 					comboBox_pertsonakop.setVisible(false);
 					lblGelaMota.setVisible(false);
 					comboBox_gelamota.setVisible(false);
+					lblIzarrak.setVisible(false);
+					comboBox.setVisible(false);
 					
 				}
 				if(hostatu_mota.equalsIgnoreCase("Etxea")) {
@@ -433,7 +440,8 @@ public class P1_copia extends JFrame {
 					comboBox_pertsonakop.setVisible(false);
 					lblGelaMota.setVisible(false);
 					comboBox_gelamota.setVisible(false);
-					
+					lblIzarrak.setVisible(false);
+					comboBox.setVisible(false);
 				}
 			}
 		});
@@ -646,6 +654,21 @@ public class P1_copia extends JFrame {
 		
 		comboBox_gelamota.setBounds(176, 173, 94, 20);
 		contentPane.add(comboBox_gelamota);
+		
+		 lblIzarrak = new JLabel("IZARRAK:");
+		lblIzarrak.setFont(new Font("Arial Narrow", Font.BOLD, 16));
+		lblIzarrak.setBounds(471, 218, 66, 25);
+		contentPane.add(lblIzarrak);
+		
+		 comboBox = new JComboBox();
+		 comboBox.setModel(new DefaultComboBoxModel(new String[] {"", "1", "2", "3", "4", "5"}));
+		comboBox.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				 izarrak=(String) comboBox.getSelectedItem();
+			}
+		});
+		comboBox.setBounds(652, 222, 40, 20);
+		contentPane.add(comboBox);
 		gela_mota();
 		comboBox_gelamota.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -787,5 +810,10 @@ public class P1_copia extends JFrame {
 
 	public ArrayList<String> ateraZerbitzuak() {
 		return zerbitzus;
+	}
+	private int ateraIzarrak() {
+		int izarra = Integer.parseInt(izarrak);
+		System.out.println("Aukeratutako izarrak: "+izarra);
+		return izarra;
 	}
 }
