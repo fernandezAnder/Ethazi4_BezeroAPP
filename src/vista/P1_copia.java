@@ -60,7 +60,7 @@ public class P1_copia extends JFrame {
 	private Double maximoa;
 	private Double minimo;
 	ArrayList <String> zerbitzus = new ArrayList<String>();
-	
+	private int izarra=5;
 	private String hostatu_mota="";
 	private JTextField textField= new JTextField();
 	private JTextField textField_2= new JTextField();
@@ -665,6 +665,7 @@ public class P1_copia extends JFrame {
 		comboBox.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				 izarrak=(String) comboBox.getSelectedItem();
+				 izarra = Integer.parseInt(izarrak);
 			}
 		});
 		comboBox.setBounds(652, 222, 40, 20);
@@ -811,8 +812,8 @@ public class P1_copia extends JFrame {
 	public ArrayList<String> ateraZerbitzuak() {
 		return zerbitzus;
 	}
-	private int ateraIzarrak() {
-		int izarra = Integer.parseInt(izarrak);
+	public int ateraIzarrak() {
+		
 		System.out.println("Aukeratutako izarrak: "+izarra);
 		return izarra;
 	}
