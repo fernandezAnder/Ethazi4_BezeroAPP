@@ -138,7 +138,7 @@ public class P2_etxea extends JFrame {
 	public void filtroetxea() {
 		
 		String[]columnas= {
-				"m2", "ostatu_id", "izena", "herria", "helbidea", "postaKod", "ostatu_mota", "gela_kopuru", "erreserba_kopuru","komun_kop","prezioa"
+				"m2", "ostatu_id", "izena", "herria", "helbidea", "postaKod", "ostatu_mota", "gela_kopuru", "erreserba_kopuru","ospea","komun_kop","prezioa"
 			};
 		DefaultTableModel t1= new DefaultTableModel(){
 
@@ -160,6 +160,7 @@ public class P2_etxea extends JFrame {
 		 t1.addColumn("ostatu_mota");
 		 t1.addColumn("gela_kopuru");
 		 t1.addColumn("erreserba_kopuru");
+		 t1.addColumn("ospea");
 		 t1.addColumn("komun_kop");
 		 t1.addColumn("prezioa");
 		for (Etxea e:etxelista) {
@@ -173,8 +174,9 @@ public class P2_etxea extends JFrame {
 					columnas[6]=e.getOstatu_mota();
 					columnas[7]=Integer.toString( e.getGela_kop());
 					columnas[8]=Integer.toString(e.getErreserba_kop());
-					columnas[9]=Integer.toString(e.getKomun_kop());
-					columnas[10]=Double.toString(e.getPrezioa());
+					columnas[9]=Integer.toString(e.getOspea());
+					columnas[10]=Integer.toString(e.getKomun_kop());
+					columnas[11]=Double.toString(e.getPrezioa());
 					t1.addRow(columnas);	
 			}	
 

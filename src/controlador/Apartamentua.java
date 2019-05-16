@@ -6,15 +6,17 @@ public class Apartamentua extends Ostatua {
 	private int m2;
 	private int komun_kop;
 	private double prezioa;
+	private int ospea;
 	
 	public Apartamentua( int m2,int solairua, int ostatu_id, String izena, 
 						String herria, String helbidea, int posta_kod, String ostatu_mota,
-							int gela_kop, int erreserba_kop,int komun_kop,double prezioa) {
+							int gela_kop, int erreserba_kop,int ospea,int komun_kop,double prezioa) {
 		super(ostatu_id, izena, herria, helbidea, posta_kod, ostatu_mota, gela_kop, erreserba_kop);
 		this.solairua = solairua;
 		this.m2=m2;
 		this.komun_kop=komun_kop;
 		this.prezioa=prezioa;
+		this.ospea=ospea;
 	}
 
 	public int getSolairua() {
@@ -49,6 +51,15 @@ public class Apartamentua extends Ostatua {
 
 	public void setPrezioa(double prezioa) {
 		this.prezioa = prezioa;
+	}
+	
+
+	public int getOspea() {
+		return ospea;
+	}
+
+	public void setOspea(int ospea) {
+		this.ospea = ospea;
 	}
 
 	@Override

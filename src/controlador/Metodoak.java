@@ -643,6 +643,7 @@ public class Metodoak {
 		primero=zerbitzus.get(0);
 		
 			for(Zerbitzuak z: zerbitzulist) {
+				
 				if (primero.equalsIgnoreCase(z.getIzena())) {
 					if(hotelak_id.indexOf(z.getOstatu_id())==-1) {
 						hotelak_id.add(z.getOstatu_id());

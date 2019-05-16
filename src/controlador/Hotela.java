@@ -5,13 +5,14 @@ public class Hotela extends Ostatua {
 	private int izarkop;
 	private String mota;
 	private double prezioa;
-
+	private int ospea;
 	public Hotela( int izarkop,int ostatu_id, String izena, String herria, String helbidea, int posta_kod, String ostatu_mota,
-			int gela_kop, int erreserba_kop,String mota, double prezioa) {
+			int gela_kop, int erreserba_kop,int ospea,String mota, double prezioa) {
 		super(ostatu_id, izena, herria, helbidea, posta_kod, ostatu_mota, gela_kop, erreserba_kop);
 		this.izarkop = izarkop;
 		this.mota=mota;
 		this.prezioa=prezioa;
+		this.ospea=ospea;
 	}
 
 	public int getIzarkop() {
@@ -36,6 +37,14 @@ public class Hotela extends Ostatua {
 
 	public void setPrezioa(double prezioa) {
 		this.prezioa = prezioa;
+	}
+
+	public int getOspea() {
+		return ospea;
+	}
+
+	public void setOspea(int ospea) {
+		this.ospea = ospea;
 	}
 
 	@Override

@@ -127,7 +127,7 @@ public class P2_apartamentua extends JFrame {
 	public void filtroapart() {
 		
 		String[]columnas= {
-				"m2","solairua", "ostatu_id", "izena", "herria", "helbidea", "postaKod", "ostatu_mota", "gela_kopuru", "erreserba_kopuru","komun_kop","prezioa"
+				"m2","solairua", "ostatu_id", "izena", "herria", "helbidea", "postaKod", "ostatu_mota", "gela_kopuru", "erreserba_kopuru","ospea","komun_kop","prezioa"
 			};
 		DefaultTableModel t1= new DefaultTableModel(){
 
@@ -148,6 +148,7 @@ public class P2_apartamentua extends JFrame {
 		t1.addColumn("ostatu_mota");
 		t1.addColumn("gela_kopuru");
 		t1.addColumn("erreserba_kopuru");
+		t1.addColumn("ospea");
 		t1.addColumn("komun_kop");
 		t1.addColumn("prezioa");
 
@@ -163,8 +164,9 @@ public class P2_apartamentua extends JFrame {
 					columnas[7]=e.getOstatu_mota();
 					columnas[8]=Integer.toString( e.getGela_kop());
 					columnas[9]=Integer.toString(e.getErreserba_kop());
-					columnas[10]=Integer.toString(e.getKomun_kop());
-					columnas[11]=Double.toString(e.getPrezioa());
+					columnas[10]=Integer.toString(e.getOspea());
+					columnas[11]=Integer.toString(e.getKomun_kop());
+					columnas[12]=Double.toString(e.getPrezioa());
 					t1.addRow(columnas);	
 			}	
 

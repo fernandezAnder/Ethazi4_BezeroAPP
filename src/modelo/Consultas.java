@@ -57,6 +57,7 @@ public class Consultas {
 			String ostatu_mota="";
 			int gela_kop=0;
 			int erreserba_kop=0;
+			int ospea=0;
 			String mota="";
 			double prezioa=0;
 			while (rs.next()) {
@@ -69,10 +70,11 @@ public class Consultas {
 				ostatu_mota=(rs.getString(7));
 				gela_kop=(rs.getInt(8));
 				erreserba_kop=(rs.getInt(9));
-				mota=rs.getString(10);
-				prezioa=rs.getDouble(11);
+				ospea=rs.getInt(10);
+				mota=rs.getString(11);
+				prezioa=rs.getDouble(12);
 
-				Hotela h1= new Hotela(izarkop,ostatu_id,izena,herria,helbidea,postaKod,ostatu_mota,gela_kop,erreserba_kop,mota,prezioa);
+				Hotela h1= new Hotela(izarkop,ostatu_id,izena,herria,helbidea,postaKod,ostatu_mota,gela_kop,erreserba_kop,ospea,mota,prezioa);
 				hotelenlista.add(h1);
 			}
 
@@ -100,6 +102,7 @@ public class Consultas {
 			String ostatu_mota="";
 			int gela_kop=0;
 			int erreserba_kop=0;
+			int ospea=0;
 			String mota="";
 			double prezioa=0;
 			while (rs.next()) {
@@ -112,10 +115,11 @@ public class Consultas {
 				ostatu_mota=(rs.getString(7));
 				gela_kop=(rs.getInt(8));
 				erreserba_kop=(rs.getInt(9));
-				mota=rs.getString(10);
-				prezioa=rs.getDouble(11);
+				ospea=rs.getInt(10);
+				mota=rs.getString(11);
+				prezioa=rs.getDouble(12);
 
-				Hotela h1= new Hotela(izarkop,ostatu_id,izena,herria,helbidea,postaKod,ostatu_mota,gela_kop,erreserba_kop,mota,prezioa);
+				Hotela h1= new Hotela(izarkop,ostatu_id,izena,herria,helbidea,postaKod,ostatu_mota,gela_kop,erreserba_kop,ospea,mota,prezioa);
 				hotelenlista.add(h1);
 			}
 
@@ -142,6 +146,7 @@ public class Consultas {
 			String ostatu_mota="";
 			int gela_kop=0;
 			int erreserba_kop=0;
+			int ospea=0;
 			String mota="";
 			double prezioa=0;
 			while (rs.next()) {
@@ -154,10 +159,11 @@ public class Consultas {
 				ostatu_mota=(rs.getString(7));
 				gela_kop=(rs.getInt(8));
 				erreserba_kop=(rs.getInt(9));
-				mota=rs.getString(10);
-				prezioa=rs.getDouble(11);
+				ospea=rs.getInt(10);
+				mota=rs.getString(11);
+				prezioa=rs.getDouble(12);
 
-				Hotela h1= new Hotela(izarkop,ostatu_id,izena,herria,helbidea,postaKod,ostatu_mota,gela_kop,erreserba_kop,mota,prezioa);
+				Hotela h1= new Hotela(izarkop,ostatu_id,izena,herria,helbidea,postaKod,ostatu_mota,gela_kop,erreserba_kop,ospea,mota,prezioa);
 				hotelenlista.add(h1);
 			}
 
@@ -186,6 +192,7 @@ public class Consultas {
 			String ostatu_mota;
 			int gela_kopuru;
 			int erreserba_kopuru;
+			int ospea;
 			int komun_kop;
 			double prezioa;
 
@@ -200,9 +207,10 @@ public class Consultas {
 				ostatu_mota=rs.getString(8);
 				gela_kopuru=rs.getInt(9);
 				erreserba_kopuru=rs.getInt(10);
-				komun_kop=rs.getInt(11);
-				prezioa=rs.getDouble(12);
-				Apartamentua a1= new Apartamentua(m2,solairua, ostatu_id, izena,herria, helbidea, postaKod,ostatu_mota, gela_kopuru, erreserba_kopuru,komun_kop,prezioa);
+				ospea=rs.getInt(11);
+				komun_kop=rs.getInt(12);
+				prezioa=rs.getDouble(13);
+				Apartamentua a1= new Apartamentua(m2,solairua, ostatu_id, izena,herria, helbidea, postaKod,ostatu_mota, gela_kopuru, erreserba_kopuru,ospea,komun_kop,prezioa);
 				apartamentulista.add(a1);
 			}
 
@@ -229,6 +237,7 @@ public class Consultas {
 			String ostatu_mota="";			
 			int gela_kop=0;
 			int erreserba_kop=0;
+			int ospea;
 			int komun_kop = 0;
 			double prezioa;
 			
@@ -242,9 +251,10 @@ public class Consultas {
 				ostatu_mota=rs.getString(7);			
 				gela_kop=rs.getInt(8);
 				erreserba_kop=rs.getInt(9);
-				komun_kop = rs.getInt(10);
-				prezioa= rs.getDouble(11);
-				Etxea e1 = new Etxea(m2, ostatu_id, izena, herria, helbidea, posta_kod, ostatu_mota,gela_kop, erreserba_kop, komun_kop,prezioa);
+				ospea=rs.getInt(10);
+				komun_kop = rs.getInt(11);
+				prezioa= rs.getDouble(12);
+				Etxea e1 = new Etxea(m2, ostatu_id, izena, herria, helbidea, posta_kod, ostatu_mota,gela_kop, erreserba_kop,ospea, komun_kop,prezioa);
 				
 				etxelista.add(e1);
 				
