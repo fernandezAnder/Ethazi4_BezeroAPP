@@ -15,6 +15,11 @@ import controlador.*;
 public class Consultas {
 
 	Metodoak metodos;
+	/**
+	 * Herriak ateratzeko metodoa
+	 * @author taldea 4
+	 * @return herrilista
+	 */
 	public static ArrayList<String> herriakAtera(){
 		
 		ArrayList<String> herrilista= new ArrayList<String>();
@@ -38,7 +43,11 @@ public class Consultas {
 		}
 		return herrilista;
 	}
-	
+	/**
+	 * Hotelen datuak ateratzeko datuak
+	 * @author taldea 4
+	 * @return hotelenlista
+	 */
 	public static ArrayList <Hotela> hotelendatuakBanakakoa() {
 
 		ArrayList <Hotela> hotelenlista = new ArrayList<Hotela>();
@@ -84,6 +93,11 @@ public class Consultas {
 		return hotelenlista;
 		
 	}
+	/**
+	 * Hotelen datuak  taula gela mota bikoitzetik ateratzen dugu
+	 * @author taldea 4
+	 * @return hotelenlista
+	 */
 	public static ArrayList <Hotela> hotelendatuakBikoitza() {
 
 		ArrayList <Hotela> hotelenlista = new ArrayList<Hotela>();
@@ -128,6 +142,11 @@ public class Consultas {
 		}
 		return hotelenlista;
 	}
+	/**
+	 * Hotelen datuak suite taularen bidez hotela gela mota bikoitzetik ateratzen dugu
+	 * @author taldea 4
+	 * @return hotelenlista
+	 */
 	public static ArrayList <Hotela> hotelendatuakSuite() {
 
 		ArrayList <Hotela> hotelenlista = new ArrayList<Hotela>();
@@ -172,7 +191,11 @@ public class Consultas {
 		}
 		return hotelenlista;
 	}
-	
+	/**
+	 * Apartamentuen datuak ateratzen dugu
+	 * @author taldea 4
+	 * @return apartamentulista
+	 */
 	public static ArrayList <Apartamentua> apartamentuDatuak() {
 
 		ArrayList <Apartamentua> apartamentulista = new ArrayList<Apartamentua>();
@@ -219,6 +242,11 @@ public class Consultas {
 		}
 		return apartamentulista;
 	}
+	/**
+	 * Etxeen datuak ateratzen dugu
+	 * @author taldea 4
+	 * @return etxelista
+	 */
 	public static ArrayList <Etxea> etxeDatuak() {
 
 		ArrayList <Etxea> etxelista = new ArrayList<Etxea>();
@@ -265,6 +293,11 @@ public class Consultas {
 		}
 		return etxelista;
 	}
+	/**
+	 * Erreserba kop gehitzen dugu.
+	 * @author taldea 4
+	 * @param ostatu_id
+	 */
 	public static void erreserbaKopGehitu(int ostatu_id) {
 		Connection conexion = modelo.Conexion.getConexion();
 		
@@ -294,6 +327,11 @@ public class Consultas {
 
 		
 	}
+	/**
+	 * erreserba kop kentze da irtetze data heltzen denean.
+	 * @author taldea 4
+	 * @param ostatu_id
+	 */
 	public static void erreserbaKopKendu(int ostatu_id) {
 		Connection conexion = modelo.Conexion.getConexion();
 		
@@ -322,6 +360,11 @@ public class Consultas {
 		}
 		
 	}
+	/**
+	 * irtetze datak ateratzen duen metodoa
+	 * @author taldea 4
+	 * @return erreserbak
+	 */
 	public static ArrayList<Erreserba> ateraIrtetzeDatak() {
 		Connection conexion = modelo.Conexion.getConexion();
 		ArrayList<Erreserba> erreserbak= new ArrayList<Erreserba>();
@@ -360,6 +403,11 @@ public class Consultas {
 		}
 		return erreserbak;
 	}
+	/**
+	 * ospea gehitzeko metodoa
+	 * @author taldea 4
+	 * @param ostatu_id
+	 */
 	public static void ospeaGehitu(int ostatu_id) {
 		Connection conexion = modelo.Conexion.getConexion();
 		
@@ -389,6 +437,12 @@ public class Consultas {
 
 		
 	}
+	/**
+	 * Erabiltzaileak daukan promozio kodeak ateratzeko metodoa
+	 * @author taldea 4
+	 * @param nan
+	 * @return promozio_kod
+	 */
 	public static String[] promozioKod1(String nan) {
 		Connection conexion = modelo.Conexion.getConexion();
 		String [] promozio_kod=new String[3];
@@ -410,6 +464,12 @@ public class Consultas {
 		}
 		return promozio_kod;
 	}
+	/**
+	 * Erabiltzaileak daukan promozio kodeak ateratzeko metodoa
+	 * @author taldea 4
+	 * @param nan
+	 * @return
+	 */
 	public static String promozioKod2(String nan) {
 		Connection conexion = modelo.Conexion.getConexion();
 		String promozio_kod="";
@@ -429,6 +489,11 @@ public class Consultas {
 		}
 		return promozio_kod;
 	}
+	/**
+	 * Bezeroen datuak datu basetik ateratzen du
+	 * @author taldea 4
+	 * @return Arraybezero
+	 */
 	public static ArrayList<Bezeroa> ateraErabiltzaileak() {
 		Connection conexion = modelo.Conexion.getConexion();
 		ArrayList<Bezeroa> Arraybezero = new ArrayList<Bezeroa>();
@@ -457,6 +522,11 @@ public class Consultas {
 		}
 		return (Arraybezero);
 	}
+	/**
+	 * Jai egun lista ateratzen du
+	 * @author taldea 4
+	 * @return jaiegunak
+	 */
 	public static ArrayList<java.sql.Date>jaiegunLista() {
 		
 		Connection conexion = modelo.Conexion.getConexion();
@@ -477,6 +547,11 @@ public class Consultas {
 		}
 		return (jaiegunak);
 	}
+	/**
+	 * Bezeroa gordetzen du datu basean
+	 * @author taldea 4
+	 * @param bezeroa
+	 */
 	public static void txertatuBezeroa(Bezeroa bezeroa) {
 		Connection conexion = modelo.Conexion.getConexion();
 		
@@ -498,6 +573,11 @@ public class Consultas {
 		}
 
 	}
+	/**
+	 * Erreserba txertatzen du
+	 * 
+	 * @param e1
+	 */
 	public static void txertatuErreserba(Erreserba e1) {
 		Connection conexion = modelo.Conexion.getConexion();
 		
