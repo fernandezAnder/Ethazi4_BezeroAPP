@@ -294,6 +294,36 @@ public class Consultas {
 
 		
 	}
+	public static void erreserbaKopKendu(int ostatu_id) {
+		Connection conexion = modelo.Conexion.getConexion();
+		
+		int erreserba_kop=0;
+		try {
+			Statement s = conexion.createStatement();
+			String query = ("SELECT ostatu.erreserba_kopuru FROM ostatu WHERE ostatu_id ="+ostatu_id);
+			ResultSet rs = s.executeQuery(query);
+			while (rs.next()) {
+				erreserba_kop=rs.getInt(1);
+			}
+
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
+		}
+		erreserba_kop=erreserba_kop-1;
+		try {
+			PreparedStatement s = (PreparedStatement) conexion.prepareStatement(
+					"UPDATE `ostatu` SET `erreserba_kopuru`="+erreserba_kop+" WHERE ostatu_id="+ostatu_id);
+				
+			s.executeUpdate();
+			s.close();
+
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+		
+		
+	}
+	
 	public static void ospeaGehitu(int ostatu_id) {
 		Connection conexion = modelo.Conexion.getConexion();
 		
