@@ -89,7 +89,7 @@ public class P1_copia extends JFrame {
 	private JLabel lblMin = new JLabel("MIN:");
 	private JLabel lblPrezioa = new JLabel("PREZIOA:");
 	private JComboBox comboBox_5 = new JComboBox();
-	JLabel lblNewLabel_1 = new JLabel("AUKERATU NAHI DUZUNA");
+	JLabel lblNewLabel_1 = new JLabel("BIDAI ON");
 	
 	private String letra;
 	
@@ -469,13 +469,13 @@ public class P1_copia extends JFrame {
 		comboBox_5.setModel(new DefaultComboBoxModel(new String[] {"","Hotela", "Apartamentua", "Etxea"}));
 		
 		
-		lblNewLabel_1.setFont(new Font("Arial Narrow", Font.BOLD, 20));
-		lblNewLabel_1.setBounds(232, 32, 260, 41);
+		lblNewLabel_1.setFont(new Font("Dialog", Font.BOLD, 32));
+		lblNewLabel_1.setBounds(295, 45, 155, 41);
 		contentPane.add(lblNewLabel_1);
 		
 		
 		lblPrezioa.setFont(new Font("Arial Narrow", Font.BOLD, 16));
-		lblPrezioa.setBounds(471, 290, 89, 25);
+		lblPrezioa.setBounds(471, 301, 89, 25);
 		contentPane.add(lblPrezioa);
 		
 		
@@ -485,7 +485,7 @@ public class P1_copia extends JFrame {
 		
 		
 		lblMin.setFont(new Font("Arial Narrow", Font.BOLD, 16));
-		lblMin.setBounds(471, 369, 66, 25);
+		lblMin.setBounds(471, 380, 66, 25);
 		contentPane.add(lblMin);
 		
 		 preziomax = new JComboBox();
@@ -506,7 +506,7 @@ public class P1_copia extends JFrame {
 		 		prezio__min = (Double) preziomin.getSelectedItem();
 		 	}
 		 });
-		preziomin.setBounds(607, 374, 94, 20);
+		preziomin.setBounds(607, 385, 94, 20);
 		contentPane.add(preziomin);
 		precio_min();
 		lblZerbitzuGehigarriak.setFont(new Font("Arial Narrow", Font.BOLD, 16));
