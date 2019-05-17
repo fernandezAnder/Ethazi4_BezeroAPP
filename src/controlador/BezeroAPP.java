@@ -24,14 +24,12 @@ public class BezeroAPP {
 		Conexion k1 = new Conexion();
 		BezeroAPP bz = new BezeroAPP();
 		bz.arrancar();
-
-		
-		
-		
-		
-	}
+		}
 	
-	
+	/**
+	 * Programa guztia hasieratzeko metodoa
+	 * @author Taldea 4
+	 */
 	public void arrancar() {
 		ArrayList <String> herriak= new ArrayList<String>();
 		herriak= Consultas.herriakAtera();
