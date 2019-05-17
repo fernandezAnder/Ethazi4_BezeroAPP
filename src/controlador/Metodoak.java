@@ -755,7 +755,7 @@ public class Metodoak {
 			int gela_kop = p.getGela_kop();
 			int erreserba_kop=p.getErreserba_kop() +p1cop.ateraGelakop();
 			if (p.getHerria().equalsIgnoreCase(herria)){
-				if(gela_kop>erreserba_kop) {
+				if(gela_kop>=erreserba_kop) {
 					if(p.getPrezioa()<p1cop.atera_Prezio_maximoa() && p.getPrezioa()>=p1cop.atera_Prezio_minimoa()) {
 						if(zerbitzuak.size()>0) {
 						if(zerbitzuak.indexOf(p.getOstatu_id())!=-1) {
