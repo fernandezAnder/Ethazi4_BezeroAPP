@@ -12,6 +12,7 @@ import java.util.Date;
 import java.util.GregorianCalendar;
 
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
@@ -89,7 +90,6 @@ public class P1_copia extends JFrame {
 	private JLabel lblMin = new JLabel("MIN:");
 	private JLabel lblPrezioa = new JLabel("PREZIOA:");
 	private JComboBox comboBox_5 = new JComboBox();
-	JLabel lblNewLabel_1 = new JLabel("BIDAI ON");
 	
 	private String letra;
 	
@@ -117,7 +117,7 @@ public class P1_copia extends JFrame {
 	int ostatu_aukera=0;
 	private final JLabel lblZerbitzuGehigarriak = new JLabel("ZERBITZU GEHIGARRIAK:");
 	private JLabel lblGelaMota;
-	
+	private JLabel argazkia = new JLabel("");
 	public P1_copia(ArrayList<String> herriak) {
 		rellenar();
 		
@@ -469,11 +469,6 @@ public class P1_copia extends JFrame {
 		comboBox_5.setModel(new DefaultComboBoxModel(new String[] {"","Hotela", "Apartamentua", "Etxea"}));
 		
 		
-		lblNewLabel_1.setFont(new Font("Dialog", Font.BOLD, 32));
-		lblNewLabel_1.setBounds(295, 45, 155, 41);
-		contentPane.add(lblNewLabel_1);
-		
-		
 		lblPrezioa.setFont(new Font("Arial Narrow", Font.BOLD, 16));
 		lblPrezioa.setBounds(471, 301, 89, 25);
 		contentPane.add(lblPrezioa);
@@ -689,6 +684,11 @@ public class P1_copia extends JFrame {
 		});
 		comboBox.setBounds(662, 210, 40, 20);
 		contentPane.add(comboBox);
+		
+		
+		argazkia.setBounds(313, 25, 190, 118);
+		argazkia.setIcon(new ImageIcon("src//argazkiak//logo-bidaion.png"));
+		contentPane.add(argazkia);
 		gela_mota();
 		comboBox_gelamota.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
